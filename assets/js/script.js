@@ -11,9 +11,10 @@ function initialise_scripts(){
     ctx.canvas.width = cnvsWidth; // sets dimensions to these variables 
     ctx.canvas.height = cnvsHeight; // ^^^^ 
     
-    var numberOfStars = 200; // how many stars will be generated
+    var numberOfStars = 1000; // how many stars will be generated
     var starsArray = []; // creates an array to store the star object instances
-    var size = 1;
+    var size = 1; // size of star objects
+    var speed = 10; // speed of movement
     var cnvsLength = canvas.width; // length of canvas
     var centerOfX = canvas.width/2; // center point of the canvas X
     var centreOfY = canvas.height/2; // center point of the canvas Y
@@ -27,7 +28,15 @@ function initialise_scripts(){
 function generate_star(){
     this.x = Math.random()*canvas.width; // generates random position on the canvas width
     this.y = Math.random()*canvas.height; // generates random position on the canvas height
-    this.z = Math.random()*canvas.width; // generates random size on the canvas to give the appearance of depth
+    this.z = Math.random()*canvas.width; // generates random position on the canvas to give the appearance of depth
+    
+    this.moveStar = function(){
+        this.z = this.z - speed; // each tick minuses the z position based on speed so moves towards scree at constant speed
+        if(this.z <= 0){
+            this.z = canvas.width; // if reaches end of canvas resets it to back - loop 
+        }
+    }
+
 
     this.show = function(){
         var x, y, s; 
@@ -53,7 +62,9 @@ function draw(){
     
     for(var i = 0; i < numberOfStars; i++){ 
         starsArray[i].show(); // shows star objects per array iteration
+        starsArray[i].moveStar(); // calls the function allowing it to move
     }
+    
 }
 
 function update(){ // defines what happens when update is called at bottom
