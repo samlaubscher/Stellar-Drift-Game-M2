@@ -10,4 +10,18 @@ function initialise_scripts(){
     var cnvsHeight = window.innerHeight -4; // ^^^^^
     ctx.canvas.width = cnvsWidth; // sets dimensions to these variables 
     ctx.canvas.height = cnvsHeight; // ^^^^ 
+
+
+function draw(){
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // draws black background each frame
+}
+
+function update(){ // defines what happens when update is called at bottom
+    draw();
+    window.requestAnimationFrame(update);
+}
+
+update(); // runs the animation
+
 }
