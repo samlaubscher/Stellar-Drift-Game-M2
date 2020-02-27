@@ -2,3 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    background-color: #ff0000;
+}
+
+#canvas {
+    background-color: #000000;
+}
