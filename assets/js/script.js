@@ -14,6 +14,10 @@ function initialise_scripts(){
     var numberOfStars = 200; // how many stars will be generated
     var starsArray = []; // creates an array to store the star object instances
     var size = 1;
+    var cnvsLength = canvas.width; // length of canvas
+    var centerOfX = canvas.width/2; // center point of the canvas X
+    var centreOfY = canvas.height/2; // center point of the canvas Y
+
     for(var i = 0; i < numberOfStars; i++){ // maintains star instances to the defined number of stars
         starsArray[i] = new generate_star(); // generates new star object per array iteration
     }
@@ -23,12 +27,19 @@ function initialise_scripts(){
 function generate_star(){
     this.x = Math.random()*canvas.width; // generates random position on the canvas width
     this.y = Math.random()*canvas.height; // generates random position on the canvas height
-    this.z = Math.random()*canvas.width; // generates random position on the canvas depth relative
+    this.z = Math.random()*canvas.width; // generates random size on the canvas to give the appearance of depth
 
     this.show = function(){
+        var x, y, s; 
+        x = (this.x - centerOfX) * (cnvsLength/this.z);
+        x = x + centerOfX;
+        y = (this.y - centreOfY) * (cnvsLength/this.z);
+        y = y + centreOfY;
+        s = size * (cnvsLength/this.z); // makes objects appear to be closer or further away
+
         ctx.beginPath();
         ctx.fillStyle = "#fff";
-        ctx.arc(this.x, this.y, size, 0, Math.PI*2);
+        ctx.arc(x, y, s, 0, Math.PI*2); // creates stars based on the 
         ctx.fill(); // generates star object
     }
 }
