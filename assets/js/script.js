@@ -6,11 +6,12 @@ window.onload = function(){ // makes sure window is loaded first before running
 function initialise_scripts(){
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    var cnvsWidth = window.innerWidth -4; //sets the sizes to inner window sizes. -4 removes scroll bar
+    var cnvsWidth = window.innerWidth ; //sets the sizes to inner window sizes. -4 removes scroll bar
     var cnvsHeight = window.innerHeight -4; // ^^^^^
     ctx.canvas.width = cnvsWidth; // sets dimensions to these variables 
     ctx.canvas.height = cnvsHeight; // ^^^^ 
-    
+
+
     var numberOfStars = 1000; // how many stars will be generated
     var starsArray = []; // creates an array to store the star object instances
     var size = 1; // size of star objects
@@ -62,9 +63,8 @@ function draw(){
     
     for(var i = 0; i < numberOfStars; i++){ 
         starsArray[i].show(); // shows star objects per array iteration
-        starsArray[i].moveStar(); // calls the function allowing it to move
+        //starsArray[i].moveStar(); // calls the function allowing it to move
     }
-    
 }
 
 function update(){ // defines what happens when update is called at bottom
