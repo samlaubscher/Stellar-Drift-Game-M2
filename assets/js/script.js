@@ -4,6 +4,7 @@ window.onload = function(){ // makes sure window is loaded first before running
 }
 
 function initialise_scripts(){
+//--Canvas Properties-------------------------------------------------------------    
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     var cnvsWidth = window.innerWidth ; //sets the sizes to inner window sizes. -4 removes scroll bar
@@ -12,6 +13,7 @@ function initialise_scripts(){
     ctx.canvas.height = cnvsHeight; // ^^^^ 
 
 
+//--Background Star properties ----------------------------------------------------
     var numberOfStars = 1000; // how many stars will be generated
     var starsArray = []; // creates an array to store the star object instances
     var size = 1; // size of star objects
@@ -23,8 +25,6 @@ function initialise_scripts(){
     for(var i = 0; i < numberOfStars; i++){ // maintains star instances to the defined number of stars
         starsArray[i] = new generate_star(); // generates new star object per array iteration
     }
-
-
 
 function generate_star(){
     this.x = Math.random()*canvas.width; // generates random position on the canvas width
@@ -38,7 +38,6 @@ function generate_star(){
         }
     }
 
-
     this.show = function(){
         var x, y, s; 
         x = (this.x - centerOfX) * (cnvsLength/this.z);
@@ -48,14 +47,14 @@ function generate_star(){
         s = size * (cnvsLength/this.z); // makes objects appear to be closer or further away
 
         ctx.beginPath();
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = "teal"; // star colour
         ctx.arc(x, y, s, 0, Math.PI*2); // creates stars based on the 
         ctx.fill(); // generates star object
     }
 }
 
 
-
+//--Functions to call and render the animations -------------------------------------------------
 
 function draw(){
     ctx.fillStyle = "#000";
@@ -63,7 +62,7 @@ function draw(){
     
     for(var i = 0; i < numberOfStars; i++){ 
         starsArray[i].show(); // shows star objects per array iteration
-        //starsArray[i].moveStar(); // calls the function allowing it to move
+        starsArray[i].moveStar(); // calls the function allowing it to move
     }
 }
 
@@ -73,5 +72,4 @@ function update(){ // defines what happens when update is called at bottom
 }
 
 update(); // runs the animation
-
 }

@@ -16,11 +16,13 @@ body {
     background-color: #000000;
 }
 
+/* -------------------------------- Hidden Banner Styles -------------------- */
+
 .top-banner,
 .bottom-banner {
     width: 100%;
-    height: 70px;
-    background-color: blue;
+    height: 90px;
+    
     margin: 0;
     position: absolute;
 }
@@ -29,18 +31,47 @@ body {
     bottom: 0px;
 }
 
-h1, h2 {
+/* -------------------------------- Name Title Above Game ----------------------*/
+
+h1 {
     text-align: center;
     margin: 0 auto;
     color: aliceblue;
     font-family: 'Audiowide', sans-serif;
-    font-size: 6vw;
-}
-
-h1 {
+    font-size: clamp(20px, 6vw, 90px);
     padding-top: 30px;
 }
 
-h2 {
-    font-size: 4vw;
+/* -------------------------------- Direction Buttons ----------------------*/
+
+button{
+    outline: none;
+}
+
+.dir-btns-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.left-li {
+    margin: auto 80px auto auto;
+}
+
+.right-li {
+    margin: auto auto auto 80px;
+}
+
+.direction-btn {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    font-size: clamp(30px, 5vw, 60px);
+    padding: 0px;
+    cursor: pointer;   
+}
+
+.direction-btn i {
+    color: #fff;
 }
