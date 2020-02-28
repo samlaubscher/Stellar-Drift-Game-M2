@@ -1,6 +1,8 @@
 window.onload = function(){ // makes sure window is loaded first before running
     initialise_scripts(); // runs the full scripts function
     window.addEventListener("resize", initialise_scripts, false); // restarts the function on resize
+
+    
 }
 
 function initialise_scripts(){
@@ -62,7 +64,7 @@ function draw(){
     
     for(var i = 0; i < numberOfStars; i++){ 
         starsArray[i].show(); // shows star objects per array iteration
-        starsArray[i].moveStar(); // calls the function allowing it to move
+        //starsArray[i].moveStar(); // calls the function allowing it to move
     }
 }
 
@@ -72,4 +74,14 @@ function update(){ // defines what happens when update is called at bottom
 }
 
 update(); // runs the animation
+
+var audio = document.getElementById("player");
+player.controls = false;
+document.getElementById("mute").addEventListener("click", toggleMute); 
+function toggleMute() {
+    player.muted = !player.muted;
+    document.getElementById("i-muted").classList.toggle("i-hidden");
+    document.getElementById("i-not-muted").classList.toggle("i-hidden");
+}
+
 }

@@ -22,7 +22,7 @@ body {
 .bottom-banner {
     width: 100%;
     height: 90px;
-    
+
     margin: 0;
     position: absolute;
 }
@@ -42,12 +42,17 @@ h1 {
     padding-top: 30px;
 }
 
-/* -------------------------------- Direction Buttons ----------------------*/
+/* -------------------------------- Buttons ----------------------*/
 
 button{
     outline: none;
 }
 
+.i-hidden {
+    display: none;
+}
+
+.mute-btn,
 .dir-btns-list {
     list-style: none;
     display: flex;
