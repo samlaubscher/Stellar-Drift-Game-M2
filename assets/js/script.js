@@ -49,7 +49,7 @@ function generate_star(){
         s = size * (cnvsLength/this.z); // makes objects appear to be closer or further away
 
         ctx.beginPath();
-        ctx.fillStyle = "teal"; // star colour
+        ctx.fillStyle = "green"; // star colour
         ctx.arc(x, y, s, 0, Math.PI*2); // creates stars based on the 
         ctx.fill(); // generates star object
     }
@@ -64,7 +64,7 @@ function draw(){
     
     for(var i = 0; i < numberOfStars; i++){ 
         starsArray[i].show(); // shows star objects per array iteration
-        //starsArray[i].moveStar(); // calls the function allowing it to move
+        starsArray[i].moveStar(); // calls the function allowing it to move
     }
 }
 

@@ -22,7 +22,6 @@ body {
 .bottom-banner {
     width: 100%;
     height: 90px;
-
     margin: 0;
     position: absolute;
 }
@@ -68,15 +67,26 @@ button{
     margin: auto auto auto 80px;
 }
 
+#mute,
 .direction-btn {
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
-    font-size: clamp(30px, 5vw, 60px);
     padding: 0px;
     cursor: pointer;   
 }
 
+#mute {
+    font-size: clamp(13px, 3vw, 20px);
+    padding: 5px 0 0 8px;
+    position: absolute;
+}
+
+.direction-btn {
+    font-size: clamp(30px, 5vw, 60px);
+}
+
+.mute-btn i,
 .direction-btn i {
     color: #fff;
 }
