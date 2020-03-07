@@ -1,8 +1,6 @@
 window.onload = function(){ // makes sure window is loaded first before running
     initialise_scripts(); // runs the full scripts function
     window.addEventListener("resize", initialise_scripts, false); // restarts the function on resize
-
-    
 }
 
 function initialise_scripts(){
@@ -14,6 +12,15 @@ function initialise_scripts(){
     ctx.canvas.width = cnvsWidth; // sets dimensions to these variables 
     ctx.canvas.height = cnvsHeight; // ^^^^ 
 
+//--Audio Controls-----------------------------------------------------------------
+    var audio = document.getElementById("player");
+    player.controls = false;
+    document.getElementById("mute").addEventListener("click", toggleMute); 
+    function toggleMute() {
+        player.muted = !player.muted;
+        document.getElementById("i-muted").classList.toggle("hidden");
+        document.getElementById("i-not-muted").classList.toggle("hidden");
+    }
 
 //--Background Star properties ----------------------------------------------------
     var numberOfStars = 1000; // how many stars will be generated
@@ -32,7 +39,7 @@ function generate_star(){
     this.x = Math.random()*canvas.width; // generates random position on the canvas width
     this.y = Math.random()*canvas.height; // generates random position on the canvas height
     this.z = Math.random()*canvas.width; // generates random position on the canvas to give the appearance of depth
-    
+
     this.moveStar = function(){
         this.z = this.z - speed; // each tick minuses the z position based on speed so moves towards scree at constant speed
         if(this.z <= 0){
@@ -55,7 +62,6 @@ function generate_star(){
     }
 }
 
-
 //--Functions to call and render the animations -------------------------------------------------
 
 function draw(){
@@ -68,20 +74,22 @@ function draw(){
     }
 }
 
+
 function update(){ // defines what happens when update is called at bottom
     draw();
     window.requestAnimationFrame(update);
+    
 }
+
 
 update(); // runs the animation
 
-var audio = document.getElementById("player");
-player.controls = false;
-document.getElementById("mute").addEventListener("click", toggleMute); 
-function toggleMute() {
-    player.muted = !player.muted;
-    document.getElementById("i-muted").classList.toggle("i-hidden");
-    document.getElementById("i-not-muted").classList.toggle("i-hidden");
 }
+
+//-- removes the start panel and will activate code [yet to finish]
+document.getElementById("start-btn").addEventListener("click", initialise_game);
+    
+function initialise_game(){
+document.getElementById("start-panel").classList.toggle("hidden");
 
 }
