@@ -1,6 +1,7 @@
 window.onload = function(){ // makes sure window is loaded first before running
     initialise_scripts(); // runs the full scripts function
-    window.addEventListener("resize", initialise_scripts, false); // restarts the function on resize
+    window.addEventListener("resize", reload, false); // restarts the function on resize
+    document.getElementById("reset").addEventListener("click", reload);
 }
 
 function initialise_scripts(){
@@ -76,22 +77,21 @@ function draw(){
 
 draw();
 
-//-- removes the start panel and will activate code [yet to finish]
+//-- removes the start panel and will runs animation code --------------------------------------------
 document.getElementById("start-btn").addEventListener("click", initialise_game);
     
 function initialise_game(){
 document.getElementById("start-panel").classList.toggle("hidden");
-
-
 function update(){ // defines what happens when update is called at bottom
     draw();
     window.requestAnimationFrame(update);
 }
 
-
 update(); // runs the animation
-
+}
 }
 
-
-}
+//-- Allows page to be reloaded on resize and reset button click -------------------------------------
+function reload(){
+    window.location.reload(true);
+    }

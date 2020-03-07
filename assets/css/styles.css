@@ -54,6 +54,7 @@ button{
 }
 
 .mute-btn,
+.reset-btn,
 .dir-btns-list {
     list-style: none;
     display: flex;
@@ -70,8 +71,9 @@ button{
 }
 
 #mute,
-.direction-btn,
-#start-btn {
+#reset,
+#start-btn,
+.direction-btn {
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
@@ -103,24 +105,44 @@ button{
     color: #fff;
 }
 
+.reset-btn li {
+    margin: 10px 8px 0 94%;
+    position: absolute;
+}
+
+#reset,
 #start-btn {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.541);
     font-family: 'Oxanium', cursive;
-    font-size: clamp(20px, 3vw, 40px);
-    margin: 30px;
-    padding: 2px 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgb(105, 105, 105);
+    font-size: clamp(6px, 1.5vw, 20px);
+    background-color: rgba(255, 255, 255, 0.048);
+    border: 1px solid rgba(105, 105, 105, 0.363);
     border-radius: 4%;
     transition: all 0.1s ease-out;
+    padding: 0 3px;
+}
+
+#start-btn {
+    color: #fff;
+    font-size: clamp(20px, 3vw, 40px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(105, 105, 105);
+    margin: 30px;
+    padding: 2px 10px;
+}
+
+#reset:hover {
+    background-color: rgba(255, 255, 255, 0.274);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 #start-btn:hover {
     background-color: rgba(255, 255, 255, 0.493);
 }
 
+#reset:active,
 #start-btn:active {
-    top: 3px;
+    top: 1.5px;
     position: relative;
 }
 
