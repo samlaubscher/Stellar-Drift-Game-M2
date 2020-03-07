@@ -74,11 +74,18 @@ function draw(){
     }
 }
 
+draw();
+
+//-- removes the start panel and will activate code [yet to finish]
+document.getElementById("start-btn").addEventListener("click", initialise_game);
+    
+function initialise_game(){
+document.getElementById("start-panel").classList.toggle("hidden");
+
 
 function update(){ // defines what happens when update is called at bottom
     draw();
     window.requestAnimationFrame(update);
-    
 }
 
 
@@ -86,10 +93,5 @@ update(); // runs the animation
 
 }
 
-//-- removes the start panel and will activate code [yet to finish]
-document.getElementById("start-btn").addEventListener("click", initialise_game);
-    
-function initialise_game(){
-document.getElementById("start-panel").classList.toggle("hidden");
 
 }
