@@ -85,13 +85,43 @@ button{
     position: absolute;
 }
 
+#mute:active {
+    top: 1px;
+}
+
 .direction-btn {
     font-size: clamp(30px, 5vw, 60px);
+}
+
+.direction-btn:active {
+    top: 1.5px;
+    position: relative;
 }
 
 .mute-btn i,
 .direction-btn i {
     color: #fff;
+}
+
+#start-btn {
+    color: #fff;
+    font-family: 'Oxanium', cursive;
+    font-size: clamp(20px, 3vw, 40px);
+    margin: 30px;
+    padding: 2px 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgb(105, 105, 105);
+    border-radius: 4%;
+    transition: all 0.1s ease-out;
+}
+
+#start-btn:hover {
+    background-color: rgba(255, 255, 255, 0.493);
+}
+
+#start-btn:active {
+    top: 3px;
+    position: relative;
 }
 
 /* ------------------------- Start Panel -------------------------*/ 
@@ -119,20 +149,4 @@ button{
 p#credit {
     font-size: clamp(4px, 2vw, 10px);
     color: rgba(255, 255, 255, 0.301);
-}
-
-#start-btn {
-    color: #fff;
-    font-family: 'Oxanium', cursive;
-    font-size: clamp(20px, 3vw, 40px);
-    margin: 30px;
-    padding: 2px 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgb(105, 105, 105);
-    border-radius: 4%;
-    transition: all 0.1s ease-out;
-}
-
-#start-btn:hover {
-    background-color: rgba(255, 255, 255, 0.493);
 }
