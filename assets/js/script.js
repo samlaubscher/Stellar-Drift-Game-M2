@@ -52,6 +52,8 @@ function generate_star(){
         this.z = this.z - speed; // each tick minuses the z position based on speed so moves towards scree at constant speed
         if(this.z <= 0){
             this.z = cnvsWidth; // if reaches end of canvas resets it to back - loop 
+            this.x = Math.random()*cnvsWidth; // generates stars in random position each time
+            this.y = Math.random()*cnvsHeight; // ^^^^^^^^^^^
         }
     }
 
