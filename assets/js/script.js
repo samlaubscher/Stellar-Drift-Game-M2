@@ -12,6 +12,9 @@ function initialise_scripts(){
     var cnvsHeight = window.innerHeight -4; // ^^^^^
     ctx.canvas.width = cnvsWidth; // sets dimensions to these variables 
     ctx.canvas.height = cnvsHeight; // ^^^^ 
+    var cnvsLength = canvas.width; // length of canvas
+    var centerOfX = canvas.width/2; // center point of the canvas X
+    var centreOfY = canvas.height/2; // center point of the canvas Y
 
 //--Audio Controls-----------------------------------------------------------------
     var audio = document.getElementById("player");
@@ -23,32 +26,36 @@ function initialise_scripts(){
         document.getElementById("i-not-muted").classList.toggle("hidden");
     }
 
-//--Background Star properties ----------------------------------------------------
-    var numberOfStars = 1000; // how many stars will be generated
+//--Applicable Object Properties----------------------------------------------------
+    var numberOfStars = 500; // how many stars will be generated
+    var numberOfObstacles = 4; // How many obstacles to dodge will be generated
     var starsArray = []; // creates an array to store the star object instances
+    var obstaclesArray = []; // creates an array to store the obstacles instances
     var size = 1; // size of star objects
     var speed = 10; // speed of movement
-    var cnvsLength = canvas.width; // length of canvas
-    var centerOfX = canvas.width/2; // center point of the canvas X
-    var centreOfY = canvas.height/2; // center point of the canvas Y
-
+    
     for(var i = 0; i < numberOfStars; i++){ // maintains star instances to the defined number of stars
         starsArray[i] = new generate_star(); // generates new star object per array iteration
     }
 
+    for(var i = 0; i < numberOfObstacles; i++) { // maintains object instances to the defined number
+        obstaclesArray[i] = new generateObstacle(); // generates new star object per array iteration
+    }
+
+//--Background Star Functionality & Properties---------------------------------------
 function generate_star(){
-    this.x = Math.random()*canvas.width; // generates random position on the canvas width
-    this.y = Math.random()*canvas.height; // generates random position on the canvas height
-    this.z = Math.random()*canvas.width; // generates random position on the canvas to give the appearance of depth
+    this.x = Math.random()*cnvsWidth; // generates random position on the canvas width
+    this.y = Math.random()*cnvsHeight; // generates random position on the canvas height
+    this.z = Math.random()*cnvsWidth; // generates random position on the canvas to give the appearance of depth
 
     this.moveStar = function(){
         this.z = this.z - speed; // each tick minuses the z position based on speed so moves towards scree at constant speed
         if(this.z <= 0){
-            this.z = canvas.width; // if reaches end of canvas resets it to back - loop 
+            this.z = cnvsWidth; // if reaches end of canvas resets it to back - loop 
         }
     }
 
-    this.show = function(){
+    this.showStar = function(){
         var x, y, s; 
         x = (this.x - centerOfX) * (cnvsLength/this.z);
         x = x + centerOfX;
@@ -62,32 +69,71 @@ function generate_star(){
         ctx.fill(); // generates star object
     }
 }
+//--Obstacle Functionality & Properties-----------------------------------------------
 
-//--Functions to call and render the animations -------------------------------------------------
+function generateObstacle(){
+    this.x = centerOfX;
+    this.y = centreOfY;
+    this.z = Math.random()*cnvsWidth;
 
-function draw(){
+    this.moveObstacle = function(){
+        this.z = this.z - (speed/2);
+        if(this.z <= 0){
+            this.z = cnvsWidth; // resets the object to back of z dimension 
+            this.x = cnvsWidth * Math.random(-100, 100); // randomly generates from new position
+            this.y = centreOfY * Math.random(-100, 100)*2; // ^^^ (*2 pushes it more likely to the middle and bottom)
+        }
+    }
+        
+    this.showObstacle = function(){
+        var x, y, s;
+        x = this.x 
+        
+        y = this.y 
+        
+        s = (size/2) * (cnvsLength/this.z);
+     
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.arc(x, y, s, 0, Math.PI*2);
+        ctx.fill();
+    }
+}
+
+//--Functions to render the background animations -------------------------------------------------
+function drawStars(){
     ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, canvas.width, canvas.height); // draws black background each frame
+    ctx.fillRect(0, 0, cnvsWidth, cnvsHeight); // draws black background each frame to clear the previous frame
     
     for(var i = 0; i < numberOfStars; i++){ 
-        starsArray[i].show(); // shows star objects per array iteration
+        starsArray[i].showStar(); // shows star objects per array iteration
         starsArray[i].moveStar(); // calls the function allowing it to move
     }
 }
 
-draw();
+drawStars(); // calls function to initially allow one frame of stars to be rendered so that they are visible behind the start panel 
 
-//-- removes the start panel and will runs animation code --------------------------------------------
+//-- removes the start panel and starts further animation --------------------------------------------
 document.getElementById("start-btn").addEventListener("click", initialise_game);
-    
+
 function initialise_game(){
 document.getElementById("start-panel").classList.toggle("hidden");
+
+    function drawObstacle(){ // allows obstacles to be rendered only once start panel dissapears
+        
+    for(var i = 0; i < numberOfObstacles; i++) { // maintains object instances to the defined number
+        obstaclesArray[i].showObstacle();
+        obstaclesArray[i].moveObstacle();
+    }
+    }
+
 function update(){ // defines what happens when update is called at bottom
-    draw();
-    window.requestAnimationFrame(update);
+    drawStars();
+    drawObstacle();
+    window.requestAnimationFrame(update); // recalls the update function per frame - makes animations move
 }
 
-update(); // runs the animation
+update(); // calls function to trigger the animation
 }
 }
 
