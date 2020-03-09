@@ -29,17 +29,32 @@ function initialise_scripts(){
 //--Applicable Object Properties----------------------------------------------------
     var numberOfStars = 500; // how many stars will be generated
     var numberOfObstacles = 4; // How many obstacles to dodge will be generated
-    var starsArray = []; // creates an array to store the star object instances
-    var obstaclesArray = []; // creates an array to store the obstacles instances
     var size = 1; // size of star objects
     var speed = 10; // speed of movement
-    
+
+    var starsArray = []; // creates an array to store the star object instances
     for(var i = 0; i < numberOfStars; i++){ // maintains star instances to the defined number of stars
         starsArray[i] = new generate_star(); // generates new star object per array iteration
     }
 
+    var obstaclesArray = []; // creates an array to store the obstacles instances
     for(var i = 0; i < numberOfObstacles; i++) { // maintains object instances to the defined number
         obstaclesArray[i] = new generateObstacle(); // generates new star object per array iteration
+    }
+
+    function getRandom(min, max){ // generates number between two values
+        return Math.random() * (max - min) + min;
+    }
+
+    function notZeroRange(min, max) { // returns a number avoiding zero by never being between -1 and 1
+        if (getRandom(0, 1) > 0.5)
+            {
+                return getRandom(min, -2);
+            }
+            else
+            {
+                return getRandom(2, max);
+            }
     }
 
 //--Background Star Functionality & Properties---------------------------------------
@@ -71,30 +86,38 @@ function generate_star(){
         ctx.fill(); // generates star object
     }
 }
-//--Obstacle Functionality & Properties-----------------------------------------------
 
+//--Obstacle Functionality & Properties-----------------------------------------------
 function generateObstacle(){
+    var randomX = notZeroRange(-10, 10);
+    var randomY = notZeroRange(-10, 10);
     this.x = centerOfX;
     this.y = centreOfY;
     this.z = Math.random()*cnvsWidth;
 
+    if(this.z <= 0){
+        this.z = Math.random()*cnvsWidth;
+    }
+
     this.moveObstacle = function(){
         this.z = this.z - (speed/2);
-        if(this.z <= 0){
+
+        if(this.z <= 0){ // once object reaches the end of canvas edge --
             this.z = cnvsWidth; // resets the object to back of z dimension 
-            this.x = cnvsWidth * Math.random(-100, 100); // randomly generates from new position
-            this.y = centreOfY * Math.random(-100, 100)*2; // ^^^ (*2 pushes it more likely to the middle and bottom)
+            randomX = notZeroRange(-10, 10); // creates a new random position
+            randomY = notZeroRange(-10, 10); // ^^^^
         }
     }
-        
+
     this.showObstacle = function(){
         var x, y, s;
-        x = this.x 
-        
-        y = this.y 
-        
+        x = this.x;
+        y = this.y;
         s = (size/2) * (cnvsLength/this.z);
-     
+        
+        x = x + (s * randomX);
+        y = y + (s * randomY); 
+       
         ctx.beginPath();
         ctx.fillStyle = "red";
         ctx.arc(x, y, s, 0, Math.PI*2);
