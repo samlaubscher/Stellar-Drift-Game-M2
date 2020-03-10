@@ -168,11 +168,11 @@ function playerSpaceCraft() {
         x3 = centerOfX - 50;
         y3 = centreOfY + (centreOfY /2) + 30;
         s = 14;
-        var speedOfPlayer = 5;
+        var speedOfPlayer = 2;
         var dL = 0;
-        var dR = 1;
-
-        this.showPlayerCraft = function() {
+        var dR = 0;
+        
+       this.showPlayerCraft = function() {
         ctx.beginPath(); // Under Glow
         ctx.fillStyle = "Violet";
         ctx.moveTo(x1, y1-1);
@@ -211,35 +211,70 @@ function playerSpaceCraft() {
         ctx.lineTo(x2+1, y2);
         ctx.lineTo(x3-1, y3);
         ctx.fill();
-    }
 
-    this.newPos = function(){
+        
+       this.newPos = function() {
         x1 += dR;
+        x1 += dL;
         //y1 += dR;
         x2 += dR; 
+        x2 += dL; 
         //y2 += dR; 
         x3 += dR; 
+        x3 += dL;
        // y3 += dR;
 
     }
+    }
+
+    function moveLeft() {
+        dL = -speedOfPlayer;
+    }
+    function moveRight() {
+        dR = speedOfPlayer; 
+    }
+
+    function keyDown(e) {
+        if(e.key === 'ArrowLeft' || e.key === 'Left') {
+            moveLeft();
+        } else if(e.key === 'ArrowRight' || e.key === 'Right') {
+            moveRight();
+        }
+    }
+    function keyUp(e) {
+        if(
+            e.key === 'ArrowLeft' || 
+            e.key === 'Left' || 
+            e.key === 'ArrowRight' || 
+            e.key === 'Right'
+        ) {
+                dL = 0;
+                dR = 0;
+        }
+    }
+    document.addEventListener('keydown', keyDown);
+    document.addEventListener('keyup', keyUp);
 }
 
-function drawPlayerCraft(){
+function drawPlayerCraft() {
     for(var i = 0; i < 1; i++){ // maintains object instances to the defined number per frame
         craftArray[i].showPlayerCraft(); // shows star objects per array iteration
         craftArray[i].newPos(); // calls the function allowing it to move
     }
 }
 
-function update(){ // defines what happens when update is called at bottom
+function update() { // defines what happens when update is called at bottom
     drawStars();
     drawObstacles();
     drawPlayerCraft();
-
     window.requestAnimationFrame(update); // recalls the update function per frame - makes animations move
 }
 
+
 update(); // calls function to trigger the animation
+
+
+
 }
 }
 
