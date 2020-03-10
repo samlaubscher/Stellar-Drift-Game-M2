@@ -42,8 +42,6 @@ function initialise_scripts(){
         obstaclesArray[i] = new generateObstacle(); // generates new star object per array iteration
     }
 
-    
-
     function getRandom(min, max){ // generates number between two values
         return Math.random() * (max - min) + min;
     }
@@ -123,8 +121,6 @@ function generateObstacle(){
         ctx.fill();
     }
 }
-
-
 
 //--Functions to render the background animations -------------------------------------------------
 function drawStars(){
@@ -227,11 +223,17 @@ function playerSpaceCraft() {
     }
     }
 
+//--Directional functionality -----------------------------------------------------------------
     function moveLeft() {
         dL = -speedOfPlayer;
     }
     function moveRight() {
         dR = speedOfPlayer; 
+    }
+
+    function unClick(){
+    dL = 0;
+    dR = 0;
     }
 
     function keyDown(e) {
@@ -254,6 +256,10 @@ function playerSpaceCraft() {
     }
     document.addEventListener('keydown', keyDown);
     document.addEventListener('keyup', keyUp);
+    document.getElementById("left-direction-btn").addEventListener("mousedown", moveLeft);
+    document.getElementById("left-direction-btn").addEventListener("mouseup", unClick);
+    document.getElementById("right-direction-btn").addEventListener("mousedown", moveRight);
+    document.getElementById("right-direction-btn").addEventListener("mouseup", unClick);
 }
 
 function drawPlayerCraft() {
@@ -270,10 +276,7 @@ function update() { // defines what happens when update is called at bottom
     window.requestAnimationFrame(update); // recalls the update function per frame - makes animations move
 }
 
-
 update(); // calls function to trigger the animation
-
-
 
 }
 }
