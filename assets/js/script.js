@@ -48,9 +48,9 @@ function initialise_scripts(){
 
     function notZeroRange(min, max) { // returns a number avoiding zero by never being between -1 and 1
         if (getRandom(0, 1) > 0.5) {
-                return getRandom(min, -2);
+                return getRandom(min, -1.75);
             } else {
-                return getRandom(2, max);
+                return getRandom(1.75, max);
             }
     }
 
