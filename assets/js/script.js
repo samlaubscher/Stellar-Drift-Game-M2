@@ -47,12 +47,9 @@ function initialise_scripts(){
     }
 
     function notZeroRange(min, max) { // returns a number avoiding zero by never being between -1 and 1
-        if (getRandom(0, 1) > 0.5)
-            {
+        if (getRandom(0, 1) > 0.5) {
                 return getRandom(min, -2);
-            }
-            else
-            {
+            } else {
                 return getRandom(2, max);
             }
     }
@@ -81,7 +78,7 @@ function generate_star(){
         s = size * (cnvsLength/this.z); // makes objects appear to be closer or further away
 
         ctx.beginPath();
-        ctx.fillStyle = "green"; // star colour
+        ctx.fillStyle = "MediumSpringGreen"; // star colour
         ctx.arc(x, y, s, 0, Math.PI*2); // creates stars based on the 
         ctx.fill(); // generates star object
     }
@@ -125,12 +122,17 @@ function generateObstacle(){
     }
 }
 
+//--Spacecraft Functionality & properties ---------------------------------------------------------
+function playerSpaceCraft() {
+    
+}
+
 //--Functions to render the background animations -------------------------------------------------
 function drawStars(){
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, cnvsWidth, cnvsHeight); // draws black background each frame to clear the previous frame
     
-    for(var i = 0; i < numberOfStars; i++){ 
+    for(var i = 0; i < numberOfStars; i++){ // maintains object instances to the defined number per frame
         starsArray[i].showStar(); // shows star objects per array iteration
         starsArray[i].moveStar(); // calls the function allowing it to move
     }
@@ -144,17 +146,68 @@ document.getElementById("start-btn").addEventListener("click", initialise_game);
 function initialise_game(){
 document.getElementById("start-panel").classList.toggle("hidden");
 
-    function drawObstacle(){ // allows obstacles to be rendered only once start panel dissapears
-        
-    for(var i = 0; i < numberOfObstacles; i++) { // maintains object instances to the defined number
+    function drawObstacles(){ // allows obstacles to be rendered only once start panel dissapears  
+    for(var i = 0; i < numberOfObstacles; i++) { // maintains object instances to the defined number per frame
         obstaclesArray[i].showObstacle();
         obstaclesArray[i].moveObstacle();
     }
     }
 
+//--Player Spacecraft properties ------------------------------------------------------------
+    function drawPlayerCraft() {
+        var x1, y1, x2, y2, x3, y3, s;
+        x1 = centerOfX;
+        y1 = centreOfY + (centreOfY /2);
+        x2 = centerOfX + 50;
+        y2 = centreOfY + (centreOfY /2) + 30;
+        x3 = centerOfX - 50;
+        y3 = centreOfY + (centreOfY /2) + 30;
+        s = 14;
+
+        ctx.beginPath(); // Under Glow
+        ctx.fillStyle = "Violet";
+        ctx.moveTo(x1, y1-1);
+        ctx.lineTo(x2+5, y2+5);
+        ctx.lineTo(x3-5, y3+5);
+        ctx.fill();
+
+        ctx.beginPath(); // small engine light right
+        ctx.fillStyle = "white";
+        ctx.arc(x1+38, y2-3, s/2, 0, Math.PI*1);
+        ctx.fill();
+
+        ctx.beginPath(); // Engine light right
+        ctx.fillStyle = "white";
+        ctx.arc(x1+21, y2-3, s, 0, Math.PI*1);
+        ctx.fill();
+
+        ctx.beginPath(); // Engine light middle 
+        ctx.fillStyle = "white";
+        ctx.arc(x1, y2-3, s, 0, Math.PI*1);
+        ctx.fill();
+
+        ctx.beginPath(); // Engine light left
+        ctx.fillStyle = "white";
+        ctx.arc(x1-21, y2-3, s, 0, Math.PI*1);
+        ctx.fill();
+        
+        ctx.beginPath(); // small engine light left
+        ctx.fillStyle = "white";
+        ctx.arc(x1-38, y2-3, s/2, 0, Math.PI*1);
+        ctx.fill();
+
+        ctx.beginPath(); // top black triangle
+        ctx.fillStyle = "#000";
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2+1, y2);
+        ctx.lineTo(x3-1, y3);
+        ctx.fill();
+    }
+
 function update(){ // defines what happens when update is called at bottom
     drawStars();
-    drawObstacle();
+    drawObstacles();
+    drawPlayerCraft();
     window.requestAnimationFrame(update); // recalls the update function per frame - makes animations move
 }
 
