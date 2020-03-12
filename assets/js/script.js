@@ -28,7 +28,7 @@ function initialise_scripts(){
 
 //--Applicable Object Properties----------------------------------------------------
     var numberOfStars = 500; // how many stars will be generated
-    var numberOfObstacles = 4; // How many obstacles to dodge will be generated
+    var numberOfSprites = 4; // How many Sprites to dodge will be generated
     var size = 1; // size of star objects
     var speed = 10; // speed of movement
 
@@ -37,9 +37,9 @@ function initialise_scripts(){
         starsArray[i] = new generate_star(); // generates new star object per array iteration
     }
 
-    var obstaclesArray = []; // creates an array to store the obstacles instances
-    for(var i = 0; i < numberOfObstacles; i++) { // maintains object instances to the defined number
-        obstaclesArray[i] = new generateObstacle(); // generates new star object per array iteration
+    var spritesArray = []; // creates an array to store the Sprites instances
+    for(var i = 0; i < numberOfSprites; i++) { // maintains object instances to the defined number
+        spritesArray[i] = new generateSprite(); // generates new star object per array iteration
     }
 
     function getRandom(min, max){ // generates number between two values
@@ -84,8 +84,8 @@ function generate_star(){
     }
 }
 
-//--Obstacle Functionality & Properties-----------------------------------------------
-function generateObstacle(){
+//--Sprite Functionality & Properties-----------------------------------------------
+function generateSprite(){
     var randomX = notZeroRange(-10, 10);
     var randomY = notZeroRange(-10, 10);
     this.x = centerOfX;
@@ -96,7 +96,7 @@ function generateObstacle(){
         this.z = Math.random()*cnvsWidth;
     }
 
-    this.moveObstacle = function(){
+    this.moveSprite = function(){
         this.z = this.z - (speed/2);
 
         if(this.z <= 0){ // once object reaches the end of canvas edge --
@@ -106,7 +106,7 @@ function generateObstacle(){
         }
     }
 
-    this.showObstacle = function(){
+    this.showSprite = function(){
         var x, y, s;
         x = this.x;
         y = this.y;
@@ -141,10 +141,10 @@ document.getElementById("start-btn").addEventListener("click", initialise_game);
 function initialise_game(){
 document.getElementById("start-panel").classList.toggle("hidden");
 
-    function drawObstacles(){ // allows obstacles to be rendered only once start panel dissapears  
-    for(var i = 0; i < numberOfObstacles; i++) { // maintains object instances to the defined number per frame
-        obstaclesArray[i].showObstacle();
-        obstaclesArray[i].moveObstacle();
+    function drawSprites(){ // allows Sprites to be rendered only once start panel dissapears  
+    for(var i = 0; i < numberOfSprites; i++) { // maintains object instances to the defined number per frame
+        spritesArray[i].showSprite();
+        spritesArray[i].moveSprite();
     }
     }
 
@@ -255,7 +255,7 @@ var angle = 0;
 
 function update() { // defines what happens when update is called at bottom
     drawStars();
-    drawObstacles();
+    drawSprites();
     drawPlayerCraft();
     window.requestAnimationFrame(update); // recalls the update function per frame - makes animations move
 }
