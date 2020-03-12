@@ -14,7 +14,7 @@ function initialise_scripts(){
     ctx.canvas.height = cnvsHeight; // ^^^^ 
     var cnvsLength = canvas.width; // length of canvas
     var centerOfX = canvas.width/2; // center point of the canvas X
-    var centreOfY = canvas.height/2; // center point of the canvas Y
+    var centerOfY = canvas.height/2; // center point of the canvas Y
 
 //--Audio Controls-----------------------------------------------------------------
     var audio = document.getElementById("player");
@@ -73,8 +73,8 @@ function generate_star(){
         var x, y, s; 
         x = (this.x - centerOfX) * (cnvsLength/this.z);
         x = x + centerOfX;
-        y = (this.y - centreOfY) * (cnvsLength/this.z);
-        y = y + centreOfY;
+        y = (this.y - centerOfY) * (cnvsLength/this.z);
+        y = y + centerOfY;
         s = size * (cnvsLength/this.z); // makes objects appear to be closer or further away
 
         ctx.beginPath();
@@ -89,7 +89,7 @@ function generateObstacle(){
     var randomX = notZeroRange(-10, 10);
     var randomY = notZeroRange(-10, 10);
     this.x = centerOfX;
-    this.y = centreOfY;
+    this.y = centerOfY;
     this.z = Math.random()*cnvsWidth;
 
     if(this.z <= 0){
@@ -156,15 +156,15 @@ var angle = 0;
 
     function drawPlayerCraft() {  
         x1 = 0;
-        y1 = 0 + (centreOfY /2);
+        y1 = 0 + (centerOfY /2);
         x2 = 50;
-        y2 = 0 + (centreOfY /2) + 30;
+        y2 = 0 + (centerOfY /2) + 30;
         x3 = -50;
-        y3 = 0 + (centreOfY /2) + 30;
+        y3 = 0 + (centerOfY /2) + 30;
         s = 14;
         
         ctx.save();
-        ctx.translate(centerOfX, centreOfY);
+        ctx.translate(centerOfX, centerOfY);
         ctx.rotate(convertToRadians(angle));
         
         ctx.beginPath(); // Under Glow
