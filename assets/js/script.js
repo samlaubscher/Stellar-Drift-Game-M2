@@ -30,7 +30,7 @@ function initialise_scripts(){
     var numberOfStars = 500; // how many stars will be generated
     var numberOfObstacles = 4; // How many obstacles to dodge will be generated
     var size = 1; // size of star objects
-    var speed = 5; // speed of movement
+    var speed = 10; // speed of movement
 
     var starsArray = []; // creates an array to store the star object instances
     for(var i = 0; i < numberOfStars; i++){ // maintains star instances to the defined number of stars
@@ -149,26 +149,24 @@ document.getElementById("start-panel").classList.toggle("hidden");
     }
 
 //--Player Spacecraft Functionality & Properties ------------------------------------------------------------
-var craftArray = [];
-    for(var i = 0; i < 2; i++) { // maintains object instances to the defined number
-        craftArray[i] = new playerSpaceCraft(); // generates new star object per array iteration
+var angle = 0;
+    function convertToRadians(degree) {
+        return degree*(Math.PI/180);
     }
 
-function playerSpaceCraft() {
-    
-        var x1, y1, x2, y2, x3, y3, s;
-        x1 = centerOfX;
-        y1 = centreOfY + (centreOfY /2);
-        x2 = centerOfX + 50;
-        y2 = centreOfY + (centreOfY /2) + 30;
-        x3 = centerOfX - 50;
-        y3 = centreOfY + (centreOfY /2) + 30;
+    function drawPlayerCraft() {  
+        x1 = 0;
+        y1 = 0 + (centreOfY /2);
+        x2 = 50;
+        y2 = 0 + (centreOfY /2) + 30;
+        x3 = -50;
+        y3 = 0 + (centreOfY /2) + 30;
         s = 14;
-        var speedOfPlayer = 2;
-        var dL = 0;
-        var dR = 0;
         
-       this.showPlayerCraft = function() {
+        ctx.save();
+        ctx.translate(centerOfX, centreOfY);
+        ctx.rotate(convertToRadians(angle));
+        
         ctx.beginPath(); // Under Glow
         ctx.fillStyle = "Violet";
         ctx.moveTo(x1, y1-1);
@@ -207,28 +205,22 @@ function playerSpaceCraft() {
         ctx.lineTo(x2+1, y2);
         ctx.lineTo(x3-1, y3);
         ctx.fill();
-
-        
-       this.newPos = function() {
-        x1 += dR;
-        x1 += dL;
-        //y1 += dR;
-        x2 += dR; 
-        x2 += dL; 
-        //y2 += dR; 
-        x3 += dR; 
-        x3 += dL;
-       // y3 += dR;
-
-    }
+                       
+        ctx.restore();
     }
 
 //--Directional functionality -----------------------------------------------------------------
     function moveLeft() {
-        dL = -speedOfPlayer;
+        angle+=3;
+        if(angle > 360) {
+            angle = 0;
+        }
     }
     function moveRight() {
-        dR = speedOfPlayer; 
+        angle-=3;
+        if(angle > 360) {
+            angle = 0;
+        } 
     }
 
     function unClick(){
@@ -260,14 +252,6 @@ function playerSpaceCraft() {
     document.getElementById("left-direction-btn").addEventListener("mouseup", unClick);
     document.getElementById("right-direction-btn").addEventListener("mousedown", moveRight);
     document.getElementById("right-direction-btn").addEventListener("mouseup", unClick);
-}
-
-function drawPlayerCraft() {
-    for(var i = 0; i < 1; i++){ // maintains object instances to the defined number per frame
-        craftArray[i].showPlayerCraft(); // shows star objects per array iteration
-        craftArray[i].newPos(); // calls the function allowing it to move
-    }
-}
 
 function update() { // defines what happens when update is called at bottom
     drawStars();
