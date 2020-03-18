@@ -207,6 +207,8 @@ var angle = 0;
         ctx.fill();
                        
         ctx.restore();
+
+        console.log(angle);
     }
 
 //--Directional functionality -----------------------------------------------------------------
@@ -218,7 +220,7 @@ var angle = 0;
     }
     function moveRight() {
         angle-=3;
-        if(angle > 360) {
+        if(angle < -360) {
             angle = 0;
         } 
     }
