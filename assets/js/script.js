@@ -30,7 +30,12 @@ function initialise_scripts(){
     var numberOfStars = 500; // how many stars will be generated
     var numberOfSprites = 4; // How many Sprites to dodge will be generated
     var size = 1; // size of star objects
-    var speed = 10; // speed of movement
+    var speed = 1; // speed of movement
+    var angle = 0; // angle of canvas rotation for player ship object
+    
+    function convertToRadians(degree) { // allows rotation to be set to angle 
+        return degree*(Math.PI/180);
+    }
 
     var starsArray = []; // creates an array to store the star object instances
     for(var i = 0; i < numberOfStars; i++){ // maintains star instances to the defined number of stars
@@ -149,10 +154,6 @@ document.getElementById("start-panel").classList.toggle("hidden");
     }
 
 //--Player Spacecraft Functionality & Properties ------------------------------------------------------------
-var angle = 0;
-    function convertToRadians(degree) {
-        return degree*(Math.PI/180);
-    }
 
     function drawPlayerCraft() {  
         x1 = 0;
@@ -162,7 +163,7 @@ var angle = 0;
         x3 = -50;
         y3 = 0 + (centerOfY /2) + 30;
         s = 14;
-        
+
         ctx.save();
         ctx.translate(centerOfX, centerOfY);
         ctx.rotate(convertToRadians(angle));
@@ -208,35 +209,43 @@ var angle = 0;
                        
         ctx.restore();
 
-        console.log(angle);
     }
 
 //--Directional functionality -----------------------------------------------------------------
+    var time = null;
+
     function moveLeft() {
-        angle+=3;
-        if(angle > 360) {
+        time = setInterval(function() { // removes the delay in movement after initial keydown
+            angle+=1;
+            if(angle > 360) {
             angle = 0;
         }
+    },5);
     }
+
     function moveRight() {
-        angle-=3;
+        time = setInterval(function() { // removes the delay in movement after initial keydown
+        angle-=1;
         if(angle < -360) {
             angle = 0;
         } 
+    },5);
     }
 
     function unClick(){
-    dL = 0;
-    dR = 0;
+        clearInterval(time);
     }
 
     function keyDown(e) {
+        if(e.repeat) {return} // prevents setInterval looping on keyhold 
+        document.removeEventListener('keydown', keyDown); // prevents bug caused when multiple keys are pressed
         if(e.key === 'ArrowLeft' || e.key === 'Left') {
             moveLeft();
         } else if(e.key === 'ArrowRight' || e.key === 'Right') {
             moveRight();
         }
     }
+
     function keyUp(e) {
         if(
             e.key === 'ArrowLeft' || 
@@ -244,8 +253,8 @@ var angle = 0;
             e.key === 'ArrowRight' || 
             e.key === 'Right'
         ) {
-                dL = 0;
-                dR = 0;
+            clearInterval(time);
+            document.addEventListener('keydown', keyDown);
         }
     }
     document.addEventListener('keydown', keyDown);
