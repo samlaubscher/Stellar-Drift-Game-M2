@@ -6,18 +6,18 @@ window.onload = function(){ // makes sure window is loaded first before running
 
 function initialise_scripts(){
 //--Canvas Properties-------------------------------------------------------------    
-    var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-    var cnvsWidth = window.innerWidth ; //sets the sizes to inner window sizes. -4 removes scroll bar
-    var cnvsHeight = window.innerHeight -4; // ^^^^^
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const cnvsWidth = window.innerWidth ; //sets the sizes to inner window sizes. -4 removes scroll bar
+    const cnvsHeight = window.innerHeight -4; // ^^^^^
     ctx.canvas.width = cnvsWidth; // sets dimensions to these variables 
     ctx.canvas.height = cnvsHeight; // ^^^^ 
-    var cnvsLength = canvas.width; // length of canvas
-    var centerOfX = canvas.width/2; // center point of the canvas X
-    var centerOfY = canvas.height/2; // center point of the canvas Y
+    const cnvsLength = canvas.width; // length of canvas
+    const centerOfX = canvas.width/2; // center point of the canvas X
+    const centerOfY = canvas.height/2; // center point of the canvas Y
 
 //--Audio Controls-----------------------------------------------------------------
-    var audio = document.getElementById("player");
+    const audio = document.getElementById("player");
     player.controls = false;
     document.getElementById("mute").addEventListener("click", toggleMute); 
     function toggleMute() {
