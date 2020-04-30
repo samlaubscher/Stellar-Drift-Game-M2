@@ -28,23 +28,13 @@ function initialise_scripts(){
 
 //--Applicable Object Properties----------------------------------------------------
     var numberOfStars = 500; // how many stars will be generated
-    var numberOfSprites = 4; // How many Sprites to dodge will be generated
+    var numberOfSprites = 10; // How many Sprites to dodge will be generated
     var size = 1; // size of star objects
-    var speed = 1; // speed of movement
+    var speed = 10; // speed of movement
     var angle = 0; // angle of canvas rotation for player ship object
     
     function convertToRadians(degree) { // allows rotation to be set to angle 
         return degree*(Math.PI/180);
-    }
-
-    var starsArray = []; // creates an array to store the star object instances
-    for(var i = 0; i < numberOfStars; i++){ // maintains star instances to the defined number of stars
-        starsArray[i] = new generate_star(); // generates new star object per array iteration
-    }
-
-    var spritesArray = []; // creates an array to store the Sprites instances
-    for(var i = 0; i < numberOfSprites; i++) { // maintains object instances to the defined number
-        spritesArray[i] = new generateSprite(); // generates new star object per array iteration
     }
 
     function getRandom(min, max){ // generates number between two values
@@ -59,14 +49,16 @@ function initialise_scripts(){
             }
     }
 
-//--Background Star Functionality & Properties---------------------------------------
-function generate_star(){
-    this.x = Math.random()*cnvsWidth; // generates random position on the canvas width
-    this.y = Math.random()*cnvsHeight; // generates random position on the canvas height
-    this.z = Math.random()*cnvsWidth; // generates random position on the canvas to give the appearance of depth
+//--Background Star Definition & Functionality---------------------------------------
+class Star{
+    constructor(x, y, z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    }
 
-    this.moveStar = function(){
-        this.z = this.z - speed; // each tick minuses the z position based on speed so moves towards scree at constant speed
+    moveStar(){
+        this.z = this.z - speed; // each tick minuses the z position based on speed so moves towards screen at constant speed
         if(this.z <= 0){
             this.z = cnvsWidth; // if reaches end of canvas resets it to back - loop 
             this.x = Math.random()*cnvsWidth; // generates stars in random position each time
@@ -74,57 +66,23 @@ function generate_star(){
         }
     }
 
-    this.showStar = function(){
-        var x, y, s; 
-        x = (this.x - centerOfX) * (cnvsLength/this.z);
-        x = x + centerOfX;
-        y = (this.y - centerOfY) * (cnvsLength/this.z);
-        y = y + centerOfY;
-        s = size * (cnvsLength/this.z); // makes objects appear to be closer or further away
+    showStar(){
+        let xPos = (this.x - centerOfX) * (cnvsLength/this.z);
+        xPos = xPos + centerOfX;
+        let yPos = (this.y - centerOfY) * (cnvsLength/this.z);
+        yPos = yPos + centerOfY;
+        let s = size * (cnvsLength/this.z); // makes objects appear to be closer or further away
 
         ctx.beginPath();
         ctx.fillStyle = "MediumSpringGreen"; // star colour
-        ctx.arc(x, y, s, 0, Math.PI*2); // creates stars based on the 
+        ctx.arc(xPos, yPos, s, 0, Math.PI*2); // creates stars based on the properties entered
         ctx.fill(); // generates star object
     }
 }
 
-//--Sprite Functionality & Properties-----------------------------------------------
-function generateSprite(){
-    var randomX = notZeroRange(-10, 10);
-    var randomY = notZeroRange(-10, 10);
-    this.x = centerOfX;
-    this.y = centerOfY;
-    this.z = Math.random()*cnvsWidth;
-
-    if(this.z <= 0){
-        this.z = Math.random()*cnvsWidth;
-    }
-
-    this.moveSprite = function(){
-        this.z = this.z - (speed/2);
-
-        if(this.z <= 0){ // once object reaches the end of canvas edge --
-            this.z = cnvsWidth; // resets the object to back of z dimension 
-            randomX = notZeroRange(-10, 10); // creates a new random position
-            randomY = notZeroRange(-10, 10); // ^^^^
-        }
-    }
-
-    this.showSprite = function(){
-        var x, y, s;
-        x = this.x;
-        y = this.y;
-        s = (size/2) * (cnvsLength/this.z);
-        
-        x = x + (s * randomX);
-        y = y + (s * randomY); 
-       
-        ctx.beginPath();
-        ctx.fillStyle = "red";
-        ctx.arc(x, y, s, 0, Math.PI*2);
-        ctx.fill();
-    }
+var starsArray = []; // creates an array to store the Star object instances
+for(var i = 0; i < numberOfStars; i++){ // maintains Star instances to the defined number of stars
+    starsArray[i] = new Star(Math.random()*cnvsWidth, Math.random()*cnvsHeight, Math.random()*cnvsWidth); // generates new star object per array iteration
 }
 
 //--Functions to render the background animations -------------------------------------------------
@@ -138,13 +96,55 @@ function drawStars(){
     }
 }
 
-drawStars(); // calls function to initially allow one frame of stars to be rendered so that they are visible behind the start panel 
+drawStars(); // calls function once to initially allow one frame of stars to be rendered so that they are visible behind the start panel 
 
 //-- removes the start panel and starts further animation --------------------------------------------
 document.getElementById("start-btn").addEventListener("click", initialise_game);
 
 function initialise_game(){
 document.getElementById("start-panel").classList.toggle("hidden");
+
+//--Sprite Definition & Functionality-----------------------------------------------
+class Sprite {
+    constructor(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.randomX = notZeroRange(-10, 10);
+        this.randomY = notZeroRange(-10, 10);
+        if(this.z <= 0){
+            this.z = Math.random()*cnvsWidth;
+        }
+    }
+
+    moveSprite(){
+        this.z = this.z - (speed/2);
+        if(this.z <= 0){ // once object reaches the end of canvas edge --
+            this.z = cnvsWidth; // resets the object to back of z dimension 
+            this.randomX = notZeroRange(-10, 10); // creates a new random position
+            this.randomY = notZeroRange(-10, 10); // ^^^^
+        }
+    }
+
+    showSprite(){
+        let xPos = this.x;
+        let yPos = this.y;
+        let s = (size/2) * (cnvsLength/this.z);
+        
+        xPos = xPos + (s * this.randomX);
+        yPos = yPos + (s * this.randomY); 
+
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.arc(xPos, yPos, s, 0, Math.PI*2);
+        ctx.fill();
+    }
+}
+
+var spritesArray = []; // creates an array to store the Sprites instances
+    for(var i = 0; i < numberOfSprites; i++) { // maintains object instances to the defined number
+        spritesArray[i] = new Sprite(centerOfX, centerOfY, Math.random()*cnvsWidth); // generates new star object per array iteration
+    }
 
     function drawSprites(){ // allows Sprites to be rendered only once start panel dissapears  
     for(var i = 0; i < numberOfSprites; i++) { // maintains object instances to the defined number per frame
