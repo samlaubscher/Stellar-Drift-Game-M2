@@ -317,7 +317,7 @@ window.onload = function () {
     if (angle >= 0) {
       return angle;
     } else {
-      360 + angle;
+      return 360 + angle;
     }
   }
 
@@ -389,7 +389,7 @@ window.onload = function () {
     // loops through all posible angle and generates x,y positions
     for (i = 0; i < 360; i++) {
       let angleKey = i.toString();
-      shipLocations.angleKey = [generateX(i), generateY(i)];
+      shipLocations[angleKey] = [generateX(i), generateY(i)];
     }
     return shipLocations;
   }
@@ -401,12 +401,12 @@ window.onload = function () {
       if (angle >= 0) {
         return angle;
       } else {
-        360 + angle;
+        return 360 + angle;
       }
     }
     let actualAngle = getActualAngle(angle).toString();
     // returns the value of the associated angle
-    return getAllPossibleShipLocations(actualAngle); //()[actualAngle];
+    return getAllPossibleShipLocations()[actualAngle];
   }
 
   getShipLocation(angle);
@@ -417,8 +417,7 @@ window.onload = function () {
   // sanity check
   this.console.log(shipX, shipY);
 
-  [shipX, shipY] = getShipLocation(angle); // - appears to be throwing an error
-
+  [shipX, shipY] = getShipLocation(angle);
 
   function collectXYZValues(x, y) {
      //will be used to collect xPos, yPos values from the Sprite class for collision detection
@@ -466,6 +465,7 @@ window.onload = function () {
       // Calls the update function per frame thus making animations move
       window.requestAnimationFrame(update);
       console.log(getShipLocation(angle));
+      console.log(angle)
     }
 
     // Calls update function to trigger canvas animations
