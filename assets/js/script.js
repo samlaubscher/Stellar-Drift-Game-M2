@@ -24,7 +24,7 @@ window.onload = function () {
   //--Applicable Object Properties----------------------------------------------------
   // Number of objects generated on-screen at one time
   var numberOfStars = 1500; 
-  var numberOfSprites = 10;
+  var numberOfSprites = 1;
   // Unit of size manipulated in generation of objects
   var size = 1;
   // Speed of movement of generated objects
@@ -314,56 +314,28 @@ window.onload = function () {
 //---- Code to generate X and Y positions of the Ship object to create an array used for collision detection
   // Gets the positive angle value
   function getActualAngle(angle) {
-    if (angle >= 0) {
-      return angle;
+    if (angle >= 0 && angle < 270) {
+      return angle + 90;
+    } else if (angle >= 270) {
+      return angle - 270;
+    } else if (angle >= -90 && angle < 0) {
+      return 360 + angle -270;
     } else {
       return 360 + angle;
     }
   }
 
-  // Get the plot multiplication numbers associated with angle
+  // Get the numbers associated with angle
   function getAngleNumber(angle) {
-    if (((angle == 0), 90, 180, 270)) {
-      return [1.0, 0.0];
-    } else if (((angle == 6), 96, 186, 276)) {
-      return [0.1, 0.99];
-    } else if (((angle == 12), 102, 192, 282)) {
-      return [0.2, 0.975];
-    } else if (((angle == 18), 108, 198, 288)) {
-      return [0.3, 0.955];
-    } else if (((angle == 23), 113, 203, 293)) {
-      return [0.4, 0.92];
-    } else if (((angle == 30), 120, 210, 300)) {
-      return [0.5, 0.875];
-    } else if (((angle == 45), 135, 225, 315)) {
-      return [0.7, 0.71];
-    } else if (((angle == 53), 143, 233, 323)) {
-      return [0.8, 0.6];
-    } else if (((angle == 84), 174, 264, 354)) {
-      return [0.99, 0.1];
-    } else if (((angle == 78), 168, 258, 348)) {
-      return [0.975, 0.2];
-    } else if (((angle == 73), 163, 253, 343)) {
-      return [0.955, 0.3];
-    } else if (((angle == 67), 157, 247, 337)) {
-      return [0.92, 0.4];
-    } else if (((angle == 60), 150, 240, 330)) {
-      return [0.875, 0.5];
-    } else if (((angle == 46), 136, 226, 316)) {
-      return [0.71, 0.7];
-    } else if (((angle == 37), 127, 217, 307)) {
-      return [0.6, 0.8];
-    }
+    const angleInRadians = angle * Math.PI / 180;
+    return [Math.cos(angleInRadians), Math.sin(angleInRadians)] ;
   }
 
   function getAllPossibleShipLocations() {
     let shipLocations = {};
     function getXShipValue(angle) {
-      // if angle is between 0 to 180 or -180 to -359 then operator will be shipValue
-      // otherwise -shipValue
-      // 90, 180, 270 will be 1.0
       let actualAngle = getActualAngle(angle);
-      if (actualAngle >= 0 && actualAngle <= 180) {
+      if (actualAngle >= 0 && actualAngle <= 360) {
         return getAngleNumber(angle)[0];
       } else {
         return -getAngleNumber(angle)[0];
@@ -371,8 +343,7 @@ window.onload = function () {
     }
     function getYShipValue(angle) {
       let actualAngle = getActualAngle(angle);
-      // if actual angle is between 0 to 90 or 270 - 359 operator positve else -value
-      if (actualAngle >= 0 && actualAngle <= 180) {
+      if (actualAngle >= 0 && actualAngle <= 360) {
         return getAngleNumber(angle)[1];
       } else {
         return -getAngleNumber(angle)[1];
@@ -398,8 +369,13 @@ window.onload = function () {
   function getShipLocation(angle) {
     // Gets the positive angle value
     function getActualAngle(angle) {
-      if (angle >= 0) {
-        return angle;
+      
+      if (angle >= 0 && angle < 270) {
+        return angle + 90;
+      } else if (angle >= 270) {
+        return angle - 270;
+      } else if (angle >= -90 && angle < 0) {
+        return 360 + angle -270;
       } else {
         return 360 + angle;
       }
@@ -413,16 +389,12 @@ window.onload = function () {
 
   // Ship Location array destruction 
   let shipX, shipY;
-  [shipX, shipY] = [2, 4];
-  // sanity check
-  this.console.log(shipX, shipY);
-
   [shipX, shipY] = getShipLocation(angle);
 
   function collectXYZValues(x, y) {
-     //will be used to collect xPos, yPos values from the Sprite class for collision detection
+    // for collision detection
   }
-
+  
   //--Code functionality-------------------------------------------------------------------------------------------------------------------
 
   // Instanciation of array Star objects-----------------------------------------------------------------
