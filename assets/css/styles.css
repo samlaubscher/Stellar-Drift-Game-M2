@@ -73,6 +73,7 @@ button{
 #mute,
 #reset,
 #start-btn,
+#restart-btn,
 .direction-btn {
     background-color: transparent;
     background-repeat: no-repeat;
@@ -111,7 +112,8 @@ button{
 }
 
 #reset,
-#start-btn {
+#start-btn,
+#restart-btn {
     color: rgba(255, 255, 255, 0.541);
     font-family: 'Oxanium', cursive;
     font-size: clamp(6px, 1.5vw, 20px);
@@ -122,7 +124,8 @@ button{
     padding: 0 3px;
 }
 
-#start-btn {
+#start-btn,
+#restart-btn {
     color: #fff;
     font-size: clamp(20px, 3vw, 40px);
     background-color: rgba(255, 255, 255, 0.2);
@@ -136,19 +139,22 @@ button{
     color: rgba(255, 255, 255, 0.8);
 }
 
-#start-btn:hover {
+#start-btn:hover,
+#restart-btn:hover {
     background-color: rgba(255, 255, 255, 0.493);
 }
 
 #reset:active,
-#start-btn:active {
+#start-btn:active,
+#restart-btn:active {
     top: 1.5px;
     position: relative;
 }
 
 /* ------------------------- Start Panel -------------------------*/ 
 
-#start-panel {
+#start-panel,
+#crash-panel {
     position: absolute;
     width: 100%;
     height: 60%;
@@ -162,8 +168,12 @@ button{
     border-radius: 15%;
 }
 
-#start-panel p,
-#start-panel h3 {
+#crash-panel {
+    visibility: visible;
+}
+
+#start-panel p, 
+#crash-panel p {
     margin: 40px 5px;
     font-size: clamp(20px, 3vw, 30px);
 }

@@ -1,7 +1,11 @@
 window.onload = function () {
   // Makes sure window is loaded first before running
+  document.getElementById("crash-panel").classList.toggle("hidden"); // hides the crash screen
   window.addEventListener("resize", reload, false); // restarts the function on resize
-  document.getElementById("reset").addEventListener("click", reload); // calls the function when on-screen Reset button is pressed
+  // Reloads page when game restarted / reset button pressed
+  document.getElementById("reset").addEventListener("click", reload);
+  // Launches animations when Start Game button pressed
+  document.getElementById("start-btn").addEventListener("click", initialise_game);
 
   //--Global Variables------------------------------------------------------------------------------------------------
   //--Canvas Properties-------------------------------------------------------------
@@ -28,7 +32,7 @@ window.onload = function () {
   // Unit of size manipulated in generation of objects
   var size = 1;
   // Speed of movement of generated objects
-  var speed = 10;
+  var speed = 30;
   // Angle of canvas rotation for player ship object
   var angle = 0;
   // Arrays to store object instances
@@ -36,11 +40,17 @@ window.onload = function () {
   var spritesArray = [];
   // Time measurement used for ship direction funtionality
   var time = null;
+  // Used to control the stopping of certain animations
+  var endGame = false;
 
   //--Audio Controls for background music-----------------------------------------------------------------
   const audio = document.getElementById("player");
   player.controls = false;
   document.getElementById("mute").addEventListener("click", toggleMute);
+
+  // Ship Location array destruction
+  let shipX, shipY;
+  [shipX, shipY] = getShipLocation(angle);
 
   //--Class Definitions--------------------------------------------------------------------------------------------
   // Background Stars---------------------------------------
@@ -103,7 +113,6 @@ window.onload = function () {
         this.randomX = notZeroRange(-10, 10);
         this.randomY = notZeroRange(-10, 10);
       }
-      spriteZIndex(this.z);
     }
 
     showSprite() {
@@ -123,7 +132,7 @@ window.onload = function () {
       ctx.fill();
 
       // Passes the x, y and z values into a function to allow access from outside of the method and class
-      collectXYZValues(xPos, yPos);
+      collectSpriteValues(xPos, yPos);
     }
   }
 
@@ -156,8 +165,16 @@ window.onload = function () {
 
   //--Background animation functionality -------------------------------------------------
   function drawStars() {
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, cnvsWidth, cnvsHeight); // draws black background each frame to clear the previous frame
+    if (!endGame) {
+      ctx.fillStyle = "#000"; // draws black background each frame to clear the previous frame
+      ctx.fillRect(0, 0, cnvsWidth, cnvsHeight);
+    } else {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.2)"; // creates tail effect on stars once game ends
+      ctx.fillRect(-1000, -1000, canvas.width + 3000, canvas.height + 3000);
+      ctx.translate(centerOfX, centerOfY);
+      ctx.rotate(Math.PI * -0.0009); // slowly rotates the canvas behind end game panel
+      ctx.translate(-centerOfX, -centerOfY);
+    }
 
     for (var i = 0; i < numberOfStars; i++) {
       // maintains object instances to the defined number per frame
@@ -385,33 +402,36 @@ window.onload = function () {
     return getAllPossibleShipLocations()[actualAngle];
   }
 
-  function spriteZIndex(zIndex) {
-    //console.log(zIndex);
-    return zIndex;
-  }
-
   // collision detection using the x and y of the sprites
-  function collectXYZValues(x, y) {
+  function collectSpriteValues(x, y) {
     if (
-      x - getShipLocation(angle)[0] <= 100 &&
-      x - getShipLocation(angle)[0] >= 0 &&
-      y - getShipLocation(angle)[1] <= 100 &&
-      y - getShipLocation(angle)[1] >= 0
+      x - getShipLocation(angle)[0] <= 50 &&
+      x - getShipLocation(angle)[0] >= -50 &&
+      y - getShipLocation(angle)[1] <= 50 &&
+      y - getShipLocation(angle)[1] >= -50
     ) {
       console.log("HIT!");
+      crashScreen();
     }
+  }
+
+  function crashScreen() {
+    document.getElementById("crash-panel").classList.toggle("hidden");
+    document.getElementById("restart-btn").addEventListener("click", reload);
+    endGame = true;
   }
 
   // Defines what happens when update is called at bottom
   function update() {
-    drawStars();
-    drawSprites();
-    drawPlayerShip();
-    // Calls the update function per frame thus making animations move
-    window.requestAnimationFrame(update);
-    getShipLocation(angle);
-    //console.log(getShipLocation(angle));
-    //console.log(angle);
+    if (!endGame) {
+      drawStars();
+      drawSprites();
+      drawPlayerShip();
+      window.requestAnimationFrame(update);
+    } else {
+      drawStars();
+      window.requestAnimationFrame(update);
+    }
   }
 
   //--Code functionality-------------------------------------------------------------------------------------------------------------------
@@ -429,11 +449,6 @@ window.onload = function () {
   // Calls function once to initially allow one frame of stars to be rendered so that they are visible behind the start panel
   drawStars();
 
-  // Removes the start panel when Start Game button is pressed, initialising animations-----------------
-  document
-    .getElementById("start-btn")
-    .addEventListener("click", initialise_game);
-
   // Initiation of Sprite & player ship animations-------------------------------------------------------
   function initialise_game() {
     // Hides instructions & start game panel------------------------------------------------------------
@@ -447,10 +462,6 @@ window.onload = function () {
         Math.random() * cnvsWidth
       );
     }
-
-    // Ship Location array destruction
-    let shipX, shipY;
-    [shipX, shipY] = getShipLocation(angle);
 
     // Calls update function to trigger canvas animations
     update();
