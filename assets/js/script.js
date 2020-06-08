@@ -24,7 +24,7 @@ window.onload = function () {
   //--Applicable Object Properties----------------------------------------------------
   // Number of objects generated on-screen at one time
   var numberOfStars = 1500;
-  var numberOfSprites = 1;
+  var numberOfSprites = 10;
   // Unit of size manipulated in generation of objects
   var size = 1;
   // Speed of movement of generated objects
@@ -103,6 +103,7 @@ window.onload = function () {
         this.randomX = notZeroRange(-10, 10);
         this.randomY = notZeroRange(-10, 10);
       }
+      spriteZIndex(this.z);
     }
 
     showSprite() {
@@ -376,7 +377,7 @@ window.onload = function () {
       } else if (angle >= -90 && angle < 0) {
         return 360 + angle - 270;
       } else {
-        return 360 + angle;
+        return 360 + angle + 90;
       }
     }
     let actualAngle = getActualAngle(angle).toString();
@@ -384,8 +385,21 @@ window.onload = function () {
     return getAllPossibleShipLocations()[actualAngle];
   }
 
+  function spriteZIndex(zIndex) {
+    //console.log(zIndex);
+    return zIndex;
+  }
+
+  // collision detection using the x and y of the sprites
   function collectXYZValues(x, y) {
-    // for collision detection
+    if (
+      x - getShipLocation(angle)[0] <= 100 &&
+      x - getShipLocation(angle)[0] >= 0 &&
+      y - getShipLocation(angle)[1] <= 100 &&
+      y - getShipLocation(angle)[1] >= 0
+    ) {
+      console.log("HIT!");
+    }
   }
 
   // Defines what happens when update is called at bottom
@@ -396,8 +410,8 @@ window.onload = function () {
     // Calls the update function per frame thus making animations move
     window.requestAnimationFrame(update);
     getShipLocation(angle);
-    console.log(getShipLocation(angle));
-    console.log(angle);
+    //console.log(getShipLocation(angle));
+    //console.log(angle);
   }
 
   //--Code functionality-------------------------------------------------------------------------------------------------------------------
