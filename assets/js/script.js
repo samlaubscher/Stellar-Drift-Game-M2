@@ -3,34 +3,34 @@ window.onload = function () {
   window.addEventListener("resize", reload, false); // restarts the function on resize
   document.getElementById("reset").addEventListener("click", reload); // calls the function when on-screen Reset button is pressed
 
-//--Global Variables------------------------------------------------------------------------------------------------
+  //--Global Variables------------------------------------------------------------------------------------------------
   //--Canvas Properties-------------------------------------------------------------
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   // Sets the sizes to inner window sizes. -4 removes scroll bar
-  const cnvsWidth = window.innerWidth; 
+  const cnvsWidth = window.innerWidth;
   const cnvsHeight = window.innerHeight - 4;
   // Sets dimensions to these variables
-  ctx.canvas.width = cnvsWidth; 
+  ctx.canvas.width = cnvsWidth;
   ctx.canvas.height = cnvsHeight;
   // Length of canvas
-  const cnvsLength = canvas.width; 
+  const cnvsLength = canvas.width;
   // Center points of the canvas
-  const centerOfX = canvas.width / 2; 
-  const centerOfY = canvas.height / 2; 
+  const centerOfX = canvas.width / 2;
+  const centerOfY = canvas.height / 2;
   // For rotation plotting
-  var shipFromCenter = centerOfY / 2; 
+  var shipFromCenter = centerOfY / 2;
 
   //--Applicable Object Properties----------------------------------------------------
   // Number of objects generated on-screen at one time
-  var numberOfStars = 1500; 
+  var numberOfStars = 1500;
   var numberOfSprites = 1;
   // Unit of size manipulated in generation of objects
   var size = 1;
   // Speed of movement of generated objects
-  var speed = 10; 
+  var speed = 10;
   // Angle of canvas rotation for player ship object
-  var angle = 0; 
+  var angle = 0;
   // Arrays to store object instances
   var starsArray = [];
   var spritesArray = [];
@@ -42,7 +42,7 @@ window.onload = function () {
   player.controls = false;
   document.getElementById("mute").addEventListener("click", toggleMute);
 
-//--Class Definitions--------------------------------------------------------------------------------------------
+  //--Class Definitions--------------------------------------------------------------------------------------------
   // Background Stars---------------------------------------
   class Star {
     constructor(x, y, z) {
@@ -53,10 +53,10 @@ window.onload = function () {
 
     moveStar() {
       // Each tick minuses the z position based on speed so they move towards screen at a constant speed
-      this.z = this.z - speed; 
+      this.z = this.z - speed;
       // If object reaches the end of canvas this resets it to the back creating a loop
       if (this.z <= 0) {
-        this.z = cnvsWidth; 
+        this.z = cnvsWidth;
         // Ensures Stars generate in a different position each time they are rerendered
         this.x = Math.random() * cnvsWidth;
         this.y = Math.random() * cnvsHeight;
@@ -72,7 +72,7 @@ window.onload = function () {
       xPos = xPos + centerOfX;
       yPos = yPos + centerOfY;
       // Changes size of the star in relation to the center of canvas and Z value, creating the illusion of them being closer or further away
-      let s = size * (cnvsLength / this.z); 
+      let s = size * (cnvsLength / this.z);
 
       // Generates circular star shapes
       ctx.beginPath();
@@ -98,7 +98,7 @@ window.onload = function () {
       this.z = this.z - speed / 2;
       // Resets the object to back of z dimension when it reaches edge of canvas and value goes below 0
       if (this.z <= 0) {
-        this.z = cnvsWidth; 
+        this.z = cnvsWidth;
         // Ensures positions stay random each time a new array object is instanciated
         this.randomX = notZeroRange(-10, 10);
         this.randomY = notZeroRange(-10, 10);
@@ -311,7 +311,7 @@ window.onload = function () {
     window.location.reload(true);
   }
 
-//---- Code to generate X and Y positions of the Ship object to create an array used for collision detection
+  //---- Code to generate X and Y positions of the Ship object to create an array used for collision detection
   // Gets the positive angle value
   function getActualAngle(angle) {
     if (angle >= 0 && angle < 270) {
@@ -319,7 +319,7 @@ window.onload = function () {
     } else if (angle >= 270) {
       return angle - 270;
     } else if (angle >= -90 && angle < 0) {
-      return 360 + angle -270;
+      return 360 + angle - 270;
     } else {
       return 360 + angle;
     }
@@ -327,8 +327,8 @@ window.onload = function () {
 
   // Get the numbers associated with angle
   function getAngleNumber(angle) {
-    const angleInRadians = angle * Math.PI / 180;
-    return [Math.cos(angleInRadians), Math.sin(angleInRadians)] ;
+    const angleInRadians = (angle * Math.PI) / 180;
+    return [Math.cos(angleInRadians), Math.sin(angleInRadians)];
   }
 
   function getAllPossibleShipLocations() {
@@ -369,13 +369,12 @@ window.onload = function () {
   function getShipLocation(angle) {
     // Gets the positive angle value
     function getActualAngle(angle) {
-      
       if (angle >= 0 && angle < 270) {
         return angle + 90;
       } else if (angle >= 270) {
         return angle - 270;
       } else if (angle >= -90 && angle < 0) {
-        return 360 + angle -270;
+        return 360 + angle - 270;
       } else {
         return 360 + angle;
       }
@@ -385,16 +384,22 @@ window.onload = function () {
     return getAllPossibleShipLocations()[actualAngle];
   }
 
-  getShipLocation(angle);
-
-  // Ship Location array destruction 
-  let shipX, shipY;
-  [shipX, shipY] = getShipLocation(angle);
-
   function collectXYZValues(x, y) {
     // for collision detection
   }
-  
+
+  // Defines what happens when update is called at bottom
+  function update() {
+    drawStars();
+    drawSprites();
+    drawPlayerShip();
+    // Calls the update function per frame thus making animations move
+    window.requestAnimationFrame(update);
+    getShipLocation(angle);
+    console.log(getShipLocation(angle));
+    console.log(angle);
+  }
+
   //--Code functionality-------------------------------------------------------------------------------------------------------------------
 
   // Instanciation of array Star objects-----------------------------------------------------------------
@@ -429,16 +434,9 @@ window.onload = function () {
       );
     }
 
-    // Defines what happens when update is called at bottom
-    function update() {
-      drawStars();
-      drawSprites();
-      drawPlayerShip();
-      // Calls the update function per frame thus making animations move
-      window.requestAnimationFrame(update);
-      console.log(getShipLocation(angle));
-      console.log(angle)
-    }
+    // Ship Location array destruction
+    let shipX, shipY;
+    [shipX, shipY] = getShipLocation(angle);
 
     // Calls update function to trigger canvas animations
     update();
