@@ -5,7 +5,9 @@ window.onload = function () {
   // Reloads page when game restarted / reset button pressed
   document.getElementById("reset").addEventListener("click", reload);
   // Launches animations when Start Game button pressed
-  document.getElementById("start-btn").addEventListener("click", initialise_game);
+  document
+    .getElementById("start-btn")
+    .addEventListener("click", initialise_game);
 
   //--Global Variables------------------------------------------------------------------------------------------------
   //--Canvas Properties-------------------------------------------------------------
@@ -32,9 +34,10 @@ window.onload = function () {
   // Unit of size manipulated in generation of objects
   var size = 1;
   // Speed of movement of generated objects
-  var speed = 30;
+  var speed = 10;
   // Angle of canvas rotation for player ship object
   var angle = 0;
+  var score = 0;
   // Arrays to store object instances
   var starsArray = [];
   var spritesArray = [];
@@ -86,7 +89,26 @@ window.onload = function () {
 
       // Generates circular star shapes
       ctx.beginPath();
-      ctx.fillStyle = "MediumSpringGreen";
+      if (score <= 1000) {
+        ctx.fillStyle = "#82caff";
+      } else if (score <= 2000) {
+        ctx.fillStyle = "MediumSpringGreen";
+      } else if (score <= 3000) {
+        ctx.fillStyle = "#306eff";
+      } else if (score <= 4000) {
+        ctx.fillStyle = "#4b0082";
+      } else if (score <= 5000) {
+        ctx.fillStyle = "#0000a0";
+      } else if (score <= 6000) {
+        ctx.fillStyle = "#151b54";
+      } else if (score <= 7000) {
+        ctx.fillStyle = "#254117";
+      } else if (score <= 8000) {
+        ctx.fillStyle = "#786d5f";
+      } else if (score <= 10000) {
+        ctx.fillStyle = "#ffffff";
+      }
+
       ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
       ctx.fill();
     }
@@ -127,7 +149,15 @@ window.onload = function () {
 
       // Generates circular sprite shapes
       ctx.beginPath();
-      ctx.fillStyle = "red";
+      if (score <= 2500) {
+        ctx.fillStyle = "red";
+      } else if (score <= 6500) {
+        ctx.fillStyle = "#e5e4e2";
+      } else if (score <= 8500) {
+        ctx.fillStyle = "red";
+      } else if (score <= 1000) {
+        ctx.fillStyle = "white";
+      }
       ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
       ctx.fill();
 
@@ -410,15 +440,38 @@ window.onload = function () {
       y - getShipLocation(angle)[1] <= 50 &&
       y - getShipLocation(angle)[1] >= -50
     ) {
-      console.log("HIT!");
       crashScreen();
     }
   }
 
+  // Draws score onto screen
+  function drawScore() {
+    ctx.font = "2vw serif";
+    ctx.strokeText("SCORE:" + score, 50, 70);
+    ctx.strokeStyle = "white";
+  }
+
+  // Increases the score per frame
+  function scoreIncrease() {
+    score += 1;
+  }
+
+  // Increases the speed per frame
+  function speedIncrease() {
+    if (score < 2500) {
+      speed += 0.01;
+    } else if (score < 5000) {
+      speed += 0.002;
+    } else if (score < 7500) {
+      speed += 0.0005;
+    }
+  }
+  
+  // Screen to show finishing score and allow a restart
   function crashScreen() {
+    endGame = true;
     document.getElementById("crash-panel").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
-    endGame = true;
   }
 
   // Defines what happens when update is called at bottom
@@ -427,9 +480,13 @@ window.onload = function () {
       drawStars();
       drawSprites();
       drawPlayerShip();
+      drawScore();
+      speedIncrease();
+      scoreIncrease();
       window.requestAnimationFrame(update);
     } else {
       drawStars();
+      document.getElementById("output").innerHTML = score;
       window.requestAnimationFrame(update);
     }
   }
