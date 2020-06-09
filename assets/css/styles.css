@@ -154,7 +154,8 @@ button{
 /* ------------------------- Start Panel -------------------------*/ 
 
 #start-panel,
-#crash-panel {
+#crash-panel,
+#completed-panel {
     position: absolute;
     width: 100%;
     height: 60%;
@@ -168,12 +169,14 @@ button{
     border-radius: 15%;
 }
 
-#crash-panel {
+#crash-panel,
+#completed-panel {
     visibility: visible;
 }
 
 #start-panel p, 
-#crash-panel p {
+#crash-panel p,
+#completed-panel p {
     margin: 40px 5px;
     font-size: clamp(20px, 3vw, 30px);
 }

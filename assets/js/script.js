@@ -1,6 +1,7 @@
 window.onload = function () {
   // Makes sure window is loaded first before running
   document.getElementById("crash-panel").classList.toggle("hidden"); // hides the crash screen
+  document.getElementById("completed-panel").classList.toggle("hidden"); // hides the crash screen
   window.addEventListener("resize", reload, false); // restarts the function on resize
   // Reloads page when game restarted / reset button pressed
   document.getElementById("reset").addEventListener("click", reload);
@@ -155,8 +156,8 @@ window.onload = function () {
         ctx.fillStyle = "#e5e4e2";
       } else if (score <= 8500) {
         ctx.fillStyle = "red";
-      } else if (score <= 1000) {
-        ctx.fillStyle = "white";
+      } else if (score <= 10000) {
+        ctx.fillStyle = "red";
       }
       ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
       ctx.fill();
@@ -454,6 +455,9 @@ window.onload = function () {
   // Increases the score per frame
   function scoreIncrease() {
     score += 1;
+    if (score == 10000) {
+      completedScreen();
+    }
   }
 
   // Increases the speed per frame
@@ -472,6 +476,12 @@ window.onload = function () {
     endGame = true;
     document.getElementById("crash-panel").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
+  }
+
+  function completedScreen() {
+    document.getElementById("completed-panel").classList.toggle("hidden");
+    document.getElementById("restart-btn").addEventListener("click", reload);
+    endGame = true;
   }
 
   // Defines what happens when update is called at bottom
