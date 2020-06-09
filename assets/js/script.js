@@ -2,6 +2,7 @@ window.onload = function () {
   // Makes sure window is loaded first before running
   document.getElementById("crash-panel").classList.toggle("hidden"); // hides the crash screen
   document.getElementById("completed-panel").classList.toggle("hidden"); // hides the crash screen
+  document.getElementById("bottom-banner").classList.toggle("hidden");
   window.addEventListener("resize", reload, false); // restarts the function on resize
   // Reloads page when game restarted / reset button pressed
   document.getElementById("reset").addEventListener("click", reload);
@@ -30,8 +31,8 @@ window.onload = function () {
 
   //--Applicable Object Properties----------------------------------------------------
   // Number of objects generated on-screen at one time
-  var numberOfStars = 1500;
-  var numberOfSprites = 10;
+  var numberOfStars = 750;
+  var numberOfSprites = 6;
   // Unit of size manipulated in generation of objects
   var size = 1;
   // Speed of movement of generated objects
@@ -473,12 +474,14 @@ window.onload = function () {
   
   // Screen to show finishing score and allow a restart
   function crashScreen() {
-    endGame = true;
+    document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("crash-panel").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
+    endGame = true;
   }
 
   function completedScreen() {
+    document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("completed-panel").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
     endGame = true;
@@ -520,6 +523,7 @@ window.onload = function () {
   function initialise_game() {
     // Hides instructions & start game panel------------------------------------------------------------
     document.getElementById("start-panel").classList.toggle("hidden");
+    document.getElementById("bottom-banner").classList.toggle("hidden");
 
     for (var i = 0; i < numberOfSprites; i++) {
       // Generates new Sprite object per array iteration

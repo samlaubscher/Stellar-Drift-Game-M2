@@ -25,15 +25,16 @@ body {
 /* -------------------------------- Hidden Banner Styles -------------------- */
 
 .top-banner,
-.bottom-banner {
+#bottom-banner {
     width: 100%;
     height: 90px;
     margin: 0;
     position: absolute;
 }
 
-.bottom-banner {
+#bottom-banner {
     bottom: 0px;
+    height: 75%;
 }
 
 /* -------------------------------- Name Title Above Game ----------------------*/
@@ -51,6 +52,29 @@ h1 {
 
 button{
     outline: none;
+}
+
+.dir-btn-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.dir-btns-sides {
+    border: none;
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    width: 50%;
+}
+
+.side-screen-btn {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
 }
 
 .mute-btn,
@@ -107,7 +131,7 @@ button{
 }
 
 .reset-btn li {
-    margin: 10px 8px 0 94%;
+    margin: 10px 8px 0 92%;
     position: absolute;
 }
 

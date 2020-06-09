@@ -16,7 +16,7 @@
         <div class="top-banner">
 
     <!------------------------Audio------------------------>
-    <audio id="player" src="aud.io.mp3" autoplay="autoplay" controls loop></audio>
+    <audio id="player" src="audio.mp3" autoplay="autoplay" controls loop></audio>
     <ul class="mute-btn">
         <li>
             <button id="mute"><i id="i-muted" class="hidden fa fa-volume-off"></i><i id="i-not-muted" class="fa fa-volume-up"></i></button>
@@ -73,16 +73,24 @@
         <p id="credit">Game & Music created by Sam Laubscher</p>
 </div>
 
-        <div class="bottom-banner">
+        <div id="bottom-banner">
     <!-----------------------------Direction Buttons--------->
-            <ul class="dir-btns-list">
+    <ul class="dir-btn-container">
+        <li class="dir-btns-sides">
+            <button class="side-screen-btn" id="left-direction-btn"></button>
+        </li>
+        <li class="dir-btns-sides">
+            <button class="side-screen-btn" id="right-direction-btn"></button>
+        </li>
+    </ul>
+            <!--ul class="dir-btns-list">
                 <li class="left-li">
                     <button class="direction-btn" id="left-direction-btn"><i class="fa fa-angle-double-left"></i></button>
                 </li>
                 <li class="right-li">
                     <button class="direction-btn" id="right-direction-btn"><i class="fa fa-angle-double-right"></i></button>
                 </li>
-            </ul>
+            </ul-->
         </div>
 <!------------------------------------------------------------------------------------------------------->
         <canvas id="canvas"></canvas>
