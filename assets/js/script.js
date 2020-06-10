@@ -32,11 +32,11 @@ window.onload = function () {
   //--Applicable Object Properties----------------------------------------------------
   // Number of objects generated on-screen at one time
   var numberOfStars = 750;
-  var numberOfSprites = 6;
+  var numberOfSprites = 5;
   // Unit of size manipulated in generation of objects
   var size = 1;
   // Speed of movement of generated objects
-  var speed = 10;
+  var speed = 4;
   // Angle of canvas rotation for player ship object
   var angle = 0;
   var score = 0;
@@ -294,22 +294,22 @@ window.onload = function () {
     // Removes the delay in movement after initial keydown
     time = setInterval(function () {
       // Appends angle value to ships angle of position
-      angle += 1;
+      angle += 2;
       if (angle > 360) {
         angle = 0;
       }
-    }, 5);
+    }, 10);
   }
 
   function moveRight() {
     // Removes the delay in movement after initial keydown
     time = setInterval(function () {
       // Appends angle value to ships angle of position
-      angle -= 1;
+      angle -= 2;
       if (angle < -360) {
         angle = 0;
       }
-    }, 5);
+    }, 10);
   }
 
   function unClick() {
@@ -345,16 +345,16 @@ window.onload = function () {
   document.addEventListener("keyup", keyUp);
   document
     .getElementById("left-direction-btn")
-    .addEventListener("mousedown", moveLeft);
+    .addEventListener("touchstart", moveLeft);
   document
     .getElementById("left-direction-btn")
-    .addEventListener("mouseup", unClick);
+    .addEventListener("touchend", unClick);
   document
     .getElementById("right-direction-btn")
-    .addEventListener("mousedown", moveRight);
+    .addEventListener("touchstart", moveRight);
   document
     .getElementById("right-direction-btn")
-    .addEventListener("mouseup", unClick);
+    .addEventListener("touchend", unClick);
 
   //-- Allows page to be reloaded on screen resize and click of on-screen reset button ----
   function reload() {
