@@ -16,7 +16,7 @@
         <div class="top-banner">
 
     <!------------------------Audio------------------------>
-    <audio id="player" src="audio.mp3" autoplay="autoplay" controls loop></audio>
+    <audio id="player" src="aud.io.mp3" autoplay="autoplay" controls loop></audio>
     <ul class="mute-btn">
         <li>
             <button id="mute"><i id="i-muted" class="hidden fa fa-volume-off"></i><i id="i-not-muted" class="fa fa-volume-up"></i></button>
@@ -50,13 +50,17 @@
             <p>YOU CRASHED!<br>
                 </p>
             <p>Unlucky!<br>
-                YOUR SCORE IS:
+                YOUR SCORE IS:</p>
 
                 <p id="output"></p>
                   
-            See if you can beat it again by restarting the game!</p>
+            <p>See if you can beat it again by restarting the game!</p>
             <button id="restart-btn">Restart Game</button>
             <p id="credit">Game & Music created by Sam Laubscher</p>
+    </div>
+
+    <div id="countdown">
+        <p id="countdowntimer"></p>
     </div>
 
     <div id="completed-panel">
@@ -83,14 +87,6 @@
             <button class="side-screen-btn" id="right-direction-btn"></button>
         </li>
     </ul>
-            <!--ul class="dir-btns-list">
-                <li class="left-li">
-                    <button class="direction-btn" id="left-direction-btn"><i class="fa fa-angle-double-left"></i></button>
-                </li>
-                <li class="right-li">
-                    <button class="direction-btn" id="right-direction-btn"><i class="fa fa-angle-double-right"></i></button>
-                </li>
-            </ul-->
         </div>
 <!------------------------------------------------------------------------------------------------------->
         <canvas id="canvas"></canvas>

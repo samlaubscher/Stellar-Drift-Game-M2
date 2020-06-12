@@ -78,27 +78,17 @@ button{
 }
 
 .mute-btn,
-.reset-btn,
-.dir-btns-list {
+.reset-btn {
     list-style: none;
     display: flex;
     padding: 0;
     margin: 0;
 }
 
-.left-li {
-    margin: auto 80px auto auto;
-}
-
-.right-li {
-    margin: auto auto auto 80px;
-}
-
 #mute,
 #reset,
 #start-btn,
-#restart-btn,
-.direction-btn {
+#restart-btn {
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
@@ -116,17 +106,7 @@ button{
     top: 1px;
 }
 
-.direction-btn {
-    font-size: clamp(30px, 5vw, 60px);
-}
-
-.direction-btn:active {
-    top: 1.5px;
-    position: relative;
-}
-
-.mute-btn i,
-.direction-btn i {
+.mute-btn i {
     color: #fff;
 }
 
@@ -175,20 +155,28 @@ button{
     position: relative;
 }
 
-/* ------------------------- Start Panel -------------------------*/ 
+/* ------------------------- Panels -------------------------*/ 
 
+#countdown,
 #start-panel,
 #crash-panel,
 #completed-panel {
     position: absolute;
     width: 100%;
-    height: 60%;
-    top: 20%;
-    background-color: rgba(46, 46, 46, 0.1);
+    top: 42%;
     text-align: center;
     color: #fff;
     font-family: 'Oxanium', cursive;
     font-size: 20px;
+}
+
+#start-panel,
+#crash-panel,
+#completed-panel
+ {
+    height: 60%;
+    top: 20%;
+    background-color: rgba(46, 46, 46, 0.1);
     border: 1px solid rgba(252, 252, 252, 0.2);
     border-radius: 15%;
 }
@@ -199,6 +187,7 @@ button{
 }
 
 #start-panel p, 
+#countdown p,
 #crash-panel p,
 #completed-panel p {
     margin: 40px 5px;

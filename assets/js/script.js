@@ -39,10 +39,11 @@ window.onload = function () {
   var speed = 4;
   // Angle of canvas rotation for player ship object
   var angle = 0;
-  var score = 0;
+  var score = -100;
   // Arrays to store object instances
   var starsArray = [];
   var spritesArray = [];
+  var shipX, shipY;
   // Time measurement used for ship direction funtionality
   var time = null;
   // Used to control the stopping of certain animations
@@ -52,10 +53,6 @@ window.onload = function () {
   const audio = document.getElementById("player");
   player.controls = false;
   document.getElementById("mute").addEventListener("click", toggleMute);
-
-  // Ship Location array destruction
-  let shipX, shipY;
-  [shipX, shipY] = getShipLocation(angle);
 
   //--Class Definitions--------------------------------------------------------------------------------------------
   // Background Stars---------------------------------------
@@ -89,7 +86,7 @@ window.onload = function () {
       // Changes size of the star in relation to the center of canvas and Z value, creating the illusion of them being closer or further away
       let s = size * (cnvsLength / this.z);
 
-      // Generates circular star shapes
+      // Generates circular star shapes, changing colour as points increase
       ctx.beginPath();
       if (score <= 1000) {
         ctx.fillStyle = "#82caff";
@@ -110,7 +107,6 @@ window.onload = function () {
       } else if (score <= 10000) {
         ctx.fillStyle = "#ffffff";
       }
-
       ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
       ctx.fill();
     }
@@ -140,31 +136,33 @@ window.onload = function () {
     }
 
     showSprite() {
-      let xPos = this.x;
-      let yPos = this.y;
-      // Changes size of the sprite in relation to the center of canvas and Z value, creating the illusion of them getting closer each frame
-      let s = (size / 2) * (cnvsLength / this.z);
+      if (score >= 0) {
+        let xPos = this.x;
+        let yPos = this.y;
+        // Changes size of the sprite in relation to the center of canvas and Z value, creating the illusion of them getting closer each frame
+        let s = (size / 2) * (cnvsLength / this.z);
 
-      // Ensures sprites generate randomly within close proximity to the center of screen but not the direct center.
-      xPos = xPos + s * this.randomX;
-      yPos = yPos + s * this.randomY;
+        // Ensures sprites generate randomly within close proximity to the center of screen but not the direct center.
+        xPos = xPos + s * this.randomX;
+        yPos = yPos + s * this.randomY;
 
-      // Generates circular sprite shapes
-      ctx.beginPath();
-      if (score <= 2500) {
-        ctx.fillStyle = "red";
-      } else if (score <= 6500) {
-        ctx.fillStyle = "#e5e4e2";
-      } else if (score <= 8500) {
-        ctx.fillStyle = "red";
-      } else if (score <= 10000) {
-        ctx.fillStyle = "red";
+        // Generates circular sprite shapes
+        ctx.beginPath();
+        if (score <= 2500) {
+          ctx.fillStyle = "red";
+        } else if (score <= 6500) {
+          ctx.fillStyle = "#e5e4e2";
+        } else if (score <= 8500) {
+          ctx.fillStyle = "red";
+        } else if (score <= 10000) {
+          ctx.fillStyle = "red";
+        }
+        ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Passes the x, y and z values into a function to allow access from outside of the method and class
+        collectSpriteValues(xPos, yPos);
       }
-      ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Passes the x, y and z values into a function to allow access from outside of the method and class
-      collectSpriteValues(xPos, yPos);
     }
   }
 
@@ -461,6 +459,18 @@ window.onload = function () {
     }
   }
 
+  function countdown() {
+    if (score < -66) {
+      document.getElementById("countdowntimer").innerHTML = "3";
+    } else if (score < -33) {
+      document.getElementById("countdowntimer").innerHTML = "2";
+    } else if (score < 0) {
+      document.getElementById("countdowntimer").innerHTML = "1";
+    } else {
+      document.getElementById("countdowntimer").innerHTML = null;
+    }
+  }
+
   // Increases the speed per frame
   function speedIncrease() {
     if (score < 2500) {
@@ -471,7 +481,7 @@ window.onload = function () {
       speed += 0.0005;
     }
   }
-  
+
   // Screen to show finishing score and allow a restart
   function crashScreen() {
     document.getElementById("bottom-banner").classList.toggle("hidden");
@@ -480,6 +490,7 @@ window.onload = function () {
     endGame = true;
   }
 
+  // Screen to show completed score and allow a restart
   function completedScreen() {
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("completed-panel").classList.toggle("hidden");
@@ -496,6 +507,7 @@ window.onload = function () {
       drawScore();
       speedIncrease();
       scoreIncrease();
+      countdown();
       window.requestAnimationFrame(update);
     } else {
       drawStars();
@@ -533,6 +545,9 @@ window.onload = function () {
         Math.random() * cnvsWidth
       );
     }
+
+    // Ship Location array destruction
+    [shipX, shipY] = getShipLocation(angle);
 
     // Calls update function to trigger canvas animations
     update();
