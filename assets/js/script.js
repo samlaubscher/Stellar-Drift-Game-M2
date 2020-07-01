@@ -30,13 +30,8 @@ window.onload = function () {
   var shipFromCenter = centerOfY / 2;
 
   //--Applicable Object Properties----------------------------------------------------
-  // Number of objects generated on-screen at one time
-  var numberOfStars = 750;
-  var numberOfSprites = 5;
   // Unit of size manipulated in generation of objects
   var size = 1;
-  // Speed of movement of generated objects
-  var speed = 4;
   // Angle of canvas rotation for player ship object
   var angle = 0;
   var score = -100;
@@ -48,6 +43,24 @@ window.onload = function () {
   var time = null;
   // Used to control the stopping of certain animations
   var endGame = false;
+  // Responsive variables - number of objects generated on-screen at one time & speed of generated objects
+  if (cnvsWidth < 360) {
+    var numberOfStars = 650;
+    var numberOfSprites = 5;
+    var speed = 2;
+  } else if (cnvsWidth < 768) {
+    var numberOfStars = 900;
+    var numberOfSprites = 7;
+    var speed = 4;
+  } else if (cnvsWidth < 1200) {
+    var numberOfStars = 1200;
+    var numberOfSprites = 8;
+    var speed = 6;
+  } else {
+    var numberOfStars = 1500;
+    var numberOfSprites = 10;
+    var speed = 10;
+  }
 
   //--Audio Controls for background music-----------------------------------------------------------------
   const audio = document.getElementById("player");
@@ -473,10 +486,22 @@ window.onload = function () {
 
   // Increases the speed per frame
   function speedIncrease() {
-    if (score < 2500) {
+    if (score < 2500 && cnvsWidth < 600) {
+      speed += 0.003;
+    } else if (score < 2500 && cnvsWidth < 1200) {
+      speed += 0.007;
+    } else if (score < 2500) {
       speed += 0.01;
+    } else if (score < 5000 && cnvsWidth < 600) {
+      speed += 0.0005;
+    } else if (score < 5000 && cnvsWidth < 1200) {
+      speed += 0.001;
     } else if (score < 5000) {
       speed += 0.002;
+    } else if (score < 7500 && cnvsWidth < 600) {
+      speed += 0.00005;
+    } else if (score < 7500 && cnvsWidth < 1200) {
+      speed += 0.0002;
     } else if (score < 7500) {
       speed += 0.0005;
     }
