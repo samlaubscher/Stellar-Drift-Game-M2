@@ -112,7 +112,8 @@ button {
 }
 
 .reset-btn li {
-  margin: 5px 8px 0 86%;
+  right: 7px;
+  top: 7px;
   position: absolute;
 }
 
@@ -246,9 +247,6 @@ p#credit {
     font-size: clamp(4px, 3.5vw, 21px);
 }
 
-  .reset-btn li {
-    margin: 10px 8px 0 91%;
-}
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -275,10 +273,6 @@ p#credit {
   #start-btn,
   #restart-btn {
     margin: 20px;
-  }
-
-  .reset-btn li {
-    margin: 10px 8px 0 96%;
   }
 
   #reset {
