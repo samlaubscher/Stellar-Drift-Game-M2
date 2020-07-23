@@ -554,6 +554,7 @@ window.onload = function () {
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("crash-panel").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
+    document.getElementById("explosion").play();
     endGame = true;
   }
 
