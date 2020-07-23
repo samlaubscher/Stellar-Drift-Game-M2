@@ -491,9 +491,14 @@ window.onload = function () {
 
   // Draws score onto screen
   function drawScore() {
-    ctx.font = "2vw serif";
-    ctx.strokeText("SCORE:" + score, 50, 70);
-    ctx.strokeStyle = "white";
+    if (cnvsWidth <= 600) {
+      ctx.font = "2.5vw Orbitron, sans-serif";
+      ctx.strokeText("SCORE : " + score, 10, 90);
+    } else {
+      ctx.font = "1.75vw Orbitron, sans-serif";
+      ctx.strokeText("SCORE:" + score, 20, 100);
+    }
+    ctx.strokeStyle = "rgba(252, 252, 252, 0.486)";
   }
 
   // Increases the score per frame
@@ -568,7 +573,7 @@ window.onload = function () {
       window.requestAnimationFrame(update);
     } else {
       drawStars();
-      document.getElementById("output").innerHTML = score;
+      document.getElementById("score-output").innerHTML = score;
       window.requestAnimationFrame(update);
     }
   }

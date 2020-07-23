@@ -5,7 +5,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #000
+  background-color: #000;
 }
 
 #container {
@@ -108,7 +108,7 @@ button {
 }
 
 .mute-btn i {
-  color: #fff;
+  color:rgba(255, 255, 255, 0.658);
 }
 
 .reset-btn li {
@@ -180,8 +180,8 @@ button {
 #completed-panel {
   height: 60%;
   top: 20%;
-  background-color: rgba(46, 46, 46, 0.1);
-  border: 1px solid rgba(252, 252, 252, 0.2);
+  background-color: rgba(46, 46, 46, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.212);
   border-radius: 15%;
 }
 
