@@ -370,6 +370,10 @@ window.onload = function () {
       moveLeft();
     } else if (e.key === "ArrowRight" || e.key === "Right") {
       moveRight();
+    } else if (e.key === "Enter" && score < -99) { 
+      initialise_game();
+    }  else if (e.key === "Enter" && endGame) { 
+      reload();
     }
   }
 
@@ -378,7 +382,8 @@ window.onload = function () {
       e.key === "ArrowLeft" ||
       e.key === "Left" ||
       e.key === "ArrowRight" ||
-      e.key === "Right"
+      e.key === "Right" ||
+      e.key === "Enter"
     ) {
       clearInterval(time);
       document.addEventListener("keydown", keyDown);
