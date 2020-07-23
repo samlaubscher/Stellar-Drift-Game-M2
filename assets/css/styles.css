@@ -161,6 +161,23 @@ button {
   position: relative;
 }
 
+ul.github-button {
+  bottom: 7px;
+  margin: 0;
+}
+
+.github-button {
+  position: absolute;
+  padding: 0;
+  right: 7px;
+}
+
+.github-button a i {
+  color: rgba(255, 255, 255, 0.637);
+  font-size: clamp(18px, 8vw, 35px);
+}
+
+
 /* ------------------------- Panels -------------------------*/
 
 #countdown,

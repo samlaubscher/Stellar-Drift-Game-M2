@@ -497,12 +497,11 @@ window.onload = function () {
   // Draws score onto screen
   function drawScore() {
     if (cnvsWidth <= 600) {
-      ctx.font = "2.5vw Orbitron, sans-serif";
-      ctx.strokeText("SCORE : " + score, 10, 90);
+      ctx.font = "4vw Orbitron, sans-serif";
     } else {
-      ctx.font = "1.75vw Orbitron, sans-serif";
-      ctx.strokeText("SCORE:" + score, 20, 100);
+      ctx.font = "2vw Orbitron, sans-serif";
     }
+    ctx.strokeText("SCORE:" + score, 10, cnvsHeight-10);
     ctx.strokeStyle = "rgba(252, 252, 252, 0.486)";
   }
 
@@ -553,6 +552,7 @@ window.onload = function () {
   function crashScreen() {
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("crash-panel").classList.toggle("hidden");
+    document.getElementById("github").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
     document.getElementById("explosion").play();
     endGame = true;
@@ -563,6 +563,7 @@ window.onload = function () {
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("completed-panel").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
+    document.getElementById("github").classList.toggle("hidden");
     endGame = true;
   }
 
@@ -604,6 +605,7 @@ window.onload = function () {
     // Hides instructions & start game panel------------------------------------------------------------
     document.getElementById("start-panel").classList.toggle("hidden");
     document.getElementById("bottom-banner").classList.toggle("hidden");
+    document.getElementById("github").classList.toggle("hidden");
 
     for (var i = 0; i < numberOfSprites; i++) {
       // Generates new Sprite object per array iteration
