@@ -220,6 +220,7 @@ p#credit {
   #crash-panel p,
   #completed-panel p {
     font-size: clamp(11px, 1vw, 30px);
+    margin: 15px 5px;
   }
 
   #start-btn,
@@ -256,7 +257,7 @@ p#credit {
   #countdown p,
   #crash-panel p,
   #completed-panel p {
-    margin: 40px 5px;
+    margin: 30px 5px;
     font-size: clamp(12px, 2.5vw, 30px);
   }
   
