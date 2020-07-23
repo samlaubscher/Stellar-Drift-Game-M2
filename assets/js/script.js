@@ -108,17 +108,27 @@ window.onload = function () {
       } else if (score <= 3000) {
         ctx.fillStyle = "#306eff";
       } else if (score <= 4000) {
-        ctx.fillStyle = "#4b0082";
+        ctx.fillStyle = "#7609c4";
+      } else if (score <= 4500) {
+        ctx.fillStyle = "#6900b4";
       } else if (score <= 5000) {
-        ctx.fillStyle = "#0000a0";
+        ctx.fillStyle = "#0000df";
+      } else if (score <= 5500) {
+        ctx.fillStyle = "#7f00d4";
       } else if (score <= 6000) {
-        ctx.fillStyle = "#151b54";
+        ctx.fillStyle = "#132aff";
+      } else if (score <= 6500) {
+        ctx.fillStyle = "#00708b";
       } else if (score <= 7000) {
-        ctx.fillStyle = "#254117";
+        ctx.fillStyle = "#386323";
+      } else if (score <= 7500) {
+        ctx.fillStyle = "#5d794f";
       } else if (score <= 8000) {
-        ctx.fillStyle = "#786d5f";
+        ctx.fillStyle = "#769171";
+      } else if (score <= 8500) {
+        ctx.fillStyle = "#b68fb6";
       } else if (score <= 10000) {
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = "#979797";
       }
       ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
       ctx.fill();
@@ -159,14 +169,36 @@ window.onload = function () {
         xPos = xPos + s * this.randomX;
         yPos = yPos + s * this.randomY;
 
-        // Generates circular sprite shapes
+        // Generates circular sprite shapes, changing colour as points increase
         ctx.beginPath();
-        if (score <= 2500) {
+        if (score <= 2400) {
           ctx.fillStyle = "red";
-        } else if (score <= 6500) {
+        } else if (score <= 2425) {
+          ctx.fillStyle = "#d1d1d1";
+        } else if (score <= 2450) {
+          ctx.fillStyle = "red";
+        } else if (score <= 2475) {
+          ctx.fillStyle = "#d1d1d1";
+        } else if (score <= 2500) {
+          ctx.fillStyle = "red";
+        } else if (score <= 2525) {
+          ctx.fillStyle = "#d1d1d1";
+        } else if (score <= 6300) {
           ctx.fillStyle = "#e5e4e2";
-        } else if (score <= 8500) {
+        } else if (score <= 7500) {
+          ctx.fillStyle = "#d1d1d1";
+        } else if (score <= 7525) {
           ctx.fillStyle = "red";
+        } else if (score <= 7550) {
+          ctx.fillStyle = "#d1d1d1";
+        } else if (score <= 7575) {
+          ctx.fillStyle = "red";
+        } else if (score <= 7600) {
+          ctx.fillStyle = "#d1d1d1";
+        } else if (score <= 7625) {
+          ctx.fillStyle = "red";
+        } else if (score <= 7650) {
+          ctx.fillStyle = "#d1d1d1";
         } else if (score <= 10000) {
           ctx.fillStyle = "red";
         }
