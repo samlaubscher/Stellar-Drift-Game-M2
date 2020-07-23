@@ -206,7 +206,7 @@ window.onload = function () {
         ctx.fill();
 
         // Passes the x, y and z values into a function to allow access from outside of the method and class
-        collectSpriteValues(xPos, yPos);
+        collisionDetection(xPos, yPos);
       }
     }
   }
@@ -478,7 +478,7 @@ window.onload = function () {
   }
 
   // collision detection using the x and y of the sprites
-  function collectSpriteValues(x, y) {
+  function collisionDetection(x, y) {
     if (
       x - getShipLocation(angle)[0] <= 50 &&
       x - getShipLocation(angle)[0] >= -50 &&
