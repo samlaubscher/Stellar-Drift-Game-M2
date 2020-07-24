@@ -370,9 +370,9 @@ window.onload = function () {
       moveLeft();
     } else if (e.key === "ArrowRight" || e.key === "Right") {
       moveRight();
-    } else if (e.key === "Enter" && score < -99) { 
+    } else if (e.key === "Enter" && score < -99) {
       initialise_game();
-    }  else if (e.key === "Enter" && endGame) { 
+    } else if (e.key === "Enter" && endGame) {
       reload();
     }
   }
@@ -501,7 +501,7 @@ window.onload = function () {
     } else {
       ctx.font = "2vw Orbitron, sans-serif";
     }
-    ctx.strokeText("SCORE:" + score, 10, cnvsHeight-10);
+    ctx.strokeText("SCORE:" + score, 10, cnvsHeight - 10);
     ctx.strokeStyle = "rgba(252, 252, 252, 0.486)";
   }
 
