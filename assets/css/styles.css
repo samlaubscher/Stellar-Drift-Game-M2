@@ -420,7 +420,7 @@ p#credit {
     }
 }
 
-@media only screen and (max-height: 600px) and (orientation: landscape) {
+@media only screen and (max-height: 600px) and (max-width: 1200px) and (orientation: landscape) {
     .name-title {
         padding-top: 0;
     }
