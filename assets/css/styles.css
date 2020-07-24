@@ -39,13 +39,86 @@ body {
 
 /* -------------------------------- Name Title Above Game ----------------------*/
 
-h1 {
+.name-title {
+  opacity: 80%;
+}
+
+h1,
+h2 {
   text-align: center;
   margin: 0 auto;
   color: aliceblue;
   font-family: "Audiowide", sans-serif;
   font-size: clamp(20px, 6vw, 90px);
   padding-top: 30px;
+  position: absolute;
+  width: 100%;
+}
+
+.text-layer-1 {
+  padding-top: 29px;
+  color: rgb(0, 0, 0);
+  font-size: clamp(20px, 6vw, 91px);
+}
+
+.text-layer-2 {
+  padding-top: 18px;
+  color: rgba(73, 53, 255, 0.226);
+  font-size: clamp(20px, 6vw, 92px);
+}
+
+.text-layer-3 {
+  padding-top: 24px;
+  color: rgba(255, 255, 255, 0.103);
+  font-size: clamp(20px, 6vw, 91px);
+}
+
+.text-layer-4 {
+  padding-top: 29px;
+  color: rgb(255 255 255 / 76%);
+  font-size: clamp(20px, 6vw, 90px);
+}
+
+.text-layer-5 {
+  padding-top: 37px;
+  padding-right: 0.3%;
+  color: rgb(255 255 255 / 100%);
+  font-size: clamp(20px, 6vw, 90px);
+}
+
+.text-layer-6 {
+  
+  padding-right: 0.3%;
+  padding-top: 30px;
+  color: rgb(255 255 255 / 100%);
+  font-size: clamp(20px, 6vw, 90px);
+}
+
+.text-layer-7 {
+  padding-left: 0.3%;
+  padding-top: 37px;
+  color: rgb(255 255 255 / 100%);
+  font-size: clamp(20px, 6vw, 90px);
+}
+
+.text-layer-8 {
+  padding-left: 0.3%;
+  padding-top: 29px;
+  color: rgb(255 255 255 / 95%);
+  font-size: clamp(20px, 6vw, 90px);
+}
+
+.text-layer-9 {
+  padding-top: 22px;
+  color: rgba(73, 53, 255, 0.164);
+  font-size: clamp(20px, 6vw, 94px);
+}
+
+.text-layer-10 {
+  padding-left: 0.3%;
+  padding-top: 10px;
+  color: rgba(73, 53, 255, 0.137);
+  font-size: clamp(20px, 6vw, 97px);
 }
 
 /* -------------------------------- Buttons ----------------------*/
@@ -176,7 +249,6 @@ ul.github-button {
   color: rgba(255, 255, 255, 0.637);
   font-size: clamp(18px, 8vw, 35px);
 }
-
 
 /* ------------------------- Panels -------------------------*/
 
