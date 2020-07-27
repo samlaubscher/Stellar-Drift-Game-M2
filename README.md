@@ -53,29 +53,23 @@ Circular star shapes are individually rendered to the canvas using an array of S
 
 ![Img](star-array.JPG)
 
-The Star class contains two methods - *moveStar* and *showStar* which are both called on the object each frame to create movement. This array itteration takes place when drawStars() is called.
-
-![Img](stararray2.JPG)
-
-
+The Star class contains two methods - *moveStar()* and *showStar()*, which are both called on the object each frame using the *drawStars()* function. The mathmatical equations that are contained inside these methods create the logic of movement and can be best explained if briefly broken down and demonstrated frame by frame. 
 
 ![Img](star1.JPG)
 
+Example - (canvas width 1200px, height 700px)
 
+ *starsArray[i] = new Star(Math.random() * cnvsWidth,[...]*
 
-The mathmatical equasions that are contained inside these methods create the logic of movement and can be best explained if briefly broken down and demonstrated. 
+*this.x = (Math.random() * cnvsWidth)* `0.2921 x 1200px = 350.52`
+
+*this.y = (Math.random() * cnvsHeight)* `0.6397 x 700px = 447.79`
+
+*this.z = (Math.random() * cnvsWidth)* `0.3647 x 1200px = 437.64`
 
 *moveStar* takes the z value and decreases it by the value of *speed* once. 
 
-Example - (canvas width 1200px)
-
-this.z = (Math.random() * cnvsWidth) `0.3647 x 1200px = 437.64`
-
 *speed = 10* `437.64 - 10 = 427.64`
-
-this.x = (Math.random() * cnvsWidth) `0.2921 x 1200px = 350.52`
-
-
 
 Within the *showStar* method, *xPos* takes the previously generated value of the *x* property and subtracts half of the screen width from this number - the canvas width is divided by the value of the *z* property, and this first result is then multiplied by the second result.
 
@@ -83,14 +77,49 @@ Within the *showStar* method, *xPos* takes the previously generated value of the
 
 `xPos = (350.52 - 600) * (1200 / 427.64) = -700.0408`
 
-The 0 center mark is then translated to the center of the x-axis by adding half of the canvas width to any resulting xPos value, allowing the stars to have both positive and negative position values on the canvas.
+*let yPos = (this.y - centerOfY) * (cnvsLength / this.z);*
 
-*xPos = xPos + centerOfY;*
+`yPos = (447.79 - 350) * (1200 / 427.64) = 274.39874`
+
+The 0 center mark is then translated to the center of the x-axis by adding half of the canvas width to any resulting *xPos* value, allowing the stars to have both positive and negative position values visible on the canvas.
+
+*xPos = xPos + centerOfX;*
 
 `xPos = -700.0408 + 600 = -100.0408`
 
+*yPos = yPos + centerOfY;*
+
+`yPos = 274.3987 + 350 = 624.3987`
+
+The s variable is then declared with the value of *size* multiplied by the result of canvas length divided by the z property. 
+
+*let s = size * (cnvsLength / this.z);*
+
+`s = 1 * (1200 / 427.64) = 2.8060`
+
+These new *xPos* , *yPos* and *s* values are then used as the x y and radius parameters to render a circle using the arc() drawing method. We now have a visible star object positioned randomly on the canvas with these values:- 
+
+*xPos = -100.0408, yPos = 624.3987, s = 2.8060*
+
+`ctx.beginPath(); ctx.fillStyle = "#"; ctx.arc(xPos, yPos, s, 0, Math.PI * 2); ctx.fill(); }`
+
+Each *starsArray[i]* index of the array should now contain a Star object that followed the same logic and has random x,y and s values. This means that if the number of stars was set to 1,000, there will now be exactly 1,000 array instances containing randomly positioned star objects visibly generated across the canvas on this frame. 
+
+When the *update()* function is then called on the next frame, *drawStars()* is the first function triggered which first clears the entire canvas of all visible objects by filling it with a blank background colour (#000), and then rerenders everything by fresh, calling *.showStar()* and *.moveStar()* methods on each of the *starsArray[i]* index objects. 
+
+![Img](drawstars.JPG)
 
 
+
+
+
+
+
+
+
+
+--------------------------- 
+need tofdsfdsfsdfsdfsdfsdf
 
  An if statement handles when the value
 
