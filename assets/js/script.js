@@ -73,9 +73,9 @@ window.onload = function () {
     }
 
     moveStar() {
-      // Each tick minuses the z position based on speed so they move towards screen at a constant speed
+      // Each tick minuses the z position based on speed
       this.z = this.z - speed;
-      // If object reaches the end of canvas this resets it to the back creating a loop
+      // If object reaches the top of canvas z index (0) this resets z value to the very back of canvas
       if (this.z <= 0) {
         this.z = cnvsWidth;
         // Ensures Stars generate in a different position each time they are rerendered
@@ -567,6 +567,7 @@ window.onload = function () {
   // Defines what happens when update is called at bottom
   function update() {
     if (!endGame) {
+      window.requestAnimationFrame(update);
       drawStars();
       drawSprites();
       drawPlayerShip();
@@ -574,11 +575,10 @@ window.onload = function () {
       speedIncrease();
       scoreIncrease();
       countdown();
-      window.requestAnimationFrame(update);
     } else {
+      window.requestAnimationFrame(update);
       drawStars();
       document.getElementById("score-output").innerHTML = score;
-      window.requestAnimationFrame(update);
     }
   }
 

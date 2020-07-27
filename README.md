@@ -8,7 +8,7 @@
 
 #### An interactive and challenging 3D space themed mini game, built using vanilla javascript!
 
-This project is a responsive and dynamic front end website, demonstrating an ability to effectively impliment the use of multiple programming languages.
+This project is a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages.
 
 ##### This project will be submitted for my Interactive Frontend Development project on my Full Stack Software Development course. 
 </div>
@@ -31,23 +31,94 @@ This project is a responsive and dynamic front end website, demonstrating an abi
     * Acknowledgements
 
 ## UX
-Stellar Drift is a browser-based mini game with a 3D space themed design. The game sees the player travelling forwards through an asteroid field at a constantly increasing speed, the user needs to control the ship and avoid the path of oncoming asteroids.
+Stellar Drift is a space themed browser-based mini game where the player is speeding through an asteroid field at a constantly increasing speed meaning the user must guide the ship to avoid the path of oncoming asteroids. The 3D design of the game creates the perspective that the player is moving forwards through space towards the center of the screen and all the stars as they grow closer, growing in size and speed the further out from the center appears to pass the player. 
 
+
+"The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 ### Who is the website for? 
 
 what they want to do
+
+
 wireframes etc for design process
  
 
-
 ## Features 
-go over each feature and describe in sentence or two
-## Existing Features
-- feature 1 - 
+### Canvas API graphics animation
+The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with *window.requestAnimationFrame(update)*. This update function calls other specific functions containing logical algorhythms which are mostly designed to change certain parameters of the content that the function may render each frame.
+
+### Animated star background
+Circular star shapes are individually rendered to the canvas using an array of Star class objects. Using a for loop, the required number of these array indexes are generated, each iteration instanciating a new Star class object, passing in unique x, y and z constructor arguments of *(Math.random() * canvas.width or height)*. 
+
+![Img](star-array.JPG)
+
+The Star class contains two methods - *moveStar* and *showStar* which are both called on the object each frame to create movement. This array itteration takes place when drawStars() is called.
+
+![Img](stararray2.JPG)
+
+
+
+![Img](star1.JPG)
+
+
+
+The mathmatical equasions that are contained inside these methods create the logic of movement and can be best explained if briefly broken down and demonstrated. 
+
+*moveStar* takes the z value and decreases it by the value of *speed* once. 
+
+Example - (canvas width 1200px)
+
+this.z = (Math.random() * cnvsWidth) `0.3647 x 1200px = 437.64`
+
+*speed = 10* `437.64 - 10 = 427.64`
+
+this.x = (Math.random() * cnvsWidth) `0.2921 x 1200px = 350.52`
+
+
+
+Within the *showStar* method, *xPos* takes the previously generated value of the *x* property and subtracts half of the screen width from this number - the canvas width is divided by the value of the *z* property, and this first result is then multiplied by the second result.
+
+*let xPos = (this.x - centerOfX) * (cnvsLength / this.z);*
+
+`xPos = (350.52 - 600) * (1200 / 427.64) = -700.0408`
+
+The 0 center mark is then translated to the center of the x-axis by adding half of the canvas width to any resulting xPos value, allowing the stars to have both positive and negative position values on the canvas.
+
+*xPos = xPos + centerOfY;*
+
+`xPos = -700.0408 + 600 = -100.0408`
+
+
+
+
+ An if statement handles when the value
+
+The Star class takes three arguments for x, y and z values
+
+### Animated asteroid sprites
+* Player ship movement
+* Player ship controls
+* Collision detection
+* Start screen
+* Start game button
+* Crash screen
+* Completed screen
+* Mute audio button
+* Reset button 
+* Github social icon
+* Score counter
+* Speed increase
+* Colour changing
+* Theme music
+* Sound effect
 
 ## Features Left to Impliment
-- another feature idea
+* Display score history
+* Leaderboard with player name input
+* Stop the background music from restarting when the game is restarted
+* Better colour transitions
+* Tighter collision detection
 
 ## Technologies Used
 mention the tools used - provide link
