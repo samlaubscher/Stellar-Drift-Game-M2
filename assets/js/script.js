@@ -4,6 +4,7 @@ window.onload = function () {
   document.getElementById("completed-panel").classList.toggle("hidden"); // hides the crash screen
   document.getElementById("bottom-banner").classList.toggle("hidden");
   window.addEventListener("resize", reload, false); // restarts the function on resize
+  document.getElementById("mute").addEventListener("click", toggleMute);
   // Reloads page when game restarted / reset button pressed
   document.getElementById("reset").addEventListener("click", reload);
   // Launches animations when Start Game button pressed
@@ -61,11 +62,6 @@ window.onload = function () {
     var numberOfSprites = 10;
     var speed = 10;
   }
-
-  //--Audio Controls for background music-----------------------------------------------------------------
-  const audio = document.getElementById("player");
-  player.controls = false;
-  document.getElementById("mute").addEventListener("click", toggleMute);
 
   //--Class Definitions--------------------------------------------------------------------------------------------
   // Background Stars---------------------------------------
@@ -234,6 +230,7 @@ window.onload = function () {
   // Toggle the mute audio feature on-screen
   function toggleMute() {
     player.muted = !player.muted;
+    explosion.muted = !explosion.muted;
     document.getElementById("i-muted").classList.toggle("hidden");
     document.getElementById("i-not-muted").classList.toggle("hidden");
   }
