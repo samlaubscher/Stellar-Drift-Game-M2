@@ -1,12 +1,45 @@
-# Stellar Drift Mini Game
-![Imgur](https://i.imgur.com/8H9K5Ht.mp4)
+# Stellar Drift | Mini Game
 
-A browser based mini game developed using Javascript. The aim is to avoid the sprites
+<div align="center">
+
+![Stellar Drift Logo](https://i.imgur.com/RLQC3xw.gif "Game Logo")
+
+[View the deployment here](https://samlaubscher.github.io/Stellar-Drift-Game-M2/)
+
+#### An interactive and challenging 3D space themed mini game, built using vanilla javascript!
+
+This project is a responsive and dynamic front end website, demonstrating an ability to effectively impliment the use of multiple programming languages.
+
+##### This project will be submitted for my Interactive Frontend Development project on my Full Stack Software Development course. 
+</div>
+
+## Table of Contents
+* UX 
+    * 1
+
+* Features
+
+* Technologies Used 
+
+* Testing 
+
+* Deployment 
+
+* Credits
+    * Contents and code
+    * Media 
+    * Acknowledgements
+
 ## UX
-who its for 
-what they want to do 
+Stellar Drift is a browser-based mini game with a 3D space themed design. The game sees the player travelling forwards through an asteroid field at a constantly increasing speed, the user needs to control the ship and avoid the path of oncoming asteroids.
+
+
+### Who is the website for? 
+
+what they want to do
 wireframes etc for design process
  
+
 
 ## Features 
 go over each feature and describe in sentence or two
