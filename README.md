@@ -86,9 +86,7 @@ class Star {
       this.x = x;
       this.y = y;
       this.z = z;
-    }
-
-    [...]
+    } [...]
   ```
 
 In the `showStar()` method, focusing on `xPos`, it takes the value of `this.x` and subtracts half of the screen width `(this.x - centerOfX)`, this allows the value to have an equal potential of being negative or positive. 
@@ -134,7 +132,7 @@ moveStar() {
 Due to both x and y axes being centered in the middle, values moving in positive or negative incrimentations are all displayed as travelling outwards from the center of the screen in any given direction.
 
 ### **Animated asteroid sprites**
-Asteroid sprites are also rendered to the canvas using an array of `Sprite` class objects. This `spritesArray[]` works the same way as the `starsArray[]` by instanciating each index with a new `Sprite` object, and calling two additional methods on these indexes using a `drawSprites()` function. However, the `Sprite` class contains different code which allows it to behave seperately from the `Star` objects. The constructor method contains additional properties of `this.randomX` and `this.randomY` with the values of `notZeroRange(-10, 10)`.
+Asteroid sprites are also rendered to the canvas using an array of `Sprite` class objects. This `spritesArray[]` works the same way as the `starsArray[]` by instanciating each index with a new `Sprite` object, and calling two additional methods on these indexes using a `drawSprites()` function. However, the `Sprite` class contains different code which allows it to behave seperately from the `Star` objects. Each array object is initialised with the `x` and `y` coordinates in the center of the canvas, as well as the constructor method containing additional properties of `this.randomX` and `this.randomY` with the values of `notZeroRange(-10, 10)`.
 
 ```
 class Sprite {
@@ -146,7 +144,7 @@ class Sprite {
       this.randomY = notZeroRange(-10, 10);
     } [...]
 ```
- The global function `notZeroRange()` allows a random value to be generated within the range of -10 and 10, none inclusive of anything between -1.75 and 1.75. It is used here so that the `Sprite` objects can only render within this small ranged ring around the center of the screen, avoiding 0 which causes sprites to hit the center and fill the entire screen suddenly.
+ The global function `notZeroRange()` allows a random value to be generated within the range of -10 and 10, none inclusive of anything between -1.75 and 1.75. Its use here means the `Sprite` object can only render within this small ranged ring around the center of the screen, avoiding 0 which causes sprites to hit the center and fill the entire screen suddenly. This creates a type of visual tunnel that the sprites can travel down.
 
 ```
   function getRandom(min, max) {
@@ -161,8 +159,7 @@ class Sprite {
     }
   }
 ```
-
-
+The `moveSprite()` method remains the same, except the `speed` has been halved and there are fresh `notZeroRange()` values called each time the `z` index resets for a new `Sprite` to be generated. The `speed` has been halved so that the background remains more engaging whilst the sprites are not too fast for the player. 
 
 ``` 
     [...]
@@ -176,6 +173,10 @@ class Sprite {
       }
     } [...]
 ```
+Within the `showSprite()` method, the movement is implimented differently through the use of `s` which is abbreviated for size or radius. `xPos` and `yPos` are set to the center of the canvas, and the `s` variable initially holds the only value that changes due to the use of `this.z`. When `s` is added to the `xPos` and `yPos`, that value is then multiplied by `this.randomX` or `this.randomY` which is one of these uniquely random generated values between -10 and 10 excluding -1.75-1.75. This means the incrimentations of each `xPos` and `yPos` values happen smoothly on a curve, and movement occurs within this much more limited range. Size ultimately governs the speed and movement of the `Sprite` objects, they can grow much larger than `Stars`, and as they expand they rapidly increase in speed and suddenly move very quickly away from the center and off the screen. This makes it look like the player is travelling much closer to the `Sprites` than the `Stars`.
+
+At the bottom of the `showSprite()` method sits the invocation of the `collisionDetection()` function, directly passing in the arguments of `xPos` and `yPos` as to allow these parameter values to be used outside of the class scope and inside the `collisionDetection()` function.
+
 ```
     [...]
 
@@ -199,20 +200,66 @@ class Sprite {
 }}}
 ```
 
-
-
-
-
-
-
-
-
 ### **Player ship movement**
+The player ship is created using a combination of circular and triangular shapes rendered onto the canvas using the `arc()` and `lineTo()` methods. These shapes are rotated around the center of the canvas using `translate()` and `rotate()` methods.
+
+First the entire state of the canvas is saved using the `save()` method. Next the `translate(centerOfX, centerOfY)` method is called which moves the canvas and its origin to the center of the screen. The `rotate()` method is then used with the argument of `convertToRadians(angle)`, meaning `angle` will correlate to the amount of rotation around this center point.
+
+The shapes are then rendered onto the canvas using its new origin point. The ship would be located in the top left hand corner of the screen without this `translate()` method due to the parameter values of `x1 = 0` for example. Each of the `y` values include `centerOfY / 2`, used to drop the ship into the lower quarter of the screen, allowing for a perfect ship rotation around this bottom quarter ring once translation transformation has taken place.
+
+Once all player ship shapes have been rendered, we dont want any other canvas content to be manipulated by this transformation, so the `restore()` method must be used to bring the canvas state back to how it was originally when `save()` was called. This is the same as effectively reversing the transformation methods and calling `translate()` and `rotate()` with the opposite values each time to revert it to its original state, however `restore()` is a much simpler, and more precise method to achieve this.
+
+```
+function drawPlayerShip() {
+    x1 = 0;
+    y1 = 0 + centerOfY / 2;
+    x2 = 50;
+    y2 = 0 + centerOfY / 2 + 30;
+    x3 = -50;
+    y3 = 0 + centerOfY / 2 + 30;
+    s = 14;
+
+    ctx.save();
+    ctx.translate(centerOfX, centerOfY);
+    ctx.rotate(convertToRadians(angle));
+
+    // Under Glow
+    ctx.beginPath();
+    ctx.fillStyle = "Violet";
+    ctx.moveTo(x1, y1 - 1);
+    ctx.lineTo(x2 + 5, y2 + 5);
+    ctx.lineTo(x3 - 5, y3 + 5);
+    ctx.fill();
+
+    // small engine light right
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.arc(x1 + 38, y2 - 3, s / 2, 0, Math.PI * 1);
+    ctx.fill();
+    
+    [...]
+
+    ctx.restore();
+  }
+```
 
 ### **Player ship controls**
+The player ship can be rotated around the screen using left and right arrow buttons via `keydown` and `keyup` event listeners on computer, or touching the left and right halves of the screen on mobile and tablet devices with `touchstart` and `touchend` event listeners.
 
+The rotation is achieved by increasing the value of the global variable `angle`. This is used in the `rotation(convertToRadians(angle))` method to control the canvas rotation as explained in ###Player ship movement. When the angle increases above 360, it resets to 0. `setInterval()` is used to remove the delay in movement after initial keydown which would stop the player having instant sustained movement. This also enables the function to be called 100 times a second which allows the ship to move smoothly at a much higher speed.
 
---------------------------- 
+```
+function moveLeft() {
+    time = setInterval(function () {
+      angle += 2;
+      if (angle > 360) {
+        angle = 0;
+      }
+    }, 10);
+  }
+```
+
+### **Collision detection**
 
 
 
