@@ -218,7 +218,7 @@ window.onload = function () {
     return Math.random() * (max - min) + min;
   }
 
-  // Returns a number avoiding zero by never being between -1 and 1
+  // Returns a number avoiding zero by never being between -1.75 and 1.75
   function notZeroRange(min, max) {
     if (getRandom(0, 1) > 0.5) {
       return getRandom(min, -1.75);
