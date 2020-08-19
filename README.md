@@ -264,7 +264,12 @@ In order to detect the collision of both the `playerShip()` and `Sprite` objects
 
 I wanted to create an array to store the data for each of the X and Y positions of the ship, then matched them against the coordinates of each of the sprites per frame. I undertook an enourmous job of trying to manually create all of these postions, physically using paper graphs and plotting each of the points along the axes, then doing the maths to create a canvas circle shape along these points on screen. Below are some of my workings.
 
+<div align="center">
+
+![img](20200819_172604.jpg)
+![img](20200819_172619.jpg)
 ![img](rotation-plotting.JPG)
+</div>
 
 I began to write function that stores and returns an array of each of the numbers associated with the corresponding angle.
 
@@ -299,11 +304,11 @@ When dealing with the ship moving to the right, the value of `angle` becomes neg
     }
   }
 ```
-The `getAllPossibleShipLocations()` function outputs the value of `shipLocations[]`, containing both the x and y coordinates in each array itteration from 0 - 360. `getShipLocation(angle)` then takes the input of angle and calls the array itteration associated with that value of angle.
+The `getAllPossibleShipLocations()` function outputs the value of `shipLocations[]`, containing both the X and Y coordinates in each array itteration from 0 - 360. `getShipLocation(angle)` then takes the input of angle and calls the array itteration associated with that value of angle.
 
 First I needed to create an algorythm that would perform the operations used in this plotting `ctx.arc(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter), s, 0, Math.PI*2)`. 
 
-Returning the `Math.cos()` and `Math.sin()` values from the `getXShipValue()` and `getXShipValue()` functions allows the values to remain positive.
+Returning the `Math.cos()` and `Math.sin()` values from the `getXShipValue()` and `getYShipValue()` functions allows the values to remain positive.
 ```
   function getAllPossibleShipLocations() {
     let shipLocations = {};
@@ -339,7 +344,7 @@ The maths is then performed on the values based on my plotting - `(centerOfX + (
       return centerOfY + shipValue;
     } [...]
 ```
-A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `shipLocations[]` with the corresponding array index. When `getAllPossibleShipLocations()` is then called, it is returning `shipLocations`.
+A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `shipLocations[]` with the corresponding array index. When `getAllPossibleShipLocations()[i]` is then called, it is returning `shipLocations[i]`.
 ```
     [...]
 
@@ -350,7 +355,7 @@ A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `sh
     return shipLocations;
   }
 ```
-`getShipLocation(angle)` takes in `angle`, processes it through `getActualAngle(angle)` to make sure it is postive and the correct value, and then assigns it to `actualAngle` as a string. This string is then used as the array index for returning `getAllPossibleShipLocations()[i]` when `getShipLocation(angle)[]` is called in the collision detection function.
+`getShipLocation(angle)` takes in `angle`, processes it through another instance of the `getActualAngle()` function to make sure it is postive and the correct value as explained before, and then assigns it to `actualAngle` as a string. This string is then used as the array index for returning `getAllPossibleShipLocations()[i]` when `getShipLocation(angle)[i]` is called in the collision detection function next.
 ```
   function getShipLocation(angle) {
     function getActualAngle(angle) {
@@ -360,9 +365,10 @@ A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `sh
     return getAllPossibleShipLocations()[actualAngle];
   }
   ```
-The `collisionDetection(xPos, yPos)` function was called in the `showSprite()` method of the `Sprite` class. It takes in the arguments of `xPos` and `yPos` which are the `Sprite` objects X and Y positions. These can now be compared with the array values and are
+The `collisionDetection(xPos, yPos)` function was called in the `showSprite()` method of the `Sprite` class. It takes in the arguments of `xPos` and `yPos` which are each of the `Sprite` objects X and Y positions on the canvas per frame. If `playerShip()` occupies the exact same X and Y coordinates as a `Sprite`, subtracting the `xPos` and `yPos` values from both array items `getShipLocation(angle)[0]` and `getShipLocation(angle)[1]` will result in 0. 
 
-I gave the range of 100 on each axis due to the values of xPos and yPos jumping in large incrimentations
+The code unfortunately is not accurate enough to use this method without a range, the reason for this is due to the speed of the `Sprite` objects as they reach the outer path of rotation. They have grown so much in size that they can move in steps of up to 60px per frame, therefore a range of 100px has been given to allow for a more reliable detection rate.
+
   ```
   function collisionDetection(x, y) {
     if (
@@ -378,19 +384,18 @@ I gave the range of 100 on each axis due to the values of xPos and yPos jumping 
 
 ### Start Screen
 
+### Start game button
 
-* Start screen
-* Start game button
-* Crash screen
-* Completed screen
-* Mute audio button
-* Reset button 
-* Github social icon
-* Score counter
-* Speed increase
-* Colour changing
-* Theme music
-* Sound effect
+### Crash screen
+### Completed screen
+### Mute audio button
+### Reset button 
+### Github social icon
+### Score counter
+### Speed increase
+### Colour changing
+### Theme music
+### Sound effect
 
 ## Features Left to Impliment
 * Display score history
