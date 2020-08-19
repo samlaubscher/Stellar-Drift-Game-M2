@@ -210,7 +210,7 @@ The shapes are then rendered onto the canvas using its new origin point. The shi
 Once all player ship shapes have been rendered, we dont want any other canvas content to be manipulated by this transformation, so the `restore()` method must be used to bring the canvas state back to how it was originally when `save()` was called. This is the same as effectively reversing the transformation methods and calling `translate()` and `rotate()` with the opposite values each time to revert it to its original state, however `restore()` is a much simpler, and more precise method to achieve this.
 
 ```
-function drawPlayerShip() {
+function playerShip() {
     x1 = 0;
     y1 = 0 + centerOfY / 2;
     x2 = 50;
@@ -260,12 +260,125 @@ function moveLeft() {
 ```
 
 ### **Collision detection**
+In order to detect the collision of both the `playerShip()` and `Sprite` objects, I first had to generate the correct canvas position values for the `playerShip()`. The use of transformation methods `translate()` and `rotate()` in the rendering of `playerShip()` meant that it followed its own X and Y coordinates seperate from any other canvas content. 
+
+I wanted to create an array to store the data for each of the X and Y positions of the ship, then matched them against the coordinates of each of the sprites per frame. I undertook an enourmous job of trying to manually create all of these postions, physically using paper graphs and plotting each of the points along the axes, then doing the maths to create a canvas circle shape along these points on screen. Below are some of my workings.
+
+![img](rotation-plotting.JPG)
+
+I began to write function that stores and returns an array of each of the numbers associated with the corresponding angle.
+
+```
+function getAngleNumber(angle) {
+    if (angle == 0 || angle == 90 || angle == 180 || angle == 270) {
+      return [1.0, 0.0];
+    } else if (angle == 6 || angle == 96 || angle == 186 || angle == 276) {
+      return [0.1, 0.99];
+    [...]
+```
+But then quickly realised that this was a very innefficient, and innacurate way of achieving this. Thats when I discovered that I could use `Math.cos()` and `Math.sin()` together to quickly and extremely accurately generate all of these values for me.
+
+```
+function getAngleNumber(angle) {
+    const angleInRadians = (angle * Math.PI) / 180;
+    return [Math.cos(angleInRadians), Math.sin(angleInRadians)];
+  }
+```
+When dealing with the ship moving to the right, the value of `angle` becomes negative, and resets to 0 when it passes -360. In order to always return a positive value, and that the 0 mark was correct with the rotation of the ship, I created the `getActualAngle()` function with the argument of `angle`.
+
+```
+  function getActualAngle(angle) {
+    if (angle >= 0 && angle < 270) {
+      return angle + 90;
+    } else if (angle >= 270) {
+      return angle - 270;
+    } else if (angle >= -90 && angle < 0) {
+      return 360 + angle - 270;
+    } else {
+      return 360 + angle;
+    }
+  }
+```
+The `getAllPossibleShipLocations()` function outputs the value of `shipLocations[]`, containing both the x and y coordinates in each array itteration from 0 - 360. `getShipLocation(angle)` then takes the input of angle and calls the array itteration associated with that value of angle.
+
+First I needed to create an algorythm that would perform the operations used in this plotting `ctx.arc(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter), s, 0, Math.PI*2)`. 
+
+Returning the `Math.cos()` and `Math.sin()` values from the `getXShipValue()` and `getXShipValue()` functions allows the values to remain positive.
+```
+  function getAllPossibleShipLocations() {
+    let shipLocations = {};
+    function getXShipValue(angle) {
+      let actualAngle = getActualAngle(angle);
+      if (actualAngle >= 0 && actualAngle <= 360) {
+        return getAngleNumber(angle)[0];
+      } else {
+        return -getAngleNumber(angle)[0];
+      }
+    }
+    
+    function getYShipValue(angle) {
+      let actualAngle = getActualAngle(angle);
+      if (actualAngle >= 0 && actualAngle <= 360) {
+        return getAngleNumber(angle)[1];
+      } else {
+        return -getAngleNumber(angle)[1];
+      }
+    } [...]
+```
+The maths is then performed on the values based on my plotting - `(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter)`. 
+```
+    [...]
+
+    function generateX(angle) {
+      let shipValue = getXShipValue(angle) * shipFromCenter;
+      return centerOfX + shipValue;
+    }
+
+    function generateY(angle) {
+      let shipValue = getYShipValue(angle) * shipFromCenter;
+      return centerOfY + shipValue;
+    } [...]
+```
+A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `shipLocations[]` with the corresponding array index. When `getAllPossibleShipLocations()` is then called, it is returning `shipLocations`.
+```
+    [...]
+
+    for (i = 0; i < 360; i++) {
+      let angleKey = i.toString();
+      shipLocations[angleKey] = [generateX(i), generateY(i)];
+    }
+    return shipLocations;
+  }
+```
+`getShipLocation(angle)` takes in `angle`, processes it through `getActualAngle(angle)` to make sure it is postive and the correct value, and then assigns it to `actualAngle` as a string. This string is then used as the array index for returning `getAllPossibleShipLocations()[i]` when `getShipLocation(angle)[]` is called in the collision detection function.
+```
+  function getShipLocation(angle) {
+    function getActualAngle(angle) {
+      [....]
+    }
+    let actualAngle = getActualAngle(angle).toString();
+    return getAllPossibleShipLocations()[actualAngle];
+  }
+  ```
+The `collisionDetection(xPos, yPos)` function was called in the `showSprite()` method of the `Sprite` class. It takes in the arguments of `xPos` and `yPos` which are the `Sprite` objects X and Y positions. These can now be compared with the array values and are
+
+I gave the range of 100 on each axis due to the values of xPos and yPos jumping in large incrimentations
+  ```
+  function collisionDetection(x, y) {
+    if (
+      x - getShipLocation(angle)[0] <= 50 &&
+      x - getShipLocation(angle)[0] >= -50 &&
+      y - getShipLocation(angle)[1] <= 50 &&
+      y - getShipLocation(angle)[1] >= -50
+    ) {
+      crashScreen();
+    }
+  }
+```
+
+### Start Screen
 
 
-
-
-
-* Collision detection
 * Start screen
 * Start game button
 * Crash screen

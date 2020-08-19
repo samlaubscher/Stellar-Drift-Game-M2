@@ -39,7 +39,6 @@ window.onload = function () {
   // Arrays to store object instances
   var starsArray = [];
   var spritesArray = [];
-  var shipX, shipY;
   // Time measurement used for ship direction funtionality
   var time = null;
   // Used to control the stopping of certain animations
@@ -265,7 +264,7 @@ window.onload = function () {
   }
 
   //--Player spaceship functionality & properties ------------------------------------------------------------
-  function drawPlayerShip() {
+  function playerShip() {
     x1 = 0;
     y1 = 0 + centerOfY / 2;
     x2 = 50;
@@ -570,7 +569,7 @@ window.onload = function () {
       window.requestAnimationFrame(update);
       drawStars();
       drawSprites();
-      drawPlayerShip();
+      playerShip();
       drawScore();
       speedIncrease();
       scoreIncrease();
@@ -612,9 +611,6 @@ window.onload = function () {
         Math.random() * cnvsWidth
       );
     }
-
-    // Ship Location array destruction
-    [shipX, shipY] = getShipLocation(angle);
 
     // Calls update function to trigger canvas animations
     update();
