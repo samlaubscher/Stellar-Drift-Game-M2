@@ -385,6 +385,8 @@ The code unfortunately is not accurate enough to use this method without a range
 ### Start Screen
 
 ![img](start-screen.JPG)
+![img](start-screen-mobile.JPG)
+![img](start-screen-ipad.JPG)
 
 ### Start game button
 

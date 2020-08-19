@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="favicon.png">
+    <!---------------Google Fonts Link - text fonts--------------------------------->
     <link
-        href="https://fonts.googleapis.com/css?family=Audiowide|Oxanium:wght@300;500;700|Orbitron|Press+Start+2P&display=swap"
+        href="https://fonts.googleapis.com/css?family=Audiowide|Oxanium:wght@300;500;700|Orbitron&display=swap"
         rel="stylesheet">
+    <!---------------Font Awesome Link - used for icons--------------------------------->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         type="text/css" />
+    <!---------------Stylesheet Link--------------------------------->
     <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
     <title>Stellar Drift Game</title>
 </head>
 
 <body>
-    <div id="container">
-
-        <!------------------------------------------------Floating Banners Above Canvas------------------------->
-        <div class="top-banner">
-            <!--------------------------Name Title Above Game-------->
+    <article id="container">
+        <!--------------Floating Banners Above Canvas------------------------->
+        <section class="top-banner">
+            <!----------Name Title Above Game-------->
             <div class="name-title">
                 <h1>STELLAR DRIFT</h1>
                 <h2 class="text-layer-8">STELLAR DRIFT</h2>
@@ -34,9 +36,12 @@
                 <h2 class="text-layer-3">STELLAR DRIFT</h2>
                 <h2 class="text-layer-1">STELLAR DRIFT</h2>
             </div>
-            <!------------------------Audio------------------------>
+            <!-----------------Audio---------------------------------------->
+            <!-----------Background Music--->
             <audio id="player" src="space-track.mp3" autoplay="autoplay" loop></audio>
+            <!-----------Player Crash--->
             <audio id="explosion" src="Explosion.mp3"></audio>
+            <!-----------Mute Button--->
             <ul class="mute-btn">
                 <li>
                     <button id="mute">
@@ -45,77 +50,87 @@
                     </button>
                 </li>
             </ul>
-            <!------------------------Reset Button------------------>
+            <!------------------------Reset Button------------------------>
             <ul class="reset-btn">
                 <li>
                     <button id="reset">Reset</button>
                 </li>
             </ul>
-        </div>
-        <!--------------------------Start Game Panel ---------------->
-        <div id="start-panel">
-
+        </section>
+        <!--------------------------Start Game Panel --------------------->
+        <section id="start-panel">
+            <!------Instructions----->
             <p>INSTRUCTIONS:<br>Avoid the oncoming asteroids to reach the top score of 10,000!<br>As your score
                 increases, so will the speed.. Are your reflexes quick enough to reach the end?<br></p>
+            <!------Controls------>
             <p>CONTROLS:<br>MOBILE: Touch the left and right sides of the screen to move the ship.<br>COMPUTER: Use the
                 left and right arrow keys to move. Press Enter to start the game.</p>
+            <!------Start Button----->
             <button id="start-btn">Start Game</button>
+            <!------Game Credits----->
             <p id="credit">Game & Music created by Sam Laubscher</p>
-        </div>
-
-        <div id="crash-panel">
-
+        </section>
+        <!--------------------------Crash Panel ------------------------->
+        <section id="crash-panel">
+            <!------Display Message----->
             <p>YOU CRASHED - UNLUCKY!<br></p>
+            <!------Score Output Display----->
             <p>YOUR SCORE:</p>
             <p id="score-output"></p>
             <p>See if anyone can beat your score! Hit enter to restart</p>
+            <!------Restart Button----->
             <button id="restart-btn">Restart Game</button>
+            <!------Game Credits----->
             <p id="credit">Game & Music created by Sam Laubscher</p>
-        </div>
-
+        </section>
+        <!----------------------Countdown Timer Overlay------------------>
         <div id="countdown">
             <p id="countdowntimer"></p>
         </div>
-
-        <div id="completed-panel">
-
-            <p>YOU WON!<br>
-            </p>
+        <!--------------------------Completed Panel---------------------->
+        <section id="completed-panel">
+            <!------Display Message----->
+            <p>YOU WON!<br></p>
+            <!------Score Output Display----->
             <p>Thats pretty impressive! Congratulations!<br>
                 YOU HIT:
 
             <p>10,000</p>
 
             See if you can do it again by restarting the game!</p>
+            <!------Restart Button----->
             <button id="restart-btn">Restart Game</button>
+            <!------Game Credits----->
             <p id="credit">Game & Music created by Sam Laubscher</p>
-        </div>
-
+        </section>
+        <!-------------------------Github Button Icon------------------>
         <div id="github">
-            <!------ Github Button Icon --------->
             <ul class="github-button">
+                <!------Icon with link to project repo page----->
                 <li><a target="_blank" rel="noopener" href="https://github.com/samlaubscher/Stellar-Drift-Game-M2"
                         aria-label="Github"><i class="fa fa-github"></i></a></li>
             </ul>
         </div>
-
-        <div id="bottom-banner">
-            <!-----------------------------Direction Buttons--------->
+        <!-----------------------------Direction Buttons-------------->
+        <section id="bottom-banner">
             <ul class="dir-btn-container">
+                <!-----Left Side Screen Button----->
                 <li class="dir-btns-sides">
                     <button class="side-screen-btn" id="left-direction-btn"></button>
                 </li>
+                <!-----Right Side Screen Button----->
                 <li class="dir-btns-sides">
                     <button class="side-screen-btn" id="right-direction-btn"></button>
                 </li>
             </ul>
-        </div>
-        <!------------------------------------------------------------------------------------------------------->
-        <canvas id="canvas"></canvas>
-    </div>
-
+        </section>
+        <!-------------------------------Canvas------------------------>
+        <canvas id="canvas">
+            This browser unfortunately does not support the HTML Canvas API. Please use an updated version.
+        </canvas>
+    </article>
 </body>
-
+<!-------Javascript Scripts Link----->
 <script src="assets/js/script.js"></script>
 
 </html>

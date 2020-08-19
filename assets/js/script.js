@@ -15,7 +15,7 @@ window.onload = function () {
   //--Global Variables------------------------------------------------------------------------------------------------
   //--Canvas Properties-------------------------------------------------------------
   const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d", { alpha: false });
   // Sets the sizes to inner window sizes. -4 removes scroll bar
   const cnvsWidth = window.innerWidth;
   const cnvsHeight = window.innerHeight - 4;
