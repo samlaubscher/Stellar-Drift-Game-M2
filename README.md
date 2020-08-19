@@ -367,7 +367,7 @@ A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `sh
   ```
 The `collisionDetection(xPos, yPos)` function was called in the `showSprite()` method of the `Sprite` class. It takes in the arguments of `xPos` and `yPos` which are each of the `Sprite` objects X and Y positions on the canvas per frame. If `playerShip()` occupies the exact same X and Y coordinates as a `Sprite`, subtracting the `xPos` and `yPos` values from both array items `getShipLocation(angle)[0]` and `getShipLocation(angle)[1]` will result in 0. 
 
-The code unfortunately is not accurate enough to use this method without a range, the reason for this is due to the speed of the `Sprite` objects as they reach the outer path of rotation. They have grown so much in size that they can move in steps of up to 60px per frame, therefore a range of 100px has been given to allow for a more reliable detection rate.
+The code unfortunately is not accurate enough to use this method without a range, the reason for this is due to the speed of the `Sprite` objects as they reach the outer path of rotation. They have grown so much in size that they can move in steps of up to 60px per frame, therefore a range of 100px has been given to allow for a more reliable detection rate. The origin of collision range for the `playerShip()` is the front tip of the triangle.
 
   ```
   function collisionDetection(x, y) {
@@ -384,6 +384,8 @@ The code unfortunately is not accurate enough to use this method without a range
 
 ### Start Screen
 
+![img](start-screen.JPG)
+
 ### Start game button
 
 ### Crash screen
@@ -398,7 +400,7 @@ The code unfortunately is not accurate enough to use this method without a range
 ### Sound effect
 
 ## Features Left to Impliment
-* Display score history
+* Display score history - backend 
 * Leaderboard with player name input
 * Stop the background music from restarting when the game is restarted
 * Better colour transitions
