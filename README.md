@@ -313,13 +313,13 @@ I began to write function that stores and returns an array of each of the number
 
 ```
 function getAngleNumber(angle) {
-    if (angle == 0 || angle == 90 || angle == 180 || angle == 270) {
+    if ([0,90,180,270].includes(angle)) {
       return [1.0, 0.0];
-    } else if (angle == 6 || angle == 96 || angle == 186 || angle == 276) {
+    } else if ([6,96,186,276].includes(angle)) {
       return [0.1, 0.99];
     [...]
 ```
-But then quickly realised that this was a very innefficient, and innacurate way of achieving this. Thats when I discovered that I could use `Math.cos()` and `Math.sin()` together to quickly and extremely accurately generate all of these values for me.
+But then quickly realised that this was a very innefficient, and innacurate way of achieving this. Thats when I discovered that I could use `Math.cos()` and `Math.sin()` together to quickly and extremely accurately generate all of these return values for me.
 
 ```
 function getAngleNumber(angle) {
@@ -563,19 +563,26 @@ I wanted to create my own piece of music for this game. I am a big fan of the sy
 ---- insert pic of ableton 
 
 ## Features to impliment in the future
-* Display score history - backend 
-* Leaderboard with player name input
-* Stop the background music from restarting when the game is restarted
-* Better colour transitions
-* Tighter collision detection
+### Score history & high score leaderboard
+I would like to impliment the use of a global high score with a leaderboard. When a player crashes or wins, the leaderboard would be displayed with the option of adding the most recent score to the list with a user name text input. In order to achieve this, I would need knowledge of back-end technologies, which I will be studying later in this course.
+
+### Stop the background music from restarting when the game is restarted
+Each time the game is restarted, the page must be reloaded which in turn restarts the music. I would like to impliment a way of restarting the game and refreshing the code efficiently without refreshing the entire window.
+
+### Better colour transitions
+The current technique used for transitioning between colours is very clunky. I would like to impliment some code that creates a constant smooth transitioning effect between colours instead of just jumping from one value to the next.
+
+### Tighter collision detection
+Currently the collision detection works well and is accurate enough to make the game playable and enjoyable without too many false collisions. I would however like to make this more accurate, as sprites can often trigger a detection when they have not actually hit the player, and when the speed starts to increase the accuracy drops dramatically due to the greater amount of pixels being incrimented for movement per frame.
 
 ## Technologies Used
-mention the tools used - provide link
 #### JavaScript
+#### Canvas API
 #### HTML/HTML 5 
 #### CSS/CSS3
-#### VSCode 
-#### Canvas API
+#### VSCode
+
+
 
 
 ## Testing 
@@ -584,8 +591,19 @@ go over the user stories for ux and insure they work
 use scenarios like clicking contact button, trying to submit empty form etc
 use automated tests and show results 
 #### bugs 
-explain bugs i found and fixed 
-bugs that still exist 
+fixed
+sprite center of screen
+keydown delay
+keydown spin
+errors in the collision detection
+
+
+exist
+mobile spinning
+restart button not working 
+track not playing first time page loads 
+slow movement on some phones
+0 mark sprite paths
 
 ## Deployment
 explain the process taken to deploy the page
