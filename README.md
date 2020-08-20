@@ -175,6 +175,11 @@ The `moveSprite()` method remains the same, except the `speed` has been halved a
 ```
 Within the `showSprite()` method, the movement is implimented differently through the use of `s` which is abbreviated for size or radius. `xPos` and `yPos` are set to the center of the canvas, and the `s` variable initially holds the only value that changes due to the use of `this.z`. When `s` is added to the `xPos` and `yPos`, that value is then multiplied by `this.randomX` or `this.randomY` which is one of these uniquely random generated values between -10 and 10 excluding -1.75-1.75. This means the incrimentations of each `xPos` and `yPos` values happen smoothly on a curve, and movement occurs within this much more limited range. Size ultimately governs the speed and movement of the `Sprite` objects, they can grow much larger than `Stars`, and as they expand they rapidly increase in speed and suddenly move very quickly away from the center and off the screen. This makes it look like the player is travelling much closer to the `Sprites` than the `Stars`.
 
+<div align="center">
+
+![img](https://i.imgur.com/mUb7TxM.gif)
+</div>
+
 At the bottom of the `showSprite()` method sits the invocation of the `collisionDetection()` function, directly passing in the arguments of `xPos` and `yPos` as to allow these parameter values to be used outside of the class scope and inside the `collisionDetection()` function.
 
 ```
@@ -213,11 +218,11 @@ Once all player ship shapes have been rendered, we dont want any other canvas co
 function playerShip() {
     x1 = 0;
     y1 = 0 + centerOfY / 2;
-    x2 = 50;
-    y2 = 0 + centerOfY / 2 + 30;
-    x3 = -50;
-    y3 = 0 + centerOfY / 2 + 30;
-    s = 14;
+    x2 = 30;
+    y2 = 0 + centerOfY / 2 + 20;
+    x3 = -30;
+    y3 = 0 + centerOfY / 2 + 20;
+    s = 9;
 
     ctx.save();
     ctx.translate(centerOfX, centerOfY);
@@ -227,14 +232,14 @@ function playerShip() {
     ctx.beginPath();
     ctx.fillStyle = "Violet";
     ctx.moveTo(x1, y1 - 1);
-    ctx.lineTo(x2 + 5, y2 + 5);
-    ctx.lineTo(x3 - 5, y3 + 5);
+    ctx.lineTo(x2 + 5, y2 + 3);
+    ctx.lineTo(x3 - 5, y3 + 3);
     ctx.fill();
 
     // small engine light right
     ctx.beginPath();
     ctx.fillStyle = "white";
-    ctx.arc(x1 + 38, y2 - 3, s / 2, 0, Math.PI * 1);
+    ctx.arc(x1 + 23, y2, s / 2, 0, Math.PI * 1);
     ctx.fill();
     
     [...]
@@ -266,9 +271,10 @@ I wanted to create an array to store the data for each of the X and Y positions 
 
 <div align="center">
 
-![img](20200819_172604.jpg)
-![img](20200819_172619.jpg)
-![img](rotation-plotting.JPG)
+<img src="20200819_172604.jpg" alt="Workings - 1" width="600">
+<img src="20200819_172619.jpg" alt="Workings - 2" width="600">
+<img src="rotation-plotting.JPG" alt="Workings - 3" width="600">
+
 </div>
 
 I began to write function that stores and returns an array of each of the numbers associated with the corresponding angle.
@@ -367,15 +373,15 @@ A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `sh
   ```
 The `collisionDetection(xPos, yPos)` function was called in the `showSprite()` method of the `Sprite` class. It takes in the arguments of `xPos` and `yPos` which are each of the `Sprite` objects X and Y positions on the canvas per frame. If `playerShip()` occupies the exact same X and Y coordinates as a `Sprite`, subtracting the `xPos` and `yPos` values from both array items `getShipLocation(angle)[0]` and `getShipLocation(angle)[1]` will result in 0. 
 
-The code unfortunately is not accurate enough to use this method without a range, the reason for this is due to the speed of the `Sprite` objects as they reach the outer path of rotation. They have grown so much in size that they can move in steps of up to 60px per frame, therefore a range of 100px has been given to allow for a more reliable detection rate. The origin of collision range for the `playerShip()` is the front tip of the triangle.
+The code unfortunately is not accurate enough to use this method without a range, the reason for this is due to both the increasing speed of the `Sprite` objects and it reaching the outer path of rotation. They have grown so much in size when they reach this path that they can move in steps of up to 50px per frame, therefore a range of 70px has been given to allow for a more reliable detection rate. The origin of collision range for the `playerShip()` is the front tip of the triangle.
 
   ```
   function collisionDetection(x, y) {
     if (
-      x - getShipLocation(angle)[0] <= 50 &&
-      x - getShipLocation(angle)[0] >= -50 &&
-      y - getShipLocation(angle)[1] <= 50 &&
-      y - getShipLocation(angle)[1] >= -50
+      x - getShipLocation(angle)[0] <= 35 &&
+      x - getShipLocation(angle)[0] >= -35 &&
+      y - getShipLocation(angle)[1] <= 35 &&
+      y - getShipLocation(angle)[1] >= -35
     ) {
       crashScreen();
     }
@@ -383,20 +389,106 @@ The code unfortunately is not accurate enough to use this method without a range
 ```
 
 ### Start Screen
+When the page first loads, users are presented with the start screen. The background stars are frozen, and the center panel displays instructions for how to play the game as well as controls for both mobile and desktop browsers. There is a title saying *STELLAR DRIFT*, created using multiple h2 layers indipendently positioned.
 
-![img](start-screen.JPG)
-![img](start-screen-mobile.JPG)
-![img](start-screen-ipad.JPG)
+<div align="center">
+
+<img src="start-screen.JPG" alt="Start Screen" width="400">
+<img src="start-screen-mobile.JPG" alt="Start Screen" width="90">
+<img src="start-screen-ipad.JPG" alt="Start Screen"width="250">
+</div>
 
 ### Start game button
+The game is started by clicking or touching the Start Game button on the start screen panel. The Enter key can also be pressed, allowing users to keep their hands on the keyboard when restarting. When this button is pressed, the `initialiseGame()` function is called. This hides the start panel and Github Social icon whilst enabling on screen buttons for mobile, creates the `spritesArray[i]`, and finally calls the `update()` callback function to trigger the main loop animation.
+
+```
+function initialiseGame() {
+    document.getElementById("start-panel").classList.toggle("hidden");
+    document.getElementById("bottom-banner").classList.toggle("hidden");
+    document.getElementById("github").classList.toggle("hidden");
+
+    for (var i = 0; i < numberOfSprites; i++) {
+      spritesArray[i] = new Sprite(
+        centerOfX,
+        centerOfY,
+        Math.random() * cnvsWidth
+      );
+    }
+    update();
+}
+```
+
+### Mute audio button
+I created some background music for the game to add to the user experience. This is programmed to automatically play when the broweser loads, which may not be the desirable choice for many users. The mute button was created using the Font Awesome icons, and linked to an event listener that triggers the `toggleMute()` function.
+```
+function toggleMute() {
+    music.muted = !music.muted;
+    explosion.muted = !explosion.muted;
+    document.getElementById("i-muted").classList.toggle("hidden");
+    document.getElementById("i-not-muted").classList.toggle("hidden");
+  }
+```
+### Reset button 
+The reset button allows the user to restart the game, reloading the page back to the start panel. In the future I would like to change this into a pause button with the option to then reset, but currently this button is just linked to an event listener that calls the `reload()` function.
+```
+function reload() {
+    window.location.reload(true);
+  }
+```
+### Github social icon
+I wanted to display a link so users can discover my repository page. This allows people to see how the game was built, who it was built by, and even make contact for comments or potential collaboration. I knew that the Github icon would work well located on the screen, and once again Font Awesome provided this for me. 
 
 ### Crash screen
+When a successful collision is detected within `collisionDetection()`, the function `crashScreen()` is called. As well as displaying the crash screen and the Github icon, this function hides the direction buttons, adds an event listener for the reload button, and triggers an explosion sound to simulate the ship crashing. 
+
+```
+function crashScreen() {
+    document.getElementById("bottom-banner").classList.toggle("hidden");
+    document.getElementById("crash-panel").classList.toggle("hidden");
+    document.getElementById("github").classList.toggle("hidden");
+    document.getElementById("restart-btn").addEventListener("click", reload);
+    document.getElementById("explosion").play();
+    endGame = true;
+  }
+```
+At the bottom, the `endGame` variable which is normally `false` is set to `true`. This triggers a change inside the `update()` function, allowing only the stars to remain looping, and the score to be displayed onscreen. As well as these two changes, the canvas also slowly rotates with the background transparency slightly increased. This creates a visually pleasing subtle trailing effect on the stars behind the crash panel text.
+
+<div align="center">
+
+![img](https://i.imgur.com/geduTBH.gif)
+</div>
+
 ### Completed screen
-### Mute audio button
-### Reset button 
-### Github social icon
+The completed screen is displayed when the user reaches the score of 10,000! Everything else remains the same as the crash screen, the only difference is the text displayed inside the panel.
+
+<div align="center">
+
+
+![img](https://i.imgur.com/1TuqdCQ.gif)
+</div>
+
 ### Score counter
+The score is used in more than one way across the application. It controls the speed, colour scheme, countdown timer, sprite rendering, and triggering the completed screen. `scoreIncrease()` incriments the score by the value of 1 when it is called each frame inside the `update()` function.
+
+```
+function scoreIncrease() {
+    score += 1;
+    if (score == 10000) {
+      completedScreen();
+    }
+  }
+```
+### Countdown timer 
+When the Start Game button is pressed, the score starts on -100. A visual countdown timer is then used to count back from 3 every 33 points. When the score passes 0, the countdown timer dissapears and the sprites are rendered. This gives users a brief but important moment to prepare themselves, increasing the overall user experience.
+
+<div align="center">
+
+
+![img](https://i.imgur.com/fxZw1cY.gif)
+</div>
+
 ### Speed increase
+42 13 
 ### Colour changing
 ### Theme music
 ### Sound effect

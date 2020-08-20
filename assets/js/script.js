@@ -10,7 +10,7 @@ window.onload = function () {
   // Launches animations when Start Game button pressed
   document
     .getElementById("start-btn")
-    .addEventListener("click", initialise_game);
+    .addEventListener("click", initialiseGame);
 
   //--Global Variables------------------------------------------------------------------------------------------------
   //--Canvas Properties-------------------------------------------------------------
@@ -107,7 +107,7 @@ window.onload = function () {
       } else if (score <= 4500) {
         ctx.fillStyle = "#6900b4";
       } else if (score <= 5000) {
-        ctx.fillStyle = "#0000df";
+        ctx.fillStyle = "#1b1bd6";
       } else if (score <= 5500) {
         ctx.fillStyle = "#7f00d4";
       } else if (score <= 6000) {
@@ -119,11 +119,11 @@ window.onload = function () {
       } else if (score <= 7500) {
         ctx.fillStyle = "#5d794f";
       } else if (score <= 8000) {
-        ctx.fillStyle = "#769171";
+        ctx.fillStyle = "#4cc437";
       } else if (score <= 8500) {
-        ctx.fillStyle = "#b68fb6";
+        ctx.fillStyle = "#838383";
       } else if (score <= 10000) {
-        ctx.fillStyle = "#979797";
+        ctx.fillStyle = "#704cf0";
       }
       ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
       ctx.fill();
@@ -228,7 +228,7 @@ window.onload = function () {
 
   // Toggle the mute audio feature on-screen
   function toggleMute() {
-    player.muted = !player.muted;
+    music.muted = !music.muted;
     explosion.muted = !explosion.muted;
     document.getElementById("i-muted").classList.toggle("hidden");
     document.getElementById("i-not-muted").classList.toggle("hidden");
@@ -267,11 +267,11 @@ window.onload = function () {
   function playerShip() {
     x1 = 0;
     y1 = 0 + centerOfY / 2;
-    x2 = 50;
-    y2 = 0 + centerOfY / 2 + 30;
-    x3 = -50;
-    y3 = 0 + centerOfY / 2 + 30;
-    s = 14;
+    x2 = 30;
+    y2 = 0 + centerOfY / 2 + 20;
+    x3 = -30;
+    y3 = 0 + centerOfY / 2 + 20;
+    s = 9;
 
     // Transform canvas to center of screen for ship rotation
     ctx.save();
@@ -282,20 +282,20 @@ window.onload = function () {
     ctx.beginPath();
     ctx.fillStyle = "Violet";
     ctx.moveTo(x1, y1 - 1);
-    ctx.lineTo(x2 + 5, y2 + 5);
-    ctx.lineTo(x3 - 5, y3 + 5);
+    ctx.lineTo(x2 + 5, y2 + 3);
+    ctx.lineTo(x3 - 5, y3 + 3);
     ctx.fill();
 
     // small engine light right
     ctx.beginPath();
     ctx.fillStyle = "white";
-    ctx.arc(x1 + 38, y2 - 3, s / 2, 0, Math.PI * 1);
+    ctx.arc(x1 + 23, y2, s / 2, 0, Math.PI * 1);
     ctx.fill();
 
     // Engine light right
     ctx.beginPath();
     ctx.fillStyle = "white";
-    ctx.arc(x1 + 21, y2 - 3, s, 0, Math.PI * 1);
+    ctx.arc(x1 + 12, y2 - 3, s, 0, Math.PI * 1);
     ctx.fill();
 
     // Engine light middle
@@ -307,21 +307,21 @@ window.onload = function () {
     // Engine light left
     ctx.beginPath();
     ctx.fillStyle = "white";
-    ctx.arc(x1 - 21, y2 - 3, s, 0, Math.PI * 1);
+    ctx.arc(x1 - 12, y2 - 3, s, 0, Math.PI * 1);
     ctx.fill();
 
     // small engine light left
     ctx.beginPath();
     ctx.fillStyle = "white";
-    ctx.arc(x1 - 38, y2 - 3, s / 2, 0, Math.PI * 1);
+    ctx.arc(x1 - 23, y2, s / 2, 0, Math.PI * 1);
     ctx.fill();
 
     // top black triangle
     ctx.beginPath();
     ctx.fillStyle = "#000";
     ctx.moveTo(x1, y1);
-    ctx.lineTo(x2 + 1, y2);
-    ctx.lineTo(x3 - 1, y3);
+    ctx.lineTo(x2 + 4, y2);
+    ctx.lineTo(x3 - 4, y3);
     ctx.fill();
 
     // Restore canvas to saved state before transformation
@@ -367,7 +367,7 @@ window.onload = function () {
     } else if (e.key === "ArrowRight" || e.key === "Right") {
       moveRight();
     } else if (e.key === "Enter" && score < -99) {
-      initialise_game();
+      initialiseGame();
     } else if (e.key === "Enter" && endGame) {
       reload();
     }
@@ -481,12 +481,12 @@ window.onload = function () {
   // collision detection using the x and y of the sprites
   function collisionDetection(x, y) {
     if (
-      x - getShipLocation(angle)[0] <= 50 &&
-      x - getShipLocation(angle)[0] >= -50 &&
-      y - getShipLocation(angle)[1] <= 50 &&
-      y - getShipLocation(angle)[1] >= -50
+      x - getShipLocation(angle)[0] <= 35 &&
+      x - getShipLocation(angle)[0] >= -35 &&
+      y - getShipLocation(angle)[1] <= 35 &&
+      y - getShipLocation(angle)[1] >= -35
     ) {
-      crashScreen();
+      //crashScreen();
     }
   }
 
@@ -524,17 +524,17 @@ window.onload = function () {
   // Increases the speed per frame
   function speedIncrease() {
     if (score < 2500 && cnvsWidth < 600) {
-      speed += 0.003;
+      speed += 0.001;
     } else if (score < 2500 && cnvsWidth < 1200) {
-      speed += 0.007;
+      speed += 0.005;
     } else if (score < 2500) {
-      speed += 0.01;
+      speed += 0.007;
     } else if (score < 5000 && cnvsWidth < 600) {
       speed += 0.0005;
     } else if (score < 5000 && cnvsWidth < 1200) {
       speed += 0.001;
     } else if (score < 5000) {
-      speed += 0.002;
+      speed += 0.005;
     } else if (score < 7500 && cnvsWidth < 600) {
       speed += 0.00005;
     } else if (score < 7500 && cnvsWidth < 1200) {
@@ -597,7 +597,7 @@ window.onload = function () {
   drawStars();
 
   // Initiation of Sprite & player ship animations-------------------------------------------------------
-  function initialise_game() {
+  function initialiseGame() {
     // Hides instructions & start game panel------------------------------------------------------------
     document.getElementById("start-panel").classList.toggle("hidden");
     document.getElementById("bottom-banner").classList.toggle("hidden");
