@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Stellar Drift Logo](https://i.imgur.com/RLQC3xw.gif "Game Logo")
+<img src="stellar-drift-name.gif" alt="Sprites">
 
 [View the deployment here](https://samlaubscher.github.io/Stellar-Drift-Game-M2/)
 
@@ -177,7 +177,7 @@ Within the `showSprite()` method, the movement is implimented differently throug
 
 <div align="center">
 
-![img](https://i.imgur.com/mUb7TxM.gif)
+<img src="sprites-passing.gif" alt="Sprites">
 </div>
 
 At the bottom of the `showSprite()` method sits the invocation of the `collisionDetection()` function, directly passing in the arguments of `xPos` and `yPos` as to allow these parameter values to be used outside of the class scope and inside the `collisionDetection()` function.
@@ -455,7 +455,7 @@ At the bottom, the `endGame` variable which is normally `false` is set to `true`
 
 <div align="center">
 
-![img](https://i.imgur.com/geduTBH.gif)
+<img src="crash-screen.gif" alt="Sprites">
 </div>
 
 ### Completed screen
@@ -464,7 +464,7 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 <div align="center">
 
 
-![img](https://i.imgur.com/1TuqdCQ.gif)
+<img src="completed-screen.gif" alt="Sprites">
 </div>
 
 ### Score counter
@@ -484,7 +484,7 @@ When the Start Game button is pressed, the score starts on -100. A visual countd
 <div align="center">
 
 
-![img](https://i.imgur.com/fxZw1cY.gif)
+<img src="countdown-timer.gif" alt="Sprites">
 </div>
 
 ### Speed increase
