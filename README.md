@@ -15,12 +15,39 @@ This project is a responsive and dynamic front end website, demonstrating an abi
 
 ---
 ## Table of Contents
-* UX 
-    * 1
+* [**UX**](#ux)
+    * Project goals
+    * User goals
+    * Design process
+    * Colour scheme
 
-* Features
+* [**Features**](#features)
+    * [**Canvas API graphics animation**](#Canvas-api-graphics-animation)
+    * [**Animated star background**](#Animated-star-background)
+    * [**Animated asteroid sprites**](#Animated-steroid-sprites)
+    * [**Player ship movement**](#Player-ship-movement)
+    * [**Player ship controls**](#Player-ship-controls)
+    * [**Collision detection**](#Collision-detection)
+    * [**Start screen**](#Start-screen)
+    * [**Start game button**](#Start-game-button)
+    * [**Mute audio button**](#Mute-audio-button)
+    * [**Reset button**](#Reset-button)
+    * [**Github social icon**](#Github-social-icon)
+    * [**Crash screen**](#Crash-screen)
+    * [**Completed screen**](#Completed-screen)
+    * [**Score counter**](#Score-counter)
+    * [**Countdown timer**](##Countdown-timer)
+    * [**Speed change**](#Speed-change)
+    * [**Colour changing**](#Colour-changing)
+    * [**Music & Audio**](#Music-&-Audio)
+    * [**Features to impliment in the future**](#Features-to-impliment-in-the-future)
 
 * Technologies Used 
+    * JavaScript
+    * HTML/HTML 5 
+    * CSS/CSS3
+    * VSCode 
+    * Canvas API
 
 * Testing 
 
@@ -493,12 +520,49 @@ When the Start Game button is pressed, the score starts on -100. A visual countd
 </div>
 
 ### Speed increase
-42 13 
-### Colour changing
-### Theme music
-### Sound effect
+As the score increases, so does the speed of movement of the `Star` and `Sprite` objects. The function `speedIncrease()` is called from the `update()` function, incrimenting the value of speed each frame. As the score changes, so does the amount of incrimentation needed, as the speed gets higher less intensity is required. Objects move much quicker on mobile devices due to the smaller range of pixels, so a lower value of speed must be used.
 
-## Features Left to Impliment
+```
+function speedIncrease() {
+    if (score < 2500 && cnvsWidth < 600) {
+      speed += 0.002;
+    } else if (score < 2500 && cnvsWidth < 1200) {
+      speed += 0.005;
+    } else if (score < 2500) {
+      speed += 0.01;
+    } else if (score < 5000 && cnvsWidth < 600) {
+      speed += 0.001;
+    } else if (score < 5000 && cnvsWidth < 1200) {
+      speed += 0.003;
+    } [...]
+```
+
+### Colour changing
+As the score increases, the colour scheme also changes for both the `Star` and `Sprite` objects. This not only looks nice and adds to the user experience, but it helps demonstrate the players progression in the game, adding stimulus to prevent it from seeming too repetitive.
+
+These colour changes take place when rendering the shapes, they are handled using `if` statements within the `showStar()` and `showSprite()` methods of the `Star` and `Sprite` classes.
+
+```
+[...]
+
+ctx.beginPath();
+    if (score <= 1000) {
+      ctx.fillStyle = "#82caff";
+    } else if (score <= 2000) {
+      ctx.fillStyle = "#00FA9A";
+    } else if (score <= 3000) {
+      ctx.fillStyle = "#306eff";
+    } else if {[...]}
+ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
+ctx.fill();
+```
+
+### Music & Audio
+I wanted to create my own piece of music for this game. I am a big fan of the synthwave sound and image which formed much of the inspiration for the theme of this game.
+
+---- insert pic of ableton 
+
+## Features to impliment in the future
 * Display score history - backend 
 * Leaderboard with player name input
 * Stop the background music from restarting when the game is restarted

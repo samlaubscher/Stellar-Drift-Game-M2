@@ -46,15 +46,15 @@ window.onload = function () {
   // Responsive variables - number of objects generated on-screen at one time & speed of generated objects
   if (cnvsWidth < 360) {
     var numberOfStars = 650;
-    var numberOfSprites = 5;
+    var numberOfSprites = 6;
     var speed = 2;
   } else if (cnvsWidth < 768) {
     var numberOfStars = 900;
-    var numberOfSprites = 7;
+    var numberOfSprites = 8;
     var speed = 4;
   } else if (cnvsWidth < 1200) {
     var numberOfStars = 1200;
-    var numberOfSprites = 8;
+    var numberOfSprites = 9;
     var speed = 6;
   } else {
     var numberOfStars = 1500;
@@ -99,7 +99,7 @@ window.onload = function () {
       if (score <= 1000) {
         ctx.fillStyle = "#82caff";
       } else if (score <= 2000) {
-        ctx.fillStyle = "MediumSpringGreen";
+        ctx.fillStyle = "#00FA9A";
       } else if (score <= 3000) {
         ctx.fillStyle = "#306eff";
       } else if (score <= 4000) {
@@ -524,23 +524,23 @@ window.onload = function () {
   // Increases the speed per frame
   function speedIncrease() {
     if (score < 2500 && cnvsWidth < 600) {
-      speed += 0.001;
+      speed += 0.002;
     } else if (score < 2500 && cnvsWidth < 1200) {
       speed += 0.005;
     } else if (score < 2500) {
-      speed += 0.007;
+      speed += 0.01;
     } else if (score < 5000 && cnvsWidth < 600) {
-      speed += 0.0005;
-    } else if (score < 5000 && cnvsWidth < 1200) {
       speed += 0.001;
+    } else if (score < 5000 && cnvsWidth < 1200) {
+      speed += 0.003;
     } else if (score < 5000) {
       speed += 0.005;
     } else if (score < 7500 && cnvsWidth < 600) {
-      speed += 0.00005;
+      speed += 0.0005;
     } else if (score < 7500 && cnvsWidth < 1200) {
       speed += 0.0002;
     } else if (score < 7500) {
-      speed += 0.0005;
+      speed += 0.001;
     }
   }
 
