@@ -486,7 +486,7 @@ window.onload = function () {
       y - getShipLocation(angle)[1] <= 35 &&
       y - getShipLocation(angle)[1] >= -35
     ) {
-      //crashScreen();
+      crashScreen();
     }
   }
 
