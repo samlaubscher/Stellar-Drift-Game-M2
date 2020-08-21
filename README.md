@@ -611,10 +611,10 @@ Visual Studio Code was the Intergrated Development Environment (IDE) used to wri
 The Chrome DevTools were used a lot in the development of this project to live preview edits and diagnose problems. I also ran lots of auditing and testing using built in tools such as Sources, Lighthouse and Coverage.
 
 #### [Git](https://git-scm.com/)
-Git was used for version control alongside GitHub.
+Git was used for version control with GitHub - commiting each development stage to the GitHub repository.
 
 #### [Github](https://github.com/)
-GitHub was used alongside Git to host my repository and commit each development stage.
+GitHub was used to host the repository.
 
 #### [GitHub Pages](https://pages.github.com/)
 GitHub Pages was used to deploy this website directly from the repository master branch.
@@ -643,6 +643,7 @@ different browsers and devices
 
 #### bugs 
 fixed
+jittering in mobile movement - passive event listeners 
 clamp not supported
 touchstart vs mousedown
 sprite center of screen

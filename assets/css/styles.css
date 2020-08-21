@@ -181,10 +181,15 @@ button {
     color: rgba(255, 255, 255, 0.658);
 }
 
+.mute-btn li,
+.reset-btn li {
+    top: 0px;
+    position: absolute;
+}
+
 .reset-btn li {
     right: 7px;
     top: 7px;
-    position: absolute;
 }
 
 #reset,
