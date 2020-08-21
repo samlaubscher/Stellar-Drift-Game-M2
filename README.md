@@ -309,7 +309,7 @@ I wanted to create an array to store the data for each of the X and Y positions 
 
 </div>
 
-I began to write function that stores and returns an array of each of the numbers associated with the corresponding angle.
+I began to write a function that stores and returns an array of each of the numbers associated with the corresponding angle.
 
 ```
 function getAngleNumber(angle) {
@@ -342,7 +342,7 @@ When dealing with the ship moving to the right, the value of `angle` becomes neg
     }
   }
 ```
-The `getAllPossibleShipLocations()` function outputs the value of `shipLocations[]`, containing both the X and Y coordinates in each array itteration from 0 - 360. `getShipLocation(angle)` then takes the input of angle and calls the array itteration associated with that value of angle.
+The `getAllPossibleShipLocations()` function outputs the value of `shipLocations[]`, containing both the X and Y coordinates in each array itteration from 0 - 360. `getShipLocation(angle)` then takes the input of angle and calls the array key associated with that value of angle.
 
 First I needed to create an algorythm that would perform the operations used in this plotting `ctx.arc(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter), s, 0, Math.PI*2)`. 
 
@@ -393,7 +393,7 @@ A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `sh
     return shipLocations;
   }
 ```
-`getShipLocation(angle)` takes in `angle`, processes it through another instance of the `getActualAngle()` function to make sure it is postive and the correct value as explained before, and then assigns it to `actualAngle` as a string. This string is then used as the array index for returning `getAllPossibleShipLocations()[i]` when `getShipLocation(angle)[i]` is called in the collision detection function next.
+`getShipLocation(angle)` takes in `angle`, processes it through another instance of the `getActualAngle()` function to make sure it is postive and the correct value as explained before, and then assigns it to `actualAngle` as a string. This string is then used as the array index key for returning `getAllPossibleShipLocations()[i]` when `getShipLocation(angle)[i]` is called in the collision detection function next.
 ```
   function getShipLocation(angle) {
     function getActualAngle(angle) {
@@ -468,7 +468,7 @@ function reload() {
   }
 ```
 ### Github social icon
-I wanted to display a link so users can discover my repository page. This allows people to see how the game was built, who it was built by, and even make contact for comments or potential collaboration. I knew that the Github icon would work well located on the screen, and once again Font Awesome provided this for me. 
+I wanted to display a link so users can discover the repository page. This allows people to see how the game was built, who it was built by, and even make contact for comments or potential future collaboration. I knew that the Github icon would work well located on the start screen, and once again Font Awesome provided this for me. 
 
 ### Crash screen
 When a successful collision is detected within `collisionDetection()`, the function `crashScreen()` is called. As well as displaying the crash screen and the Github icon, this function hides the direction buttons, adds an event listener for the reload button, and triggers an explosion sound to simulate the ship crashing. 
@@ -564,7 +564,7 @@ I wanted to create my own piece of music for this game. I am a big fan of the sy
 
 ## Features to impliment in the future
 ### Score history & high score leaderboard
-I would like to impliment the use of a global high score with a leaderboard. When a player crashes or wins, the leaderboard would be displayed with the option of adding the most recent score to the list with a user name text input. In order to achieve this, I would need knowledge of back-end technologies, which I will be studying later in this course.
+I would like to impliment the use of a global high score with a leaderboard. When a player crashes or wins, the leaderboard would be displayed with the option of adding the most recent score to the list with a user name text input. The score limit of 10,000 could be removed and players could compete to score the highest on the leaderboard. In order to achieve this, I would need knowledge of back-end technologies, which I will be studying later in this course.
 
 ### Stop the background music from restarting when the game is restarted
 Each time the game is restarted, the page must be reloaded which in turn restarts the music. I would like to impliment a way of restarting the game and refreshing the code efficiently without refreshing the entire window.
@@ -575,23 +575,76 @@ The current technique used for transitioning between colours is very clunky. I w
 ### Tighter collision detection
 Currently the collision detection works well and is accurate enough to make the game playable and enjoyable without too many false collisions. I would however like to make this more accurate, as sprites can often trigger a detection when they have not actually hit the player, and when the speed starts to increase the accuracy drops dramatically due to the greater amount of pixels being incrimented for movement per frame.
 
+### Additional Sprite type objects
+I would also like to be able to add other layers of objects that could randomly spawn, and if the player collides with these, they could receive a temporary speed reduction or even increase. If there was no score limit, these additional sprites could multiply the score incrimentation amount for a short period of time.
+
+---
+
 ## Technologies Used
-#### JavaScript
-#### Canvas API
-#### HTML/HTML 5 
-#### CSS/CSS3
-#### VSCode
+### Launguages
+#### [HTML/HTML 5](https://html.com/html5/)
+HTML5 is a Hyper Text Markup Language. Roughly 17% of my code was the HTML file [index.html](index.html) as it was used to create the structured content and elements essential to build the game.
 
+#### [CSS/CSS3](https://www.w3.org/Style/CSS/Overview.en.html)
+CSS is a Cascading Style Sheet and was implimented via the [styles.css](assets\css\styles.css) file. All of the visible HTML content was positioned and styled using this language, making up roughly 28% of the entire code.
 
+#### [JavaScript ES6](https://www.w3schools.com/Js/js_es6.asp)
+ECMAScript 6 - ECMAScript 2015, otherwise known as JavaScript 6, was used to write all of the functionality and game mechanics within this project. Around 55% of the entire code was JavaScript, which was used heavily with the Canvas API.
 
+### Libraries
+
+#### [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+The Canvas API allows for the drawing and rendering of 2D graphics using JavaScript and the HTML `<canvas>` element. It can render shapes, text, and images, all of which can then be manipulated and animated on a grid coordinate space. All of the animated moving content within this game was created with the Canvas API, which takes up the entire viewport - no images were used.
+
+#### [Font Awesome](https://fontawesome.com/)
+Font Awesome was used for the GitHub social and audio mute icons.
+
+#### [Google Fonts API ](https://fonts.google.com/)
+All of the fonts used within this project were provided by the Google Fonts API. The fonts used were 'Audiowide' 'Oxanium', and 'Orbitron'.
+
+### Tools
+
+#### [VSCode](https://code.visualstudio.com/)
+Visual Studio Code was the Intergrated Development Environment (IDE) used to write the code for this project.
+
+#### [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+The Chrome DevTools were used a lot in the development of this project to live preview edits and diagnose problems. I also ran lots of auditing and testing using built in tools such as Sources, Lighthouse and Coverage.
+
+#### [Git](https://git-scm.com/)
+Git was used for version control alongside GitHub.
+
+#### [Github](https://github.com/)
+GitHub was used alongside Git to host my repository and commit each development stage.
+
+#### [GitHub Pages](https://pages.github.com/)
+GitHub Pages was used to deploy this website directly from the repository master branch.
+
+#### [EZGIF](https://ezgif.com/)
+EZGIF.com is a simple and free online video and gif editor. It was used to create the GIFS found in this README.
+
+#### [GNU Image Manipulation Program](https://www.gimp.org/)
+GNU Image Manipulation Program (GIMP) was used to create the favicon website icon.
+
+#### [Ableton Live 10](https://www.ableton.com/en/live/)
+Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly towards electronic music production. This was used to create the audio sound track used for this game.
+
+---
 
 ## Testing 
 convice that enough testing has been done that it works.
 go over the user stories for ux and insure they work
 use scenarios like clicking contact button, trying to submit empty form etc
 use automated tests and show results 
+
+jshint 
+html validator 
+js validator 
+different browsers and devices 
+
 #### bugs 
 fixed
+clamp not supported
+touchstart vs mousedown
 sprite center of screen
 keydown delay
 keydown spin

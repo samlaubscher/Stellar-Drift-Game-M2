@@ -389,13 +389,13 @@ window.onload = function () {
   document.addEventListener("keyup", keyUp);
   document
     .getElementById("left-direction-btn")
-    .addEventListener("touchstart", moveLeft);
+    .addEventListener("touchstart", moveLeft, {passive: true});
   document
     .getElementById("left-direction-btn")
     .addEventListener("touchend", unClick);
   document
     .getElementById("right-direction-btn")
-    .addEventListener("touchstart", moveRight);
+    .addEventListener("touchstart", moveRight, {passive: true});
   document
     .getElementById("right-direction-btn")
     .addEventListener("touchend", unClick);

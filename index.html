@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stellar Drift - free mini browser space game!! ">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="favicon.png">
     <!---------------Google Fonts Link - text fonts--------------------------------->
@@ -44,7 +45,7 @@
             <!-----------Mute Button--->
             <ul class="mute-btn">
                 <li>
-                    <button id="mute">
+                    <button id="mute" aria-label="Mute Audio">
                         <i id="i-muted" class="hidden fa fa-volume-off"></i>
                         <i id="i-not-muted" class="fa fa-volume-up"></i>
                     </button>
@@ -116,11 +117,11 @@
             <ul class="dir-btn-container">
                 <!-----Left Side Screen Button----->
                 <li class="dir-btns-sides">
-                    <button class="side-screen-btn" id="left-direction-btn"></button>
+                    <button class="side-screen-btn" id="left-direction-btn" aria-label="Left Direction"></button>
                 </li>
                 <!-----Right Side Screen Button----->
                 <li class="dir-btns-sides">
-                    <button class="side-screen-btn" id="right-direction-btn"></button>
+                    <button class="side-screen-btn" id="right-direction-btn" aria-label="Right Direction"></button>
                 </li>
             </ul>
         </section>
