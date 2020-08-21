@@ -75,10 +75,23 @@ I wanted to create a visually asthetic game, aimed at those who like fast paced 
 I wanted a way for players to be able to win the game, but not very easily otherwise they would get bored quickly, and gamers often like a challenge.
 
 ### User Goals
-As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme.
+As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme to make it more immersive.
 
-As a user, I want to be presented with the instructions and controls before the game starts.
+As a user, I want to be presented with the instructions and controls before the game starts so that I am comfortable with how to play. 
 
+As a user, I want to be able to see my progression throughout the game so that I am aware of how well I am doing. 
+
+As a user, I want to clearly see when my interactions with the game have an affect on it.
+
+As a user, I want to be able to easily mute any audio if required.
+
+As a user, I want to have the developers information available incase I want to check out their other work or make contact.
+
+As a user, I wanted to have a clear way to start the game, and to restart it if I die. 
+
+As a user, I do not want the controls to be unreliable and buggy as this will ruin my experience. 
+
+>A gamer can excuse flaws in graphics, but he will never tolerate poorly designed controls. Imagine how unhappy the user who accidentally tapped All In instead of Fold in the middle of a poker round would be. - (Bura and Coates, 2012, p.43)
 
 
 wireframes etc for design process
@@ -681,6 +694,8 @@ explain where any media came from
 ### Acknowledgements 
 acknowledge mentor and students in slack
 
-
+### References 
+Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
+https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 change start screen screenshots - mute btn 
