@@ -1,16 +1,16 @@
-# Stellar Drift | Mini Game
-
 <div align="center">
 
-<img src="stellar-drift-name.gif" alt="Sprites">
+# Stellar Drift | Mini Game
 
-[View the deployment here](https://samlaubscher.github.io/Stellar-Drift-Game-M2/)
+<img src="stellar-drift-name.gif" alt="Sprites">
 
 #### An interactive and challenging 3D space themed mini game, built using vanilla javascript!
 
 This project is a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages.
 
 ##### This project will be submitted for my Interactive Frontend Development project on my Full Stack Software Development course. 
+
+[View the deployment here](https://samlaubscher.github.io/Stellar-Drift-Game-M2/)
 </div>
 
 ---
@@ -669,3 +669,7 @@ reference to bits used
 explain where any media came from 
 ### Acknowledgements 
 acknowledge mentor and students in slack
+
+
+
+change start screen screenshots - mute btn 
