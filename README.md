@@ -6,11 +6,15 @@
 
 #### An interactive and challenging 3D space themed mini game, built using vanilla javascript!
 
-This project is a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages.
+Stellar Drift is a game that will test your focus, reaction times, and ability to dodge multiple oncoming targets at speed! Have you got the skills to maneuvre the ship as you race through the asteroid field to reach the winning score of 10,000? 
 
-##### This project will be submitted for my Interactive Frontend Development project on my Full Stack Software Development course. 
+As your score increases, so will your speed! Watch for the colours changing to indicate your progression! To control the ship, use the left and right arrow keys, or for mobile and tablet users, touch anywhere on the the left and right sides of the screen. When you're ready, hit the Enter key or press the Start Game button to begin... good luck!
 
-[View the deployment here](https://samlaubscher.github.io/Stellar-Drift-Game-M2/)
+[**Click here to play the game**](https://samlaubscher.github.io/Stellar-Drift-Game-M2/)
+
+##### This project was developed for my Interactive Frontend Development module on my Full Stack Software Development course.
+
+
 </div>
 
 ---
@@ -42,14 +46,12 @@ This project is a responsive and dynamic front end website, demonstrating an abi
     * [**Music & Audio**](#Music-&-Audio)
     * [**Features to impliment in the future**](#Features-to-impliment-in-the-future)
 
-* Technologies Used 
-    * JavaScript
-    * HTML/HTML 5 
-    * CSS/CSS3
-    * VSCode 
-    * Canvas API
+* [**Technologies Used**](#technologies-used)
+    * [**Languages**](#languages)
+    * [**Libraries**](#libraries)
+    * [**Tools**](#Tools)
 
-* Testing 
+* [**Testing**](#testing)
 
 * Deployment 
 
@@ -60,14 +62,23 @@ This project is a responsive and dynamic front end website, demonstrating an abi
 
 ---
 ## UX
-Stellar Drift is a space themed browser-based mini game where the player is speeding through an asteroid field at a constantly increasing speed meaning the user must guide the ship to avoid the path of oncoming asteroids. The 3D design of the game creates the perspective that the player is moving forwards through space towards the center of the screen and all the stars as they grow closer, growing in size and speed the further out from the center appears to pass the player. 
+### Overview
+When starting this project, I knew I wanted to develop something highly interactive and engaging, not only for the user but for me as the developer. I wanted to create a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages, but most of all I wanted to really step out of my comfort zone and push myself to create something I would ultimately learn a considerable amount from. I liked the idea of building a game from vanilla JavaScript and remembered a video I had once seen about making stars on a screen move using just JS.
 
+I had recently discovered the music synth wave with its asthetical retro space-age themed artwork, so this twinned with the stars idea quickly became inspiration for building a space themed game and creating the music that accompanies it.
 
-"The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy 
+#### Project Goals
+I wanted to create a visually asthetic game, aimed at those who like fast paced reaction and skill driven gameplay. I wanted to create a game that users needed to interact with at speed, and have the game respond accordingly and effectively to these inputs.
 
-### Who is the website for? 
+>"The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
-what they want to do
+I wanted a way for players to be able to win the game, but not very easily otherwise they would get bored quickly, and gamers often like a challenge.
+
+### User Goals
+As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme.
+
+As a user, I want to be presented with the instructions and controls before the game starts.
+
 
 
 wireframes etc for design process
@@ -581,7 +592,7 @@ I would also like to be able to add other layers of objects that could randomly 
 ---
 
 ## Technologies Used
-### Launguages
+### Languages
 #### [HTML/HTML 5](https://html.com/html5/)
 HTML5 is a Hyper Text Markup Language. Roughly 17% of my code was the HTML file [index.html](index.html) as it was used to create the structured content and elements essential to build the game.
 
