@@ -63,7 +63,7 @@ window.onload = function () {
   }
 
   //--Class Definitions--------------------------------------------------------------------------------------------
-  // Background Stars---------------------------------------
+  // Background Stars (Inspired by Sharad Choudhary's formula)---------------------------------------
   class Star {
     constructor(x, y, z) {
       this.x = x;
@@ -558,8 +558,8 @@ window.onload = function () {
   function completedScreen() {
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("completed-panel").classList.toggle("hidden");
-    document.getElementById("restart-btn").addEventListener("click", reload);
     document.getElementById("github").classList.toggle("hidden");
+    document.getElementById("restart-btn").addEventListener("click", reload);
     endGame = true;
   }
 

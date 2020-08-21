@@ -20,9 +20,9 @@ As your score increases, so will your speed! Watch for the colours changing to i
 ---
 ## Table of Contents
 * [**UX**](#ux)
-    * Project goals
-    * User goals
-    * Design process
+    * [**Overview**](#overview)
+    * [**User goals**](#user-goals)
+    * [**Design process**](#design-process)
     * Colour scheme
 
 * [**Features**](#features)
@@ -63,7 +63,7 @@ As your score increases, so will your speed! Watch for the colours changing to i
 ---
 ## UX
 ### Overview
-When starting this project, I knew I wanted to develop something highly interactive and engaging, not only for the user but for me as the developer. I wanted to create a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages, but most of all I wanted to really step out of my comfort zone and push myself to create something I would ultimately learn a considerable amount from. I liked the idea of building a game from vanilla JavaScript and remembered a video I had once seen about making stars on a screen move using just JS.
+When starting this project, I knew I wanted to develop something highly interactive and engaging, not only for the user but for me as the developer. I wanted to create a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages, but most of all I wanted to really step out of my comfort zone and push myself to create something I would ultimately learn a considerable amount from. I liked the idea of building a game from vanilla JavaScript and remembered a video I had once seen about making a starfield simulation using just JavaScript and some clever code.
 
 I had recently discovered the music synth wave with its asthetical retro space-age themed artwork, so this twinned with the stars idea quickly became inspiration for building a space themed game and creating the music that accompanies it.
 
@@ -87,7 +87,7 @@ I wanted a way for players to be able to win the game, but not very easily other
 >A gamer can excuse flaws in graphics, but he will never tolerate poorly designed controls. Imagine how unhappy the user who accidentally tapped All In instead of Fold in the middle of a poker round would be. - (Bura and Coates, 2012, p.43)
 
 ### Design Process
-Taking inspiration from the video I had seen on the JavaScript star field, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimentions wheras the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the center point of them spawning worked perfectly.
+Taking inspiration from the video I had seen on the JavaScript starfield simulation, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimentions wheras the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the center point of them spawning worked perfectly.
 
 I wanted the game to have the obvious dark theme of space so neutral blacks, greys and white, but also with a single colour thrown in to create a bit of visual warmth and ambience.
 
@@ -103,12 +103,22 @@ I wanted the game to have the obvious dark theme of space so neutral blacks, gre
 * FFFFFA - This is the off white colour used for all of the text on screen.
 * 2C2666 - This is the one colour I placed into the main title above the game. I used layers with different transparency to create the glowing effect which i feel gives the game a nice neon feel.
 
+Below are the colours the stars transition between when the score increases.
 
+<div align="center">
 
+<img src="colours.png" alt="Theme colours" width="500">
+</div>
+
+The font is one of the most important aspects of the design process, so the title and text font had to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, taking away focus from the center. 
+
+I drew out a wireframe for this game, although I knew that there would not be much placed on the screen as I wanted to go for the more minimal approach as to not take away from the visual aspect of the background.
 
 
 wireframes etc for design process
  
+ [Back to Table Of Contents](#table-of-contents)
+
 ---
 ## Features 
 ### **Canvas API graphics animation**
@@ -194,6 +204,8 @@ moveStar() {
 ```
 
 Due to both x and y axes being centered in the middle, values moving in positive or negative incrimentations are all displayed as travelling outwards from the center of the screen in any given direction.
+
+My original discovery of this algorythm comes from a youtube tutorial by Sharad Choudhary called *'Starfield Simulation: HTML5 Canvas Javascript Animation Tutorial'*, and although code has been changed here, I have used his basic formula so I must give credit.
 
 ### **Animated asteroid sprites**
 Asteroid sprites are also rendered to the canvas using an array of `Sprite` class objects. This `spritesArray[]` works the same way as the `starsArray[]` by instanciating each index with a new `Sprite` object, and calling two additional methods on these indexes using a `drawSprites()` function. However, the `Sprite` class contains different code which allows it to behave seperately from the `Star` objects. Each array object is initialised with the `x` and `y` coordinates in the center of the canvas, as well as the constructor method containing additional properties of `this.randomX` and `this.randomY` with the values of `notZeroRange(-10, 10)`.
@@ -615,6 +627,8 @@ Currently the collision detection works well and is accurate enough to make the 
 ### Additional Sprite type objects
 I would also like to be able to add other layers of objects that could randomly spawn, and if the player collides with these, they could receive a temporary speed reduction or even increase. If there was no score limit, these additional sprites could multiply the score incrimentation amount for a short period of time.
 
+[Back to Table Of Contents](#table-of-contents)
+
 ---
 
 ## Technologies Used
@@ -665,9 +679,41 @@ GNU Image Manipulation Program (GIMP) was used to create the favicon website ico
 #### [Ableton Live 10](https://www.ableton.com/en/live/)
 Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly towards electronic music production. This was used to create the audio sound track used for this game.
 
+[Back to Table Of Contents](#table-of-contents)
+
 ---
 
 ## Testing 
+* Before I started the more in depth testing, I ensured that the website served the purpose it was built for by running through each of the user stories and checking all requirements were met. 
+
+* I tested all of the buttons as follows: 
+  * Start the game by pressing the start game button - *Working*
+  * When the user crashes, press the restart game button - *Working*
+  * When audio is playing, mute it by pressing the mute button, and then again to unmute - *Working* 
+  * When the game is running, press the reset button to restart the game - *Working*
+  * Visit the GitHub page by pressing the icon - *Working*
+
+* I tested the responsiveness of the game using different mobile and tablet devices within the DevTools device toolbar - *Working* 
+
+* I ran audit testing using the DevTools Lighthouse feature. Using this I was able to correct some minor mistakes such as not includiong an HTML meta description element.
+  
+  * This is on Desktop
+
+<div align="center">
+
+
+<img src="performance 3-desktop.JPG" alt="Sprites" width="500">
+</div>
+
+* 
+  * This is on mobile
+
+<div align="center">
+
+
+<img src="performance 3.JPG" alt="Sprites" width="500">
+</div>
+
 convice that enough testing has been done that it works.
 go over the user stories for ux and insure they work
 use scenarios like clicking contact button, trying to submit empty form etc
@@ -696,14 +742,18 @@ track not playing first time page loads
 slow movement on some phones
 0 mark sprite paths
 
+[Back to Table Of Contents](#table-of-contents)
+
 ## Deployment
 explain the process taken to deploy the page
 
+[Back to Table Of Contents](#table-of-contents)
+
 ## Credits
 ### Content and code
-reference to bits used
+https://www.youtube.com/watch?v=CSoZPdhNwjY - Basic formula used for starfield simulation
 ### Media
-explain where any media came from 
+All media in this project was created by myself
 ### Acknowledgements 
 acknowledge mentor and students in slack
 
@@ -712,3 +762,5 @@ Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 change start screen screenshots - mute btn 
+
+[Back to Table Of Contents](#table-of-contents)
