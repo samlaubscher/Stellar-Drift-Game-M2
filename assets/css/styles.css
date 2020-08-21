@@ -290,7 +290,7 @@ ul.github-button {
 
 p#credit {
     font-size: clamp(4px, 2vw, 10px);
-    color: rgba(255, 255, 255, 0.301);
+    color: #A8A8A8;
 }
 /* -------------------------- Media Queries ------------------------*/
 

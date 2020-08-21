@@ -68,30 +68,43 @@ When starting this project, I knew I wanted to develop something highly interact
 I had recently discovered the music synth wave with its asthetical retro space-age themed artwork, so this twinned with the stars idea quickly became inspiration for building a space themed game and creating the music that accompanies it.
 
 #### Project Goals
-I wanted to create a visually asthetic game, aimed at those who like fast paced reaction and skill driven gameplay. I wanted to create a game that users needed to interact with at speed, and have the game respond accordingly and effectively to these inputs.
+The aim of this project is to create a visually asthetic game, aimed at those who like fast paced reaction and skill driven gameplay. It must remain engaging and require the user to maintain constant focus and interaction with  it at speed, having the game respond accordingly and effectively to these inputs. 
 
 >"The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 I wanted a way for players to be able to win the game, but not very easily otherwise they would get bored quickly, and gamers often like a challenge.
 
 ### User Goals
-As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme to make it more immersive.
-
-As a user, I want to be presented with the instructions and controls before the game starts so that I am comfortable with how to play. 
-
-As a user, I want to be able to see my progression throughout the game so that I am aware of how well I am doing. 
-
-As a user, I want to clearly see when my interactions with the game have an affect on it.
-
-As a user, I want to be able to easily mute any audio if required.
-
-As a user, I want to have the developers information available incase I want to check out their other work or make contact.
-
-As a user, I wanted to have a clear way to start the game, and to restart it if I die. 
-
-As a user, I do not want the controls to be unreliable and buggy as this will ruin my experience. 
+* As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme to make it more immersive.
+* As a user, I want to be presented with the instructions and controls before the game starts so that I am comfortable with how to play. 
+* As a user, I want to be able to see my progression throughout the game so that I am aware of how well I am doing. 
+* As a user, I want to clearly see when my interactions with the game have an affect on it.
+* As a user, I want to be able to easily mute any audio if required.
+* As a user, I want to have the developers information available incase I want to check out their other work or make contact.
+* As a user, I wanted to have a clear way to start the game, and to restart it if I die. 
+* As a user, I do not want the controls to be unreliable and buggy as this will ruin my experience. 
 
 >A gamer can excuse flaws in graphics, but he will never tolerate poorly designed controls. Imagine how unhappy the user who accidentally tapped All In instead of Fold in the middle of a poker round would be. - (Bura and Coates, 2012, p.43)
+
+### Design Process
+Taking inspiration from the video I had seen on the JavaScript star field, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimentions wheras the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the center point of them spawning worked perfectly.
+
+I wanted the game to have the obvious dark theme of space so neutral blacks, greys and white, but also with a single colour thrown in to create a bit of visual warmth and ambience.
+
+<div align="center">
+
+<img src="colours-1 (11).png" alt="Theme colours" width="500">
+</div>
+
+* 000000 - This is the main colour on the page as it is used for the black background of space, as well as the middle lettering for the title.
+* 0C0C0C - This dark shade is used for the reset button and matches the transparent colour of the panel behind the text on the star page.
+* 383838 - This is the colour used for the Start Game and Restart Game buttons.
+* A8A8A8 - This slightly lighter shade is used for the mute button and github icon, as well as the credits.
+* FFFFFA - This is the off white colour used for all of the text on screen.
+* 2C2666 - This is the one colour I placed into the main title above the game. I used layers with different transparency to create the glowing effect which i feel gives the game a nice neon feel.
+
+
+
 
 
 wireframes etc for design process
