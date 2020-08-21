@@ -1,8 +1,8 @@
 <div align="center">
 
-# Stellar Drift | Mini Game
-
 <img src="stellar-drift-name.gif" alt="Sprites">
+
+# Stellar Drift | Mini Game
 
 #### An interactive and challenging 3D space themed mini game, built using vanilla javascript!
 
