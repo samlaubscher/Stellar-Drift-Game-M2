@@ -23,7 +23,6 @@ As your score increases, so will your speed! Watch for the colours changing to i
     * [**Overview**](#overview)
     * [**User goals**](#user-goals)
     * [**Design process**](#design-process)
-    * Colour scheme
 
 * [**Features**](#features)
     * [**Canvas API graphics animation**](#Canvas-api-graphics-animation)
@@ -697,7 +696,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 * I ran audit testing using the DevTools Lighthouse feature. Using this I was able to correct some minor mistakes such as not includiong an HTML meta description element.
   
-  * This is on Desktop
+  * Audit testing on Desktop
 
 <div align="center">
 
@@ -706,7 +705,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 </div>
 
 * 
-  * This is on mobile
+  * Audit testing on mobile
 
 <div align="center">
 
@@ -714,15 +713,28 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 <img src="performance 3.JPG" alt="Sprites" width="500">
 </div>
 
-convice that enough testing has been done that it works.
-go over the user stories for ux and insure they work
-use scenarios like clicking contact button, trying to submit empty form etc
-use automated tests and show results 
+* I used the W3C HTML Markup Validator to check all HTML was applied and working correctly. - *Working*
 
-jshint 
-html validator 
-js validator 
-different browsers and devices 
+* I used the W3C CSS Validator to check all the CSS was also valid and working correctly. - *Working*
+
+* I tested the game on an array of phones such as Iphone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers. - *Working*
+
+* I ran the site through GTMetrix to check the performance. - *Working*
+
+<div align="center">
+
+
+<img src="speed.JPG" alt="Sprites" width="500">
+</div>
+
+* I ran the JavaScript through jshint.com and got no errors. This is the code metrics summary i was provided. 
+<div align="center">
+
+
+<img src="metrics.JPG" alt="Sprites" width="300">
+</div>
+
+* I posted my site in the Slack Peer Review channel.... update
 
 #### bugs 
 fixed
