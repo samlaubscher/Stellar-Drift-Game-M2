@@ -937,10 +937,32 @@ if (this.z <= 0) {
 [Back to Table Of Contents](#table-of-contents)
 
 ## 5 Deployment
-To deploy this 
 ### 5.1 GitHub Pages
-To deploy this site
+To deploy this project online for user testing, peer review and milestone submission, I utilised the GitHub Pages feature. The steps I took to achieve this are as follows.
+
+* I logged into **GitHub**.
+* I clicked on repositories and selected **samlaubscher/Stellar-Drift-Game-M2**.
+* I clicked on **Settings** in the top right hand corner.
+* I scrolled down to the **GitHub Pages** section.
+* The top part named **Source** contains a dropdown box, I clicked that and selected **Master Branch** from the menu.
+* Upon clicking the **Master Branch**, the page automatically refreshed and a ribbon appeared stating this below message detailing the successful deployment of the page.
+> Your site is published at https://samlaubscher.github.io/Stellar-Drift-Game-M2/
+
 ### 5.2 Locally
+To run this project locally, please follow these instructions:
+* Follow this link to the [**Stellar Drift GitHub repository**](https://github.com/samlaubscher/Stellar-Drift-Game-M2).
+* Under the repository name, click **Clone or download**.
+* In the Clone with HTTPs section, **copy the clone URL** for the repository.
+* **Open Git Bash** in your local IDE
+* **Change the current working directory** to the location where you want the cloned directory to be made.
+* Type **git clone**, and then paste the **URL** - it should look like this
+> https://github.com/samlaubscher/Stellar-Drift-Game-M2.git
+* Press **Enter** and your clone will be created. 
+* To remove the origin link of this repository from your IDE type `git remote rm origin`.
+* Alternatively - you can download a ZIP folder of the project directly from the GitHub repository page and unpack into the desired location.
+* You can now **open the `index.html` file** to run this locally.
+
+To read more about cloning repositories, you can read [Cloning a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 [Back to Table Of Contents](#table-of-contents)
 
@@ -957,8 +979,7 @@ Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 change start screen screenshots - mute btn 
-rename files
-move files
+check check check readme 
 
 
 [Back to Table Of Contents](#table-of-contents)
