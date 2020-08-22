@@ -27,6 +27,7 @@ As your score increases, so will your speed! Watch for the colours changing to i
       * [**Colour Scheme**](#colour-scheme)
       * [**Typography**](#typography)
       * [**Wireframes**](#wireframes)
+      * [**Development Stages**](#development-stages)
 
 * [**2 Features**](#features)
     * [**2.1 Existing Features**](#existing-features)
@@ -50,7 +51,6 @@ As your score increases, so will your speed! Watch for the colours changing to i
       * [**Music & Audio**](#Music-&-Audio)
     * [**2.2 Features Left to Implement**](#Features-left-to-impliment)
       * [**Score History & Leaderboard**](#Score-History-&-Leaderboard)
-      * [**Stop Background Music Restarting**](#stop-background-music-restarting)
       * [**Better Colour Transitions**](#better-colour-transitions)
       * [**Tighter Collision Detection**](#tighter-collision-detection)
       * [**Additional Sprite Type Objects**](#additional-sprite-type-objects)
@@ -78,6 +78,8 @@ As your score increases, so will your speed! Watch for the colours changing to i
 * [**4 Testing**](#testing)
   * [**4.1 Completed**](#completed)
   * [**4.2 Bugs**](#bugs)
+    * [**Fixed**](#fixed)
+    * [**Still Existing**](#still-existing)
 
 * [**5 Deployment**](#deployment)
 
@@ -115,7 +117,7 @@ I wanted a way for players to be able to win the game, but not very easily other
 ### 1.4 Design Process
 Taking inspiration from the video I had seen on the JavaScript starfield simulation, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimentions wheras the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the center point of them spawning worked perfectly.
 
-#### Colour scheme
+### **Colour scheme**
 I wanted the game to have the obvious dark theme of space so neutral blacks, greys and white, but also with a single colour thrown in to create a bit of visual warmth and ambience.
 
 <div align="center">
@@ -137,13 +139,13 @@ Below are the colours the stars transition between when the score increases.
 <img src="colours.png" alt="Theme colours" width="500">
 </div>
 
-#### Typography
+### **Typography**
 
 The font is one of the most important aspects of the design process, so the title and text font has to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, taking away focus from the center. 
 
-#### Wireframes
+### **Wireframes**
 
-I created two wireframes for this project. I didnt want to put too much content on the screen as I wanted an old arcade feel, and too much would take away from this.
+I created two wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and too much would take away from this.
 
 * For the start screen, I wanted to present the users with a panel containing a brief overview of the game with instructions and controls, as well as a start button like most games. I wanted to impliment a pause or restart button but keep this low profile and in the corner. Audio would be playing which meant I would need a mute button, as well as a way for users to access the GitHub repository. The crash screen could use this same layout.
 
@@ -160,6 +162,23 @@ I created two wireframes for this project. I didnt want to put too much content 
 </div>
 
 I did not feel the need to create a seperate mobile wireframe, as the layout would remain exactly the same, just on a smaller screen.
+
+### **Development Stages** 
+To ensure the development of my project was maintainable and manageable, I created a list of stages to follow. This meant I am able to efficiently focus on individual areas and progress logically as I complete each stage.
+
+* Create and style Canvas
+* Create stars background
+* Create start page layout
+* Create title
+* Create buttons
+* Finish start page
+* Create asteroid Sprite functionality
+* Create player ship
+* Create player movement functionality
+* Create collision detection functionality
+* Create crash and completed screens
+* Create score system
+* Clean up code and fix bugs
  
  [Back to Table Of Contents](#table-of-contents)
 
@@ -281,7 +300,7 @@ class Sprite {
     }
   }
 ```
-The `moveSprite()` method remains the same, except the `speed` has been halved and there are fresh `notZeroRange()` values called each time the `z` index resets for a new `Sprite` to be generated. The `speed` has been halved so that the background remains more engaging whilst the sprites are not too fast for the player. 
+Within the `moveSprite()` method, `speed` has been halved and there are fresh `notZeroRange()` values called each time the `z` index resets for a new `Sprite` to be generated. An if statement is used to set `this.randomX` to 0 randomly with low odds in order to fix a bug with players staying on 0 and not crashing. The `speed` has been halved so that the background remains more engaging whilst the sprites are not too fast for the player. 
 
 ``` 
     [...]
@@ -290,7 +309,11 @@ The `moveSprite()` method remains the same, except the `speed` has been halved a
       this.z = this.z - speed / 2;
       if (this.z <= 0) {
         this.z = cnvsWidth;
-        this.randomX = notZeroRange(-10, 10);
+        if (Math.random() < 0.02) {
+          this.randomX = 0;
+        } else {
+          this.randomX = notZeroRange(-10, 10); 
+        }
         this.randomY = notZeroRange(-10, 10);
       }
     } [...]
@@ -653,17 +676,42 @@ ctx.fill();
 ```
 
 ### **Music & Audio**
-I wanted to create my own piece of music for this game. I am a big fan of the synthwave sound and image which formed much of the inspiration for the theme of this game.
+I am a big fan of the retro synthwave sound which formed part of the inspiration for the theme of this game - so I wanted to make my own track as backing music. I also wanted to make the game more immersive by create sounds for when the game starts, the player crashes, and when they win. I used Ableton Live 10, below are some screenshots of the projects and the sound effects used.
 
----- insert pic of ableton 
+This is the project for the track - Titled 'Event Horizon'.
+
+<div align="center">
+
+
+<img src="ableton.JPG" alt="Sprites">
+</div>
+
+The laser type sound heard when the game starts was the sound of a Slinky I recorded and processed.
+
+<div align="center">
+
+
+<img src="start game.JPG" alt="Sprites" width="500">
+</div>
+
+The explosion was taken from a sound bank and also processed.
+
+<div align="center">
+
+<img src="explosion.JPG" alt="Sprites" width="500">
+</div>
+
+When the player wins, I added the startup sound to some stock audio of a crowd cheering with some funny wailing at the end. This is timed so that the background music finishes and loops with some of the cheering still playing. 
+
+<div align="center">
+
+<img src="completed.JPG" alt="Sprites" width="500">
+</div>
 
 ### 2.2 Features to impliment in the future
 
 ### **Score History & Leaderboard**
 I would like to impliment the use of a global high score with a leaderboard. When a player crashes or wins, the leaderboard would be displayed with the option of adding the most recent score to the list with a user name text input. The score limit of 10,000 could be removed and players could compete to score the highest on the leaderboard. In order to achieve this, I would need knowledge of back-end technologies, which I will be studying later in this course.
-
-### **Stop Background Music Restarting**
-Each time the game is restarted, the page must be reloaded which in turn restarts the music. I would like to impliment a way of restarting the game and refreshing the code efficiently without refreshing the entire window.
 
 ### **Better colour transitions**
 The current technique used for transitioning between colours is very clunky. I would like to impliment some code that creates a constant smooth transitioning effect between colours instead of just jumping from one value to the next.
@@ -680,50 +728,50 @@ I would also like to be able to add other layers of objects that could randomly 
 
 ## 3 Technologies Used
 ### 3.1 Languages
-#### [HTML/HTML 5](https://html.com/html5/)
+### [**HTML/HTML 5**](https://html.com/html5/)
 HTML5 is a Hyper Text Markup Language. Roughly 17% of my code was the HTML file [index.html](index.html) as it was used to create the structured content and elements essential to build the game.
 
-#### [CSS/CSS3](https://www.w3.org/Style/CSS/Overview.en.html)
+### [**CSS/CSS3**](https://www.w3.org/Style/CSS/Overview.en.html)
 CSS is a Cascading Style Sheet and was implimented via the [styles.css](assets\css\styles.css) file. All of the visible HTML content was positioned and styled using this language, making up roughly 28% of the entire code.
 
-#### [JavaScript ES6](https://www.w3schools.com/Js/js_es6.asp)
+### [**JavaScript ES6**](https://www.w3schools.com/Js/js_es6.asp)
 ECMAScript 6 - ECMAScript 2015, otherwise known as JavaScript 6, was used to write all of the functionality and game mechanics within this project. Around 55% of the entire code was JavaScript, which was used heavily with the Canvas API.
 
 ### 3.2 Libraries
 
-#### [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+### [**Canvas API**](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 The Canvas API allows for the drawing and rendering of 2D graphics using JavaScript and the HTML `<canvas>` element. It can render shapes, text, and images, all of which can then be manipulated and animated on a grid coordinate space. All of the animated moving content within this game was created with the Canvas API, which takes up the entire viewport - no images were used.
 
-#### [Font Awesome](https://fontawesome.com/)
+### [**Font Awesome**](https://fontawesome.com/)
 Font Awesome was used for the GitHub social and audio mute icons.
 
-#### [Google Fonts API ](https://fonts.google.com/)
+### [**Google Fonts API**](https://fonts.google.com/)
 All of the fonts used within this project were provided by the Google Fonts API. The fonts used were 'Audiowide' 'Oxanium', and 'Orbitron'.
 
 ### 3.3 Tools
 
-#### [VSCode](https://code.visualstudio.com/)
+### [**VSCode**](https://code.visualstudio.com/)
 Visual Studio Code was the Intergrated Development Environment (IDE) used to write the code for this project.
 
-#### [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
+### [**Chrome DevTools**](https://developers.google.com/web/tools/chrome-devtools/)
 The Chrome DevTools were used a lot in the development of this project to live preview edits and diagnose problems. I also ran lots of auditing and testing using built in tools such as Sources, Lighthouse and Coverage.
 
-#### [Git](https://git-scm.com/)
+### [**Git**](https://git-scm.com/)
 Git was used for version control with GitHub - commiting each development stage to the GitHub repository.
 
-#### [Github](https://github.com/)
+### [**Github**](https://github.com/)
 GitHub was used to host the repository.
 
-#### [GitHub Pages](https://pages.github.com/)
+### [**GitHub Pages**](https://pages.github.com/)
 GitHub Pages was used to deploy this website directly from the repository master branch.
 
-#### [EZGIF](https://ezgif.com/)
+### [**EZGIF**](https://ezgif.com/)
 EZGIF.com is a simple and free online video and gif editor. It was used to create the GIFS found in this README.
 
-#### [GNU Image Manipulation Program](https://www.gimp.org/)
+### [**GNU Image Manipulation Program**](https://www.gimp.org/)
 GNU Image Manipulation Program (GIMP) was used to create the favicon website icon.
 
-#### [Ableton Live 10](https://www.ableton.com/en/live/)
+### [**Ableton Live 10**](https://www.ableton.com/en/live/)
 Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly towards electronic music production. This was used to create the audio sound track used for this game.
 
 [Back to Table Of Contents](#table-of-contents)
@@ -735,13 +783,17 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 * Before I started the more in depth testing, I ensured that the website served the purpose it was built for by running through each of the user stories and checking all requirements were met. 
 
 * I tested all of the buttons as follows: 
-  * Start the game by pressing the start game button - *Working*
-  * When the user crashes, press the restart game button - *Working*
-  * When audio is playing, mute it by pressing the mute button, and then again to unmute - *Working* 
-  * When the game is running, press the reset button to restart the game - *Working*
+  * Start the game by pressing the *Start Game* button - *Working*
+  * When the user crashes, press the *Restart Game* Button - *Working*
+  * When audio is playing, mute it by pressing the *Mute* button, and then again to unmute - *Working* 
+  * When the game is running, press the *Reset* button to restart the game - *Working*
   * Visit the GitHub page by pressing the icon - *Working*
 
 * I tested the responsiveness of the game using different mobile and tablet devices within the DevTools device toolbar - *Working* 
+
+* I ran extensive testing of the `collisionDetection()` function to check it was functional, effective, and reliable.
+
+* I tested the controls extensively, pressing multiple keys and attempting to break the game to check no more bugs would appear.
 
 * I ran audit testing using the DevTools Lighthouse feature. Using this I was able to correct some minor mistakes such as not includiong an HTML meta description element.
   
@@ -766,7 +818,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 * I used the W3C CSS Validator to check all the CSS was also valid and working correctly. - *Working*
 
-* I tested the game on an array of phones such as Iphone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers. - *Working*
+* I tested the game on an array of different phones and their browsers such as Iphone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers on them. - *Working*
 
 * I ran the site through GTMetrix to check the performance. - *Working*
 
@@ -786,8 +838,8 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 * I posted my site in the Slack Peer Review channel.... update
 
 ### 4.2 Bugs 
-#### Fixed
-I encountered an enourmous amount of bugs when building this game and attempting to get the code to work. I am very satisfied that I managed to resolve most of these, allowing me to build a sucessfully working game.
+### **Fixed**
+I encountered an enourmous amount of bugs when building this game as there was a lot of logic to work with. I am very satisfied that I managed to resolve most of these, allowing me to build a sucessfully working game. Often the issue would be some minor code that I did not correctly impliment. Here are some of the more notable issues and bugs I encountered.
 
 * `Sprites` hitting the center of the screen - If a value close to 0 is generated for the `Sprite` X or Y positions, the object would travel straight towards the center of the screen. This was not only against my idea for the design, but it also created harsh visual flashes that could even affect people suffering with epilepsy. I fixed this using the `notZeroRange()` function.
 
@@ -835,15 +887,34 @@ function keyDown(e) {
       .addEventListener("touchstart", moveRight, {passive: true});
 ```
 
-errors in the collision detection
+* Programming the collision detection was one of the hardest parts of this whole project. From the beginning I ran into countless errors with the code breaking or not working correctly, and I really had to think to get it to work. Sometimes the game would detect collisions when nothing was near it, and other times it would not work at all. Playing with the code, the arrays and functions used to process the ship locations, and the collision detection pixel range, I think I have got it satisfyingly accurate.
 
+* Originally my audio was set to `autoplay` when the page loaded, but the audio would never play on the first page load. Only when users restart the game, triggering the page to reload, does the track start to play. I tried to do some research and believe this is down to Chrome and other browsers attempting to phase out the `autoplay` feature on websites, but im not 100% sure. Sometimes it will trigger instantly, but that may be due to the browser cache. To work around this, I set the audio to play when the game starts.
 
-#### Still Existing
-mobile spinning
-restart button not working 
-track not playing first time page loads 
-slow movement on some phones
-0 mark sprite paths
+* Another bug noticed by users was that when the player ship is left on the 0 mark, meaning they havent touched the rotation, almost no asteroids would hit them - players could complete the game without moving the craft. This is due to the `notZeroRange()` function used inside of the `Sprite` rendering. Without this function, when the code generated two numbers between 0-1.75, the `Sprite` would hit the center of the screen, and not travel around the edge. By using this `notZeroRange()` function, it eliminates this issue whilst causing this smaller bug. I managed to resolve the problem by randomly setting `this.randomX` to 0 through the use of an `if` statement and `Math.random()`.
+
+```
+[...]
+if (this.z <= 0) {
+        this.z = cnvsWidth;
+        if (Math.random() < 0.02) {
+          this.randomX = 0;
+        } else {
+          this.randomX = notZeroRange(-10, 10); 
+        }
+        this.randomY = notZeroRange(-10, 10);
+      } [...]
+```
+
+### **Still Existing**
+
+* Leading on from this last bug, users may notice that on rare occasions, `Star` objects will enter the center of the screen in the same way that the `Sprites` would without the `notZeroRange()` function. I could not easily eliminate this issue with the stars as I did not want to put a limit on the rendering positions, and I dont think the issue is big enough for users to notice.
+
+* On mobile devices, the issue still exists with the event listeners when two direction keys are pressed at the same time. I have attempted to fix this `touchstart` `touchend` bug using the same technique used for the `keydown` and `keyup` event listeners, but it does not work. When this bug does activate, the players ship constantly spins in a certain direction without any way to stop it. This unfortunately leaves the player with no choice but to press the Reset button or wait to crash. The only current workaround for this is to be very conscious of not touching the screen with both fingers at once when playing.
+
+* When players reach the score of 10,000 and complete the game, they are presented with the completed screen, much like the crash screen. The code is exactly the same aside from the content of the text, yet the Restart Game button does not work like it does with the crash screen. The button highlights and moves when clicked, but no event listener triggers. Users have to press the Reset button.
+
+* I noticed some mobile devices had a much slower rate of movement. This may be down to the processor throttling as mentioned before. It does not really affect the game in a bad way, but it is best enjoyed when movement is fastest.
 
 [Back to Table Of Contents](#table-of-contents)
 

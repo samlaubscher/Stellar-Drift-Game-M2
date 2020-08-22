@@ -98,7 +98,7 @@ window.onload = function () {
       ctx.beginPath();
       if (score <= 1000) {
         ctx.fillStyle = "#82caff";
-      } else if (score <= 2000) {
+      } else if (score <= 2100) {
         ctx.fillStyle = "#00FA9A";
       } else if (score <= 3000) {
         ctx.fillStyle = "#306eff";
@@ -147,8 +147,13 @@ window.onload = function () {
       // Resets the object to back of z dimension when it reaches edge of canvas and value goes below 0
       if (this.z <= 0) {
         this.z = cnvsWidth;
+        // Enables 0 to be generated on X axis
+        if (Math.random() < 0.02) {
+          this.randomX = 0;
+        } else {
         // Ensures positions stay random each time a new array object is instanciated
-        this.randomX = notZeroRange(-10, 10);
+          this.randomX = notZeroRange(-10, 10); 
+        }
         this.randomY = notZeroRange(-10, 10);
       }
     }
@@ -560,6 +565,7 @@ window.onload = function () {
     document.getElementById("completed-panel").classList.toggle("hidden");
     document.getElementById("github").classList.toggle("hidden");
     document.getElementById("restart-btn").addEventListener("click", reload);
+    document.getElementById("completed").play();
     endGame = true;
   }
 
@@ -602,6 +608,8 @@ window.onload = function () {
     document.getElementById("start-panel").classList.toggle("hidden");
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("github").classList.toggle("hidden");
+    document.getElementById("start-sound").play();
+    document.getElementById("music").play();
 
     for (var i = 0; i < numberOfSprites; i++) {
       // Generates new Sprite object per array iteration
