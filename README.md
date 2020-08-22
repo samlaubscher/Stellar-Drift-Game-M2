@@ -19,31 +19,41 @@ As your score increases, so will your speed! Watch for the colours changing to i
 
 ---
 ## Table of Contents
-* [**UX**](#ux)
-    * [**Overview**](#overview)
-    * [**User goals**](#user-goals)
-    * [**Design process**](#design-process)
+* [**1 UX**](#ux)
+    * [**1.1 Overview**](#overview)
+    * [**1.2 Project Goals**](#project-goals)
+    * [**1.3 User Goals**](#user-goals)
+    * [**1.4 Design Process**](#design-process)
+      * [**1.4.1 Colour Scheme**](#colour-scheme)
+      * [**1.4.2 Typography**](#typography)
+      * [**1.2.3 Wireframes**](#wireframes)
 
-* [**Features**](#features)
-    * [**Canvas API graphics animation**](#Canvas-api-graphics-animation)
-    * [**Animated star background**](#Animated-star-background)
-    * [**Animated asteroid sprites**](#Animated-steroid-sprites)
-    * [**Player ship movement**](#Player-ship-movement)
-    * [**Player ship controls**](#Player-ship-controls)
-    * [**Collision detection**](#Collision-detection)
-    * [**Start screen**](#Start-screen)
-    * [**Start game button**](#Start-game-button)
-    * [**Mute audio button**](#Mute-audio-button)
-    * [**Reset button**](#Reset-button)
-    * [**Github social icon**](#Github-social-icon)
-    * [**Crash screen**](#Crash-screen)
-    * [**Completed screen**](#Completed-screen)
-    * [**Score counter**](#Score-counter)
-    * [**Countdown timer**](##Countdown-timer)
-    * [**Speed change**](#Speed-change)
-    * [**Colour changing**](#Colour-changing)
-    * [**Music & Audio**](#Music-&-Audio)
-    * [**Features to impliment in the future**](#Features-to-impliment-in-the-future)
+* [**2 Features**](#features)
+    * [**2.1 Existing Features**](#existing-features)
+      * [**2.1.1 Canvas API graphics animation**](#Canvas-api-graphics-animation)
+      * [**2.1.2 Animated star background**](#Animated-star-background)
+      * [**2.1.3 Animated asteroid sprites**](#Animated-steroid-sprites)
+      * [**2.1.4 Player ship movement**](#Player-ship-movement)
+      * [**2.1.5 Player ship controls**](#Player-ship-controls)
+      * [**2.1.6 Collision detection**](#Collision-detection)
+      * [**Start screen**](#Start-screen)
+      * [**Start game button**](#Start-game-button)
+      * [**Mute audio button**](#Mute-audio-button)
+      * [**Reset button**](#Reset-button)
+      * [**Github social icon**](#Github-social-icon)
+      * [**Crash screen**](#Crash-screen)
+      * [**Completed screen**](#Completed-screen)
+      * [**Score counter**](#Score-counter)
+      * [**Countdown timer**](##Countdown-timer)
+      * [**Speed change**](#Speed-change)
+      * [**Colour changing**](#Colour-changing)
+      * [**Music & Audio**](#Music-&-Audio)
+    * [**Features Left to Implement**](#Features-left-to-impliment)
+      * [**Score History & Leaderboard**](#Score-History-&-Leaderboard)
+      * [**Stop Background Music Restarting**](#stop-background-music-restarting)
+      * [**Better Colour Transitions**](#better-colour-transitions)
+      * [**Tighter Collision Detection**](#tighter-collision-detection)
+      * [**Additional Sprite Type Objects**](#additional-sprite-type-objects)
 
 * [**Technologies Used**](#technologies-used)
     * [**Languages**](#languages)
@@ -68,7 +78,7 @@ When starting this project, I knew I wanted to develop something highly interact
 
 I had recently discovered the music synth wave with its asthetical retro space-age themed artwork, so this twinned with the stars idea quickly became inspiration for building a space themed game and creating the music that accompanies it.
 
-#### Project Goals
+### Project Goals
 The aim of this project is to create a visually asthetic game, aimed at those who like fast paced reaction and skill driven gameplay. It must remain engaging and require the user to maintain constant focus and interaction with  it at speed, having the game respond accordingly and effectively to these inputs. 
 
 >"The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy 
@@ -140,6 +150,8 @@ I did not feel the need to create a seperate mobile wireframe, as the layout wou
 
 ---
 ## Features 
+### Existing Features
+
 ### **Canvas API graphics animation**
 The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with *window.requestAnimationFrame(update)*. This update function calls other specific functions containing logical algorhythms which are mostly designed to change certain parameters of the content that the function may render each frame.
 
@@ -488,7 +500,7 @@ The code unfortunately is not accurate enough to use this method without a range
   }
 ```
 
-### Start Screen
+### **Start Screen**
 When the page first loads, users are presented with the start screen. The background stars are frozen, and the center panel displays instructions for how to play the game as well as controls for both mobile and desktop browsers. There is a title saying *STELLAR DRIFT*, created using multiple h2 layers indipendently positioned.
 
 <div align="center">
@@ -498,7 +510,7 @@ When the page first loads, users are presented with the start screen. The backgr
 <img src="start-screen-ipad.JPG" alt="Start Screen"width="250">
 </div>
 
-### Start game button
+### **Start game button**
 The game is started by clicking or touching the Start Game button on the start screen panel. The Enter key can also be pressed, allowing users to keep their hands on the keyboard when restarting. When this button is pressed, the `initialiseGame()` function is called. This hides the start panel and Github Social icon whilst enabling on screen buttons for mobile, creates the `spritesArray[i]`, and finally calls the `update()` callback function to trigger the main loop animation.
 
 ```
@@ -518,7 +530,7 @@ function initialiseGame() {
 }
 ```
 
-### Mute audio button
+### **Mute audio button**
 I created some background music for the game to add to the user experience. This is programmed to automatically play when the broweser loads, which may not be the desirable choice for many users. The mute button was created using the Font Awesome icons, and linked to an event listener that triggers the `toggleMute()` function.
 ```
 function toggleMute() {
@@ -528,17 +540,17 @@ function toggleMute() {
     document.getElementById("i-not-muted").classList.toggle("hidden");
   }
 ```
-### Reset button 
+### **Reset button** 
 The reset button allows the user to restart the game, reloading the page back to the start panel. In the future I would like to change this into a pause button with the option to then reset, but currently this button is just linked to an event listener that calls the `reload()` function.
 ```
 function reload() {
     window.location.reload(true);
   }
 ```
-### Github social icon
+### **Github social icon**
 I wanted to display a link so users can discover the repository page. This allows people to see how the game was built, who it was built by, and even make contact for comments or potential future collaboration. I knew that the Github icon would work well located on the start screen, and once again Font Awesome provided this for me. 
 
-### Crash screen
+### **Crash screen**
 When a successful collision is detected within `collisionDetection()`, the function `crashScreen()` is called. As well as displaying the crash screen and the Github icon, this function hides the direction buttons, adds an event listener for the reload button, and triggers an explosion sound to simulate the ship crashing. 
 
 ```
@@ -558,7 +570,7 @@ At the bottom, the `endGame` variable which is normally `false` is set to `true`
 <img src="crash-screen.gif" alt="Sprites">
 </div>
 
-### Completed screen
+### **Completed screen**
 The completed screen is displayed when the user reaches the score of 10,000! Everything else remains the same as the crash screen, the only difference is the text displayed inside the panel.
 
 <div align="center">
@@ -567,7 +579,7 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 <img src="completed-screen.gif" alt="Sprites">
 </div>
 
-### Score counter
+### **Score counter**
 The score is used in more than one way across the application. It controls the speed, colour scheme, countdown timer, sprite rendering, and triggering the completed screen. `scoreIncrease()` incriments the score by the value of 1 when it is called each frame inside the `update()` function.
 
 ```
@@ -578,7 +590,7 @@ function scoreIncrease() {
     }
   }
 ```
-### Countdown timer 
+### **Countdown timer** 
 When the Start Game button is pressed, the score starts on -100. A visual countdown timer is then used to count back from 3 every 33 points. When the score passes 0, the countdown timer dissapears and the sprites are rendered. This gives users a brief but important moment to prepare themselves, increasing the overall user experience.
 
 <div align="center">
@@ -587,7 +599,7 @@ When the Start Game button is pressed, the score starts on -100. A visual countd
 <img src="countdown-timer.gif" alt="Sprites">
 </div>
 
-### Speed increase
+### **Speed increase**
 As the score increases, so does the speed of movement of the `Star` and `Sprite` objects. The function `speedIncrease()` is called from the `update()` function, incrimenting the value of speed each frame. As the score changes, so does the amount of incrimentation needed, as the speed gets higher less intensity is required. Objects move much quicker on mobile devices due to the smaller range of pixels, so a lower value of speed must be used.
 
 ```
@@ -605,7 +617,7 @@ function speedIncrease() {
     } [...]
 ```
 
-### Colour changing
+### **Colour changing**
 As the score increases, the colour scheme also changes for both the `Star` and `Sprite` objects. This not only looks nice and adds to the user experience, but it helps demonstrate the players progression in the game, adding stimulus to prevent it from seeming too repetitive.
 
 These colour changes take place when rendering the shapes, they are handled using `if` statements within the `showStar()` and `showSprite()` methods of the `Star` and `Sprite` classes.
@@ -625,25 +637,26 @@ ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
 ctx.fill();
 ```
 
-### Music & Audio
+### **Music & Audio**
 I wanted to create my own piece of music for this game. I am a big fan of the synthwave sound and image which formed much of the inspiration for the theme of this game.
 
 ---- insert pic of ableton 
 
-## Features to impliment in the future
-### Score history & high score leaderboard
+### Features to impliment in the future
+
+### **Score History & Leaderboard**
 I would like to impliment the use of a global high score with a leaderboard. When a player crashes or wins, the leaderboard would be displayed with the option of adding the most recent score to the list with a user name text input. The score limit of 10,000 could be removed and players could compete to score the highest on the leaderboard. In order to achieve this, I would need knowledge of back-end technologies, which I will be studying later in this course.
 
-### Stop the background music from restarting when the game is restarted
+### **Stop Background Music Restarting**
 Each time the game is restarted, the page must be reloaded which in turn restarts the music. I would like to impliment a way of restarting the game and refreshing the code efficiently without refreshing the entire window.
 
-### Better colour transitions
+### **Better colour transitions**
 The current technique used for transitioning between colours is very clunky. I would like to impliment some code that creates a constant smooth transitioning effect between colours instead of just jumping from one value to the next.
 
-### Tighter collision detection
+### **Tighter collision detection**
 Currently the collision detection works well and is accurate enough to make the game playable and enjoyable without too many false collisions. I would however like to make this more accurate, as sprites can often trigger a detection when they have not actually hit the player, and when the speed starts to increase the accuracy drops dramatically due to the greater amount of pixels being incrimented for movement per frame.
 
-### Additional Sprite type objects
+### **Additional Sprite type objects**
 I would also like to be able to add other layers of objects that could randomly spawn, and if the player collides with these, they could receive a temporary speed reduction or even increase. If there was no score limit, these additional sprites could multiply the score incrimentation amount for a short period of time.
 
 [Back to Table Of Contents](#table-of-contents)
