@@ -19,18 +19,18 @@ As your score increases, so will your speed! Watch for the colours changing to i
 
 ---
 ## Table of Contents
-* [**1 UX**](#ux)
-    * [**1.1 Overview**](#overview)
-    * [**1.2 Project Goals**](#project-goals)
-    * [**1.3 User Goals**](#user-goals)
-    * [**1.4 Design Process**](#design-process)
+* [**1 UX**](#1-ux)
+    * [**1.1 Overview**](#1.1-overview)
+    * [**1.2 Project Goals**](#1.2-project-goals)
+    * [**1.3 User Goals**](#1.3-user-goals)
+    * [**1.4 Design Process**](#1.4-design-process)
       * [**Colour Scheme**](#colour-scheme)
       * [**Typography**](#typography)
       * [**Wireframes**](#wireframes)
       * [**Development Stages**](#development-stages)
 
-* [**2 Features**](#features)
-    * [**2.1 Existing Features**](#existing-features)
+* [**2 Features**](#2-features)
+    * [**2.1 Existing Features**](#2.1-existing-features)
       * [**Canvas API graphics animation**](#Canvas-api-graphics-animation)
       * [**Animated star background**](#Animated-star-background)
       * [**Animated asteroid sprites**](#Animated-steroid-sprites)
@@ -49,22 +49,22 @@ As your score increases, so will your speed! Watch for the colours changing to i
       * [**Speed change**](#Speed-change)
       * [**Colour changing**](#Colour-changing)
       * [**Music & Audio**](#Music-&-Audio)
-    * [**2.2 Features Left to Implement**](#Features-left-to-impliment)
+    * [**2.2 Features Left to Implement**](#2.2-Features-left-to-impliment)
       * [**Score History & Leaderboard**](#Score-History-&-Leaderboard)
       * [**Better Colour Transitions**](#better-colour-transitions)
       * [**Tighter Collision Detection**](#tighter-collision-detection)
       * [**Additional Sprite Type Objects**](#additional-sprite-type-objects)
 
-* [**3 Technologies Used**](#technologies-used)
-    * [**3.1 Languages**](#languages)
+* [**3 Technologies Used**](#3-technologies-used)
+    * [**3.1 Languages**](#3.1-languages)
       * [**HTML/HTML 5**](#html/html-5)
       * [**CSS/CSS3**](#css/css3)
       * [**JavaScript ES6**](#JavaScript-ES6)
-    * [**3.2 Libraries**](#libraries)
+    * [**3.2 Libraries**](#3.2-libraries)
       * [**Canvas API**](#canvas-api)
       * [**Font Awesome**](#font-awesome)
       * [**Google Fonts API**](#Google-Fonts-API)
-    * [**3.3 Tools**](#Tools)
+    * [**3.3 Tools**](#3.3-Tools)
       * [**VSCode**](#vscode)
       * [**Chrome DevTools**](#chrome-devtools)
       * [**Git**](#git)
@@ -75,18 +75,21 @@ As your score increases, so will your speed! Watch for the colours changing to i
       * [**Ableton Live 10**](#Ableton-Live-10)
 
 
-* [**4 Testing**](#testing)
-  * [**4.1 Completed**](#completed)
-  * [**4.2 Bugs**](#bugs)
+* [**4 Testing**](#4-testing)
+  * [**4.1 Completed**](#4.1-completed)
+  * [**4.2 Bugs**](#4.2-bugs)
     * [**Fixed**](#fixed)
     * [**Still Existing**](#still-existing)
 
-* [**5 Deployment**](#deployment)
+* [**5 Deployment**](#5-deployment)
+  * [**5.1 GitHub Pages**](#5.1-github-pages)
+  * [**5.2 Local**](#5.2-local)
 
-* [**6 Credits**](#credits)
-    * Contents and code
-    * Media 
-    * Acknowledgements
+* [**6 Credits**](#6-credits)
+    * [**6.1 Contents and code**](#6.1Contents-and-code)
+    * [**6.2 Media**](#6.2-media)
+    * [**6.3 Acknowledgements**](#6.3-Acknowledgements)
+    * [**6.4 References**](#6.4-references)
 
 ---
 ## 1 UX
@@ -145,7 +148,7 @@ The font is one of the most important aspects of the design process, so the titl
 
 ### **Wireframes**
 
-I created two wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and too much would take away from this.
+I created four wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and too much would take away from this.
 
 * For the start screen, I wanted to present the users with a panel containing a brief overview of the game with instructions and controls, as well as a start button like most games. I wanted to impliment a pause or restart button but keep this low profile and in the corner. Audio would be playing which meant I would need a mute button, as well as a way for users to access the GitHub repository. The crash screen could use this same layout.
 
@@ -161,7 +164,20 @@ I created two wireframes for this project using Balsamiq. I did not want to put 
 <img src="assets\readme images\Wireframe 2 - In game.JPG" alt="Wireframe 2" width="500">
 </div>
 
-I did not feel the need to create a seperate mobile wireframe, as the layout would remain exactly the same, just on a smaller screen.
+* The mobile layout would be the same except for the GitHub icon due to the buttons.
+
+<div align="center">
+
+<img src="assets\readme images\Wireframe 3 - Mobile start screen.JPG" alt="Wireframe 3 - Mobile start screen" width="250">
+</div>
+
+* The game will be slightly more cramped on the mobile view, but the functionality should work identically.
+
+<div align="center">
+
+<img src="assets\readme images\Wireframe 4 - Mobile in game.JPG" alt="Wireframe 4 - Mobile in game" width="250">
+</div>
+
 
 ### **Development Stages** 
 To ensure the development of my project was maintainable and manageable, I created a list of stages to follow. This meant I am able to efficiently focus on individual areas and progress logically as I complete each stage.
@@ -916,22 +932,27 @@ if (this.z <= 0) {
 
 * I noticed some mobile devices had a much slower rate of movement. This may be down to the processor throttling as mentioned before. It does not really affect the game in a bad way, but it is best enjoyed when movement is fastest.
 
+* Some mobile devices have thin width screens, meaning the player dissapears off the side of the screen when the angle is 90 or 270 degrees. This does not happen on many devices, and when it does the game is still perfectly playable even with this bug.
+
 [Back to Table Of Contents](#table-of-contents)
 
 ## 5 Deployment
-explain the process taken to deploy the page
+To deploy this 
+### 5.1 GitHub Pages
+To deploy this site
+### 5.2 Locally
 
 [Back to Table Of Contents](#table-of-contents)
 
 ## 6 Credits
-### Content and code
+### 6.1 Content and code
 https://www.youtube.com/watch?v=CSoZPdhNwjY - Basic formula used for starfield simulation
-### Media
+### 6.2 Media
 All media in this project was created by myself
-### Acknowledgements 
+### 6.3 Acknowledgements 
 acknowledge mentor and students in slack
 
-### References 
+### 6.4 References 
 Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
