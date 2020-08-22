@@ -51,10 +51,12 @@ As your score increases, so will your speed! Watch for the colours changing to i
     * [**Tools**](#Tools)
 
 * [**Testing**](#testing)
+  * [**Completed**](#completed)
+  * [**Bugs**](#bugs)
 
-* Deployment 
+* [**Deployment**](#deployment)
 
-* Credits
+* [**Credits**](#credits)
     * Contents and code
     * Media 
     * Acknowledgements
@@ -88,6 +90,7 @@ I wanted a way for players to be able to win the game, but not very easily other
 ### Design Process
 Taking inspiration from the video I had seen on the JavaScript starfield simulation, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimentions wheras the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the center point of them spawning worked perfectly.
 
+#### Colour scheme
 I wanted the game to have the obvious dark theme of space so neutral blacks, greys and white, but also with a single colour thrown in to create a bit of visual warmth and ambience.
 
 <div align="center">
@@ -109,12 +112,29 @@ Below are the colours the stars transition between when the score increases.
 <img src="colours.png" alt="Theme colours" width="500">
 </div>
 
-The font is one of the most important aspects of the design process, so the title and text font had to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, taking away focus from the center. 
+#### Typography
 
-I drew out a wireframe for this game, although I knew that there would not be much placed on the screen as I wanted to go for the more minimal approach as to not take away from the visual aspect of the background.
+The font is one of the most important aspects of the design process, so the title and text font has to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, taking away focus from the center. 
 
+#### Wireframes
 
-wireframes etc for design process
+I created two wireframes for this project. I didnt want to put too much content on the screen as I wanted an old arcade feel, and too much would take away from this.
+
+* For the start screen, I wanted to present the users with a panel containing a brief overview of the game with instructions and controls, as well as a start button like most games. I wanted to impliment a pause or restart button but keep this low profile and in the corner. Audio would be playing which meant I would need a mute button, as well as a way for users to access the GitHub repository. The crash screen could use this same layout.
+
+<div align="center">
+
+<img src="WIREFRAME - START.JPG" alt="Theme colours" width="500">
+</div>
+
+* When the game starts, I wanted to remove the panel and GitHub icon so that as much of the screen was the moving starfield as possible. The ship spawns on the lower half of the screen and users can rotate left and right to dodge the oncoming asteroids. The two directional buttons would later be changed to the entire left and right sides of the screen and become invisible.
+
+<div align="center">
+
+<img src="WIREFRAME - PLAY.JPG" alt="Theme colours" width="500">
+</div>
+
+I did not feel the need to create a seperate mobile wireframe, as the layout would remain exactly the same, just on a smaller screen.
  
  [Back to Table Of Contents](#table-of-contents)
 
@@ -683,6 +703,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 ---
 
 ## Testing 
+### Completed
 * Before I started the more in depth testing, I ensured that the website served the purpose it was built for by running through each of the user stories and checking all requirements were met. 
 
 * I tested all of the buttons as follows: 
@@ -736,18 +757,60 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 * I posted my site in the Slack Peer Review channel.... update
 
-#### bugs 
-fixed
-jittering in mobile movement - passive event listeners 
-clamp not supported
-touchstart vs mousedown
-sprite center of screen
-keydown delay
-keydown spin
+### Bugs 
+#### Fixed
+I encountered an enourmous amount of bugs when building this game and attempting to get the code to work. I am very satisfied that I managed to resolve most of these, allowing me to build a sucessfully working game.
+
+* `Sprites` hitting the center of the screen - If a value close to 0 is generated for the `Sprite` X or Y positions, the object would travel straight towards the center of the screen. This was not only against my idea for the design, but it also created harsh visual flashes that could even affect people suffering with epilepsy. I fixed this using the `notZeroRange()` function.
+
+* When originally creating the layout of the game using the CSS `clamp()` function for `font-size`, I was using Firefox and discovered Chrome did not support the feature. This meant that font sizes would differ. However this appears to now be compatible with all browsers except Internet Explorer.
+
+* Keydown delay built into browsers to stop accidental key repeat events meant that the ship would not instantly spin to the left or right. When holding a direction key, one single movement event would trigger, there would be a short delay and then the key would start repeating giving the player sustained movement. This is not the ideal form of control for a fast paced reaction based game as users would not be able to move quick enough. I was able to create my own key repeat events by isolating the first key event on hold, triggering it 100 times a second for smoothness, and then removing the key repeat events that would normally follow. `setInterval()` has been explained in the [Player ship controls](#player-ship-controls) part of the features section, below is the simple code used to prevent the original key repeat events.
+
+```
+function keyDown(e) {
+    if (e.repeat) {
+      return;
+    } [...]
+```
+
+* When two direction keys were pressed at the same time, I discovered that the event listeners were not correctly functioning. The ship would begin to spin uncontrollably, picking up speed each time I pressed anything. I was able to fix this issue inside the `keyDown()` function by removing the `keydown` event listener when one was aleready being held, and then adding the event listener back in when the key was released. This prevents anymore key events from registering whilst one is already engaged. Please note this issue still exists on mobile.
+
+```
+      [...]
+
+    document.removeEventListener("keydown", keyDown);
+    if (e.key === "ArrowLeft" || e.key === "Left") {
+      moveLeft();
+    }[...]
+  }
+
+  function keyUp(e) {
+    if (
+      e.key === "ArrowLeft" ||
+      [...]
+    ) {
+      clearInterval(time);
+      document.addEventListener("keydown", keyDown);
+    }
+  }
+```
+
+* When testing on smaller screens, the game on screen control buttons always worked on my computer. However when I switched on the device mode and simulated a mobile, or I actually played it on a real phone, the on screen touch controls did not work. At first I thought this was down to mobile devices not supporting the `setInterval()` method, and set about attempting to fix this large bug. After several days of attempting to fix this error with potential alternatives that did not perform how I liked, I suddenly realised how simple the bug was to fix, and infact it had been an oversight on my part. I was using `mousedown` and `mouseup` event listeners instead of `touchstart` and `touchend`.
+
+* Once the movement was successfully working and everything seemed as smooth as possible, there was still a slight error with the mobile movement. When holding a direction button, the ship would move but often it would slightly jitter and stutter when first pressed, sometimes even stopping in its path before starting again. This was not a huge issue, however it did make the mobile experience somewhat less appealing. I thought this could be down to mobile device processors getting throttled trying to process such an intensive `setInterval()` method. But the apparent solution to this was an unexpected one. When audit testing my website, a warning error read *"Does not use passive listeners to improve scrolling performance"*. I learnt that the browser does not know if the touch event listener will prevent scrolling, so the page waits for the touch event to finish executing before registering a scroll. As soon as I added this small flag `{passive: true}` to each touch event listener, this bug dissapeared and movement was perfectly smooth.
+
+```
+    document.getElementById("left-direction-btn")
+      .addEventListener("touchstart", moveLeft, {passive: true});
+    document.getElementById("right-direction-btn")
+      .addEventListener("touchstart", moveRight, {passive: true});
+```
+
 errors in the collision detection
 
 
-exist
+#### Still Existing
 mobile spinning
 restart button not working 
 track not playing first time page loads 
