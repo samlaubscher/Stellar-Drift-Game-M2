@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="stellar-drift-name.gif" alt="Sprites">
+<img src="assets\readme images\Steller Drift Logo.gif" alt="Main Logo">
 
 # Stellar Drift | Mini Game
 
@@ -122,7 +122,7 @@ I wanted the game to have the obvious dark theme of space so neutral blacks, gre
 
 <div align="center">
 
-<img src="colours-1 (11).png" alt="Theme colours" width="500">
+<img src="assets\readme images\Main colour pallete.png" alt="Theme colours" width="500">
 </div>
 
 * 000000 - This is the main colour on the page as it is used for the black background of space, as well as the middle lettering for the title.
@@ -136,7 +136,7 @@ Below are the colours the stars transition between when the score increases.
 
 <div align="center">
 
-<img src="colours.png" alt="Theme colours" width="500">
+<img src="assets\readme images\Stars colour pallete.png" alt="Star colours" width="500">
 </div>
 
 ### **Typography**
@@ -151,14 +151,14 @@ I created two wireframes for this project using Balsamiq. I did not want to put 
 
 <div align="center">
 
-<img src="WIREFRAME - START.JPG" alt="Theme colours" width="500">
+<img src="assets\readme images\Wireframe 1 - Start screen.JPG" alt="Wireframe 1" width="500">
 </div>
 
 * When the game starts, I wanted to remove the panel and GitHub icon so that as much of the screen was the moving starfield as possible. The ship spawns on the lower half of the screen and users can rotate left and right to dodge the oncoming asteroids. The two directional buttons would later be changed to the entire left and right sides of the screen and become invisible.
 
 <div align="center">
 
-<img src="WIREFRAME - PLAY.JPG" alt="Theme colours" width="500">
+<img src="assets\readme images\Wireframe 2 - In game.JPG" alt="Wireframe 2" width="500">
 </div>
 
 I did not feel the need to create a seperate mobile wireframe, as the layout would remain exactly the same, just on a smaller screen.
@@ -322,7 +322,7 @@ Within the `showSprite()` method, the movement is implimented differently throug
 
 <div align="center">
 
-<img src="sprites-passing.gif" alt="Sprites">
+<img src="assets\readme images\Sprites.gif" alt="Sprites">
 </div>
 
 At the bottom of the `showSprite()` method sits the invocation of the `collisionDetection()` function, directly passing in the arguments of `xPos` and `yPos` as to allow these parameter values to be used outside of the class scope and inside the `collisionDetection()` function.
@@ -398,7 +398,7 @@ The player ship can be rotated around the screen using left and right arrow butt
 
 <div align="center">
 
-<img src="player-control.gif" alt="Workings - 1">
+<img src="assets\readme images\Player control.gif" alt="Player rotation control">
 </div>
 
 The rotation is achieved by increasing the value of the global variable `angle`. This is used in the `rotation(convertToRadians(angle))` method to control the canvas rotation as explained in ###Player ship movement. When the angle increases above 360, it resets to 0. `setInterval()` is used to remove the delay in movement after initial keydown which would stop the player having instant sustained movement. This also enables the function to be called 100 times a second which allows the ship to move smoothly at a much higher speed.
@@ -421,9 +421,9 @@ I wanted to create an array to store the data for each of the X and Y positions 
 
 <div align="center">
 
-<img src="20200819_172604.jpg" alt="Workings - 1" width="600">
-<img src="20200819_172619.jpg" alt="Workings - 2" width="600">
-<img src="rotation-plotting.JPG" alt="Workings - 3" width="600">
+<img src="assets\readme images\Rotation plotting notes 1.jpg" alt="Rotation plotting - 1" width="600">
+<img src="assets\readme images\Rotation plotting notes 2.jpg" alt="Rotation plotting - 2" width="600">
+<img src="assets\readme images\Rotation plotting notes 3.JPG" alt="Rotation plotting - 3" width="600">
 
 </div>
 
@@ -605,7 +605,7 @@ At the bottom, the `endGame` variable which is normally `false` is set to `true`
 
 <div align="center">
 
-<img src="crash-screen.gif" alt="Sprites">
+<img src="assets\readme images\Crash screen.gif" alt="Crash Screen">
 </div>
 
 ### **Completed screen**
@@ -614,7 +614,7 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 <div align="center">
 
 
-<img src="completed-screen.gif" alt="Sprites">
+<img src="assets\readme images\Completed screen.gif" alt="Completed screen">
 </div>
 
 ### **Score counter**
@@ -634,7 +634,7 @@ When the Start Game button is pressed, the score starts on -100. A visual countd
 <div align="center">
 
 
-<img src="countdown-timer.gif" alt="Sprites">
+<img src="assets\readme images\Countdown timer.gif" alt="Countdown Timer">
 </div>
 
 ### **Speed increase**
@@ -676,14 +676,14 @@ ctx.fill();
 ```
 
 ### **Music & Audio**
-I am a big fan of the retro synthwave sound which formed part of the inspiration for the theme of this game - so I wanted to make my own track as backing music. I also wanted to make the game more immersive by create sounds for when the game starts, the player crashes, and when they win. I used Ableton Live 10, below are some screenshots of the projects and the sound effects used.
+I am a big fan of the retro synthwave sound which formed part of the inspiration for the theme of this game - so I wanted to make my own track as backing music. I also wanted to make the game more immersive by timing the colour changes with that music, as well as creating sounds for when the game starts, the player crashes, and when they win. I used Ableton Live 10, below are some screenshots of the projects and the sound effects used.
 
 This is the project for the track - Titled 'Event Horizon'.
 
 <div align="center">
 
 
-<img src="ableton.JPG" alt="Sprites">
+<img src="assets\readme images\Background music - Ableton.JPG" alt="Background music - Ableton">
 </div>
 
 The laser type sound heard when the game starts was the sound of a Slinky I recorded and processed.
@@ -691,21 +691,21 @@ The laser type sound heard when the game starts was the sound of a Slinky I reco
 <div align="center">
 
 
-<img src="start game.JPG" alt="Sprites" width="500">
+<img src="assets\readme images\Start game audio - Ableton.JPG" alt="Start game audio - Ableton" width="500">
 </div>
 
 The explosion was taken from a sound bank and also processed.
 
 <div align="center">
 
-<img src="explosion.JPG" alt="Sprites" width="500">
+<img src="assets\readme images\Explosion audio - Ableton.JPG" alt="Explosion audio - Ableton" width="500">
 </div>
 
 When the player wins, I added the startup sound to some stock audio of a crowd cheering with some funny wailing at the end. This is timed so that the background music finishes and loops with some of the cheering still playing. 
 
 <div align="center">
 
-<img src="completed.JPG" alt="Sprites" width="500">
+<img src="assets\readme images\Game win audio - Ableton.JPG" alt="Game win audio - Ableton" width="500">
 </div>
 
 ### 2.2 Features to impliment in the future
@@ -802,7 +802,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 <div align="center">
 
 
-<img src="performance 3-desktop.JPG" alt="Sprites" width="500">
+<img src="assets\readme images\Desktop audit testing.JPG" alt="Desktop audit testing" width="500">
 </div>
 
 * 
@@ -811,7 +811,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 <div align="center">
 
 
-<img src="performance 3.JPG" alt="Sprites" width="500">
+<img src="assets\readme images\Mobile audit testing.JPG" alt="Mobile audit testing" width="500">
 </div>
 
 * I used the W3C HTML Markup Validator to check all HTML was applied and working correctly. - *Working*
@@ -825,14 +825,14 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 <div align="center">
 
 
-<img src="speed.JPG" alt="Sprites" width="500">
+<img src="assets\readme images\Speed test.JPG" alt="Speed test" width="500">
 </div>
 
 * I ran the JavaScript through jshint.com and got no errors. This is the code metrics summary i was provided. 
 <div align="center">
 
 
-<img src="metrics.JPG" alt="Sprites" width="300">
+<img src="assets\readme images\Metrics.JPG" alt="Metrics" width="300">
 </div>
 
 * I posted my site in the Slack Peer Review channel.... update
@@ -936,5 +936,8 @@ Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 change start screen screenshots - mute btn 
+rename files
+move files
+
 
 [Back to Table Of Contents](#table-of-contents)
