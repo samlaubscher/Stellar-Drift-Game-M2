@@ -24,18 +24,18 @@ As your score increases, so will your speed! Watch for the colours changing to i
     * [**1.2 Project Goals**](#project-goals)
     * [**1.3 User Goals**](#user-goals)
     * [**1.4 Design Process**](#design-process)
-      * [**1.4.1 Colour Scheme**](#colour-scheme)
-      * [**1.4.2 Typography**](#typography)
-      * [**1.2.3 Wireframes**](#wireframes)
+      * [**Colour Scheme**](#colour-scheme)
+      * [**Typography**](#typography)
+      * [**Wireframes**](#wireframes)
 
 * [**2 Features**](#features)
     * [**2.1 Existing Features**](#existing-features)
-      * [**2.1.1 Canvas API graphics animation**](#Canvas-api-graphics-animation)
-      * [**2.1.2 Animated star background**](#Animated-star-background)
-      * [**2.1.3 Animated asteroid sprites**](#Animated-steroid-sprites)
-      * [**2.1.4 Player ship movement**](#Player-ship-movement)
-      * [**2.1.5 Player ship controls**](#Player-ship-controls)
-      * [**2.1.6 Collision detection**](#Collision-detection)
+      * [**Canvas API graphics animation**](#Canvas-api-graphics-animation)
+      * [**Animated star background**](#Animated-star-background)
+      * [**Animated asteroid sprites**](#Animated-steroid-sprites)
+      * [**Player ship movement**](#Player-ship-movement)
+      * [**Player ship controls**](#Player-ship-controls)
+      * [**Collision detection**](#Collision-detection)
       * [**Start screen**](#Start-screen)
       * [**Start game button**](#Start-game-button)
       * [**Mute audio button**](#Mute-audio-button)
@@ -48,44 +48,59 @@ As your score increases, so will your speed! Watch for the colours changing to i
       * [**Speed change**](#Speed-change)
       * [**Colour changing**](#Colour-changing)
       * [**Music & Audio**](#Music-&-Audio)
-    * [**Features Left to Implement**](#Features-left-to-impliment)
+    * [**2.2 Features Left to Implement**](#Features-left-to-impliment)
       * [**Score History & Leaderboard**](#Score-History-&-Leaderboard)
       * [**Stop Background Music Restarting**](#stop-background-music-restarting)
       * [**Better Colour Transitions**](#better-colour-transitions)
       * [**Tighter Collision Detection**](#tighter-collision-detection)
       * [**Additional Sprite Type Objects**](#additional-sprite-type-objects)
 
-* [**Technologies Used**](#technologies-used)
-    * [**Languages**](#languages)
-    * [**Libraries**](#libraries)
-    * [**Tools**](#Tools)
+* [**3 Technologies Used**](#technologies-used)
+    * [**3.1 Languages**](#languages)
+      * [**HTML/HTML 5**](#html/html-5)
+      * [**CSS/CSS3**](#css/css3)
+      * [**JavaScript ES6**](#JavaScript-ES6)
+    * [**3.2 Libraries**](#libraries)
+      * [**Canvas API**](#canvas-api)
+      * [**Font Awesome**](#font-awesome)
+      * [**Google Fonts API**](#Google-Fonts-API)
+    * [**3.3 Tools**](#Tools)
+      * [**VSCode**](#vscode)
+      * [**Chrome DevTools**](#chrome-devtools)
+      * [**Git**](#git)
+      * [**GitHub**](#github)
+      * [**GitHub Pages**](#github-pages)
+      * [**EZGIF**](#ezgif)
+      * [**GNU Image Manipulation Program**](#GNU-Image-Manipulation-Program)
+      * [**Ableton Live 10**](#Ableton-Live-10)
 
-* [**Testing**](#testing)
-  * [**Completed**](#completed)
-  * [**Bugs**](#bugs)
 
-* [**Deployment**](#deployment)
+* [**4 Testing**](#testing)
+  * [**4.1 Completed**](#completed)
+  * [**4.2 Bugs**](#bugs)
 
-* [**Credits**](#credits)
+* [**5 Deployment**](#deployment)
+
+* [**6 Credits**](#credits)
     * Contents and code
     * Media 
     * Acknowledgements
 
 ---
-## UX
-### Overview
+## 1 UX
+### 1.1 Overview
 When starting this project, I knew I wanted to develop something highly interactive and engaging, not only for the user but for me as the developer. I wanted to create a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages, but most of all I wanted to really step out of my comfort zone and push myself to create something I would ultimately learn a considerable amount from. I liked the idea of building a game from vanilla JavaScript and remembered a video I had once seen about making a starfield simulation using just JavaScript and some clever code.
 
 I had recently discovered the music synth wave with its asthetical retro space-age themed artwork, so this twinned with the stars idea quickly became inspiration for building a space themed game and creating the music that accompanies it.
 
-### Project Goals
+### 1.2 Project Goals
 The aim of this project is to create a visually asthetic game, aimed at those who like fast paced reaction and skill driven gameplay. It must remain engaging and require the user to maintain constant focus and interaction with  it at speed, having the game respond accordingly and effectively to these inputs. 
 
 >"The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 I wanted a way for players to be able to win the game, but not very easily otherwise they would get bored quickly, and gamers often like a challenge.
 
-### User Goals
+### 1.3 User Goals
 * As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme to make it more immersive.
 * As a user, I want to be presented with the instructions and controls before the game starts so that I am comfortable with how to play. 
 * As a user, I want to be able to see my progression throughout the game so that I am aware of how well I am doing. 
@@ -97,7 +112,7 @@ I wanted a way for players to be able to win the game, but not very easily other
 
 >A gamer can excuse flaws in graphics, but he will never tolerate poorly designed controls. Imagine how unhappy the user who accidentally tapped All In instead of Fold in the middle of a poker round would be. - (Bura and Coates, 2012, p.43)
 
-### Design Process
+### 1.4 Design Process
 Taking inspiration from the video I had seen on the JavaScript starfield simulation, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimentions wheras the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the center point of them spawning worked perfectly.
 
 #### Colour scheme
@@ -149,8 +164,8 @@ I did not feel the need to create a seperate mobile wireframe, as the layout wou
  [Back to Table Of Contents](#table-of-contents)
 
 ---
-## Features 
-### Existing Features
+## 2 Features 
+### 2.1 Existing Features
 
 ### **Canvas API graphics animation**
 The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with *window.requestAnimationFrame(update)*. This update function calls other specific functions containing logical algorhythms which are mostly designed to change certain parameters of the content that the function may render each frame.
@@ -642,7 +657,7 @@ I wanted to create my own piece of music for this game. I am a big fan of the sy
 
 ---- insert pic of ableton 
 
-### Features to impliment in the future
+### 2.2 Features to impliment in the future
 
 ### **Score History & Leaderboard**
 I would like to impliment the use of a global high score with a leaderboard. When a player crashes or wins, the leaderboard would be displayed with the option of adding the most recent score to the list with a user name text input. The score limit of 10,000 could be removed and players could compete to score the highest on the leaderboard. In order to achieve this, I would need knowledge of back-end technologies, which I will be studying later in this course.
@@ -663,8 +678,8 @@ I would also like to be able to add other layers of objects that could randomly 
 
 ---
 
-## Technologies Used
-### Languages
+## 3 Technologies Used
+### 3.1 Languages
 #### [HTML/HTML 5](https://html.com/html5/)
 HTML5 is a Hyper Text Markup Language. Roughly 17% of my code was the HTML file [index.html](index.html) as it was used to create the structured content and elements essential to build the game.
 
@@ -674,7 +689,7 @@ CSS is a Cascading Style Sheet and was implimented via the [styles.css](assets\c
 #### [JavaScript ES6](https://www.w3schools.com/Js/js_es6.asp)
 ECMAScript 6 - ECMAScript 2015, otherwise known as JavaScript 6, was used to write all of the functionality and game mechanics within this project. Around 55% of the entire code was JavaScript, which was used heavily with the Canvas API.
 
-### Libraries
+### 3.2 Libraries
 
 #### [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 The Canvas API allows for the drawing and rendering of 2D graphics using JavaScript and the HTML `<canvas>` element. It can render shapes, text, and images, all of which can then be manipulated and animated on a grid coordinate space. All of the animated moving content within this game was created with the Canvas API, which takes up the entire viewport - no images were used.
@@ -685,7 +700,7 @@ Font Awesome was used for the GitHub social and audio mute icons.
 #### [Google Fonts API ](https://fonts.google.com/)
 All of the fonts used within this project were provided by the Google Fonts API. The fonts used were 'Audiowide' 'Oxanium', and 'Orbitron'.
 
-### Tools
+### 3.3 Tools
 
 #### [VSCode](https://code.visualstudio.com/)
 Visual Studio Code was the Intergrated Development Environment (IDE) used to write the code for this project.
@@ -715,8 +730,8 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 ---
 
-## Testing 
-### Completed
+## 4 Testing 
+### 4.1 Completed
 * Before I started the more in depth testing, I ensured that the website served the purpose it was built for by running through each of the user stories and checking all requirements were met. 
 
 * I tested all of the buttons as follows: 
@@ -770,7 +785,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 * I posted my site in the Slack Peer Review channel.... update
 
-### Bugs 
+### 4.2 Bugs 
 #### Fixed
 I encountered an enourmous amount of bugs when building this game and attempting to get the code to work. I am very satisfied that I managed to resolve most of these, allowing me to build a sucessfully working game.
 
@@ -832,12 +847,12 @@ slow movement on some phones
 
 [Back to Table Of Contents](#table-of-contents)
 
-## Deployment
+## 5 Deployment
 explain the process taken to deploy the page
 
 [Back to Table Of Contents](#table-of-contents)
 
-## Credits
+## 6 Credits
 ### Content and code
 https://www.youtube.com/watch?v=CSoZPdhNwjY - Basic formula used for starfield simulation
 ### Media
