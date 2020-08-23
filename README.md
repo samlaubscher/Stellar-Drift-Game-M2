@@ -559,9 +559,10 @@ When the page first loads, users are presented with the start screen. The backgr
 
 <div align="center">
 
-<img src="start-screen.JPG" alt="Start Screen" width="400">
-<img src="start-screen-mobile.JPG" alt="Start Screen" width="90">
-<img src="start-screen-ipad.JPG" alt="Start Screen"width="250">
+<img src="assets\readme images\Start screen - Desktop.JPG" alt="Start Screen" width="800">
+<img src="assets\readme images\Start screen - iPhone.JPG" alt="Start Screen" width="90">
+<img src="assets\readme images\Start screen - iPad.JPG" alt="Start Screen"width="250">
+<img src="assets\readme images\Start screen - iPhone rotated.JPG" alt="Start Screen"width="250">
 </div>
 
 ### **Start game button**
@@ -979,7 +980,9 @@ Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
 change start screen screenshots - mute btn 
+colours with music 
+sizes on landscape?
 check check check readme 
-
+jaqvascript media queries
 
 [Back to Table Of Contents](#table-of-contents)

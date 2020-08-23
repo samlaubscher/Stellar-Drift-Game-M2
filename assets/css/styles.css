@@ -412,7 +412,7 @@ p#credit {
     #countdown p,
     #crash-panel p,
     #completed-panel p {
-        margin: 30px 150px;
+        margin: 30px 100px;
         font-size: clamp(12px, 2.5vw, 30px);
     }
     #start-btn,
@@ -550,7 +550,7 @@ p#credit {
     #countdown p,
     #crash-panel p,
     #completed-panel p {
-        margin: 30px 200px;
+        margin: 30px 150px;
     }
     p#credit {
         font-size: clamp(4px, 2vw, 10px);
