@@ -235,6 +235,8 @@ window.onload = function () {
   function toggleMute() {
     music.muted = !music.muted;
     explosion.muted = !explosion.muted;
+    start.muted = !start.muted;
+    completed.muted = !completed.muted;
     document.getElementById("i-muted").classList.toggle("hidden");
     document.getElementById("i-not-muted").classList.toggle("hidden");
   }

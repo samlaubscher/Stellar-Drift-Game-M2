@@ -559,10 +559,10 @@ When the page first loads, users are presented with the start screen. The backgr
 
 <div align="center">
 
-<img src="assets\readme images\Start screen - Desktop.JPG" alt="Start Screen" width="800">
-<img src="assets\readme images\Start screen - iPhone.JPG" alt="Start Screen" width="90">
-<img src="assets\readme images\Start screen - iPad.JPG" alt="Start Screen"width="250">
-<img src="assets\readme images\Start screen - iPhone rotated.JPG" alt="Start Screen"width="250">
+<img src="assets\readme images\Start screen - Desktop.JPG" alt="Start Screen desktop" width="800">
+<img src="assets\readme images\Start screen - iPad.JPG" alt="Start Screen ipad"width="300">
+<img src="assets\readme images\Start screen - iPhone.JPG" alt="Start Screen iphone" width="90">
+<img src="assets\readme images\Start screen - iPhone rotated.JPG" alt="Start Screen iphone rotated"width="300">
 </div>
 
 ### **Start game button**
@@ -630,7 +630,6 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 
 <div align="center">
 
-
 <img src="assets\readme images\Completed screen.gif" alt="Completed screen">
 </div>
 
@@ -649,7 +648,6 @@ function scoreIncrease() {
 When the Start Game button is pressed, the score starts on -100. A visual countdown timer is then used to count back from 3 every 33 points. When the score passes 0, the countdown timer dissapears and the sprites are rendered. This gives users a brief but important moment to prepare themselves, increasing the overall user experience.
 
 <div align="center">
-
 
 <img src="assets\readme images\Countdown timer.gif" alt="Countdown Timer">
 </div>
@@ -699,14 +697,12 @@ This is the project for the track - Titled 'Event Horizon'.
 
 <div align="center">
 
-
 <img src="assets\readme images\Background music - Ableton.JPG" alt="Background music - Ableton">
 </div>
 
 The laser type sound heard when the game starts was the sound of a Slinky I recorded and processed.
 
 <div align="center">
-
 
 <img src="assets\readme images\Start game audio - Ableton.JPG" alt="Start game audio - Ableton" width="500">
 </div>
@@ -806,7 +802,12 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
   * When the game is running, press the *Reset* button to restart the game - *Working*
   * Visit the GitHub page by pressing the icon - *Working*
 
-* I tested the responsiveness of the game using different mobile and tablet devices within the DevTools device toolbar - *Working* 
+* I tested the responsiveness of the game using different mobile and tablet devices within the DevTools device toolbar, as well as using the website [Am I Responsive?](http://ami.responsivedesign.is/).
+
+<div align="center">
+
+<img src="assets\readme images\Responsiveness - AmIResponsive.JPG" alt="Responsiveness - AmIResponsive" width="600">
+</div>
 
 * I ran extensive testing of the `collisionDetection()` function to check it was functional, effective, and reliable.
 
@@ -818,7 +819,6 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 <div align="center">
 
-
 <img src="assets\readme images\Desktop audit testing.JPG" alt="Desktop audit testing" width="500">
 </div>
 
@@ -826,7 +826,6 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
   * Audit testing on mobile
 
 <div align="center">
-
 
 <img src="assets\readme images\Mobile audit testing.JPG" alt="Mobile audit testing" width="500">
 </div>
@@ -841,18 +840,17 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 <div align="center">
 
-
 <img src="assets\readme images\Speed test.JPG" alt="Speed test" width="500">
 </div>
 
-* I ran the JavaScript through jshint.com and got no errors. This is the code metrics summary i was provided. 
-<div align="center">
+* I ran the JavaScript through jshint.com and got no critical errors. This is the code metrics summary I was provided. 
 
+<div align="center">
 
 <img src="assets\readme images\Metrics.JPG" alt="Metrics" width="300">
 </div>
 
-* I posted my site in the Slack Peer Review channel.... update
+* I posted my finished site in the Slack Peer Review channel for student feedback. Fortunately they did not point out any issues I was not aware of.
 
 ### 4.2 Bugs 
 ### **Fixed**
@@ -979,9 +977,7 @@ acknowledge mentor and students in slack
 Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
-change start screen screenshots - mute btn 
 colours with music 
-sizes on landscape?
 check check check readme 
 jaqvascript media queries
 
