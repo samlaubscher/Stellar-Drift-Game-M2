@@ -610,7 +610,7 @@ window.onload = function () {
     document.getElementById("start-panel").classList.toggle("hidden");
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("github").classList.toggle("hidden");
-    document.getElementById("start-sound").play();
+    document.getElementById("start").play();
     document.getElementById("music").play();
 
     for (var i = 0; i < numberOfSprites; i++) {
