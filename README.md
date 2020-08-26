@@ -203,23 +203,23 @@ To ensure the development of my project was maintainable and manageable, I creat
 ## 2 Features 
 ### 2.1 Existing Features
 
-### [**Canvas API Graphics Animation**](#assets/js/script.js#L21)
+### [**Canvas API Graphics Animation**](#\assets/js/script.js#L21)
 The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with *window.requestAnimationFrame(update)*. This update function calls other specific functions containing logical algorhythms which are mostly designed to change certain parameters of the content that the function may render each frame.
 
 ### **Animated Star Background**
 Stars are generated using an algorythm that allows them to move outwards from the center of the screen at an increasing speed whilst also growing in size. This creates an animated starfield background used behind the asteroids and player ship.
 
-For a more detailed breakdown of how this feature works, read the [Implimentations](assets\Implimentation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implimentations](\assets\Implimentation.md) document.
 
 ### **Animated Asteroid Sprites**
 Asteroid sprites generate around the center of the screen and travel outwards towards the path of the player ship in a tunnel type style. They grow larger the closer to the edge of the screen they travel, much like the star but often bigger.
 
-For a more detailed breakdown of how this feature works, read the [Implimentations](assets\Implimentation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implimentations](\assets\Implimentation.md) document.
 
 ### **Player Ship Movement**
 The player rotates around the center of the screen in a 360 circle, avoiding the asteroids that are constantly travelling towards different parts of this path.
 
-For a more detailed breakdown of how this feature works, read the [Implimentations](assets\Implimentation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implimentations](\assets\Implimentation.md) document.
 
 <div align="center">
 
@@ -229,10 +229,10 @@ For a more detailed breakdown of how this feature works, read the [Implimentatio
 ### **Player Ship Controls**
 The player ship can be rotated around the screen using left and right arrow buttons or by touching the left and right halves of the screen on mobile and tablet devices. This rotates the player at a consistent speed for as long as the key or button is pressed
 
-For a more detailed breakdown of how this feature works, read the [Implimentations](assets\Implimentation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implimentations](\assets\Implimentation.md) document.
 
 ### **Collision Detection**
-When the player ship collides with an asteroid, it results in a crash event and the crash screen shows, ending the game. There was a lot of work that went in to the code to create this feature. Please read the [Implimentations](assets\Implimentation.md) document for a more detailed breakdown of how the feature works.
+When the player ship collides with an asteroid, it results in a crash event and the crash screen shows, ending the game. There was a lot of work that went in to the code to create this feature. Please read the [Implimentations](\assets\Implimentation.md) document for a more detailed breakdown of how the feature works.
 
 ### **Start Screen**
 When the page first loads, users are presented with the start screen. The background stars are frozen, and the center panel displays instructions for how to play the game as well as controls for both mobile and desktop browsers. There is a title saying *STELLAR DRIFT*, created using multiple h2 layers indipendently positioned.
@@ -248,7 +248,7 @@ When the page first loads, users are presented with the start screen. The backgr
 ### **Start Game Button**
 The game is started by clicking or touching the Start Game button on the start screen panel. The Enter key can also be pressed, allowing users to keep their hands on the keyboard when restarting.
 
-For a more detailed breakdown of how this feature works, read the [Implimentations](assets\Implimentation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implimentations](\assets\Implimentation.md) document.
 
 ### **Mute Audio Button**
 I created background music and sound effects for the game to add to the user experience. The mute button gives users the option to mute this audio if they choose.
