@@ -6,7 +6,7 @@
 
 </div>
 
-### **Animated star background**
+### **Animated Star Background**
 Circular shapes used for stars are individually rendered to the canvas using an array of `Star` class objects. Using a for loop, the required number of `starsArray[]` indexes are generated, each iteration instanciating a new `Star` class object, passing in x, y and z constructor arguments of `(Math.random() * canvas.width or height)`. 
 
 ```
@@ -89,7 +89,7 @@ Due to both x and y axes being centered in the middle, values moving in positive
 
 My original discovery of this algorythm comes from a youtube tutorial by Sharad Choudhary called *'Starfield Simulation: HTML5 Canvas Javascript Animation Tutorial'*, and although code has been changed here, I have used his basic formula so I must give credit.
 
-### **Animated asteroid sprites**
+### **Animated Asteroid Sprites**
 Asteroid sprites are also rendered to the canvas using an array of `Sprite` class objects. This `spritesArray[]` works the same way as the `starsArray[]` by instanciating each index with a new `Sprite` object, and calling two additional methods on these indexes using a `drawSprites()` function. However, the `Sprite` class contains different code which allows it to behave seperately from the `Star` objects. Each array object is initialised with the `x` and `y` coordinates in the center of the canvas, as well as the constructor method containing additional properties of `this.randomX` and `this.randomY` with the values of `notZeroRange(-10, 10)`.
 
 ```
@@ -117,7 +117,7 @@ class Sprite {
     }
   }
 ```
-Within the `moveSprite()` method, `speed` has been halved and there are fresh `notZeroRange()` values called each time the `z` index resets for a new `Sprite` to be generated. An if statement is used to set `this.randomX` to 0 randomly with low odds in order to fix a bug with players staying on 0 and not crashing. The `speed` has been halved so that the background remains more engaging whilst the sprites are not too fast for the player. 
+Within the `moveSprite()` method, `speed` has been halved and there are fresh `notZeroRange()` values called each time the `z` index resets for a new `Sprite` to be generated. An if statement is used to set `this.randomX` to 0 and `this.randomY` to 9 randomly with low odds in order to fix a bug with players staying on 0 and not crashing. The `speed` has been halved so that the background remains more engaging whilst the sprites are not too fast for the player. 
 
 ``` 
     [...]
@@ -128,10 +128,11 @@ Within the `moveSprite()` method, `speed` has been halved and there are fresh `n
         this.z = cnvsWidth;
         if (Math.random() < 0.02) {
           this.randomX = 0;
+          this.randomX = 9;
         } else {
-          this.randomX = notZeroRange(-10, 10); 
+          this.randomX = notZeroRange(-10, 10);
+          this.randomY = notZeroRange(-10, 10);
         }
-        this.randomY = notZeroRange(-10, 10);
       }
     } [...]
 ```
@@ -167,7 +168,7 @@ At the bottom of the `showSprite()` method sits the invocation of the `collision
 }}}
 ```
 
-### **Player ship movement**
+### **Player Ship Movement**
 The player ship is created using a combination of circular and triangular shapes rendered onto the canvas using the `arc()` and `lineTo()` methods. These shapes are rotated around the center of the canvas using `translate()` and `rotate()` methods.
 
 First the entire state of the canvas is saved using the `save()` method. Next the `translate(centerOfX, centerOfY)` method is called which moves the canvas and its origin to the center of the screen. The `rotate()` method is then used with the argument of `convertToRadians(angle)`, meaning `angle` will correlate to the amount of rotation around this center point.
@@ -210,7 +211,7 @@ function playerShip() {
   }
 ```
 
-### **Player ship controls**
+### **Player Ship Controls**
 The player ship can be rotated around the screen using left and right arrow buttons via `keydown` and `keyup` event listeners on computer, or touching the left and right halves of the screen on mobile and tablet devices with `touchstart` and `touchend` event listeners.
 
 <div align="center">
@@ -231,7 +232,7 @@ function moveLeft() {
   }
 ```
 
-### **Collision detection**
+### **Collision Detection**
 In order to detect the collision of both the `playerShip()` and `Sprite` objects, I first had to generate the correct canvas position values for the `playerShip()`. The use of transformation methods `translate()` and `rotate()` in the rendering of `playerShip()` meant that it followed its own X and Y coordinates seperate from any other canvas content. 
 
 I wanted to create an array to store the data for each of the X and Y positions of the ship, then matched them against the coordinates of each of the sprites per frame. I undertook an enourmous job of trying to manually create all of these postions, physically using paper graphs and plotting each of the points along the axes, then doing the maths to create a canvas circle shape along these points on screen. Below are some of my workings.
@@ -355,7 +356,7 @@ The code unfortunately is not accurate enough to use this method without a range
   }
 ```
 
-### **Start game button**
+### **Start Game Button**
 The game is started by clicking or touching the Start Game button on the start screen panel. The Enter key can also be pressed, allowing users to keep their hands on the keyboard when restarting. When this button is pressed, the `initialiseGame()` function is called. This hides the start panel and Github Social icon whilst enabling on screen buttons for mobile, creates the `spritesArray[i]`, and finally calls the `update()` callback function to trigger the main loop animation.
 
 ```
@@ -363,6 +364,8 @@ function initialiseGame() {
     document.getElementById("start-panel").classList.toggle("hidden");
     document.getElementById("bottom-banner").classList.toggle("hidden");
     document.getElementById("github").classList.toggle("hidden");
+    document.getElementById("start").play();
+    document.getElementById("music").play();
 
     for (var i = 0; i < numberOfSprites; i++) {
       spritesArray[i] = new Sprite(
@@ -375,7 +378,7 @@ function initialiseGame() {
 }
 ```
 
-### **Crash screen**
+### **Crash Screen**
 When a successful collision is detected within `collisionDetection()`, the function `crashScreen()` is called. As well as displaying the crash screen and the Github icon, this function hides the direction buttons, adds an event listener for the reload button, and triggers an explosion sound to simulate the ship crashing. 
 
 ```
@@ -395,7 +398,20 @@ At the bottom, the `endGame` variable which is normally `false` is set to `true`
 <img src="readme images\Crash screen.gif" alt="Crash Screen">
 </div>
 
-### **Speed increase**
+The completed screen works the same and is called when the score passes 10,000.
+
+```
+function completedScreen() {
+    document.getElementById("bottom-banner").classList.toggle("hidden");
+    document.getElementById("completed-panel").classList.toggle("hidden");
+    document.getElementById("github").classList.toggle("hidden");
+    document.getElementById("restart-btn").addEventListener("click", reload);
+    document.getElementById("completed").play();
+    endGame = true;
+  }
+```
+
+### **Speed Increase**
 As the score increases, so does the speed of movement of the `Star` and `Sprite` objects. The function `speedIncrease()` is called from the `update()` function, incrimenting the value of speed each frame. As the score changes, so does the amount of incrimentation needed, as the speed gets higher less intensity is required. Objects move much quicker on mobile devices due to the smaller range of pixels, so a lower value of speed must be used.
 
 ```
@@ -413,7 +429,7 @@ function speedIncrease() {
     } [...]
 ```
 
-### **Colour changing**
+### **Colour Changing**
 As the score increases, the colour scheme also changes for both the `Star` and `Sprite` objects. This not only looks nice and adds to the user experience, but it helps demonstrate the players progression in the game, adding stimulus to prevent it from seeming too repetitive.
 
 These colour changes take place when rendering the shapes, they are handled using `if` statements within the `showStar()` and `showSprite()` methods of the `Star` and `Sprite` classes.

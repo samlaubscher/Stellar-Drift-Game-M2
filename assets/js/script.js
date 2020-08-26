@@ -15,7 +15,7 @@ window.onload = function () {
   // Launches animations when Start Game button pressed
   document.getElementById("start-btn").addEventListener("click", initialiseGame);
 
-  // Global Variables
+  // -- Global Variables --
 
   // References HTML canvas element
   const canvas = document.getElementById("canvas");
@@ -67,7 +67,7 @@ window.onload = function () {
     var speed = 10;
   }
 
-  // Class Definitions
+  // -- Class Definitions --
 
   // Background Stars (Inspired by Sharad Choudhary's formula - https://www.youtube.com/watch?v=CSoZPdhNwjY)
   class Star {
@@ -106,27 +106,27 @@ window.onload = function () {
         ctx.fillStyle = "#82caff";
       } else if (score <= 2100) {
         ctx.fillStyle = "#00FA9A";
-      } else if (score <= 3000) {
+      } else if (score <= 3200) {
         ctx.fillStyle = "#306eff";
       } else if (score <= 4000) {
         ctx.fillStyle = "#7609c4";
-      } else if (score <= 4500) {
+      } else if (score <= 4300) {
         ctx.fillStyle = "#6900b4";
-      } else if (score <= 5000) {
+      } else if (score <= 5400) {
         ctx.fillStyle = "#1b1bd6";
-      } else if (score <= 5500) {
+      } else if (score <= 5950) {
         ctx.fillStyle = "#7f00d4";
-      } else if (score <= 6000) {
-        ctx.fillStyle = "#132aff";
       } else if (score <= 6500) {
-        ctx.fillStyle = "#00708b";
+        ctx.fillStyle = "#132aff";
       } else if (score <= 7000) {
-        ctx.fillStyle = "#386323";
+        ctx.fillStyle = "#00708b";
       } else if (score <= 7500) {
+        ctx.fillStyle = "#386323";
+      } else if (score <= 8150) {
         ctx.fillStyle = "#5d794f";
-      } else if (score <= 8000) {
+      } else if (score <= 8700) {
         ctx.fillStyle = "#4cc437";
-      } else if (score <= 8500) {
+      } else if (score <= 9200) {
         ctx.fillStyle = "#838383";
       } else if (score <= 10000) {
         ctx.fillStyle = "#704cf0";
@@ -154,14 +154,16 @@ window.onload = function () {
       // If object reaches the top of canvas z index (0) this resets z value to the very back of canvas
       if (this.z <= 0) {
         this.z = cnvsWidth;
-        // Enables 0 to be generated on X axis
+        // Enables Sprite to travel towards player ship initial start position to prevent bug
         if (Math.random() < 0.02) {
           this.randomX = 0;
+          this.randomY = 9;
         } else {
         // Ensures positions stay random each time a new array object is instanciated
-          this.randomX = notZeroRange(-10, 10); 
+          this.randomX = notZeroRange(-10, 10);
+          this.randomY = notZeroRange(-10, 10);
         }
-        this.randomY = notZeroRange(-10, 10);
+        
       }
     }
 
@@ -217,7 +219,7 @@ window.onload = function () {
     }
   }
 
-  // Functions
+  // -- Functions --
 
   // Converts angle degree to radians
   function convertToRadians(degree) {
@@ -523,7 +525,7 @@ window.onload = function () {
       y - getShipLocation(angle)[1] >= -35
     ) {
       // Calls crash screen when a collision is detected
-      crashScreen();
+      //crashScreen();
     }
   }
 
@@ -567,13 +569,13 @@ window.onload = function () {
     } else if (score < 2500 && cnvsWidth < 1200) {
       speed += 0.005;
     } else if (score < 2500) {
-      speed += 0.01;
+      speed += 0.007;
     } else if (score < 5000 && cnvsWidth < 600) {
       speed += 0.001;
     } else if (score < 5000 && cnvsWidth < 1200) {
-      speed += 0.003;
+      speed += 0.002;
     } else if (score < 5000) {
-      speed += 0.005;
+      speed += 0.002;
     } else if (score < 7500 && cnvsWidth < 600) {
       speed += 0.0005;
     } else if (score < 7500 && cnvsWidth < 1200) {
@@ -623,7 +625,7 @@ window.onload = function () {
     }
   }
 
-  // Code functionality
+  // -- Code functionality --
 
   // Generates new Star object per array iteration and maintains Star numbers to numberOfStars
   for (var i = 0; i < numberOfStars; i++) {
