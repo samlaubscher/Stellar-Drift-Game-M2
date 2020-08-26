@@ -1,6 +1,6 @@
 <div align="center">
 
-# Implimentations
+# Implementations
 
 ## This document explains how certain features within the game work in more detail
 

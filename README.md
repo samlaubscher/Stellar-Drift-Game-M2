@@ -209,12 +209,12 @@ The Canvas API covers the entire screen and 2D graphic shapes and text are rende
 ### [**Animated Star Background**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L73)
 Stars are generated using an algorythm that allows them to move outwards from the center of the screen at an increasing speed whilst also growing in size. This creates an animated starfield background used behind the asteroids and player ship.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](\assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 ### [**Animated Asteroid Sprites**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L140)
 Asteroid sprites generate around the center of the screen and travel outwards towards the path of the player ship in a tunnel type style. They grow larger the closer to the edge of the screen they travel, much like the star but often bigger.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](\assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 <div align="center">
 
@@ -224,7 +224,7 @@ For a more detailed breakdown of how this feature works, read the [Implementatio
 ### [**Player Ship Movement**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L281)
 The player rotates around the center of the screen in a 360 circle, avoiding the asteroids that are constantly travelling towards different parts of this path.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](\assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 <div align="center">
 
@@ -234,10 +234,10 @@ For a more detailed breakdown of how this feature works, read the [Implementatio
 ### [**Player Ship Controls**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L347)
 The player ship can be rotated around the screen using left and right arrow buttons or by touching the left and right halves of the screen on mobile and tablet devices. This rotates the player at a consistent speed for as long as the key or button is pressed
 
-For a more detailed breakdown of how this feature works, read the [Implementations](\assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 ### [**Collision Detection**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L433)
-When the player ship collides with an asteroid, it results in a crash event and the crash screen shows, ending the game. There was a lot of work that went in to the code to create this feature. Please read the [Implementations](\assets\Implementation.md) document for a more detailed breakdown of how the feature works.
+When the player ship collides with an asteroid, it results in a crash event and the crash screen shows, ending the game. There was a lot of work that went in to the code to create this feature. Please read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document for a more detailed breakdown of how the feature works.
 
 ### [**Start Screen**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L65)
 When the page first loads, users are presented with the start screen. The background stars are frozen, and the center panel displays instructions for how to play the game as well as controls for both mobile and desktop browsers. There is a title saying *STELLAR DRIFT*, created using multiple h2 layers indipendently positioned.
@@ -253,12 +253,12 @@ When the page first loads, users are presented with the start screen. The backgr
 ### [**Start Game Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L73)
 The game is started by clicking or touching the Start Game button on the start screen panel. The Enter key can also be pressed, allowing users to keep their hands on the keyboard when restarting.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](\assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 ### [**Mute Audio Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L49)
 I created background music and sound effects for the game to add to the user experience. The mute button gives users the option to mute this audio if they choose.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 ### [**Reset Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L58)
 The reset button allows the user to restart the game, reloading the page back to the start panel. In the future I would like to change this into a pause button with the option to then reset, but currently this button is just linked to an event listener that calls the `reload()` function.
@@ -269,7 +269,7 @@ I wanted to display a link so users can discover the repository page. This allow
 ### [**Crash Screen**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L78)
 When a successful collision is detected, the crash screen is displayed letting users know they have crashed and displaying their final score.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 <div align="center">
 
@@ -298,12 +298,12 @@ When the Start Game button is pressed, the score starts on -100. A visual countd
 ### [**Speed Increase**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L564)
 As the score increases, so does the speed of movement of the `Star` and `Sprite` objects. Each frame the speed incriments by a specific amount based on the score.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 ### [**Colour Changing**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L105)
 As the score increases, the colour scheme also changes for both the `Star` and `Sprite` objects. This not only looks nice and adds to the user experience, but it helps demonstrate the players progression in the game, adding stimulus to prevent it from seeming too repetitive.
 
-For a more detailed breakdown of how this feature works, read the [Implementations](assets\Implementation.md) document.
+For a more detailed breakdown of how this feature works, read the [Implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md) document.
 
 ### [**Music & Audio**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L40)
 I am a big fan of the retro synthwave sound which formed part of the inspiration for the theme of this game - so I wanted to make my own track as backing music. I also wanted to make the game more immersive by timing the colour changes with that music, as well as creating sounds for when the game starts, the player crashes, and when they win. I used Ableton Live 10, below are some screenshots of the projects and the sound effects used.
