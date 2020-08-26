@@ -977,8 +977,26 @@ acknowledge mentor and students in slack
 Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy 
 
-colours with music 
+[Back to Table Of Contents](#table-of-contents)
+
+
+colours with music
 check check check readme 
 jaqvascript media queries
+main menu instead of restart game?
 
-[Back to Table Of Contents](#table-of-contents)
+folder tests / test.html spec.js - jasmine
+
+remove lines from comments 
+
+add comment to every function 
+
+make readme concise and - take away the code 
+
+link to part of code instead 
+
+'to run test just open the html file'
+
+add into the library - jasmine 
+
+unit testing - automated tests 

@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+/* Global Body styles */ 
 body {
     margin: 0;
     min-height: 100vh;
@@ -9,19 +10,15 @@ body {
 }
 
 #container {
-    position: relative;
     /* allows the banners to be floated above the canvas using absolute positions */
+    position: relative;
 }
 
 #canvas {
     background-color: #000;
 }
-/* ------------------------------ Globally Appliacable Styles ----------------*/
 
-.hidden {
-    display: none;
-}
-/* -------------------------------- Hidden Banner Styles -------------------- */
+/* Banner Styles */
 
 .top-banner,
 #bottom-banner {
@@ -35,7 +32,8 @@ body {
     bottom: 0;
     height: 75%;
 }
-/* -------------------------------- Name Title Above Game ----------------------*/
+
+/* Name Title Above Game */
 
 .name-title {
     opacity: 80%;
@@ -118,7 +116,7 @@ h2 {
     color: rgba(73, 53, 255, 0.137);
     font-size: clamp(20px, 9vw, 77px);
 }
-/* -------------------------------- Buttons ----------------------*/
+/* Buttons */
 
 button {
     outline: none;
@@ -251,7 +249,8 @@ ul.github-button {
     color: rgba(255, 255, 255, 0.637);
     font-size: clamp(18px, 8vw, 35px);
 }
-/* ------------------------- Panels -------------------------*/
+
+/* Panels */
 
 #countdown,
 #start-panel,
@@ -292,8 +291,14 @@ p#credit {
     font-size: clamp(4px, 2vw, 10px);
     color: #A8A8A8;
 }
-/* -------------------------- Media Queries ------------------------*/
 
+.hidden {
+    display: none;
+}
+
+/* Media Queries */
+
+/* Small mobile devices */ 
 @media only screen and (max-width: 360px) {
     .name-title {
         padding-top: 5%;
@@ -307,6 +312,7 @@ p#credit {
     }
 }
 
+/* Small devices (Landscape) */
 @media only screen and (max-width: 600px) and (orientation: landscape) {
     .name-title {
         padding-top: 0;
@@ -390,8 +396,8 @@ p#credit {
         top: 25%;
     }
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
     #reset {
         font-size: clamp(4px, 2.5vw, 21px);
@@ -401,8 +407,8 @@ p#credit {
         font-size: clamp(4px, 3.5vw, 21px);
     }
 }
-/* Medium devices (landscape tablets, 768px and up) */
 
+/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .name-title {
         padding-top: 2%;
@@ -424,6 +430,7 @@ p#credit {
     }
 }
 
+/* Large tablets (Lanscape) */
 @media only screen and (max-height: 600px) and (max-width: 1200px) and (orientation: landscape) {
     .name-title {
         padding-top: 0;
