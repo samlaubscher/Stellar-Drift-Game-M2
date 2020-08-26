@@ -1,3 +1,11 @@
+<div align="center">
+
+# Implimentations
+
+## This document explains how certain features within the game work in more detail
+
+</div>
+
 ### **Animated star background**
 Circular shapes used for stars are individually rendered to the canvas using an array of `Star` class objects. Using a for loop, the required number of `starsArray[]` indexes are generated, each iteration instanciating a new `Star` class object, passing in x, y and z constructor arguments of `(Math.random() * canvas.width or height)`. 
 
@@ -131,7 +139,7 @@ Within the `showSprite()` method, the movement is implimented differently throug
 
 <div align="center">
 
-<img src="assets\readme images\Sprites.gif" alt="Sprites">
+<img src="readme images\Sprites.gif" alt="Sprites">
 </div>
 
 At the bottom of the `showSprite()` method sits the invocation of the `collisionDetection()` function, directly passing in the arguments of `xPos` and `yPos` as to allow these parameter values to be used outside of the class scope and inside the `collisionDetection()` function.
@@ -207,7 +215,7 @@ The player ship can be rotated around the screen using left and right arrow butt
 
 <div align="center">
 
-<img src="assets\readme images\Player control.gif" alt="Player rotation control">
+<img src="readme images\Player control.gif" alt="Player rotation control">
 </div>
 
 The rotation is achieved by increasing the value of the global variable `angle`. This is used in the `rotation(convertToRadians(angle))` method to control the canvas rotation as explained in ###Player ship movement. When the angle increases above 360, it resets to 0. `setInterval()` is used to remove the delay in movement after initial keydown which would stop the player having instant sustained movement. This also enables the function to be called 100 times a second which allows the ship to move smoothly at a much higher speed.
@@ -230,9 +238,9 @@ I wanted to create an array to store the data for each of the X and Y positions 
 
 <div align="center">
 
-<img src="assets\readme images\Rotation plotting notes 1.jpg" alt="Rotation plotting - 1" width="600">
-<img src="assets\readme images\Rotation plotting notes 2.jpg" alt="Rotation plotting - 2" width="600">
-<img src="assets\readme images\Rotation plotting notes 3.JPG" alt="Rotation plotting - 3" width="600">
+<img src="readme images\Rotation plotting notes 1.jpg" alt="Rotation plotting - 1" width="600">
+<img src="readme images\Rotation plotting notes 2.jpg" alt="Rotation plotting - 2" width="600">
+<img src="readme images\Rotation plotting notes 3.JPG" alt="Rotation plotting - 3" width="600">
 
 </div>
 
@@ -347,17 +355,6 @@ The code unfortunately is not accurate enough to use this method without a range
   }
 ```
 
-### **Start Screen**
-When the page first loads, users are presented with the start screen. The background stars are frozen, and the center panel displays instructions for how to play the game as well as controls for both mobile and desktop browsers. There is a title saying *STELLAR DRIFT*, created using multiple h2 layers indipendently positioned.
-
-<div align="center">
-
-<img src="assets\readme images\Start screen - Desktop.JPG" alt="Start Screen desktop" width="800">
-<img src="assets\readme images\Start screen - iPad.JPG" alt="Start Screen ipad"width="300">
-<img src="assets\readme images\Start screen - iPhone.JPG" alt="Start Screen iphone" width="90">
-<img src="assets\readme images\Start screen - iPhone rotated.JPG" alt="Start Screen iphone rotated"width="300">
-</div>
-
 ### **Start game button**
 The game is started by clicking or touching the Start Game button on the start screen panel. The Enter key can also be pressed, allowing users to keep their hands on the keyboard when restarting. When this button is pressed, the `initialiseGame()` function is called. This hides the start panel and Github Social icon whilst enabling on screen buttons for mobile, creates the `spritesArray[i]`, and finally calls the `update()` callback function to trigger the main loop animation.
 
@@ -378,26 +375,6 @@ function initialiseGame() {
 }
 ```
 
-### **Mute audio button**
-I created some background music for the game to add to the user experience. This is programmed to automatically play when the broweser loads, which may not be the desirable choice for many users. The mute button was created using the Font Awesome icons, and linked to an event listener that triggers the `toggleMute()` function.
-```
-function toggleMute() {
-    music.muted = !music.muted;
-    explosion.muted = !explosion.muted;
-    document.getElementById("i-muted").classList.toggle("hidden");
-    document.getElementById("i-not-muted").classList.toggle("hidden");
-  }
-```
-### **Reset button** 
-The reset button allows the user to restart the game, reloading the page back to the start panel. In the future I would like to change this into a pause button with the option to then reset, but currently this button is just linked to an event listener that calls the `reload()` function.
-```
-function reload() {
-    window.location.reload(true);
-  }
-```
-### **Github social icon**
-I wanted to display a link so users can discover the repository page. This allows people to see how the game was built, who it was built by, and even make contact for comments or potential future collaboration. I knew that the Github icon would work well located on the start screen, and once again Font Awesome provided this for me. 
-
 ### **Crash screen**
 When a successful collision is detected within `collisionDetection()`, the function `crashScreen()` is called. As well as displaying the crash screen and the Github icon, this function hides the direction buttons, adds an event listener for the reload button, and triggers an explosion sound to simulate the ship crashing. 
 
@@ -415,34 +392,7 @@ At the bottom, the `endGame` variable which is normally `false` is set to `true`
 
 <div align="center">
 
-<img src="assets\readme images\Crash screen.gif" alt="Crash Screen">
-</div>
-
-### **Completed screen**
-The completed screen is displayed when the user reaches the score of 10,000! Everything else remains the same as the crash screen, the only difference is the text displayed inside the panel.
-
-<div align="center">
-
-<img src="assets\readme images\Completed screen.gif" alt="Completed screen">
-</div>
-
-### **Score counter**
-The score is used in more than one way across the application. It controls the speed, colour scheme, countdown timer, sprite rendering, and triggering the completed screen. `scoreIncrease()` incriments the score by the value of 1 when it is called each frame inside the `update()` function.
-
-```
-function scoreIncrease() {
-    score += 1;
-    if (score == 10000) {
-      completedScreen();
-    }
-  }
-```
-### **Countdown timer** 
-When the Start Game button is pressed, the score starts on -100. A visual countdown timer is then used to count back from 3 every 33 points. When the score passes 0, the countdown timer dissapears and the sprites are rendered. This gives users a brief but important moment to prepare themselves, increasing the overall user experience.
-
-<div align="center">
-
-<img src="assets\readme images\Countdown timer.gif" alt="Countdown Timer">
+<img src="readme images\Crash screen.gif" alt="Crash Screen">
 </div>
 
 ### **Speed increase**
@@ -482,34 +432,3 @@ ctx.beginPath();
 ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
 ctx.fill();
 ```
-
-### **Music & Audio**
-I am a big fan of the retro synthwave sound which formed part of the inspiration for the theme of this game - so I wanted to make my own track as backing music. I also wanted to make the game more immersive by timing the colour changes with that music, as well as creating sounds for when the game starts, the player crashes, and when they win. I used Ableton Live 10, below are some screenshots of the projects and the sound effects used.
-
-This is the project for the track - Titled 'Event Horizon'.
-
-<div align="center">
-
-<img src="assets\readme images\Background music - Ableton.JPG" alt="Background music - Ableton">
-</div>
-
-The laser type sound heard when the game starts was the sound of a Slinky I recorded and processed.
-
-<div align="center">
-
-<img src="assets\readme images\Start game audio - Ableton.JPG" alt="Start game audio - Ableton" width="500">
-</div>
-
-The explosion was taken from a sound bank and also processed.
-
-<div align="center">
-
-<img src="assets\readme images\Explosion audio - Ableton.JPG" alt="Explosion audio - Ableton" width="500">
-</div>
-
-When the player wins, I added the startup sound to some stock audio of a crowd cheering with some funny wailing at the end. This is timed so that the background music finishes and loops with some of the cheering still playing. 
-
-<div align="center">
-
-<img src="assets\readme images\Game win audio - Ableton.JPG" alt="Game win audio - Ableton" width="500">
-</div>
