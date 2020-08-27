@@ -1,5 +1,3 @@
-// Makes sure window is loaded first before running
-window.onload = function () {
   // Hides the crash screen so it can be unhidden later
   document.getElementById("crash-panel").classList.toggle("hidden");
   // Hides the completed screen so it can be unhidden later
@@ -525,7 +523,7 @@ window.onload = function () {
       y - getShipLocation(angle)[1] >= -35
     ) {
       // Calls crash screen when a collision is detected
-      //crashScreen();
+      crashScreen();
     }
   }
 
@@ -659,5 +657,4 @@ window.onload = function () {
 
     // Triggers main loop animations
     update();
-  }
-};
+  };
