@@ -66,6 +66,7 @@ As your score increases, so will your speed! Watch for the colours changing to i
     - [**JavaScript ES6**](#JavaScript-ES6)
   - [**3.2 Libraries**](#3.2-libraries)
     - [**Canvas API**](#canvas-api)
+    - [**Jasmine Testing Famework**](#jasmine-testing-framework)
     - [**Font Awesome**](#font-awesome)
     - [**Google Fonts API**](#Google-Fonts-API)
   - [**3.3 Tools**](#3.3-Tools)
@@ -81,6 +82,8 @@ As your score increases, so will your speed! Watch for the colours changing to i
 * [**4 Testing**](#4-testing)
 
   - [**4.1 Completed**](#4.1-completed)
+    - [**Manual Testing**](#manual-testing)
+    - [**Automatic Testing**](#automatic-testing)
   - [**4.2 Bugs**](#4.2-bugs)
     - [**Fixed**](#fixed)
     - [**Still Existing**](#still-existing)
@@ -204,8 +207,8 @@ To ensure the development of my project was maintainable and manageable, I creat
 - Create player ship
 - Create player movement functionality
 - Create collision detection functionality
-- Create crash and completed screens
 - Create score system
+- Create crash and completed screens
 - Clean up code and fix bugs
 
 [Back to Table Of Contents](#table-of-contents)
@@ -862,9 +865,13 @@ ECMAScript 6 - ECMAScript 2015, otherwise known as JavaScript 6, was used to wri
 
 The Canvas API allows for the drawing and rendering of 2D graphics using JavaScript and the HTML `<canvas>` element. It can render shapes, text, and images, all of which can then be manipulated and animated on a grid coordinate space. All of the animated moving content within this game was created with the Canvas API, which takes up the entire viewport - no images were used.
 
+### [**Jasmine Testing Framework**](https://jasmine.github.io/)
+
+The Jasmine framework 3.6.0 was used to perform unit testing on parts of the code to check functionality.
+
 ### [**Font Awesome**](https://fontawesome.com/)
 
-Font Awesome was used for the GitHub social and audio mute icons.
+Font Awesome 4.7.0 was used for the GitHub social and audio mute icons.
 
 ### [**Google Fonts API**](https://fonts.google.com/)
 
@@ -912,6 +919,8 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 ### 4.1 Completed
 
+### **Manual Testing**
+
 - Before I started the more in depth testing, I ensured that the website served the purpose it was built for by running through each of the user stories and checking all requirements were met.
 
 - I tested all of the buttons as follows:
@@ -929,9 +938,33 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 <img src="assets\readme images\Responsiveness - AmIResponsive.JPG" alt="Responsiveness - AmIResponsive" width="600">
 </div>
 
+- I tested the game on an array of different phones and their browsers such as Iphone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers on them.
+
 - I ran extensive testing of the `collisionDetection()` function to check it was functional, effective, and reliable.
 
 - I tested the controls extensively, pressing multiple keys and attempting to break the game to check no more bugs would appear.
+
+- I posted my finished site in the Slack Peer Review channel for student feedback. Fortunately they did not point out any issues I was not aware of.
+
+### **Automatic Testing**
+
+- I used the W3C HTML Markup Validator to check all HTML was applied and working correctly.
+
+- I used the W3C CSS Validator to check all the CSS was also valid and working correctly.
+
+- I ran the JavaScript through jshint.com and got no critical errors. This is the code metrics summary I was provided.
+
+<div align="center">
+
+<img src="assets\readme images\Metrics.JPG" alt="Metrics" width="300">
+</div>
+
+- I utilised the use of the Jasmine framework to perform unit testing on parts of the program. The functions tested all perform operations using `angle` as an argument, returning a consistent value or array that I was able to successfully test against using different inputs of `angle`. To view and run these tests, just run the [test.html](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/testing/test.html) file.
+
+<div align="center">
+
+<img src="assets\readme images\Jasmine testing.JPG" alt="Jasmine testing" width="500">
+</div>
 
 - I ran audit testing using the DevTools Lighthouse feature. Using this I was able to correct some minor mistakes such as not includiong an HTML meta description element.
 
@@ -949,27 +982,12 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 <img src="assets\readme images\Mobile audit testing.JPG" alt="Mobile audit testing" width="500">
 </div>
 
-- I used the W3C HTML Markup Validator to check all HTML was applied and working correctly. - _Working_
-
-- I used the W3C CSS Validator to check all the CSS was also valid and working correctly. - _Working_
-
-- I tested the game on an array of different phones and their browsers such as Iphone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers on them. - _Working_
-
-- I ran the site through GTMetrix to check the performance. - _Working_
+- I ran the site through GTMetrix to check the performance.
 
 <div align="center">
 
 <img src="assets\readme images\Speed test.JPG" alt="Speed test" width="500">
 </div>
-
-- I ran the JavaScript through jshint.com and got no critical errors. This is the code metrics summary I was provided.
-
-<div align="center">
-
-<img src="assets\readme images\Metrics.JPG" alt="Metrics" width="300">
-</div>
-
-- I posted my finished site in the Slack Peer Review channel for student feedback. Fortunately they did not point out any issues I was not aware of.
 
 ### 4.2 Bugs
 
@@ -1084,7 +1102,7 @@ folder tests / test.html spec.js - jasmine
 
 'to run test just open the html file'
 
-add into the library - jasmine
+add into the technoloigies / library - jasmine
 
 unit testing - automated tests
 
