@@ -286,7 +286,7 @@ ul.github-button {
 #crash-panel p,
 #completed-panel p {
     margin: 25px 30px;
-    font-size: clamp(17px, 3vw, 20px);
+    font-size: clamp(13px, 1vw, 20px);
 }
 
 p#credit {
@@ -299,20 +299,6 @@ p#credit {
 }
 
 /* Media Queries */
-
-/* Small mobile devices */
-@media only screen and (max-width: 360px) {
-    .name-title {
-        padding-top: 5%;
-    }
-
-    #start-panel p,
-    #countdown p,
-    #crash-panel p,
-    #completed-panel p {
-        font-size: clamp(13px, 1vw, 30px);
-    }
-}
 
 /* Small devices (Landscape) */
 @media only screen and (max-width: 600px) and (orientation: landscape) {
@@ -495,6 +481,16 @@ p#credit {
     }
     p#credit {
         font-size: clamp(4px, 1vw, 10px);
+    }
+}
+
+@media only screen and (max-height: 1000px) and (max-width: 1200px) and (orientation: landscape) {
+    #start-panel p,
+    #countdown p,
+    #crash-panel p,
+    #completed-panel p {
+        margin: 10px 20px;
+        font-size: clamp(12px, 2vw, 30px);
     }
 }
 

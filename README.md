@@ -965,7 +965,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 - I used the W3C HTML Markup Validator to check all HTML was applied and working correctly.
 
-- I used the W3C CSS Validator to check all the CSS was also valid and working correctly.
+- I used the W3C Jigsaw CSS Validator to check all the CSS was also valid and working correctly.
 
 - I ran the JavaScript through jshint.com and got no critical errors. This is the code metrics summary I was provided.
 
@@ -1024,9 +1024,9 @@ I encountered an enormous amount of bugs when building this game as there was a 
 
 - Programming the collision detection was one of the hardest parts of this whole project. From the beginning I ran into countless errors with the code breaking or not working correctly, and I really had to think to get it to work. Sometimes the game would detect collisions when nothing was near it, and other times it would not work at all. Playing with the code, the arrays and functions used to process the ship locations, and the collision detection pixel range, I think I have got it satisfyingly accurate.
 
-- Originally my audio was set to `autoplay` when the page loaded, but the audio would never play on the first page load. Only when users restart the game, triggering the page to reload, does the track start to play. I tried to do some research and believe this is down to Chrome and other browsers attempting to phase out the `autoplay` feature on websites, but I'm not 100% sure. Sometimes it will trigger instantly, but that may be due to the browser cache. To work around this, I set the audio to play when the game starts.
+- Originally my audio was set to `autoplay` when the page loaded, but the audio would never play on the first page load. Only when users restarted the game, triggering the page to reload, did the track start to play. I tried to do some research and believe this is down to Chrome and other browsers attempting to phase out the `autoplay` feature on websites, but I'm not 100% sure. Sometimes it will trigger instantly, but that may be due to the browser cache. To work around this, I set the audio to play when the game starts.
 
-- Another bug noticed by users was that when the player ship is left on the 0 mark, meaning they haven't touched the rotation, almost no asteroids would hit them - players could complete the game without moving the craft. This is due to the `notZeroRange()` function used inside of the `Sprite` rendering. Without this function, when the code generated two numbers between 0-1.75, the `Sprite` would hit the centre of the screen, and not travel around the edge. By using this `notZeroRange()` function, it eliminates this issue whilst causing this smaller bug. I managed to resolve the problem by randomly setting `this.randomX` to 0 through the use of an `if` statement and `Math.random()`.
+- Another bug noticed by users was that when the player ship is left on the 0 mark, meaning they haven't touched the rotation, almost no asteroids would hit them - players could complete the game without moving the craft. This is due to the `notZeroRange()` function used inside of the `Sprite` rendering. Without this function, when the code generated a pair of X Y numbers between 0-1.75, the `Sprite` would hit the centre of the screen, and not travel around the edge. By using this `notZeroRange()` function, it eliminates this issue whilst causing this smaller bug. I managed to resolve the problem by randomly setting `this.randomX` to 0 through the use of an `if` statement and `Math.random()`.
 
 ```
 [...]
