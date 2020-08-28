@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets\readme images\Steller Drift Logo.gif" alt="Main Logo">
+<img src="readme images\Steller Drift Logo.gif" alt="Main Logo">
 
 # Stellar Drift | Mini Game
 
@@ -140,7 +140,7 @@ I wanted the game to have the obvious dark theme of space so neutral blacks, gre
 
 <div align="center">
 
-<img src="assets\readme images\Main colour pallete.png" alt="Theme colours" width="500">
+<img src="readme images\Main colour pallete.png" alt="Theme colours" width="500">
 </div>
 
 - 000000 - This is the main colour on the page as it is used for the black background of space, as well as the middle lettering for the title.
@@ -154,7 +154,7 @@ Below are the colours the stars transition between when the score increases.
 
 <div align="center">
 
-<img src="assets\readme images\Stars colour pallete.png" alt="Star colours" width="500">
+<img src="readme images\Stars colour pallete.png" alt="Star colours" width="500">
 </div>
 
 ### **Typography**
@@ -172,28 +172,28 @@ I created four wireframes for this project using Balsamiq. I did not want to put
 
 <div align="center">
 
-<img src="assets\readme images\Wireframe 1 - Start screen.JPG" alt="Wireframe 1" width="500">
+<img src="readme images\Wireframe 1 - Start screen.JPG" alt="Wireframe 1" width="500">
 </div>
 
 - When the game starts, I wanted to remove the panel and GitHub icon so that as much of the screen was the moving starfield as possible. The ship spawns on the lower half of the screen and users can rotate left and right to dodge the oncoming asteroids. The two directional buttons would later be changed to the entire left and right sides of the screen and become invisible.
 
 <div align="center">
 
-<img src="assets\readme images\Wireframe 2 - In game.JPG" alt="Wireframe 2" width="500">
+<img src="readme images\Wireframe 2 - In game.JPG" alt="Wireframe 2" width="500">
 </div>
 
 - The mobile layout would be the same except for the GitHub icon due to the buttons.
 
 <div align="center">
 
-<img src="assets\readme images\Wireframe 3 - Mobile start screen.JPG" alt="Wireframe 3 - Mobile start screen" width="250">
+<img src="readme images\Wireframe 3 - Mobile start screen.JPG" alt="Wireframe 3 - Mobile start screen" width="250">
 </div>
 
 - The game will be slightly more cramped on the mobile view, but the functionality should work identically.
 
 <div align="center">
 
-<img src="assets\readme images\Wireframe 4 - Mobile in game.JPG" alt="Wireframe 4 - Mobile in game" width="250">
+<img src="readme images\Wireframe 4 - Mobile in game.JPG" alt="Wireframe 4 - Mobile in game" width="250">
 </div>
 
 </details>
@@ -407,7 +407,7 @@ At the bottom of the `showSprite()` method sits the invocation of the `collision
 
 <div align="center">
 
-<img src="assets\readme images\Sprites.gif" alt="Sprites">
+<img src="readme images\Sprites.gif" alt="Sprites">
 </div>
 
 ### [**Player Ship Movement**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L281)
@@ -463,7 +463,7 @@ function playerShip() {
 
 <div align="center">
 
-<img src="assets\readme images\Player control.gif" alt="Player rotation control">
+<img src="readme images\Player control.gif" alt="Player rotation control">
 </div>
 
 ### [**Player Ship Controls**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L347)
@@ -503,9 +503,9 @@ I wanted to create an array to store the data for each of the X and Y positions 
 
 <div align="center">
 
-<img src="assets\readme images\Rotation plotting notes 1.jpg" alt="Rotation plotting - 1" width="600">
-<img src="assets\readme images\Rotation plotting notes 2.jpg" alt="Rotation plotting - 2" width="600">
-<img src="assets\readme images\Rotation plotting notes 3.JPG" alt="Rotation plotting - 3" width="600">
+<img src="readme images\Rotation plotting notes 1.jpg" alt="Rotation plotting - 1" width="600">
+<img src="readme images\Rotation plotting notes 2.jpg" alt="Rotation plotting - 2" width="600">
+<img src="readme images\Rotation plotting notes 3.JPG" alt="Rotation plotting - 3" width="600">
 
 </div>
 
@@ -639,10 +639,10 @@ When the page first loads, users are presented with the start screen. The backgr
 
 <div align="center">
 
-<img src="assets\readme images\Start screen - Desktop.JPG" alt="Start Screen desktop" width="800">
-<img src="assets\readme images\Start screen - iPad.JPG" alt="Start Screen ipad"width="300">
-<img src="assets\readme images\Start screen - iPhone.JPG" alt="Start Screen iphone" width="90">
-<img src="assets\readme images\Start screen - iPhone rotated.JPG" alt="Start Screen iphone rotated"width="300">
+<img src="readme images\Start screen - Desktop.JPG" alt="Start Screen desktop" width="800">
+<img src="readme images\Start screen - iPad.JPG" alt="Start Screen ipad"width="300">
+<img src="readme images\Start screen - iPhone.JPG" alt="Start Screen iphone" width="90">
+<img src="readme images\Start screen - iPhone rotated.JPG" alt="Start Screen iphone rotated"width="300">
 </div>
 
 ### [**Start Game Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L73)
@@ -681,7 +681,7 @@ I created background music and sound effects for the game to add to the user exp
 
 <div align="center">
 
-<img src="assets\readme images\Mute button.gif" alt="Completed screen">
+<img src="readme images\Mute button.gif" alt="Completed screen">
 </div>
 
 ### [**Reset Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L58)
@@ -718,7 +718,7 @@ At the bottom, the `endGame` variable which is normally `false` is set to `true`
 
 <div align="center">
 
-<img src="assets\readme images\Crash screen.gif" alt="Crash Screen">
+<img src="readme images\Crash screen.gif" alt="Crash Screen">
 </div>
 
 ### [**Completed Screen**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L92)
@@ -727,7 +727,7 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 
 <div align="center">
 
-<img src="assets\readme images\Completed screen.gif" alt="Completed screen">
+<img src="readme images\Completed screen.gif" alt="Completed screen">
 </div>
 
 ### [**Score Counter**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L531)
@@ -736,7 +736,7 @@ The score is used in more than one way across the application. It controls the s
 
 <div align="center">
 
-<img src="assets\readme images\Score counter.gif" alt="Completed screen">
+<img src="readme images\Score counter.gif" alt="Completed screen">
 </div>
 
 ### [**Countdown Timer**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L551)
@@ -745,7 +745,7 @@ When the Start Game button is pressed, the score starts on -100. A visual countd
 
 <div align="center">
 
-<img src="assets\readme images\Countdown timer.gif" alt="Countdown Timer">
+<img src="readme images\Countdown timer.gif" alt="Countdown Timer">
 </div>
 
 ### [**Speed Increase**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L564)
@@ -808,28 +808,28 @@ This is the project for the track - Titled 'Event Horizon'.
 
 <div align="center">
 
-<img src="assets\readme images\Background music - Ableton.JPG" alt="Background music - Ableton">
+<img src="readme images\Background music - Ableton.JPG" alt="Background music - Ableton">
 </div>
 
 The laser type sound heard when the game starts was the sound of a Slinky I recorded and processed.
 
 <div align="center">
 
-<img src="assets\readme images\Start game audio - Ableton.JPG" alt="Start game audio - Ableton" width="500">
+<img src="readme images\Start game audio - Ableton.JPG" alt="Start game audio - Ableton" width="500">
 </div>
 
 The explosion was taken from a sound bank and also processed.
 
 <div align="center">
 
-<img src="assets\readme images\Explosion audio - Ableton.JPG" alt="Explosion audio - Ableton" width="500">
+<img src="readme images\Explosion audio - Ableton.JPG" alt="Explosion audio - Ableton" width="500">
 </div>
 
 When the player wins, I added the startup sound to some stock audio of a crowd cheering with some funny wailing at the end. This is timed so that the background music finishes and loops with some of the cheering still playing.
 
 <div align="center">
 
-<img src="assets\readme images\Game win audio - Ableton.JPG" alt="Game win audio - Ableton" width="500">
+<img src="readme images\Game win audio - Ableton.JPG" alt="Game win audio - Ableton" width="500">
 </div>
 
 ### 2.2 Features to impliment in the future
@@ -950,7 +950,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 <div align="center">
 
-<img src="assets\readme images\Responsiveness - AmIResponsive.JPG" alt="Responsiveness - AmIResponsive" width="600">
+<img src="readme images\Responsiveness - AmIResponsive.JPG" alt="Responsiveness - AmIResponsive" width="600">
 </div>
 
 - I tested the game on an array of different phones and their browsers such as iPhone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers on them.
@@ -971,14 +971,14 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 <div align="center">
 
-<img src="assets\readme images\Metrics.JPG" alt="Metrics" width="300">
+<img src="readme images\Metrics.JPG" alt="Metrics" width="300">
 </div>
 
 - I utilised the use of the Jasmine framework to perform unit testing on parts of the program. The functions tested all perform operations using `angle` as an argument, returning a consistent value or array that I was able to successfully test against using different inputs of `angle`. To view and run these tests, just run the [test.html](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/testing/test.html) file.
 
 <div align="center">
 
-<img src="assets\readme images\Jasmine testing.JPG" alt="Jasmine testing" width="500">
+<img src="readme images\Jasmine testing.JPG" alt="Jasmine testing" width="500">
 </div>
 
 - I ran audit testing using the DevTools Lighthouse feature. Using this I was able to correct some minor mistakes such as not including an HTML meta description element.
@@ -987,21 +987,21 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 <div align="center">
 
-<img src="assets\readme images\Desktop audit testing.JPG" alt="Desktop audit testing" width="500">
+<img src="readme images\Desktop audit testing.JPG" alt="Desktop audit testing" width="500">
 </div>
 
 - - Audit testing on mobile
 
 <div align="center">
 
-<img src="assets\readme images\Mobile audit testing.JPG" alt="Mobile audit testing" width="500">
+<img src="readme images\Mobile audit testing.JPG" alt="Mobile audit testing" width="500">
 </div>
 
 - I ran the site through GTMetrix to check the performance.
 
 <div align="center">
 
-<img src="assets\readme images\Speed test.JPG" alt="Speed test" width="500">
+<img src="readme images\Speed test.JPG" alt="Speed test" width="500">
 </div>
 
 ### 4.2 Bugs
@@ -1094,7 +1094,7 @@ To read more about cloning repositories, you can read [Cloning a repository](htt
 
 ### 6.1 Content and code
 
-https://www.youtube.com/watch?v=CSoZPdhNwjY - Source for the algorithm to move stars that I then built on
+[Sharad Choudhary - Starfield Simulation tutorial](https://www.youtube.com/watch?v=CSoZPdhNwjY) - Source for the algorithm to move stars that I then built on
 
 All content and code is my own
 
@@ -1112,8 +1112,8 @@ Also thanks to all other students that gave feedback and comments that helped sh
 
 ### 6.4 References
 
-Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
+[Anatomy Of Games MDN docs](https://developer.mozilla.org/en-US/docs/Games/Anatomy)
 
-https://developer.mozilla.org/en-US/docs/Games/Anatomy
+Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 
 [Back to Table Of Contents](#table-of-contents)
