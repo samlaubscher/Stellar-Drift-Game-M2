@@ -132,11 +132,11 @@ I wanted a way for players to be able to win the game, but not very easily other
 
 ### 1.4 Design Process
 
-Taking inspiration from the video I had seen on the JavaScript starfield simulation, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimensions whereas the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the centre point of them spawning worked perfectly.
+Taking inspiration from the video I had seen on the JavaScript starfield simulation, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as travel can only happen in two dimensions whereas the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the centre point of them spawning worked perfectly.
 
 ### **Colour scheme**
 
-I wanted the game to have the obvious dark theme of space so neutral blacks, greys and white, but also with a single colour thrown in to create a bit of visual warmth and ambiance.
+I wanted the game to have the obvious dark theme of space. I used neutral blacks, greys and white, but also with a single colour thrown in to create a bit of visual warmth and ambiance.
 
 <div align="center">
 
@@ -159,11 +159,11 @@ Below are the colours the stars transition between when the score increases.
 
 ### **Typography**
 
-The font is one of the most important aspects of the design process, so the title and text font has to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, taking away focus from the centre.
+The font is one of the most important aspects of the design process, so the title and text font has to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow above. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, maintaining focus on the centre of the screen.
 
 ### **Wireframes**
 
-I created four wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and too much would take away from this. To view the wireframes click below.
+I created four wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and felt too much would take away from this. To view the wireframes click below.
 
 <details>
 <summary><b>Desktop & Mobile Wireframes</b> - (click to expand)</summary>
@@ -175,21 +175,21 @@ I created four wireframes for this project using Balsamiq. I did not want to put
 <img src="readme images\Wireframe 1 - Start screen.JPG" alt="Wireframe 1" width="500">
 </div>
 
-- When the game starts, I wanted to remove the panel and GitHub icon so that as much of the screen was the moving starfield as possible. The ship spawns on the lower half of the screen and users can rotate left and right to dodge the oncoming asteroids. The two directional buttons would later be changed to the entire left and right sides of the screen and become invisible.
+- When the game starts, I wanted to remove the panel and GitHub icon so that as much of the screen was the moving starfield as possible. The ship spawns on the lower half of the screen and users can rotate left and right to dodge the oncoming asteroids. The two directional buttons would later be removed on desktop and changed to invisible buttons taking up the entire left and right sides of the screen for touch devices only.
 
 <div align="center">
 
 <img src="readme images\Wireframe 2 - In game.JPG" alt="Wireframe 2" width="500">
 </div>
 
-- The mobile layout would be the same except for the GitHub icon due to the buttons.
+- The mobile layout looks the same except for the GitHub icon due to the buttons.
 
 <div align="center">
 
 <img src="readme images\Wireframe 3 - Mobile start screen.JPG" alt="Wireframe 3 - Mobile start screen" width="250">
 </div>
 
-- The game will be slightly more cramped on the mobile view, but the functionality should work identically.
+- The game looks slightly more cramped on the mobile view, but the functionality works the same.
 
 <div align="center">
 
@@ -212,8 +212,8 @@ To ensure the development of my project was maintainable and manageable, I creat
 - Create player ship
 - Create player movement functionality
 - Create collision detection functionality
-- Create score system
 - Create crash and completed screens
+- Create score system
 - Clean up code and fix bugs
 
 [Back to Table Of Contents](#table-of-contents)
@@ -226,7 +226,7 @@ To ensure the development of my project was maintainable and manageable, I creat
 
 ### [**Canvas API Graphics Animation**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L21)
 
-The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with _window.requestAnimationFrame(update)_. This update function calls other specific functions containing logical algorithms which are mostly designed to change certain parameters of the content that the function may render each frame.
+The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with `window.requestAnimationFrame(update)`. This update function calls other specific functions containing algorithms to change certain parameters of the program then render the new content to the canvas each frame.
 
 ### [**Animated Star Background**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L73)
 
@@ -235,7 +235,7 @@ Stars are generated using an algorithm that allows them to move outwards from th
 <details>
 <summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
 
-Circular shapes used for stars are individually rendered to the canvas using an array of `Star` class objects. Using a for loop, the required number of `starsArray[]` indexes are generated, each iteration instantiating a new `Star` class object, passing in x, y and z constructor arguments of `(Math.random() * canvas.width or height)`.
+Circular shapes used for stars are individually rendered to the canvas using an array of `Star` class objects. Using a for loop, the required number of `starsArray[]` indexes are generated, each iteration instantiating a new `Star` class object, passing in `x`, `y` and `z` constructor arguments of `(Math.random() * canvas.width or height)`.
 
 ```
 for (var i = 0; i < numberOfStars; i++) {
@@ -322,12 +322,12 @@ My original discovery of this algorithm comes from a youtube tutorial by Sharad 
 
 ### [**Animated Asteroid Sprites**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L140)
 
-Asteroid sprites generate around the centre of the screen and travel outwards towards the path of the player ship in a tunnel type style. They grow larger the closer to the edge of the screen they travel, much like the star but often bigger.
+Asteroid sprites generate around the centre of the screen and travel outwards towards the path of the player ship in a tunnel type style. They grow larger the closer to the edge of the screen they travel, much like the stars but often bigger.
 
 <details>
 <summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
 
-Asteroid sprites are also rendered to the canvas using an array of `Sprite` class objects. This `spritesArray[]` works the same way as the `starsArray[]` by instanciating each index with a new `Sprite` object, and calling two additional methods on these indexes using a `drawSprites()` function. However, the `Sprite` class contains different code which allows it to behave separately from the `Star` objects. Each array object is initialised with the `x` and `y` coordinates in the centre of the canvas, as well as the constructor method containing additional properties of `this.randomX` and `this.randomY` with the values of `notZeroRange(-10, 10)`.
+Asteroid sprites are also rendered to the canvas using an array of `Sprite` class objects. This `spritesArray[]` works the same way as the `starsArray[]` by instanciating each index with a new `Sprite` object, and calling two additional methods on these indexes using a `drawSprites()` function. However, the `Sprite` class contains different code which allows it to behave separately from the `Star` objects. Each array object is initialised with the X and Y coordinates in the centre of the canvas, as well as the constructor method containing additional properties of `this.randomX` and `this.randomY` with the values of `notZeroRange(-10, 10)`.
 
 ```
 class Sprite {
@@ -475,7 +475,7 @@ The player ship can be rotated around the screen using left and right arrow butt
 
 The player ship can be rotated around the screen using left and right arrow buttons via `keydown` and `keyup` event listeners on computer, or touching the left and right halves of the screen on mobile and tablet devices with `touchstart` and `touchend` event listeners.
 
-The rotation is achieved by increasing the value of the global variable `angle`. This is used in the `rotation(convertToRadians(angle))` method to control the canvas rotation as explained in ###Player ship movement. When the angle increases above 360, it resets to 0. `setInterval()` is used to remove the delay in movement after initial keydown which would stop the player having instant sustained movement. This also enables the function to be called 100 times a second which allows the ship to move smoothly at a much higher speed.
+The rotation is achieved by increasing the value of the global variable `angle`. This is used in the `rotation(convertToRadians(angle))` method to control the canvas rotation as explained in [Player Ship Movement](#Player-ship-movement). When the angle increases above 360, it resets to 0. `setInterval()` is used to remove the delay in movement after initial keydown which would stop the player having instant sustained movement. This also enables the function to be called 100 times a second which allows the ship to move smoothly at a much higher speed.
 
 ```
 function moveLeft() {
@@ -499,7 +499,7 @@ When the player ship collides with an asteroid, it results in a crash event and 
 
 In order to detect the collision of both the `playerShip()` and `Sprite` objects, I first had to generate the correct canvas position values for the `playerShip()`. The use of transformation methods `translate()` and `rotate()` in the rendering of `playerShip()` meant that it followed its own X and Y coordinates seperate from any other canvas content.
 
-I wanted to create an array to store the data for each of the X and Y positions of the ship, then match them against the coordinates of each of the sprites per frame. I undertook an enormous job of trying to manually create all of these positions, physically using paper graphs and plotting each of the points along the axes, then doing the maths to create a canvas circle shape along these points on screen. Below are some of my workings.
+I wanted to create an array to store the data for each of the X and Y positions of the ship, then match them against the coordinates of each of the sprites per frame. I undertook an enormous job of trying to manually create all of these positions, physically using paper drawn graphs and plotting each of the points along the axes, then doing the maths to create a canvas circle shape along these points on screen. Below are some of my workings.
 
 <div align="center">
 
@@ -520,7 +520,7 @@ function getAngleNumber(angle) {
     [...]
 ```
 
-But then quickly realised that this was a very inefficient, and inaccurate way of achieving this. Thats when I discovered that I could use the trigonometric function cosine with `Math.cos()` and `Math.sin()` to quickly and extremely accurately generate all of these return values for me.
+But then quickly realised that this was a very inefficient, and inaccurate way of achieving this. Thats when I discovered that I could use the trigonometric function cosine with JavaScript `Math.cos()` and `Math.sin()` methods to quickly and extremely accurately generate all of these return values for me.
 
 ```
 function getAngleNumber(angle) {
@@ -694,7 +694,7 @@ I wanted to display a link so users can discover the repository page. This allow
 
 ### [**Crash Screen**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L78)
 
-When a successful collision is detected, the crash screen is displayed letting users know they have crashed and displaying their final score.
+When a successful collision is detected, the crash screen is displayed letting users know they have crashed, displaying their final score.
 
 <details>
 <summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
@@ -732,7 +732,7 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 
 ### [**Score Counter**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L531)
 
-The score is used in more than one way across the application. It controls the speed, colour scheme, countdown timer, sprite rendering, and triggering the completed screen. Each frame, the score increased by 1, until it reaches the winning score of 10,000.
+The score is used in more than one way across the application. It controls the speed, colour scheme, countdown timer, sprite rendering, and triggering the completed screen. Each frame increases the score by 1, until it reaches the winning score of 10,000.
 
 <div align="center">
 
@@ -764,11 +764,11 @@ function speedIncrease() {
     } else if (score < 2500 && cnvsWidth < 1200) {
       speed += 0.005;
     } else if (score < 2500) {
-      speed += 0.01;
+      speed += 0.007;
     } else if (score < 5000 && cnvsWidth < 600) {
       speed += 0.001;
     } else if (score < 5000 && cnvsWidth < 1200) {
-      speed += 0.003;
+      speed += 0.002;
     } [...]
 ```
 
@@ -789,9 +789,9 @@ These colour changes take place when rendering the shapes, they are handled usin
 ctx.beginPath();
     if (score <= 1000) {
       ctx.fillStyle = "#82caff";
-    } else if (score <= 2000) {
+    } else if (score <= 2100) {
       ctx.fillStyle = "#00FA9A";
-    } else if (score <= 3000) {
+    } else if (score <= 3200) {
       ctx.fillStyle = "#306eff";
     } else if {[...]}
 ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
@@ -864,15 +864,15 @@ I would also like to be able to add other layers of objects that could randomly 
 
 ### [**HTML/HTML 5**](https://html.com/html5/)
 
-HTML5 is a Hyper Text Markup Language. Roughly 17% of my code was the HTML file [index.html](index.html) as it was used to create the structured content and elements essential to build the game.
+HTML5 is a Hyper Text Markup Language. Roughly 16% of my code was the HTML file [index.html](index.html) as it was used to create the structured content and elements essential to build the game.
 
 ### [**CSS/CSS3**](https://www.w3.org/Style/CSS/Overview.en.html)
 
-CSS is a Cascading Style Sheet and was implemented via the [styles.css](assets\css\styles.css) file. All of the visible HTML content was positioned and styled using this language, making up roughly 28% of the entire code.
+CSS is a Cascading Style Sheet and was implemented via the [styles.css](assets\css\styles.css) file. All of the visible HTML content was positioned and styled using this language, making up roughly 24% of the entire code.
 
 ### [**JavaScript ES6**](https://www.w3schools.com/Js/js_es6.asp)
 
-ECMAScript 6 - ECMAScript 2015, otherwise known as JavaScript 6, was used to write all of the functionality and game mechanics within this project. Around 55% of the entire code was JavaScript, which was used heavily with the Canvas API.
+ECMAScript 6 - ECMAScript 2015, otherwise known as JavaScript 6, was used to write all of the functionality and game mechanics within this project. Around 60% of the entire code was JavaScript, which was used heavily with the Canvas API.
 
 ### 3.2 Libraries
 
@@ -959,7 +959,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 
 - I tested the controls extensively, pressing multiple keys and attempting to break the game to check no more bugs would appear.
 
-- I posted my finished site in the Slack Peer Review channel for student feedback. Fortunately they did not point out any issues I was not aware of.
+- I posted my finished site in the Slack Peer Code Review channel for student feedback. Fortunately they did not point out any issues I was not aware of.
 
 ### **Automatic Testing**
 
@@ -974,7 +974,7 @@ Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly
 <img src="readme images\Metrics.JPG" alt="Metrics" width="300">
 </div>
 
-- I utilised the use of the Jasmine framework to perform unit testing on parts of the program. The functions tested all perform operations using `angle` as an argument, returning a consistent value or array that I was able to successfully test against using different inputs of `angle`. To view and run these tests, just run the [test.html](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/testing/test.html) file.
+- I utilised the Jasmine framework to perform unit testing on parts of the program. The functions tested all perform operations using `angle` as an argument, returning a consistent value or array that I was able to successfully test against using different inputs of `angle`. To view and run these tests, just run the [test.html](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/testing/test.html) file.
 
 <div align="center">
 

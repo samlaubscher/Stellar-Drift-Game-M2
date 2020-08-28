@@ -276,7 +276,7 @@ function drawSprites() {
   }
 }
 
-// Player spaceship properties
+// Draws player spaceship
 function playerShip() {
   x1 = 0;
   y1 = 0 + centreOfY / 2;
@@ -444,7 +444,7 @@ function getActualAngle(angle) {
   }
 }
 
-// Get the values associated with angle
+// Get the cosine values associated with angle
 function getAngleNumber(angle) {
   const angleInRadians = (angle * Math.PI) / 180;
   return [Math.cos(angleInRadians), Math.sin(angleInRadians)];
