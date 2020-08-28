@@ -1094,21 +1094,26 @@ To read more about cloning repositories, you can read [Cloning a repository](htt
 
 ### 6.1 Content and code
 
-https://www.youtube.com/watch?v=CSoZPdhNwjY - Basic formula used for starfield simulation
+https://www.youtube.com/watch?v=CSoZPdhNwjY - Source for the algorithm to move stars that I then built on
+
+All content and code is my own
 
 ### 6.2 Media
 
-All media in this project was created by myself
+All media in this project was created by myself. The backing track is titled 'Event Horizon'.
 
 ### 6.3 Acknowledgements
 
-acknowledge mentor and students in slack
+I would like to show thanks and appreciation to my mentor Ignatius Ukwuoma for the many many hours he spent with me discussing this project and assisting me to overcome and properly understand issues within my code. Scheduled 30 minute calls would often be 2 - 3 hours long, especially when helping me with features such as collision detection which he did not have to, so I am very grateful for that!!
+
+Thanks to Robinz_alumni for showing me the cosine trigonometric functions that stopped me needing to manually plot every angle value, saving me an incomprehensible amount of time with the collision detection! I spent weeks looking for this solution online with no success!
+
+Also thanks to all other students that gave feedback and comments that helped shape the game during its development.
 
 ### 6.4 References
 
 Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
+
 https://developer.mozilla.org/en-US/docs/Games/Anatomy
 
 [Back to Table Of Contents](#table-of-contents)
-
-add score counter gif maybe
