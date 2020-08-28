@@ -163,7 +163,10 @@ The font is one of the most important aspects of the design process, so the titl
 
 ### **Wireframes**
 
-I created four wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and too much would take away from this.
+I created four wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and too much would take away from this. To view the wireframes click below.
+
+<details>
+<summary><b>Project Wireframes</b> - (click to expand)</summary>
 
 - For the start screen, I wanted to present the users with a panel containing a brief overview of the game with instructions and controls, as well as a start button like most games. I wanted to impliment a pause or restart button but keep this low profile and in the corner. Audio would be playing which meant I would need a mute button, as well as a way for users to access the GitHub repository. The crash screen could use this same layout.
 
@@ -192,6 +195,8 @@ I created four wireframes for this project using Balsamiq. I did not want to put
 
 <img src="assets\readme images\Wireframe 4 - Mobile in game.JPG" alt="Wireframe 4 - Mobile in game" width="250">
 </div>
+
+</details>
 
 ### **Development Stages**
 
@@ -674,6 +679,11 @@ function initialiseGame() {
 
 I created background music and sound effects for the game to add to the user experience. The mute button gives users the option to mute this audio if they choose.
 
+<div align="center">
+
+<img src="assets\readme images\Mute button.gif" alt="Completed screen">
+</div>
+
 ### [**Reset Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L58)
 
 The reset button allows the user to restart the game, reloading the page back to the start panel. In the future I would like to change this into a pause button with the option to then reset, but currently this button is just linked to an event listener that calls the `reload()` function.
@@ -723,6 +733,11 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 ### [**Score Counter**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L531)
 
 The score is used in more than one way across the application. It controls the speed, colour scheme, countdown timer, sprite rendering, and triggering the completed screen. Each frame, the score increased by 1, until it reaches the winning score of 10,000.
+
+<div align="center">
+
+<img src="assets\readme images\Score counter.gif" alt="Completed screen">
+</div>
 
 ### [**Countdown Timer**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L551)
 
@@ -1095,15 +1110,5 @@ Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
 https://developer.mozilla.org/en-US/docs/Games/Anatomy
 
 [Back to Table Of Contents](#table-of-contents)
-
-jaqvascript media queries
-
-folder tests / test.html spec.js - jasmine
-
-'to run test just open the html file'
-
-add into the technoloigies / library - jasmine
-
-unit testing - automated tests
 
 add score counter gif maybe
