@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-/* Global Body styles */ 
+/* Global Body styles */
 body {
     margin: 0;
     min-height: 100vh;
@@ -181,7 +181,7 @@ button {
 
 .mute-btn li,
 .reset-btn li {
-    top: 0px;
+    top: 0;
     position: absolute;
 }
 
@@ -298,7 +298,7 @@ p#credit {
 
 /* Media Queries */
 
-/* Small mobile devices */ 
+/* Small mobile devices */
 @media only screen and (max-width: 360px) {
     .name-title {
         padding-top: 5%;

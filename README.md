@@ -6,7 +6,7 @@
 
 #### An interactive and challenging 3D space themed mini game, built using vanilla javascript!
 
-Stellar Drift is a game that will test your focus, reaction times, and ability to dodge multiple oncoming targets at speed! Have you got the skills to maneuvre the ship as you race through the asteroid field to reach the winning score of 10,000? 
+Stellar Drift is a game that will test your focus, reaction times, and ability to dodge multiple oncoming targets at speed! Have you got the skills to maneuvre the ship as you race through the asteroid field to reach the winning score of 10,000?
 
 As your score increases, so will your speed! Watch for the colours changing to indicate your progression! To control the ship, use the left and right arrow keys, or for mobile and tablet users, touch anywhere on the the left and right sides of the screen. When you're ready, hit the Enter key or press the Start Game button to begin... good luck!
 
@@ -14,114 +14,125 @@ As your score increases, so will your speed! Watch for the colours changing to i
 
 ##### This project was developed for my Interactive Frontend Development module on my Full Stack Software Development course.
 
-
 </div>
 
 ---
+
 ## Table of Contents
-* [**1 UX**](#1-ux)
-    * [**1.1 Overview**](#1.1-overview)
-    * [**1.2 Project Goals**](#1.2-project-goals)
-    * [**1.3 User Goals**](#1.3-user-goals)
-    * [**1.4 Design Process**](#1.4-design-process)
-      * [**Colour Scheme**](#colour-scheme)
-      * [**Typography**](#typography)
-      * [**Wireframes**](#wireframes)
-      * [**Development Stages**](#development-stages)
 
-* [**2 Features**](#2-features)
-    * [**2.1 Existing Features**](#2.1-existing-features)
-      * [**Canvas API Graphics Animation**](#Canvas-api-graphics-animation)
-      * [**Animated Star Background**](#Animated-star-background)
-      * [**Animated Asteroid Sprites**](#Animated-steroid-sprites)
-      * [**Player Ship Movement**](#Player-ship-movement)
-      * [**Player Ship Controls**](#Player-ship-controls)
-      * [**Collision Detection**](#Collision-detection)
-      * [**Start Screen**](#Start-screen)
-      * [**Start Game Button**](#Start-game-button)
-      * [**Mute Audio Button**](#Mute-audio-button)
-      * [**Reset Button**](#Reset-button)
-      * [**Github Social Icon**](#Github-social-icon)
-      * [**Crash Screen**](#Crash-screen)
-      * [**Completed Screen**](#Completed-screen)
-      * [**Score Counter**](#Score-counter)
-      * [**Countdown Timer**](##Countdown-timer)
-      * [**Speed Change**](#Speed-change)
-      * [**Colour Changing**](#Colour-changing)
-      * [**Music & Audio**](#Music-&-Audio)
-    * [**2.2 Features Left to Implement**](#2.2-Features-left-to-impliment)
-      * [**Score History & Leaderboard**](#Score-History-&-Leaderboard)
-      * [**Star Paths**](#star-paths)
-      * [**Better Colour Transitions**](#better-colour-transitions)
-      * [**Tighter Collision Detection**](#tighter-collision-detection)
-      * [**Additional Sprite Type Objects**](#additional-sprite-type-objects)
+- [**1 UX**](#1-ux)
 
-* [**3 Technologies Used**](#3-technologies-used)
-    * [**3.1 Languages**](#3.1-languages)
-      * [**HTML/HTML 5**](#html/html-5)
-      * [**CSS/CSS3**](#css/css3)
-      * [**JavaScript ES6**](#JavaScript-ES6)
-    * [**3.2 Libraries**](#3.2-libraries)
-      * [**Canvas API**](#canvas-api)
-      * [**Font Awesome**](#font-awesome)
-      * [**Google Fonts API**](#Google-Fonts-API)
-    * [**3.3 Tools**](#3.3-Tools)
-      * [**VSCode**](#vscode)
-      * [**Chrome DevTools**](#chrome-devtools)
-      * [**Git**](#git)
-      * [**GitHub**](#github)
-      * [**GitHub Pages**](#github-pages)
-      * [**EZGIF**](#ezgif)
-      * [**GNU Image Manipulation Program**](#GNU-Image-Manipulation-Program)
-      * [**Ableton Live 10**](#Ableton-Live-10)
+  - [**1.1 Overview**](#1.1-overview)
+  - [**1.2 Project Goals**](#1.2-project-goals)
+  - [**1.3 User Goals**](#1.3-user-goals)
+  - [**1.4 Design Process**](#1.4-design-process)
+    - [**Colour Scheme**](#colour-scheme)
+    - [**Typography**](#typography)
+    - [**Wireframes**](#wireframes)
+    - [**Development Stages**](#development-stages)
 
+- [**2 Features**](#2-features)
+
+  - [**2.1 Existing Features**](#2.1-existing-features)
+    - [**Canvas API Graphics Animation**](#Canvas-api-graphics-animation)
+    - [**Animated Star Background**](#Animated-star-background)
+    - [**Animated Asteroid Sprites**](#Animated-steroid-sprites)
+    - [**Player Ship Movement**](#Player-ship-movement)
+    - [**Player Ship Controls**](#Player-ship-controls)
+    - [**Collision Detection**](#Collision-detection)
+    - [**Start Screen**](#Start-screen)
+    - [**Start Game Button**](#Start-game-button)
+    - [**Mute Audio Button**](#Mute-audio-button)
+    - [**Reset Button**](#Reset-button)
+    - [**Github Social Icon**](#Github-social-icon)
+    - [**Crash Screen**](#Crash-screen)
+    - [**Completed Screen**](#Completed-screen)
+    - [**Score Counter**](#Score-counter)
+    - [**Countdown Timer**](##Countdown-timer)
+    - [**Speed Change**](#Speed-change)
+    - [**Colour Changing**](#Colour-changing)
+    - [**Music & Audio**](#Music-&-Audio)
+  - [**2.2 Features Left to Implement**](#2.2-Features-left-to-impliment)
+    - [**Score History & Leaderboard**](#Score-History-&-Leaderboard)
+    - [**Star Paths**](#star-paths)
+    - [**Better Colour Transitions**](#better-colour-transitions)
+    - [**Tighter Collision Detection**](#tighter-collision-detection)
+    - [**Additional Sprite Type Objects**](#additional-sprite-type-objects)
+
+- [**3 Technologies Used**](#3-technologies-used)
+  - [**3.1 Languages**](#3.1-languages)
+    - [**HTML/HTML 5**](#html/html-5)
+    - [**CSS/CSS3**](#css/css3)
+    - [**JavaScript ES6**](#JavaScript-ES6)
+  - [**3.2 Libraries**](#3.2-libraries)
+    - [**Canvas API**](#canvas-api)
+    - [**Font Awesome**](#font-awesome)
+    - [**Google Fonts API**](#Google-Fonts-API)
+  - [**3.3 Tools**](#3.3-Tools)
+    - [**VSCode**](#vscode)
+    - [**Chrome DevTools**](#chrome-devtools)
+    - [**Git**](#git)
+    - [**GitHub**](#github)
+    - [**GitHub Pages**](#github-pages)
+    - [**EZGIF**](#ezgif)
+    - [**GNU Image Manipulation Program**](#GNU-Image-Manipulation-Program)
+    - [**Ableton Live 10**](#Ableton-Live-10)
 
 * [**4 Testing**](#4-testing)
-  * [**4.1 Completed**](#4.1-completed)
-  * [**4.2 Bugs**](#4.2-bugs)
-    * [**Fixed**](#fixed)
-    * [**Still Existing**](#still-existing)
+
+  - [**4.1 Completed**](#4.1-completed)
+  - [**4.2 Bugs**](#4.2-bugs)
+    - [**Fixed**](#fixed)
+    - [**Still Existing**](#still-existing)
 
 * [**5 Deployment**](#5-deployment)
-  * [**5.1 GitHub Pages**](#5.1-github-pages)
-  * [**5.2 Local**](#5.2-local)
+
+  - [**5.1 GitHub Pages**](#5.1-github-pages)
+  - [**5.2 Local**](#5.2-local)
 
 * [**6 Credits**](#6-credits)
-    * [**6.1 Contents and code**](#6.1Contents-and-code)
-    * [**6.2 Media**](#6.2-media)
-    * [**6.3 Acknowledgements**](#6.3-Acknowledgements)
-    * [**6.4 References**](#6.4-references)
+  - [**6.1 Contents and code**](#6.1Contents-and-code)
+  - [**6.2 Media**](#6.2-media)
+  - [**6.3 Acknowledgements**](#6.3-Acknowledgements)
+  - [**6.4 References**](#6.4-references)
 
 ---
+
 ## 1 UX
+
 ### 1.1 Overview
+
 When starting this project, I knew I wanted to develop something highly interactive and engaging, not only for the user but for me as the developer. I wanted to create a responsive and dynamic front end website, demonstrating an ability to effectively understand and impliment the use of multiple programming languages, but most of all I wanted to really step out of my comfort zone and push myself to create something I would ultimately learn a considerable amount from. I liked the idea of building a game from vanilla JavaScript and remembered a video I had once seen about making a starfield simulation using just JavaScript and some clever code.
 
 I had recently discovered the music synth wave with its asthetical retro space-age themed artwork, so this twinned with the stars idea quickly became inspiration for building a space themed game and creating the music that accompanies it.
 
 ### 1.2 Project Goals
-The aim of this project was to create a visually asthetic game, aimed at those who like fast paced reaction and skill driven gameplay. It had to remain engaging and require the user to maintain constant focus and interaction with it at speed, having the game respond accordingly and effectively to these inputs. 
 
->"The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy 
+The aim of this project was to create a visually asthetic game, aimed at those who like fast paced reaction and skill driven gameplay. It had to remain engaging and require the user to maintain constant focus and interaction with it at speed, having the game respond accordingly and effectively to these inputs.
+
+> "The goal of every video game is to present the user(s) with a situation, accept their input, interpret those signals into actions, and calculate a new situation resulting from those acts." - https://developer.mozilla.org/en-US/docs/Games/Anatomy
 
 I wanted a way for players to be able to win the game, but not very easily otherwise they would get bored quickly, and gamers often like a challenge.
 
 ### 1.3 User Goals
-* As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme to make it more immersive.
-* As a user, I want to be presented with the instructions and controls before the game starts so that I am comfortable with how to play. 
-* As a user, I want to be able to see my progression throughout the game so that I am aware of how well I am doing. 
-* As a user, I want to clearly see when my interactions with the game have an affect on it.
-* As a user, I want to be able to easily mute any audio if required.
-* As a user, I want to have the developers information available incase I want to check out their other work or make contact.
-* As a user, I wanted to have a clear way to start the game, and to restart it if I die. 
-* As a user, I do not want the controls to be unreliable and buggy as this will ruin my experience. 
 
->A gamer can excuse flaws in graphics, but he will never tolerate poorly designed controls. Imagine how unhappy the user who accidentally tapped All In instead of Fold in the middle of a poker round would be. - (Bura and Coates, 2012, p.43)
+- As a user, I want to be able to play a game that has a visual appeal, with background music that fits with the theme to make it more immersive.
+- As a user, I want to be presented with the instructions and controls before the game starts so that I am comfortable with how to play.
+- As a user, I want to be able to see my progression throughout the game so that I am aware of how well I am doing.
+- As a user, I want to clearly see when my interactions with the game have an affect on it.
+- As a user, I want to be able to easily mute any audio if required.
+- As a user, I want to have the developers information available incase I want to check out their other work or make contact.
+- As a user, I wanted to have a clear way to start the game, and to restart it if I die.
+- As a user, I do not want the controls to be unreliable and buggy as this will ruin my experience.
+
+> A gamer can excuse flaws in graphics, but he will never tolerate poorly designed controls. Imagine how unhappy the user who accidentally tapped All In instead of Fold in the middle of a poker round would be. - (Bura and Coates, 2012, p.43)
 
 ### 1.4 Design Process
+
 Taking inspiration from the video I had seen on the JavaScript starfield simulation, I wanted to design this game using the whole viewport so that stars could travel right to the edge of the screen, making it more immersive. I had to decide how I would move the player around the screen, as it could only travel in two dimentions wheras the stars look like they are travelling in three. I really wanted to create a tunnel type barrage of asteroids travelling towards the player, so allowing the ship to rotate around the center point of them spawning worked perfectly.
 
 ### **Colour scheme**
+
 I wanted the game to have the obvious dark theme of space so neutral blacks, greys and white, but also with a single colour thrown in to create a bit of visual warmth and ambience.
 
 <div align="center">
@@ -129,12 +140,12 @@ I wanted the game to have the obvious dark theme of space so neutral blacks, gre
 <img src="assets\readme images\Main colour pallete.png" alt="Theme colours" width="500">
 </div>
 
-* 000000 - This is the main colour on the page as it is used for the black background of space, as well as the middle lettering for the title.
-* 0C0C0C - This dark shade is used for the reset button and matches the transparent colour of the panel behind the text on the star page.
-* 383838 - This is the colour used for the Start Game and Restart Game buttons.
-* A8A8A8 - This slightly lighter shade is used for the mute button and github icon, as well as the credits.
-* FFFFFA - This is the off white colour used for all of the text on screen.
-* 2C2666 - This is the one colour I placed into the main title above the game. I used layers with different transparency to create the glowing effect which i feel gives the game a nice neon feel.
+- 000000 - This is the main colour on the page as it is used for the black background of space, as well as the middle lettering for the title.
+- 0C0C0C - This dark shade is used for the reset button and matches the transparent colour of the panel behind the text on the star page.
+- 383838 - This is the colour used for the Start Game and Restart Game buttons.
+- A8A8A8 - This slightly lighter shade is used for the mute button and github icon, as well as the credits.
+- FFFFFA - This is the off white colour used for all of the text on screen.
+- 2C2666 - This is the one colour I placed into the main title above the game. I used layers with different transparency to create the glowing effect which i feel gives the game a nice neon feel.
 
 Below are the colours the stars transition between when the score increases.
 
@@ -145,74 +156,78 @@ Below are the colours the stars transition between when the score increases.
 
 ### **Typography**
 
-The font is one of the most important aspects of the design process, so the title and text font has to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, taking away focus from the center. 
+The font is one of the most important aspects of the design process, so the title and text font has to fit the space theme. I used 'Audiowide' for the main title and layered multiple h2 elements offset to create a 3d drop shadow with a neon glow. The main body text font is 'Oxanium' which is a really nice squared font that works with the digital look. 'Orbitron' is used for the score counter, the font works well with the black background as the styled line through the letters stops the font being too visually stimulating, taking away focus from the center.
 
 ### **Wireframes**
 
 I created four wireframes for this project using Balsamiq. I did not want to put too much content on the screen as I was aiming for an old arcade feel, and too much would take away from this.
 
-* For the start screen, I wanted to present the users with a panel containing a brief overview of the game with instructions and controls, as well as a start button like most games. I wanted to impliment a pause or restart button but keep this low profile and in the corner. Audio would be playing which meant I would need a mute button, as well as a way for users to access the GitHub repository. The crash screen could use this same layout.
+- For the start screen, I wanted to present the users with a panel containing a brief overview of the game with instructions and controls, as well as a start button like most games. I wanted to impliment a pause or restart button but keep this low profile and in the corner. Audio would be playing which meant I would need a mute button, as well as a way for users to access the GitHub repository. The crash screen could use this same layout.
 
 <div align="center">
 
 <img src="assets\readme images\Wireframe 1 - Start screen.JPG" alt="Wireframe 1" width="500">
 </div>
 
-* When the game starts, I wanted to remove the panel and GitHub icon so that as much of the screen was the moving starfield as possible. The ship spawns on the lower half of the screen and users can rotate left and right to dodge the oncoming asteroids. The two directional buttons would later be changed to the entire left and right sides of the screen and become invisible.
+- When the game starts, I wanted to remove the panel and GitHub icon so that as much of the screen was the moving starfield as possible. The ship spawns on the lower half of the screen and users can rotate left and right to dodge the oncoming asteroids. The two directional buttons would later be changed to the entire left and right sides of the screen and become invisible.
 
 <div align="center">
 
 <img src="assets\readme images\Wireframe 2 - In game.JPG" alt="Wireframe 2" width="500">
 </div>
 
-* The mobile layout would be the same except for the GitHub icon due to the buttons.
+- The mobile layout would be the same except for the GitHub icon due to the buttons.
 
 <div align="center">
 
 <img src="assets\readme images\Wireframe 3 - Mobile start screen.JPG" alt="Wireframe 3 - Mobile start screen" width="250">
 </div>
 
-* The game will be slightly more cramped on the mobile view, but the functionality should work identically.
+- The game will be slightly more cramped on the mobile view, but the functionality should work identically.
 
 <div align="center">
 
 <img src="assets\readme images\Wireframe 4 - Mobile in game.JPG" alt="Wireframe 4 - Mobile in game" width="250">
 </div>
 
+### **Development Stages**
 
-### **Development Stages** 
 To ensure the development of my project was maintainable and manageable, I created a list of stages to follow. This meant I am able to efficiently focus on individual areas and progress logically as I complete each stage.
 
-* Create and style Canvas
-* Create stars background
-* Create start page layout
-* Create title
-* Create buttons
-* Finish start page
-* Create asteroid Sprite functionality
-* Create player ship
-* Create player movement functionality
-* Create collision detection functionality
-* Create crash and completed screens
-* Create score system
-* Clean up code and fix bugs
- 
- [Back to Table Of Contents](#table-of-contents)
+- Create and style Canvas
+- Create stars background
+- Create start page layout
+- Create title
+- Create buttons
+- Finish start page
+- Create asteroid Sprite functionality
+- Create player ship
+- Create player movement functionality
+- Create collision detection functionality
+- Create crash and completed screens
+- Create score system
+- Clean up code and fix bugs
+
+[Back to Table Of Contents](#table-of-contents)
 
 ---
-## 2 Features 
+
+## 2 Features
+
 ### 2.1 Existing Features
 
 ### [**Canvas API Graphics Animation**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L21)
-The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with *window.requestAnimationFrame(update)*. This update function calls other specific functions containing logical algorhythms which are mostly designed to change certain parameters of the content that the function may render each frame.
+
+The Canvas API covers the entire screen and 2D graphic shapes and text are rendered onto it using JavaScript. These are then animated in a main loop by calling a specific update callback function to run every frame (roughly 60 times per second) using the browser redraw schedule with _window.requestAnimationFrame(update)_. This update function calls other specific functions containing logical algorhythms which are mostly designed to change certain parameters of the content that the function may render each frame.
 
 ### [**Animated Star Background**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L73)
+
 Stars are generated using an algorythm that allows them to move outwards from the center of the screen at an increasing speed whilst also growing in size. This creates an animated starfield background used behind the asteroids and player ship.
 
 <details>
 <summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
 
-Circular shapes used for stars are individually rendered to the canvas using an array of `Star` class objects. Using a for loop, the required number of `starsArray[]` indexes are generated, each iteration instanciating a new `Star` class object, passing in x, y and z constructor arguments of `(Math.random() * canvas.width or height)`. 
+Circular shapes used for stars are individually rendered to the canvas using an array of `Star` class objects. Using a for loop, the required number of `starsArray[]` indexes are generated, each iteration instanciating a new `Star` class object, passing in x, y and z constructor arguments of `(Math.random() * canvas.width or height)`.
 
 ```
 for (var i = 0; i < numberOfStars; i++) {
@@ -221,10 +236,10 @@ for (var i = 0; i < numberOfStars; i++) {
       Math.random() * cnvsHeight,
       Math.random() * cnvsWidth
     );
-  } 
+  }
 ```
 
- Within this function below, the entire canvas is cleared to black, and then a for loop iterates over each `starsArray[]` index.
+Within this function below, the entire canvas is cleared to black, and then a for loop iterates over each `starsArray[]` index.
 
 ```
 function drawStars() {
@@ -239,6 +254,7 @@ function drawStars() {
     }
 }
 ```
+
 The `Star` class contains two additional methods - `moveStar()` and `showStar()`, which are both called on the object each iteration using the function `drawStars()` which is shown above.
 
 ```
@@ -248,9 +264,9 @@ class Star {
       this.y = y;
       this.z = z;
     } [...]
-  ```
+```
 
-In the `showStar()` method, focusing on `xPos`, it takes the value of `this.x` and subtracts half of the screen width `(this.x - centerOfX)`, this allows the value to have an equal potential of being negative or positive. 
+In the `showStar()` method, focusing on `xPos`, it takes the value of `this.x` and subtracts half of the screen width `(this.x - centerOfX)`, this allows the value to have an equal potential of being negative or positive.
 
 `this.z` is `Math.random()*cnvsWidth` so dividing the screen width by the value of `z` has a high possibility of returning a number smaller than 5, this number will only be larger if `Math.random()` generates a number below 0.2 `(cnvsLength / this.z)`.
 
@@ -271,9 +287,9 @@ showStar() {
   ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
   ctx.fill();
 }}
-  ```
+```
 
-The movement of this code comes from the `this.z` parameter within the `moveStar()` method. Each time the method is called, the value of `this.z` is being reduced by the value of `speed` which in turn affects the resulting value of `xPos`, `yPos` and `s` exponentially, the position and radius of the circular star shape. Each frame the canvas is cleared and then redrawn using slightly different object parameter values, creating the visual illusion - as objects get closer, their size and speed increase rapidly until they pass the observer. 
+The movement of this code comes from the `this.z` parameter within the `moveStar()` method. Each time the method is called, the value of `this.z` is being reduced by the value of `speed` which in turn affects the resulting value of `xPos`, `yPos` and `s` exponentially, the position and radius of the circular star shape. Each frame the canvas is cleared and then redrawn using slightly different object parameter values, creating the visual illusion - as objects get closer, their size and speed increase rapidly until they pass the observer.
 
 The smaller the value of `this.z`, the closer to the edge of the screen the object will be, and once the value of `z` reaches 0 and the star has left the screen, an if statement handles setting the value back to `cnvsWidth` which is when the star objects are the smallest and slowest. The `this.x` and `this.y` parameters are also given new values of `Math.random() * cnvsWidth` so that the star objects dont follow the same path each time.
 
@@ -292,10 +308,12 @@ moveStar() {
 
 Due to both x and y axes being centered in the middle, values moving in positive or negative incrimentations are all displayed as travelling outwards from the center of the screen in any given direction.
 
-My original discovery of this algorythm comes from a youtube tutorial by Sharad Choudhary called *'Starfield Simulation: HTML5 Canvas Javascript Animation Tutorial'*, and although code has been changed here, I have used his basic formula so I must give credit.
+My original discovery of this algorythm comes from a youtube tutorial by Sharad Choudhary called _'Starfield Simulation: HTML5 Canvas Javascript Animation Tutorial'_, and although code has been changed here, I have used his basic formula so I must give credit.
+
 </details>
 
 ### [**Animated Asteroid Sprites**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L140)
+
 Asteroid sprites generate around the center of the screen and travel outwards towards the path of the player ship in a tunnel type style. They grow larger the closer to the edge of the screen they travel, much like the star but often bigger.
 
 <details>
@@ -313,7 +331,8 @@ class Sprite {
       this.randomY = notZeroRange(-10, 10);
     } [...]
 ```
- The global function `notZeroRange()` allows a random value to be generated within the range of -10 and 10, none inclusive of anything between -1.75 and 1.75. Its use here means the `Sprite` object can only render within this small ranged ring around the center of the screen, avoiding 0 which causes sprites to hit the center and fill the entire screen suddenly. This creates a type of visual tunnel that the sprites can travel down.
+
+The global function `notZeroRange()` allows a random value to be generated within the range of -10 and 10, none inclusive of anything between -1.75 and 1.75. Its use here means the `Sprite` object can only render within this small ranged ring around the center of the screen, avoiding 0 which causes sprites to hit the center and fill the entire screen suddenly. This creates a type of visual tunnel that the sprites can travel down.
 
 ```
   function getRandom(min, max) {
@@ -328,9 +347,10 @@ class Sprite {
     }
   }
 ```
-Within the `moveSprite()` method, `speed` has been halved and there are fresh `notZeroRange()` values called each time the `z` index resets for a new `Sprite` to be generated. An if statement is used to set `this.randomX` to 0 and `this.randomY` to 9 randomly with low odds in order to fix a bug with players staying on 0 and not crashing. The `speed` has been halved so that the background remains more engaging whilst the sprites are not too fast for the player. 
 
-``` 
+Within the `moveSprite()` method, `speed` has been halved and there are fresh `notZeroRange()` values called each time the `z` index resets for a new `Sprite` to be generated. An if statement is used to set `this.randomX` to 0 and `this.randomY` to 9 randomly with low odds in order to fix a bug with players staying on 0 and not crashing. The `speed` has been halved so that the background remains more engaging whilst the sprites are not too fast for the player.
+
+```
     [...]
 
     moveSprite() {
@@ -347,6 +367,7 @@ Within the `moveSprite()` method, `speed` has been halved and there are fresh `n
       }
     } [...]
 ```
+
 Within the `showSprite()` method, the movement is implimented differently through the use of `s` which is abbreviated for size or radius. `xPos` and `yPos` are set to the center of the canvas, and the `s` variable initially holds the only value that changes due to the use of `this.z`. When `s` is added to the `xPos` and `yPos`, that value is then multiplied by `this.randomX` or `this.randomY` which is one of these uniquely random generated values between -10 and 10 excluding -1.75-1.75. This means the incrimentations of each `xPos` and `yPos` values happen smoothly on a curve, and movement occurs within this much more limited range. Size ultimately governs the speed and movement of the `Sprite` objects, they can grow much larger than `Stars`, and as they expand they rapidly increase in speed and suddenly move very quickly away from the center and off the screen. This makes it look like the player is travelling much closer to the `Sprites` than the `Stars`.
 
 At the bottom of the `showSprite()` method sits the invocation of the `collisionDetection()` function, directly passing in the arguments of `xPos` and `yPos` as to allow these parameter values to be used outside of the class scope and inside the `collisionDetection()` function.
@@ -382,6 +403,7 @@ At the bottom of the `showSprite()` method sits the invocation of the `collision
 </div>
 
 ### [**Player Ship Movement**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L281)
+
 The player rotates around the center of the screen in a 360 circle, avoiding the asteroids that are constantly travelling towards different parts of this path.
 
 <details>
@@ -422,7 +444,7 @@ function playerShip() {
     ctx.fillStyle = "white";
     ctx.arc(x1 + 23, y2, s / 2, 0, Math.PI * 1);
     ctx.fill();
-    
+
     [...]
 
     ctx.restore();
@@ -437,6 +459,7 @@ function playerShip() {
 </div>
 
 ### [**Player Ship Controls**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L347)
+
 The player ship can be rotated around the screen using left and right arrow buttons or by touching the left and right halves of the screen on mobile and tablet devices. This rotates the player at a consistent speed for as long as the key or button is pressed
 
 <details>
@@ -460,20 +483,21 @@ function moveLeft() {
 </details>
 
 ### [**Collision Detection**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L433)
-When the player ship collides with an asteroid, it results in a crash event and the crash screen shows, ending the game. There was a lot of work that went in to the code to create this feature. Please read the 
+
+When the player ship collides with an asteroid, it results in a crash event and the crash screen shows, ending the game. There was a lot of work that went in to the code to create this feature. Please read the detailed breakdown below.
 
 <details>
 <summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
 
-In order to detect the collision of both the `playerShip()` and `Sprite` objects, I first had to generate the correct canvas position values for the `playerShip()`. The use of transformation methods `translate()` and `rotate()` in the rendering of `playerShip()` meant that it followed its own X and Y coordinates seperate from any other canvas content. 
+In order to detect the collision of both the `playerShip()` and `Sprite` objects, I first had to generate the correct canvas position values for the `playerShip()`. The use of transformation methods `translate()` and `rotate()` in the rendering of `playerShip()` meant that it followed its own X and Y coordinates seperate from any other canvas content.
 
 I wanted to create an array to store the data for each of the X and Y positions of the ship, then matched them against the coordinates of each of the sprites per frame. I undertook an enourmous job of trying to manually create all of these postions, physically using paper graphs and plotting each of the points along the axes, then doing the maths to create a canvas circle shape along these points on screen. Below are some of my workings.
 
 <div align="center">
 
-<img src="readme images\Rotation plotting notes 1.jpg" alt="Rotation plotting - 1" width="600">
-<img src="readme images\Rotation plotting notes 2.jpg" alt="Rotation plotting - 2" width="600">
-<img src="readme images\Rotation plotting notes 3.JPG" alt="Rotation plotting - 3" width="600">
+<img src="assets\readme images\Rotation plotting notes 1.jpg" alt="Rotation plotting - 1" width="600">
+<img src="assets\readme images\Rotation plotting notes 2.jpg" alt="Rotation plotting - 2" width="600">
+<img src="assets\readme images\Rotation plotting notes 3.JPG" alt="Rotation plotting - 3" width="600">
 
 </div>
 
@@ -487,7 +511,8 @@ function getAngleNumber(angle) {
       return [0.1, 0.99];
     [...]
 ```
-But then quickly realised that this was a very innefficient, and innacurate way of achieving this. Thats when I discovered that I could use `Math.cos()` and `Math.sin()` together to quickly and extremely accurately generate all of these return values for me.
+
+But then quickly realised that this was a very innefficient, and innacurate way of achieving this. Thats when I discovered that I could use the trigonometric function cosine with `Math.cos()` and `Math.sin()` to quickly and extremely accurately generate all of these return values for me.
 
 ```
 function getAngleNumber(angle) {
@@ -495,6 +520,7 @@ function getAngleNumber(angle) {
     return [Math.cos(angleInRadians), Math.sin(angleInRadians)];
   }
 ```
+
 When dealing with the ship moving to the right, the value of `angle` becomes negative, and resets to 0 when it passes -360. In order to always return a positive value, and that the 0 mark was correct with the rotation of the ship, I created the `getActualAngle()` function with the argument of `angle`.
 
 ```
@@ -510,11 +536,13 @@ When dealing with the ship moving to the right, the value of `angle` becomes neg
     }
   }
 ```
+
 The `getAllPossibleShipLocations()` function outputs the value of `shipLocations[]`, containing both the X and Y coordinates in each array itteration from 0 - 360. `getShipLocation(angle)` then takes the input of angle and calls the array key associated with that value of angle.
 
-First I needed to create an algorythm that would perform the operations used in this plotting `ctx.arc(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter), s, 0, Math.PI*2)`. 
+First I needed to create an algorythm that would perform the operations used in this plotting `ctx.arc(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter), s, 0, Math.PI*2)`.
 
 Returning the `Math.cos()` and `Math.sin()` values from the `getXShipValue()` and `getYShipValue()` functions allows the values to remain positive.
+
 ```
   function getAllPossibleShipLocations() {
     let shipLocations = {};
@@ -526,7 +554,7 @@ Returning the `Math.cos()` and `Math.sin()` values from the `getXShipValue()` an
         return -getAngleNumber(angle)[0];
       }
     }
-    
+
     function getYShipValue(angle) {
       let actualAngle = getActualAngle(angle);
       if (actualAngle >= 0 && actualAngle <= 360) {
@@ -536,7 +564,9 @@ Returning the `Math.cos()` and `Math.sin()` values from the `getXShipValue()` an
       }
     } [...]
 ```
-The maths is then performed on the values based on my plotting - `(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter)`. 
+
+The maths is then performed on the values based on my plotting - `(centerOfX + (0.4*shipFromCenter), centerOfY + (0.92*shipFromCenter)`.
+
 ```
     [...]
 
@@ -550,7 +580,9 @@ The maths is then performed on the values based on my plotting - `(centerOfX + (
       return centerOfY + shipValue;
     } [...]
 ```
+
 A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `shipLocations[]` with the corresponding array index. When `getAllPossibleShipLocations()[i]` is then called, it is returning `shipLocations[i]`.
+
 ```
     [...]
 
@@ -561,7 +593,9 @@ A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `sh
     return shipLocations;
   }
 ```
+
 `getShipLocation(angle)` takes in `angle`, processes it through another instance of the `getActualAngle()` function to make sure it is postive and the correct value as explained before, and then assigns it to `actualAngle` as a string. This string is then used as the array index key for returning `getAllPossibleShipLocations()[i]` when `getShipLocation(angle)[i]` is called in the collision detection function next.
+
 ```
   function getShipLocation(angle) {
     function getActualAngle(angle) {
@@ -570,28 +604,30 @@ A `for` loop then assigns the `[generateX(i), generateY(i)]` array values to `sh
     let actualAngle = getActualAngle(angle).toString();
     return getAllPossibleShipLocations()[actualAngle];
   }
-  ```
-The `collisionDetection(xPos, yPos)` function was called in the `showSprite()` method of the `Sprite` class. It takes in the arguments of `xPos` and `yPos` which are each of the `Sprite` objects X and Y positions on the canvas per frame. If `playerShip()` occupies the exact same X and Y coordinates as a `Sprite`, subtracting the `xPos` and `yPos` values from both array items `getShipLocation(angle)[0]` and `getShipLocation(angle)[1]` will result in 0. 
+```
+
+The `collisionDetection(xPos, yPos)` function was called in the `showSprite()` method of the `Sprite` class. It takes in the arguments of `xPos` and `yPos` which are each of the `Sprite` objects X and Y positions on the canvas per frame. If `playerShip()` occupies the exact same X and Y coordinates as a `Sprite`, subtracting the `xPos` and `yPos` values from both array items `getShipLocation(angle)[0]` and `getShipLocation(angle)[1]` will result in 0.
 
 The code unfortunately is not accurate enough to use this method without a range, the reason for this is due to both the increasing speed of the `Sprite` objects and it reaching the outer path of rotation. They have grown so much in size when they reach this path that they can move in steps of up to 50px per frame, therefore a range of 70px has been given to allow for a more reliable detection rate. The origin of collision range for the `playerShip()` is the front tip of the triangle.
 
-  ```
-  function collisionDetection(x, y) {
-    if (
-      x - getShipLocation(angle)[0] <= 35 &&
-      x - getShipLocation(angle)[0] >= -35 &&
-      y - getShipLocation(angle)[1] <= 35 &&
-      y - getShipLocation(angle)[1] >= -35
-    ) {
-      crashScreen();
-    }
+```
+function collisionDetection(x, y) {
+  if (
+    x - getShipLocation(angle)[0] <= 35 &&
+    x - getShipLocation(angle)[0] >= -35 &&
+    y - getShipLocation(angle)[1] <= 35 &&
+    y - getShipLocation(angle)[1] >= -35
+  ) {
+    crashScreen();
   }
+}
 ```
 
 </details>
 
 ### [**Start Screen**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L65)
-When the page first loads, users are presented with the start screen. The background stars are frozen, and the center panel displays instructions for how to play the game as well as controls for both mobile and desktop browsers. There is a title saying *STELLAR DRIFT*, created using multiple h2 layers indipendently positioned.
+
+When the page first loads, users are presented with the start screen. The background stars are frozen, and the center panel displays instructions for how to play the game as well as controls for both mobile and desktop browsers. There is a title saying _STELLAR DRIFT_, created using multiple h2 layers indipendently positioned.
 
 <div align="center">
 
@@ -602,6 +638,7 @@ When the page first loads, users are presented with the start screen. The backgr
 </div>
 
 ### [**Start Game Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L73)
+
 The game is started by clicking or touching the Start Game button on the start screen panel. The Enter key can also be pressed, allowing users to keep their hands on the keyboard when restarting.
 
 <details>
@@ -631,18 +668,40 @@ function initialiseGame() {
 </details>
 
 ### [**Mute Audio Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L49)
+
 I created background music and sound effects for the game to add to the user experience. The mute button gives users the option to mute this audio if they choose.
 
 ### [**Reset Button**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L58)
+
 The reset button allows the user to restart the game, reloading the page back to the start panel. In the future I would like to change this into a pause button with the option to then reset, but currently this button is just linked to an event listener that calls the `reload()` function.
 
 ### [**Github Social Icon**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L112)
-I wanted to display a link so users can discover the repository page. This allows people to see how the game was built, who it was built by, and even make contact for comments or potential future collaboration. I knew that the Github icon would work well located on the start screen, and once again Font Awesome provided this for me. 
+
+I wanted to display a link so users can discover the repository page. This allows people to see how the game was built, who it was built by, and even make contact for comments or potential future collaboration. I knew that the Github icon would work well located on the start screen, and once again Font Awesome provided this for me.
 
 ### [**Crash Screen**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L78)
+
 When a successful collision is detected, the crash screen is displayed letting users know they have crashed and displaying their final score.
 
-For a more detailed breakdown of how this feature works, read the [implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md#crash-screen) document.
+<details>
+<summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
+
+When a successful collision is detected within `collisionDetection()`, the function `crashScreen()` is called. As well as displaying the crash screen and the Github icon, this function hides the direction buttons, adds an event listener for the reload button, and triggers an explosion sound to simulate the ship crashing.
+
+```
+function crashScreen() {
+    document.getElementById("bottom-banner").classList.toggle("hidden");
+    document.getElementById("crash-panel").classList.toggle("hidden");
+    document.getElementById("github").classList.toggle("hidden");
+    document.getElementById("restart-btn").addEventListener("click", reload);
+    document.getElementById("explosion").play();
+    endGame = true;
+  }
+```
+
+At the bottom, the `endGame` variable which is normally `false` is set to `true`. This triggers a change inside the `update()` function, allowing only the stars to remain looping, and the score to be displayed onscreen. As well as these two changes, the canvas also slowly rotates with the background transparency slightly increased. This creates a visually pleasing trailing effect on the stars behind the crash panel text.
+
+</details>
 
 <div align="center">
 
@@ -650,6 +709,7 @@ For a more detailed breakdown of how this feature works, read the [implementatio
 </div>
 
 ### [**Completed Screen**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L92)
+
 The completed screen is displayed when the user reaches the score of 10,000! Everything else remains the same as the crash screen, the only difference is the text displayed inside the panel.
 
 <div align="center">
@@ -658,9 +718,11 @@ The completed screen is displayed when the user reaches the score of 10,000! Eve
 </div>
 
 ### [**Score Counter**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L531)
+
 The score is used in more than one way across the application. It controls the speed, colour scheme, countdown timer, sprite rendering, and triggering the completed screen. Each frame, the score increased by 1, until it reaches the winning score of 10,000.
 
 ### [**Countdown Timer**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L551)
+
 When the Start Game button is pressed, the score starts on -100. A visual countdown timer is then used to count back from 3 every 33 points. When the score passes 0, the countdown timer dissapears and the sprites are rendered. This gives users a brief but important moment to prepare themselves, increasing the overall user experience.
 
 <div align="center">
@@ -669,16 +731,59 @@ When the Start Game button is pressed, the score starts on -100. A visual countd
 </div>
 
 ### [**Speed Increase**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L564)
+
 As the score increases, so does the speed of movement of the `Star` and `Sprite` objects. Each frame the speed incriments by a specific amount based on the score.
 
-For a more detailed breakdown of how this feature works, read the [implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md#speed-increase) document.
+<details>
+<summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
+
+The function `speedIncrease()` is called from the `update()` function, incrimenting the value of speed each frame. As the score changes, so does the amount of incrimentation needed, as the speed gets higher less intensity is required. Objects move much quicker on mobile devices due to the smaller range of pixels, so a lower value of speed must be used.
+
+```
+function speedIncrease() {
+    if (score < 2500 && cnvsWidth < 600) {
+      speed += 0.002;
+    } else if (score < 2500 && cnvsWidth < 1200) {
+      speed += 0.005;
+    } else if (score < 2500) {
+      speed += 0.01;
+    } else if (score < 5000 && cnvsWidth < 600) {
+      speed += 0.001;
+    } else if (score < 5000 && cnvsWidth < 1200) {
+      speed += 0.003;
+    } [...]
+```
+
+</details>
 
 ### [**Colour Changing**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/js/script.js#L105)
+
 As the score increases, the colour scheme also changes for both the `Star` and `Sprite` objects. This not only looks nice and adds to the user experience, but it helps demonstrate the players progression in the game, adding stimulus to prevent it from seeming too repetitive.
 
-For a more detailed breakdown of how this feature works, read the [implementations](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/assets/Implementation.md#colour-changing) document.
+<details>
+<summary><b>Detailed Breakdown of Implementation</b> - (click to expand)</summary>
+
+These colour changes take place when rendering the shapes, they are handled using `if` statements within the `showStar()` and `showSprite()` methods of the `Star` and `Sprite` classes.
+
+```
+[...]
+
+ctx.beginPath();
+    if (score <= 1000) {
+      ctx.fillStyle = "#82caff";
+    } else if (score <= 2000) {
+      ctx.fillStyle = "#00FA9A";
+    } else if (score <= 3000) {
+      ctx.fillStyle = "#306eff";
+    } else if {[...]}
+ctx.arc(xPos, yPos, s, 0, Math.PI * 2);
+ctx.fill();
+```
+
+</details>
 
 ### [**Music & Audio**](https://github.com/samlaubscher/Stellar-Drift-Game-M2/blob/master/index.html#L40)
+
 I am a big fan of the retro synthwave sound which formed part of the inspiration for the theme of this game - so I wanted to make my own track as backing music. I also wanted to make the game more immersive by timing the colour changes with that music, as well as creating sounds for when the game starts, the player crashes, and when they win. I used Ableton Live 10, below are some screenshots of the projects and the sound effects used.
 
 This is the project for the track - Titled 'Event Horizon'.
@@ -702,7 +807,7 @@ The explosion was taken from a sound bank and also processed.
 <img src="assets\readme images\Explosion audio - Ableton.JPG" alt="Explosion audio - Ableton" width="500">
 </div>
 
-When the player wins, I added the startup sound to some stock audio of a crowd cheering with some funny wailing at the end. This is timed so that the background music finishes and loops with some of the cheering still playing. 
+When the player wins, I added the startup sound to some stock audio of a crowd cheering with some funny wailing at the end. This is timed so that the background music finishes and loops with some of the cheering still playing.
 
 <div align="center">
 
@@ -712,18 +817,23 @@ When the player wins, I added the startup sound to some stock audio of a crowd c
 ### 2.2 Features to impliment in the future
 
 ### **Score History & Leaderboard**
+
 I would like to impliment the use of a global high score with a leaderboard. When a player crashes or wins, the leaderboard would be displayed with the option of adding the most recent score to the list with a user name text input. The score limit of 10,000 could be removed and players could compete to score the highest on the leaderboard. In order to achieve this, I would need knowledge of back-end technologies, which I will be studying later in this course.
 
 ### **Star Paths**
+
 I would like to include more code to the Star class to stop the star objects from generating around and travelling towards the center of the screen, much like the `notZeroRange()` function but with more range.
 
 ### **Better colour transitions**
+
 The current technique used for transitioning between colours is very clunky. I would like to impliment some code that creates a constant smooth transitioning effect between colours instead of just jumping from one value to the next.
 
 ### **Tighter collision detection**
+
 Currently the collision detection works well and is accurate enough to make the game playable and enjoyable without too many false collisions. I would however like to make this more accurate, as sprites can often trigger a detection when they have not actually hit the player, and when the speed starts to increase the accuracy drops dramatically due to the greater amount of pixels being incrimented for movement per frame.
 
 ### **Additional Sprite type objects**
+
 I would also like to be able to add other layers of objects that could randomly spawn, and if the player collides with these, they could receive a temporary speed reduction or even increase. If there was no score limit, these additional sprites could multiply the score incrimentation amount for a short period of time.
 
 [Back to Table Of Contents](#table-of-contents)
@@ -731,139 +841,159 @@ I would also like to be able to add other layers of objects that could randomly 
 ---
 
 ## 3 Technologies Used
+
 ### 3.1 Languages
+
 ### [**HTML/HTML 5**](https://html.com/html5/)
+
 HTML5 is a Hyper Text Markup Language. Roughly 17% of my code was the HTML file [index.html](index.html) as it was used to create the structured content and elements essential to build the game.
 
 ### [**CSS/CSS3**](https://www.w3.org/Style/CSS/Overview.en.html)
+
 CSS is a Cascading Style Sheet and was implimented via the [styles.css](assets\css\styles.css) file. All of the visible HTML content was positioned and styled using this language, making up roughly 28% of the entire code.
 
 ### [**JavaScript ES6**](https://www.w3schools.com/Js/js_es6.asp)
+
 ECMAScript 6 - ECMAScript 2015, otherwise known as JavaScript 6, was used to write all of the functionality and game mechanics within this project. Around 55% of the entire code was JavaScript, which was used heavily with the Canvas API.
 
 ### 3.2 Libraries
 
 ### [**Canvas API**](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+
 The Canvas API allows for the drawing and rendering of 2D graphics using JavaScript and the HTML `<canvas>` element. It can render shapes, text, and images, all of which can then be manipulated and animated on a grid coordinate space. All of the animated moving content within this game was created with the Canvas API, which takes up the entire viewport - no images were used.
 
 ### [**Font Awesome**](https://fontawesome.com/)
+
 Font Awesome was used for the GitHub social and audio mute icons.
 
 ### [**Google Fonts API**](https://fonts.google.com/)
+
 All of the fonts used within this project were provided by the Google Fonts API. The fonts used were 'Audiowide' 'Oxanium', and 'Orbitron'.
 
 ### 3.3 Tools
 
 ### [**VSCode**](https://code.visualstudio.com/)
+
 Visual Studio Code was the Intergrated Development Environment (IDE) used to write the code for this project.
 
 ### [**Chrome DevTools**](https://developers.google.com/web/tools/chrome-devtools/)
+
 The Chrome DevTools were used a lot in the development of this project to live preview edits and diagnose problems. I also ran lots of auditing and testing using built in tools such as Sources, Lighthouse and Coverage.
 
 ### [**Git**](https://git-scm.com/)
+
 Git was used for version control with GitHub - commiting each development stage to the GitHub repository.
 
 ### [**Github**](https://github.com/)
+
 GitHub was used to host the repository.
 
 ### [**GitHub Pages**](https://pages.github.com/)
+
 GitHub Pages was used to deploy this website directly from the repository master branch.
 
 ### [**EZGIF**](https://ezgif.com/)
+
 EZGIF.com is a simple and free online video and gif editor. It was used to create the GIFS found in this README.
 
 ### [**GNU Image Manipulation Program**](https://www.gimp.org/)
+
 GNU Image Manipulation Program (GIMP) was used to create the favicon website icon.
 
 ### [**Ableton Live 10**](https://www.ableton.com/en/live/)
+
 Abletone Live 10 is a Digital Audio Workspace (DAW) which is aimed predominantly towards electronic music production. This was used to create the audio sound track used for this game.
 
 [Back to Table Of Contents](#table-of-contents)
 
 ---
 
-## 4 Testing 
+## 4 Testing
+
 ### 4.1 Completed
-* Before I started the more in depth testing, I ensured that the website served the purpose it was built for by running through each of the user stories and checking all requirements were met. 
 
-* I tested all of the buttons as follows: 
-  * Start the game by pressing the *Start Game* button - *Working*
-  * When the user crashes, press the *Restart Game* Button - *Working*
-  * When audio is playing, mute it by pressing the *Mute* button, and then again to unmute - *Working* 
-  * When the game is running, press the *Reset* button to restart the game - *Working*
-  * Visit the GitHub page by pressing the icon - *Working*
+- Before I started the more in depth testing, I ensured that the website served the purpose it was built for by running through each of the user stories and checking all requirements were met.
 
-* I tested the responsiveness of the game using different mobile and tablet devices within the DevTools device toolbar, as well as using the website [Am I Responsive?](http://ami.responsivedesign.is/).
+- I tested all of the buttons as follows:
+
+  - Start the game by pressing the _Start Game_ button - _Working_
+  - When the user crashes, press the _Restart Game_ Button - _Working_
+  - When audio is playing, mute it by pressing the _Mute_ button, and then again to unmute - _Working_
+  - When the game is running, press the _Reset_ button to restart the game - _Working_
+  - Visit the GitHub page by pressing the icon - _Working_
+
+- I tested the responsiveness of the game using different mobile and tablet devices within the DevTools device toolbar, as well as using the website [Am I Responsive?](http://ami.responsivedesign.is/).
 
 <div align="center">
 
 <img src="assets\readme images\Responsiveness - AmIResponsive.JPG" alt="Responsiveness - AmIResponsive" width="600">
 </div>
 
-* I ran extensive testing of the `collisionDetection()` function to check it was functional, effective, and reliable.
+- I ran extensive testing of the `collisionDetection()` function to check it was functional, effective, and reliable.
 
-* I tested the controls extensively, pressing multiple keys and attempting to break the game to check no more bugs would appear.
+- I tested the controls extensively, pressing multiple keys and attempting to break the game to check no more bugs would appear.
 
-* I ran audit testing using the DevTools Lighthouse feature. Using this I was able to correct some minor mistakes such as not includiong an HTML meta description element.
-  
-  * Audit testing on Desktop
+- I ran audit testing using the DevTools Lighthouse feature. Using this I was able to correct some minor mistakes such as not includiong an HTML meta description element.
+
+  - Audit testing on Desktop
 
 <div align="center">
 
 <img src="assets\readme images\Desktop audit testing.JPG" alt="Desktop audit testing" width="500">
 </div>
 
-* 
-  * Audit testing on mobile
+- - Audit testing on mobile
 
 <div align="center">
 
 <img src="assets\readme images\Mobile audit testing.JPG" alt="Mobile audit testing" width="500">
 </div>
 
-* I used the W3C HTML Markup Validator to check all HTML was applied and working correctly. - *Working*
+- I used the W3C HTML Markup Validator to check all HTML was applied and working correctly. - _Working_
 
-* I used the W3C CSS Validator to check all the CSS was also valid and working correctly. - *Working*
+- I used the W3C CSS Validator to check all the CSS was also valid and working correctly. - _Working_
 
-* I tested the game on an array of different phones and their browsers such as Iphone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers on them. - *Working*
+- I tested the game on an array of different phones and their browsers such as Iphone 5s, Samsung Galaxy, iPhone 7 and X. I also tested on multiple Macbook Pro's and Windows laptops as well as across multiple different browsers on them. - _Working_
 
-* I ran the site through GTMetrix to check the performance. - *Working*
+- I ran the site through GTMetrix to check the performance. - _Working_
 
 <div align="center">
 
 <img src="assets\readme images\Speed test.JPG" alt="Speed test" width="500">
 </div>
 
-* I ran the JavaScript through jshint.com and got no critical errors. This is the code metrics summary I was provided. 
+- I ran the JavaScript through jshint.com and got no critical errors. This is the code metrics summary I was provided.
 
 <div align="center">
 
 <img src="assets\readme images\Metrics.JPG" alt="Metrics" width="300">
 </div>
 
-* I posted my finished site in the Slack Peer Review channel for student feedback. Fortunately they did not point out any issues I was not aware of.
+- I posted my finished site in the Slack Peer Review channel for student feedback. Fortunately they did not point out any issues I was not aware of.
 
-### 4.2 Bugs 
+### 4.2 Bugs
+
 ### **Fixed**
+
 I encountered an enourmous amount of bugs when building this game as there was a lot of logic to work with. I am very satisfied that I managed to resolve most of these, allowing me to build a sucessfully working game. Often the issue would be some minor code that I did not correctly impliment. Here are some of the more notable issues and bugs I encountered.
 
-* `Sprites` hitting the center of the screen - If a value close to 0 is generated for the `Sprite` X or Y positions, the object would travel straight towards the center of the screen. This was not only against my idea for the design, but it also created harsh visual flashes that could even affect people suffering with epilepsy. I fixed this using the `notZeroRange()` function.
+- `Sprites` hitting the center of the screen - If a value close to 0 is generated for the `Sprite` X or Y positions, the object would travel straight towards the center of the screen. This was not only against my idea for the design, but it also created harsh visual flashes that could even affect people suffering with epilepsy. I fixed this using the `notZeroRange()` function.
 
-* When originally creating the layout of the game using the CSS `clamp()` function for `font-size`, I was using Firefox and discovered Chrome did not support the feature. This meant that font sizes would differ. However this appears to now be compatible with all browsers except Internet Explorer.
+- When originally creating the layout of the game using the CSS `clamp()` function for `font-size`, I was using Firefox and discovered Chrome did not support the feature. This meant that font sizes would differ. However this appears to now be compatible with all browsers except Internet Explorer.
 
-* Keydown delay built into browsers to stop accidental key repeat events meant that the ship would not instantly spin to the left or right. When holding a direction key, one single movement event would trigger, there would be a short delay and then the key would start repeating giving the player sustained movement. This is not the ideal form of control for a fast paced reaction based game as users would not be able to move quick enough. I was able to create my own key repeat events by isolating the first key event on hold, triggering it 100 times a second for smoothness, and then removing the key repeat events that would normally follow. `setInterval()` has been explained in the [Implimentations](#assets\Implimentation.md) document.
+- Keydown delay built into browsers to stop accidental key repeat events meant that the ship would not instantly spin to the left or right. When holding a direction key, one single movement event would trigger, there would be a short delay and then the key would start repeating giving the player sustained movement. This is not the ideal form of control for a fast paced reaction based game as users would not be able to move quick enough. I was able to create my own key repeat events by isolating the first key event on hold, triggering it 100 times a second for smoothness, and then removing the key repeat events that would normally follow. `setInterval()` has been explained in the [Implimentations](#assets\Implimentation.md) document.
 
-* When two direction keys were pressed at the same time, I discovered that the event listeners were not correctly functioning. The ship would begin to spin uncontrollably, picking up speed each time I pressed anything. I was able to fix this issue inside the `keyDown()` function by removing the `keydown` event listener when one was aleready being held, and then adding the event listener back in when the key was released. This prevents anymore key events from registering whilst one is already engaged. Please note this issue still exists on mobile.
+- When two direction keys were pressed at the same time, I discovered that the event listeners were not correctly functioning. The ship would begin to spin uncontrollably, picking up speed each time I pressed anything. I was able to fix this issue inside the `keyDown()` function by removing the `keydown` event listener when one was aleready being held, and then adding the event listener back in when the key was released. This prevents anymore key events from registering whilst one is already engaged. Please note this issue still exists on mobile.
 
-* When testing on smaller screens, the game on screen control buttons always worked on my computer. However when I switched on the device mode and simulated a mobile, or I actually played it on a real phone, the on screen touch controls did not work. At first I thought this was down to mobile devices not supporting the `setInterval()` method, and set about attempting to fix this large bug. After several days of attempting to fix this error with potential alternatives that did not perform how I liked, I suddenly realised how simple the bug was to fix, and infact it had been an oversight on my part. I was using `mousedown` and `mouseup` event listeners instead of `touchstart` and `touchend`.
+- When testing on smaller screens, the game on screen control buttons always worked on my computer. However when I switched on the device mode and simulated a mobile, or I actually played it on a real phone, the on screen touch controls did not work. At first I thought this was down to mobile devices not supporting the `setInterval()` method, and set about attempting to fix this large bug. After several days of attempting to fix this error with potential alternatives that did not perform how I liked, I suddenly realised how simple the bug was to fix, and infact it had been an oversight on my part. I was using `mousedown` and `mouseup` event listeners instead of `touchstart` and `touchend`.
 
-* Once the movement was successfully working and everything seemed as smooth as possible, there was still a slight error with the mobile movement. When holding a direction button, the ship would move but often it would slightly jitter and stutter when first pressed, sometimes even stopping in its path before starting again. This was not a huge issue, however it did make the mobile experience somewhat less appealing. I thought this could be down to mobile device processors getting throttled trying to process such an intensive `setInterval()` method. But the apparent solution to this was an unexpected one. When audit testing my website, a warning error read *"Does not use passive listeners to improve scrolling performance"*. I learnt that the browser does not know if the touch event listener will prevent scrolling, so the page waits for the touch event to finish executing before registering a scroll. As soon as I added this small flag `{passive: true}` to each touch event listener, this bug dissapeared and movement was perfectly smooth.
+- Once the movement was successfully working and everything seemed as smooth as possible, there was still a slight error with the mobile movement. When holding a direction button, the ship would move but often it would slightly jitter and stutter when first pressed, sometimes even stopping in its path before starting again. This was not a huge issue, however it did make the mobile experience somewhat less appealing. I thought this could be down to mobile device processors getting throttled trying to process such an intensive `setInterval()` method. But the apparent solution to this was an unexpected one. When audit testing my website, a warning error read _"Does not use passive listeners to improve scrolling performance"_. I learnt that the browser does not know if the touch event listener will prevent scrolling, so the page waits for the touch event to finish executing before registering a scroll. As soon as I added this small flag `{passive: true}` to each touch event listener, this bug dissapeared and movement was perfectly smooth.
 
-* Programming the collision detection was one of the hardest parts of this whole project. From the beginning I ran into countless errors with the code breaking or not working correctly, and I really had to think to get it to work. Sometimes the game would detect collisions when nothing was near it, and other times it would not work at all. Playing with the code, the arrays and functions used to process the ship locations, and the collision detection pixel range, I think I have got it satisfyingly accurate.
+- Programming the collision detection was one of the hardest parts of this whole project. From the beginning I ran into countless errors with the code breaking or not working correctly, and I really had to think to get it to work. Sometimes the game would detect collisions when nothing was near it, and other times it would not work at all. Playing with the code, the arrays and functions used to process the ship locations, and the collision detection pixel range, I think I have got it satisfyingly accurate.
 
-* Originally my audio was set to `autoplay` when the page loaded, but the audio would never play on the first page load. Only when users restart the game, triggering the page to reload, does the track start to play. I tried to do some research and believe this is down to Chrome and other browsers attempting to phase out the `autoplay` feature on websites, but im not 100% sure. Sometimes it will trigger instantly, but that may be due to the browser cache. To work around this, I set the audio to play when the game starts.
+- Originally my audio was set to `autoplay` when the page loaded, but the audio would never play on the first page load. Only when users restart the game, triggering the page to reload, does the track start to play. I tried to do some research and believe this is down to Chrome and other browsers attempting to phase out the `autoplay` feature on websites, but im not 100% sure. Sometimes it will trigger instantly, but that may be due to the browser cache. To work around this, I set the audio to play when the game starts.
 
-* Another bug noticed by users was that when the player ship is left on the 0 mark, meaning they havent touched the rotation, almost no asteroids would hit them - players could complete the game without moving the craft. This is due to the `notZeroRange()` function used inside of the `Sprite` rendering. Without this function, when the code generated two numbers between 0-1.75, the `Sprite` would hit the center of the screen, and not travel around the edge. By using this `notZeroRange()` function, it eliminates this issue whilst causing this smaller bug. I managed to resolve the problem by randomly setting `this.randomX` to 0 through the use of an `if` statement and `Math.random()`.
+- Another bug noticed by users was that when the player ship is left on the 0 mark, meaning they havent touched the rotation, almost no asteroids would hit them - players could complete the game without moving the craft. This is due to the `notZeroRange()` function used inside of the `Sprite` rendering. Without this function, when the code generated two numbers between 0-1.75, the `Sprite` would hit the center of the screen, and not travel around the edge. By using this `notZeroRange()` function, it eliminates this issue whilst causing this smaller bug. I managed to resolve the problem by randomly setting `this.randomX` to 0 through the use of an `if` statement and `Math.random()`.
 
 ```
 [...]
@@ -871,68 +1001,80 @@ if (this.z <= 0) {
         this.z = cnvsWidth;
         if (Math.random() < 0.02) {
           this.randomX = 0;
+          this.randomY = 9;
         } else {
-          this.randomX = notZeroRange(-10, 10); 
+          this.randomX = notZeroRange(-10, 10);
+          this.randomY = notZeroRange(-10, 10);
         }
-        this.randomY = notZeroRange(-10, 10);
       } [...]
 ```
 
 ### **Still Existing**
 
-* Users may notice that on rare occasions, `Star` objects will enter the center of the screen in the same way that the `Sprites` would without the `notZeroRange()` function. I could not easily eliminate this issue with the stars as I did not want to put a limit on the rendering positions, and I dont think the issue is big enough for users to notice. This fix is also a future implimentation.
+- Users may notice that on rare occasions, `Star` objects will enter the center of the screen in the same way that the `Sprites` would without the `notZeroRange()` function. I could not easily eliminate this issue with the stars as I did not want to put a limit on the rendering positions, and I dont think the issue is big enough for users to notice. This fix is also a future implimentation.
 
-* On mobile devices, the issue still exists with the event listeners when two direction keys are pressed at the same time. I have attempted to fix this `touchstart` `touchend` bug using the same technique used for the `keydown` and `keyup` event listeners, but it does not work. When this bug does activate, the players ship constantly spins in a certain direction without any way to stop it. This unfortunately leaves the player with no choice but to press the Reset button or wait to crash. The only current workaround for this is to be very conscious of not touching the screen with both fingers at once when playing.
+- On mobile devices, the issue still exists with the event listeners when two direction keys are pressed at the same time. I have attempted to fix this `touchstart` `touchend` bug using the same technique used for the `keydown` and `keyup` event listeners, but it does not work. When this bug does activate, the players ship constantly spins in a certain direction without any way to stop it. This unfortunately leaves the player with no choice but to press the Reset button or wait to crash. The only current workaround for this is to be very conscious of not touching the screen with both fingers at once when playing.
 
-* When players reach the score of 10,000 and complete the game, they are presented with the completed screen, much like the crash screen. The code is exactly the same aside from the content of the text, yet the Restart Game button does not work like it does with the crash screen. The button highlights and moves when clicked, but no event listener triggers. Users have to press the Reset button.
+- When players reach the score of 10,000 and complete the game, they are presented with the completed screen, much like the crash screen. The code is exactly the same aside from the content of the text, yet the Restart Game button does not work like it does with the crash screen. The button highlights and moves when clicked, but no event listener triggers. Users have to press the Reset button.
 
-* I noticed some mobile devices had a much slower rate of movement. This may be down to the processor throttling as mentioned before. It does not really affect the game in a bad way, but it is best enjoyed when movement is fastest.
+- I noticed some mobile devices had a much slower rate of movement. This may be down to the processor throttling as mentioned before. It does not really affect the game in a bad way, but it is best enjoyed when movement is fastest.
 
-* Some mobile devices have thin width screens, meaning the player dissapears off the side of the screen when the angle is 90 or 270 degrees. This does not happen on many devices, and when it does the game is still perfectly playable even with this bug.
+- Some mobile devices have thin width screens, meaning the player dissapears off the side of the screen when the angle is 90 or 270 degrees. This does not happen on many devices, and when it does the game is still perfectly playable even with this bug.
 
 [Back to Table Of Contents](#table-of-contents)
 
 ## 5 Deployment
+
 ### 5.1 GitHub Pages
+
 To deploy this project online for user testing, peer review and milestone submission, I utilised the GitHub Pages feature. The steps I took to achieve this are as follows.
 
-* I logged into **GitHub**.
-* I clicked on repositories and selected **samlaubscher/Stellar-Drift-Game-M2**.
-* I clicked on **Settings** in the top right hand corner.
-* I scrolled down to the **GitHub Pages** section.
-* The top part named **Source** contains a dropdown box, I clicked that and selected **Master Branch** from the menu.
-* Upon clicking the **Master Branch**, the page automatically refreshed and a ribbon appeared stating this below message detailing the successful deployment of the page.
-> Your site is published at https://samlaubscher.github.io/Stellar-Drift-Game-M2/
+- I logged into **GitHub**.
+- I clicked on repositories and selected **samlaubscher/Stellar-Drift-Game-M2**.
+- I clicked on **Settings** in the top right hand corner.
+- I scrolled down to the **GitHub Pages** section.
+- The top part named **Source** contains a dropdown box, I clicked that and selected **Master Branch** from the menu.
+- Upon clicking the **Master Branch**, the page automatically refreshed and a ribbon appeared stating this below message detailing the successful deployment of the page.
+  > Your site is published at https://samlaubscher.github.io/Stellar-Drift-Game-M2/
 
 ### 5.2 Locally
+
 To run this project locally, please follow these instructions:
-* Follow this link to the [**Stellar Drift GitHub repository**](https://github.com/samlaubscher/Stellar-Drift-Game-M2).
-* Under the repository name, click **Clone or download**.
-* In the Clone with HTTPs section, **copy the clone URL** for the repository.
-* **Open Git Bash** in your local IDE
-* **Change the current working directory** to the location where you want the cloned directory to be made.
-* Type **git clone**, and then paste the **URL** - it should look like this
-> https://github.com/samlaubscher/Stellar-Drift-Game-M2.git
-* Press **Enter** and your clone will be created. 
-* To remove the origin link of this repository from your IDE type `git remote rm origin`.
-* Alternatively - you can download a ZIP folder of the project directly from the GitHub repository page and unpack into the desired location.
-* You can now **open the `index.html` file** to run this locally.
+
+- Follow this link to the [**Stellar Drift GitHub repository**](https://github.com/samlaubscher/Stellar-Drift-Game-M2).
+- Under the repository name, click **Clone or download**.
+- In the Clone with HTTPs section, **copy the clone URL** for the repository.
+- **Open Git Bash** in your local IDE
+- **Change the current working directory** to the location where you want the cloned directory to be made.
+- Type **git clone**, and then paste the **URL** - it should look like this
+  > https://github.com/samlaubscher/Stellar-Drift-Game-M2.git
+- Press **Enter** and your clone will be created.
+- To remove the origin link of this repository from your IDE type `git remote rm origin`.
+- Alternatively - you can download a ZIP folder of the project directly from the GitHub repository page and unpack into the desired location.
+- You can now **open the `index.html` file** to run this locally.
 
 To read more about cloning repositories, you can read [Cloning a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 [Back to Table Of Contents](#table-of-contents)
 
 ## 6 Credits
+
 ### 6.1 Content and code
+
 https://www.youtube.com/watch?v=CSoZPdhNwjY - Basic formula used for starfield simulation
+
 ### 6.2 Media
+
 All media in this project was created by myself
-### 6.3 Acknowledgements 
+
+### 6.3 Acknowledgements
+
 acknowledge mentor and students in slack
 
-### 6.4 References 
+### 6.4 References
+
 Bura, J. and Coates, P., 2012. Pro Android Web Game Apps. p.43.
-https://developer.mozilla.org/en-US/docs/Games/Anatomy 
+https://developer.mozilla.org/en-US/docs/Games/Anatomy
 
 [Back to Table Of Contents](#table-of-contents)
 
@@ -942,8 +1084,8 @@ folder tests / test.html spec.js - jasmine
 
 'to run test just open the html file'
 
-add into the library - jasmine 
+add into the library - jasmine
 
-unit testing - automated tests 
+unit testing - automated tests
 
-add score counter gif maybe 
+add score counter gif maybe
