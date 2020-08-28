@@ -1,9 +1,9 @@
 const cnvsWidth = 1200;
 const cnvsHeight = 600;
 const cnvsLength = cnvsWidth;
-const centerOfX = cnvsWidth / 2;
-const centerOfY = cnvsHeight / 2;
-const shipFromCenter = centerOfY / 2;
+const centreOfX = cnvsWidth / 2;
+const centreOfY = cnvsHeight / 2;
+const shipFromCenter = centreOfY / 2;
 
 // Converts angle degree to radians
 function convertToRadians(degree) {
@@ -49,11 +49,11 @@ function getAllPossibleShipLocations() {
   }
   function generateX(angle) {
     let shipValue = getXShipValue(angle) * shipFromCenter;
-    return centerOfX + shipValue;
+    return centreOfX + shipValue;
   }
   function generateY(angle) {
     let shipValue = getYShipValue(angle) * shipFromCenter;
-    return centerOfY + shipValue;
+    return centreOfY + shipValue;
   }
   for (i = 0; i < 360; i++) {
     let angleKey = i.toString();

@@ -29,10 +29,10 @@ ctx.canvas.height = cnvsHeight;
 // Length of canvas
 const cnvsLength = canvas.width;
 // Center of axis points on canvas
-const centerOfX = canvas.width / 2;
-const centerOfY = canvas.height / 2;
+const centreOfX = canvas.width / 2;
+const centreOfY = canvas.height / 2;
 // Position of player ship on y axis
-var shipFromCenter = centerOfY / 2;
+var shipFromCenter = centreOfY / 2;
 // Unit of size for shapes
 var size = 1;
 // Initial angle of canvas rotation for player ship object
@@ -91,12 +91,12 @@ class Star {
   // Creates and renders the Star object to the canvas when called on the object each frame
   showStar() {
     // Algorythm creates movement when called each frame
-    let xPos = (this.x - centerOfX) * (cnvsLength / this.z);
-    let yPos = (this.y - centerOfY) * (cnvsLength / this.z);
-    // Relocates zero to center of screen and ensures objects move away from this center including object positions decreasing in value
-    xPos = xPos + centerOfX;
-    yPos = yPos + centerOfY;
-    // Changes size of the Star object in relation to the center of canvas and Z value, size is smallest when in the center
+    let xPos = (this.x - centreOfX) * (cnvsLength / this.z);
+    let yPos = (this.y - centreOfY) * (cnvsLength / this.z);
+    // Relocates zero to centre of screen and ensures objects move away from this centre including object positions decreasing in value
+    xPos = xPos + centreOfX;
+    yPos = yPos + centreOfY;
+    // Changes size of the Star object in relation to the centre of canvas and Z value, size is smallest when in the centre
     let s = size * (cnvsLength / this.z);
     // Renders circular star shapes, changing colour as points increase
     ctx.beginPath();
@@ -140,7 +140,7 @@ class Sprite {
     this.x = x;
     this.y = y;
     this.z = z;
-    // Sprites can only render in small ring around center between -10 and -1.75, and 1.75 - 10 avoding 0 center of screen issue
+    // Sprites can only render in small ring around centre between -10 and -1.75, and 1.75 - 10 avoding 0 centre of screen issue
     this.randomX = notZeroRange(-10, 10);
     this.randomY = notZeroRange(-10, 10);
   }
@@ -169,9 +169,9 @@ class Sprite {
     if (score >= 0) {
       let xPos = this.x;
       let yPos = this.y;
-      // Changes size of the Star object in relation to the center of canvas and Z value, size is smallest when in the center
+      // Changes size of the Star object in relation to the centre of canvas and Z value, size is smallest when in the centre
       let s = (size / 2) * (cnvsLength / this.z);
-      // Ensures sprites generate randomly within close proximity to the center of screen but not the direct center.
+      // Ensures sprites generate randomly within close proximity to the centre of screen but not the direct centre.
       xPos = xPos + s * this.randomX;
       yPos = yPos + s * this.randomY;
       // Renders circular Sprite shapes, changing colour as points increase
@@ -256,9 +256,9 @@ function drawStars() {
     // Creates trail and spins canvas on end game screens
     ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
     ctx.fillRect(-1000, -1000, canvas.width + 3000, canvas.height + 3000);
-    ctx.translate(centerOfX, centerOfY);
+    ctx.translate(centreOfX, centreOfY);
     ctx.rotate(Math.PI * -0.0009);
-    ctx.translate(-centerOfX, -centerOfY);
+    ctx.translate(-centreOfX, -centreOfY);
   }
 
   // Calls methods on Star objects array each frame
@@ -279,16 +279,16 @@ function drawSprites() {
 // Player spaceship properties
 function playerShip() {
   x1 = 0;
-  y1 = 0 + centerOfY / 2;
+  y1 = 0 + centreOfY / 2;
   x2 = 30;
-  y2 = 0 + centerOfY / 2 + 20;
+  y2 = 0 + centreOfY / 2 + 20;
   x3 = -30;
-  y3 = 0 + centerOfY / 2 + 20;
+  y3 = 0 + centreOfY / 2 + 20;
   s = 9;
 
-  // Save and transform canvas to center of screen for ship rotation
+  // Save and transform canvas to centre of screen for ship rotation
   ctx.save();
-  ctx.translate(centerOfX, centerOfY);
+  ctx.translate(centreOfX, centreOfY);
   ctx.rotate(convertToRadians(angle));
 
   // Shapes used to draw ship
@@ -475,12 +475,12 @@ function getAllPossibleShipLocations() {
   // Performs operations to generate correct X position value
   function generateX(angle) {
     let shipValue = getXShipValue(angle) * shipFromCenter;
-    return centerOfX + shipValue;
+    return centreOfX + shipValue;
   }
   // Performs operations to generate correct Y position value
   function generateY(angle) {
     let shipValue = getYShipValue(angle) * shipFromCenter;
-    return centerOfY + shipValue;
+    return centreOfY + shipValue;
   }
   // Assigns final X and Y values correlating with the angle to array indexes
   for (i = 0; i < 360; i++) {
@@ -648,8 +648,8 @@ function initialiseGame() {
   // Generates new Sprite object per array iteration and maintains Sprite numbers to numberOfSprites
   for (var i = 0; i < numberOfSprites; i++) {
     spritesArray[i] = new Sprite(
-      centerOfX,
-      centerOfY,
+      centreOfX,
+      centreOfY,
       Math.random() * cnvsWidth
     );
   }
