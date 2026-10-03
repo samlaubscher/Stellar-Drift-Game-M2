@@ -19,10 +19,9 @@ document.getElementById("start-btn").addEventListener("click", initialiseGame);
 const canvas = document.getElementById("canvas");
 // Gets the context CanvasRenderingContext2D interface for canvas
 const ctx = canvas.getContext("2d", { alpha: false });
-// Sets the sizes to inner window sizes
-const cnvsWidth = window.innerWidth;
-// -4 removes the overflow scrollbar
-const cnvsHeight = window.innerHeight - 8;
+// Sets the sizes to client screen sizes
+const cnvsWidth = document.documentElement.clientWidth;
+const cnvsHeight = document.documentElement.clientHeight;
 // Sets dimensions to these variables
 ctx.canvas.width = cnvsWidth;
 ctx.canvas.height = cnvsHeight;
@@ -46,6 +45,11 @@ var spritesArray = [];
 var time = null;
 // Used to detect whether game has ended or not
 var endGame = false;
+// Limits game logic to the original intended 60 FPS
+const targetFPS = 60;
+const frameInterval = 1000 / targetFPS;
+let lastFrame = 0;
+
 // Responsive variables - number of objects generated on screen at one time & speed of generated objects based on screen width
 if (cnvsWidth < 360) {
   var numberOfStars = 650;
@@ -603,11 +607,19 @@ function completedScreen() {
 }
 
 // Called each frame to create main loop animation
-function update() {
+function update(timestamp) {
+  // Browser can request frames at the monitor's refresh rate
+  window.requestAnimationFrame(update);
+  // Calculate time since the last game logic update
+  const elapsed = timestamp - lastFrame;
+  // Do not update game logic faster than 60 FPS
+  if (elapsed < frameInterval) {
+    return;
+  }
+  // Keep the 60 FPS timing accurate and compensate for small timing differences
+  lastFrame = timestamp - (elapsed % frameInterval);
   // Checks if the game has ended each frame
   if (!endGame) {
-    // Callback method used to create main loop
-    window.requestAnimationFrame(update);
     drawStars();
     drawSprites();
     playerShip();
@@ -616,7 +628,6 @@ function update() {
     scoreIncrease();
     countdown();
   } else {
-    window.requestAnimationFrame(update);
     drawStars();
     document.getElementById("score-output").innerHTML = score;
   }
@@ -655,5 +666,5 @@ function initialiseGame() {
   }
 
   // Triggers main loop animations
-  update();
+  window.requestAnimationFrame(update);
 }
