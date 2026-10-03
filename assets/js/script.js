@@ -22,7 +22,7 @@ const ctx = canvas.getContext("2d", { alpha: false });
 // Sets the sizes to inner window sizes
 const cnvsWidth = window.innerWidth;
 // -4 removes the overflow scrollbar
-const cnvsHeight = window.innerHeight - 4;
+const cnvsHeight = window.innerHeight - 8;
 // Sets dimensions to these variables
 ctx.canvas.width = cnvsWidth;
 ctx.canvas.height = cnvsHeight;
