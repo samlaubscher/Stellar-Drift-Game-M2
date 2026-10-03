@@ -47,7 +47,7 @@ var time = null;
 // Used to detect whether game has ended or not
 var endGame = false;
 // Limits game logic to the original intended 60 FPS
-const targetFPS = 66;
+const targetFPS = 60;
 const frameInterval = 1000 / targetFPS;
 let lastFrame = 0;
 
