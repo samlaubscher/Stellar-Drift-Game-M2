@@ -19,9 +19,10 @@ document.getElementById("start-btn").addEventListener("click", initialiseGame);
 const canvas = document.getElementById("canvas");
 // Gets the context CanvasRenderingContext2D interface for canvas
 const ctx = canvas.getContext("2d", { alpha: false });
-// Sets the sizes to client screen sizes
-const cnvsWidth = document.documentElement.clientWidth;
-const cnvsHeight = document.documentElement.clientHeight;
+// Sets the sizes to inner window sizes
+const cnvsWidth = window.innerWidth;
+// -8 removes the overflow scrollbar
+const cnvsHeight = window.innerHeight - 8;
 // Sets dimensions to these variables
 ctx.canvas.width = cnvsWidth;
 ctx.canvas.height = cnvsHeight;
@@ -46,7 +47,7 @@ var time = null;
 // Used to detect whether game has ended or not
 var endGame = false;
 // Limits game logic to the original intended 60 FPS
-const targetFPS = 60;
+const targetFPS = 66;
 const frameInterval = 1000 / targetFPS;
 let lastFrame = 0;
 
